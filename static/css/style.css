@@ -1,0 +1,10 @@
+body {
+    background-color: lightgreen;
+    color: black;
+}
+
+hr {
+    font-weight: bold;
+    color: black;
+    margin: 50px 10px;
+}

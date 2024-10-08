@@ -1,0 +1,38 @@
+{% load static %}
+
+{% url 'home' as home_url %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cardiac Association</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ home_url }}">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <hr>
+
+    <main>
+        {% block content %}
+        <!-- Content -->
+        {% endblock %}
+    </main>
+    
+    <hr>
+    
+    <footer>
+        <p>&copy; 2020 Cardiac Association</p>
+    </footer>
+</body>
+</html>
