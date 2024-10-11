@@ -1,6 +1,9 @@
 {% load static %}
 
 {% url 'home' as home_url %}
+{% url 'events' as events_url %}
+{% url 'news' as news_url %}
+{% url 'who_we_are' as who_we_are_url %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,8 +19,9 @@
     <nav>
         <ul>
             <li><a href="{{ home_url }}">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="{{ events_url }}">Events</a></li>
+            <li><a href="{{ news_url }}">News</a></li>
+            <li><a href="{{ who_we_are_url}}">Who we are</a></li>
         </ul>
     </nav>
 
