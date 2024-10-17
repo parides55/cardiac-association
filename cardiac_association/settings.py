@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'home_page',
     'events',
     'news',
-    'who_we_are',
+    'about_us',
 ]
 
 MIDDLEWARE = [
