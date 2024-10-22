@@ -9,7 +9,7 @@ class HeroImage(models.Model):
     slug = models.SlugField(max_length=100, unique=True)
     description = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    active = models.BooleanField(default=True)
+    active = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title, self.created_on
