@@ -12,7 +12,7 @@ class HeroImage(models.Model):
     active = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.title, self.created_on
+        return f"{self.title} - {self.created_on.strftime('%Y-%m-%d')}"
     
     class Meta:
         ordering = ['-created_on']
