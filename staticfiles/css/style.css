@@ -1,10 +1,9 @@
-body {
-    background-color: lightgreen;
-    color: black;
+.footer-div {
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 20px;
 }
 
-hr {
-    font-weight: bold;
-    color: black;
-    margin: 50px 10px;
+.footer-div-image {
+    background: url(../images/istockphoto-694432168-1024x1024.jpg) no-repeat center center;
 }
