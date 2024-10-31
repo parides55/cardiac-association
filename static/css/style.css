@@ -1,8 +1,17 @@
 
 /* ---------------------------- NavBar --------------------------------------------- */
-.nav-btn {
-    margin: 0 15px;
+.nav-item {
+    font-weight: bold;
+    margin: 0 10px;
+    font-size: large;
+    font-style: italic;
 }
+
+.nav-buttons {
+    font-weight: bold;
+    font-size: x-large;
+}
+
 
 /* ---------------------------- Footer --------------------------------------------- */
 footer {
@@ -17,9 +26,11 @@ footer {
 
 .footer-div-image {
     background: url(../images/istockphoto-694432168-1024x1024.jpg) no-repeat center center;
-    border: 3px solid black;
 }
 
-svg {
-    margin: 20px 0;
+/* ---------------------------- Media Queries --------------------------------------------- */
+@media (max-width: 992px) {
+    .footer-div-image {
+        height: 450px;
+    }
 }
