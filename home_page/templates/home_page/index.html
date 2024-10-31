@@ -2,7 +2,53 @@
 
 {% load static %}
 
+{% url 'home' as home_url %}
+{% url 'events' as events_url %}
+{% url 'news' as news_url %}
+{% url 'about_us' as about_us_url %}
+
 {% block content %}
-    <h1>HOME PAGE</h1>
-    <h2>Hello world, from The cardiac association!</h2>
+<section class='mt-0' id='hero'>
+    <div class="container-fluid p-0">
+        <div class="row">
+            <img src="{% static 'images/kid_heart.png.jpg' %}" alt="Small child holdin with two hands a small red heart">
+        </div>
+    </div>
+</section>
+
+<section id='intro'>
+    <div class="contanier-fluid">
+        <div class="row text-center d-flex flex-column flex-lg-row">
+            <div class="col my-3">
+                <img class='w-50' src="{% static 'images/istockphoto-2174361430-1024x1024.jpg' %}" alt="Hands form s cirle sround s big red heart">
+            </div>
+            <div class="col my-3 pe-lg-5">
+                <div>
+                    <p class='px-3'>
+                        The Association of Parents and Friends of Heart Diseased Children is a Charitable 
+                        Non-Profit Association that provides support, assistance and education services to 
+                        all people with Congenital Heart Diseases and their families. It was founded in 1985. 
+                        It organizes various actions such as informing the public about Congenital Heart Disease, 
+                        lectures with invited doctors inside and outside Cyprus, workshops, programs in 
+                        collaboration with various agencies with the ultimate goal of improving the quality of 
+                        life of people with Congenital Heart Disease, events, etc.
+                    </p>
+                </div>
+                <div class='d-flex justify-content-evenly mt-5'>
+                    <a href="#">What we do</a>
+                    <a href="{% url 'news' %}">Read our news</a>
+                    <a href="{% url 'events' %}">See our events</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id='donations'></section>
+
+<section id='explain'></section>
+
+<section id='prompt'></section>
+
+<section id=''></section>
 {% endblock %}

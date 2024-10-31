@@ -9,9 +9,13 @@
 
 .nav-buttons {
     font-weight: bold;
-    font-size: x-large;
+    font-size: large;
 }
 
+/* ---------------------------- Home Page --------------------------------------------- */
+section {
+    margin: 50px 0;
+}
 
 /* ---------------------------- Footer --------------------------------------------- */
 footer {
