@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-01 17:42+0000\n"
+"POT-Creation-Date: 2024-11-01 23:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,6 +26,166 @@ msgstr "Αγγλικά"
 msgid "Greek"
 msgstr "Ελληνικά"
 
+#: .\home_page\templates\home_page\index.html:15
+msgid "Young hearts"
+msgstr "Νεαρές καρδιές"
+
+#: .\home_page\templates\home_page\index.html:15
+msgid "is our mission"
+msgstr "είναι η αποστολή μας"
+
+#: .\home_page\templates\home_page\index.html:26
+msgid "Hands forming a circle around a big red heart"
+msgstr "Χέρια που σχηματίζουν έναν κύκλο γύρω από μια μεγάλη κόκκινη καρδιά"
+
+#: .\home_page\templates\home_page\index.html:31
+msgid ""
+"\n"
+"                        The Association of Parents and Friends of Heart "
+"Diseased Children is a Charitable \n"
+"                        Non-Profit Association that provides support, "
+"assistance and education services to \n"
+"                        all people with Congenital Heart Diseases and their "
+"families. It was founded in 1985. \n"
+"                        It organizes various actions such as informing the "
+"public about Congenital Heart Disease, \n"
+"                        lectures with invited doctors inside and outside "
+"Cyprus, workshops, programs in \n"
+"                        collaboration with various agencies with the "
+"ultimate goal of improving the quality of \n"
+"                        life of people with Congenital Heart Disease, "
+"events, etc.\n"
+"                        "
+msgstr ""
+"\n"
+"                        Ο Σύλλογος Γονέων και Φίλων Παιδιών με Καρδιοπάθεια "
+"είναι ένας Φιλανθρωπικός \n"
+"                        Μη Κερδοσκοπικός Σύλλογος που παρέχει στήριξη, βοήθεια "
+"και εκπαιδευτικές υπηρεσίες σε \n"
+"                        όλα τα άτομα με Συγγενείς Καρδιοπάθειες και τις οικογένειές τους. "
+"Ιδρύθηκε το 1985. \n"
+"                        Οργανώνει διάφορες δράσεις όπως ενημέρωση του κοινού "
+"για τις Συγγενείς Καρδιοπάθειες, \n"
+"                        διαλέξεις με καλεσμένους ιατρούς από Κύπρο και εξωτερικό, "
+"εργαστήρια, προγράμματα σε \n"
+"                        συνεργασία με διάφορους φορείς με τελικό στόχο τη βελτίωση "
+"της ποιότητας ζωής των ατόμων με Συγγενείς Καρδιοπάθειες, \n"
+"                        εκδηλώσεις, κ.λπ.\n"
+"                        "
+
+#: .\home_page\templates\home_page\index.html:43 .\templates\base.html:37
+msgid "What we do"
+msgstr "Τι κάνουμε"
+
+#: .\home_page\templates\home_page\index.html:44
+msgid "Read our news"
+msgstr "Διαβάστε τα νέα μας"
+
+#: .\home_page\templates\home_page\index.html:45
+msgid "See our events"
+msgstr "Δείτε τις εκδηλώσεις μας"
+
+#: .\home_page\templates\home_page\index.html:58
+msgid "Baby being examinated from a doctor."
+msgstr "Βρέφος που εξετάζεται από γιατρό."
+
+#: .\home_page\templates\home_page\index.html:61
+#, fuzzy
+#| msgid "Donate"
+msgid "Donations"
+msgstr "Δωρεές"
+
+#: .\home_page\templates\home_page\index.html:79
+#, fuzzy
+#| msgid "of children with Heart Disease"
+msgid "What are Congenital Heart Diseases?"
+msgstr "Τι είναι οι Συγγενείς Καρδιοπάθειες;"
+
+#: .\home_page\templates\home_page\index.html:81
+msgid ""
+"\n"
+"                        Congenital heart diseases are abnormalities of the "
+"structure of the heart, which a \n"
+"                        person carries with him from the day of his birth. "
+"In other words, those suffering \n"
+"                        from congenital heart diseases are born with some "
+"\"structural\" problem in the heart. \n"
+"                        The word \"kin\" means \"by birth.\" The term should "
+"not be confused with \"kinship,\" in \n"
+"                        the sense of heredity, with which it has but little "
+"to do.\n"
+"                        "
+msgstr ""
+"\n"
+"                        Οι συγγενείς καρδιοπάθειες είναι ανωμαλίες στη δομή της "
+"καρδιάς, που ένα άτομο φέρει από τη \n"
+"                        μέρα της γέννησής του. Με άλλα λόγια, όσοι πάσχουν από "
+"συγγενείς καρδιοπάθειες γεννιούνται με κάποιο \n"
+"                        «δομικό» πρόβλημα στην καρδιά. Η λέξη «συγγενές» "
+"σημαίνει «εκ γενετής». Ο όρος δεν πρέπει να \n"
+"                        συγχέεται με τη λέξη «συγγένεια» με την έννοια της κληρονομικότητας, \n"
+"                        με την οποία έχει ελάχιστη σχέση.\n"
+"                        "
+
+#: .\home_page\templates\home_page\index.html:91
+msgid "More Info"
+msgstr "Περισσότερες πληροφορίες"
+
+#: .\home_page\templates\home_page\index.html:95
+msgid "Infant laying down and a doctor listens to the baby"
+msgstr "Βρέφος ξαπλωμένο και γιατρός ακούει το μωρό"
+
+#: .\home_page\templates\home_page\index.html:107
+msgid "Every child deserves"
+msgstr "Κάθε παιδί αξίζει"
+
+#: .\home_page\templates\home_page\index.html:107
+msgid "a chance to live"
+msgstr "μια ευκαιρία για ζωή"
+
+#: .\home_page\templates\home_page\index.html:107
+msgid "a healthy life!"
+msgstr "μια υγιή ζωή!"
+
+#: .\home_page\templates\home_page\index.html:109
+msgid ""
+"\n"
+"                    Every year, 1 in every 10 kids is born with a heart\n"
+"                    disease and 1 in every 5 families does not have the\n"
+"                    financial capability to take their child for surgery "
+"and\n"
+"                    therapy. And almost all families will be heartbroken\n"
+"                    and emotionally vulnerable having these kind of news.\n"
+"                    "
+msgstr ""
+"\n"
+"                    Κάθε χρόνο, 1 στα 10 παιδιά γεννιέται με καρδιοπάθεια\n"
+"                    και 1 στις 5 οικογένειες δεν έχει την οικονομική δυνατότητα\n"
+"                    να πάει το παιδί τους για χειρουργική επέμβαση και θεραπεία.\n"
+"                    Και σχεδόν όλες οι οικογένειες θα είναι συντετριμμένες και\n"
+"                    συναισθηματικά ευάλωτες με τέτοιες ειδήσεις.\n"
+"                    "
+
+#: .\home_page\templates\home_page\index.html:117 .\templates\base.html:40
+msgid "How you can help"
+msgstr "Πώς μπορείτε να βοηθήσετε"
+
+#: .\home_page\templates\home_page\index.html:130
+msgid "A group of people in the forest hanging each other."
+msgstr "Μια ομάδα ανθρώπων στο δάσος κρατιούνται ο ένας με τον άλλον."
+
+#: .\home_page\templates\home_page\index.html:133
+msgid "Become a member today"
+msgstr "Γίνετε μέλος σήμερα"
+
+#: .\home_page\templates\home_page\index.html:138
+msgid "In the blured background people are in a connference and a speaker delivers a speech."
+msgstr "Στο θολό φόντο, άνθρωποι βρίσκονται σε συνέδριο και ένας ομιλητής δίνει διάλεξη."
+
+#: .\home_page\templates\home_page\index.html:141
+msgid "Find out about our Events"
+msgstr "Μάθετε για τις Εκδηλώσεις μας"
+
 #: .\templates\base.html:15
 msgid "Cardiac Association"
 msgstr "Καρδιολογικός Σύλλογος"
@@ -33,14 +193,6 @@ msgstr "Καρδιολογικός Σύλλογος"
 #: .\templates\base.html:29
 msgid "Logo"
 msgstr "Λογότυπο"
-
-#: .\templates\base.html:37
-msgid "What we do"
-msgstr "Τι κάνουμε"
-
-#: .\templates\base.html:40
-msgid "How you can help"
-msgstr "Πώς μπορείτε να βοηθήσετε"
 
 #: .\templates\base.html:44
 msgid "Stay informed"
@@ -74,50 +226,43 @@ msgstr "Δωρεά"
 msgid "Join us"
 msgstr "Γίνετε μέλος"
 
-#: .\templates\base.html:70 .\templates\base.html:71 .\templates\base.html:80
-#: .\templates\base.html:81
+#: .\templates\base.html:73 .\templates\base.html:74 .\templates\base.html:83
+#: .\templates\base.html:84
 msgid "Search"
 msgstr "Αναζήτηση"
 
-#: .\templates\base.html:88
-msgid ""
-"\n"
-"        <!-- Content -->\n"
-"        "
-msgstr ""
-
-#: .\templates\base.html:98
+#: .\templates\base.html:99
 msgid "Get in touch"
 msgstr "Επικοινωνήστε μαζί μας"
 
-#: .\templates\base.html:100
+#: .\templates\base.html:101
 msgid "The Association of parents and friends"
 msgstr "Ο Σύλλογος γονέων και φίλων"
 
-#: .\templates\base.html:100
+#: .\templates\base.html:101
 msgid "of children with Heart Disease"
 msgstr "παιδιών με καρδιακή νόσο"
 
-#: .\templates\base.html:102
+#: .\templates\base.html:103
 msgid "11 Grammou street, Apt 5,"
 msgstr "Οδός Γράμμου 11, Διαμέρισμα 5,"
 
-#: .\templates\base.html:102
+#: .\templates\base.html:103
 msgid "Strovolos"
 msgstr "Στρόβολος"
 
-#: .\templates\base.html:102
+#: .\templates\base.html:103
 msgid "Nicosia"
 msgstr "Λευκωσία"
 
-#: .\templates\base.html:102
+#: .\templates\base.html:103
 msgid "Cyprus"
 msgstr "Κύπρος"
 
-#: .\templates\base.html:104
+#: .\templates\base.html:105
 msgid "Call us or Email us"
 msgstr "Καλέστε μας ή στείλτε μας email"
 
-#: .\templates\base.html:107
+#: .\templates\base.html:108
 msgid "Follow us on"
 msgstr "Ακολουθήστε μας στο"
