@@ -16,15 +16,17 @@
     </div>
 </section>
 
+<hr class='m-5'>
+
 <section id='intro'>
     <div class="contanier-fluid">
         <div class="row text-center d-flex flex-column flex-lg-row">
             <div class="col my-3">
-                <img class='w-50' src="{% static 'images/istockphoto-2174361430-1024x1024.jpg' %}" alt="Hands form s cirle sround s big red heart">
+                <img class='w-75' src="{% static 'images/istockphoto-2174361430-1024x1024.jpg' %}" alt="Hands form s cirle sround s big red heart">
             </div>
             <div class="col my-3 pe-lg-5">
                 <div>
-                    <p class='px-3'>
+                    <p class='px-3 fs-5'>
                         The Association of Parents and Friends of Heart Diseased Children is a Charitable 
                         Non-Profit Association that provides support, assistance and education services to 
                         all people with Congenital Heart Diseases and their families. It was founded in 1985. 
@@ -44,14 +46,16 @@
     </div>
 </section>
 
+<hr class='m-5'>
+
 <section id='donations'>
     <div class="contanier-fluid">
         <div class="row text-center d-flex flex-column flex-lg-row">
-            <div class="col my-3">
+            <div class="col my-3 px-0">
                 <img class='w-100' src="{% static 'images/melissa-labellarte-j_XVwZqzcdI-unsplash.jpg' %}" alt="Baby being examinated from a doctor.">
             </div>
-            <div class="col my-3 pe-lg-5">
-                <h2 class='text-center fs-1 fw-bold'>Donations</h2>
+            <div class="col my-3 pe-lg-5 bg-warning px-0">
+                <h2 class='text-center fs-1 fw-bold mt-2'>Donations</h2>
                 <div>
                     <form action="">
                         
@@ -62,13 +66,15 @@
     </div>
 </section>
 
+<hr class='m-5'>
+
 <section id='explain'>
     <div class="contanier-fluid">
         <div class="row text-center d-flex flex-column flex-lg-row">
             <div class="col my-3 pe-lg-5">
                 <div>
                     <h2 class='ps-3 fs-1 fw-bold'>What are Congenital Heart Diseases?</h2>
-                    <p class='px-3'>
+                    <p class='px-3 fs-5 mt-4'>
                         Congenital heart diseases are abnormalities of the structure of the heart, which a 
                         person carries with him from the day of his birth. In other words, those suffering 
                         from congenital heart diseases are born with some "structural" problem in the heart. 
@@ -77,17 +83,59 @@
                     </p>
                 </div>
                 <div class='d-flex justify-content-end mt-5'>
-                    <a href="#">More Info</a>
+                    <a class='pe-3' href="#">More Info</a>
                 </div>
             </div>
             <div class="col my-3">
-                <img class='w-50' src="{% static 'images/baby_examinated.jpg' %}" alt="Infant laying down and a doctor listens to the baby's heart">
+                <img class='w-75' src="{% static 'images/baby_examinated.jpg' %}" alt="Infant laying down and a doctor listens to the baby's heart">
             </div>
         </div>
     </div>
 </section>
 
-<section id='prompt'></section>
+<hr class='m-5'>
 
-<section id=''></section>
+<section id='prompt'>
+    <div class="container-fluid">
+        <div class="row">
+            <div id='prompt-div' class="col col-lg-5 ms-lg-5 d-flex flex-column justify-content-evenly">
+                <h2 class='fs-1 fw-bold fst-italic text-white'>Every child deserves<br>a chance to live<br>a healthy life!</h2>
+                <p class='text-white fs-5'>Every year, 1 in every 10 kids is born with a heart
+                    disease and 1 in every 5 families does not have the
+                    financial capability to take their child for surgery and
+                    therapy. And almost all families will be heartbroken
+                    and emotionally vulnerable having these kind of news.</p>
+                    <a class='btn btn-light text-decoration-underline w-50' href="#">How you can help</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class='m-5'>
+
+<section id='links'>
+    <div class="contanier-fluid">
+        <div class="row d-flex flex-column flex-lg-row">
+            <div class="col my-3 d-flex flex-column">
+                <div class='d-flex justify-content-center'>
+                    <img class='w-75' src="{% static 'images/people_in_forest.jpg' %}" alt="A group of people in the forest hanging each other.">
+                </div>
+                <div class='d-flex justify-content-center mt-4'>
+                    <a class='fs-2 fw-bold' href="#">Become a member today</a>
+                </div>
+            </div>
+            <div class='col my-3 pe-lg-5 d-flex flex-column'>
+                <div class='d-flex justify-content-center'>
+                    <img class='w-75' src="{% static 'images/conference.jpg' %}" alt="In the blured background people are in a connference and a speaker delivers a speech.">
+                </div>
+                <div class='d-flex justify-content-center mt-4'>
+                    <a class='fs-2 fw-bold' href="#">Find out about our Events</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class='m-5'>
+
 {% endblock %}
