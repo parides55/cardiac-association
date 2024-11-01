@@ -132,8 +132,8 @@ msgid "More Info"
 msgstr "Περισσότερες πληροφορίες"
 
 #: .\home_page\templates\home_page\index.html:95
-msgid "Infant laying down and a doctor listens to the baby"
-msgstr "Βρέφος ξαπλωμένο και γιατρός ακούει το μωρό"
+msgid "Infant laying down and a doctor listens to the heart of the baby"
+msgstr "Βρέφος ξαπλωμένο και ο γιατρός ακούει την καρδιά του μωρού"
 
 #: .\home_page\templates\home_page\index.html:107
 msgid "Every child deserves"
