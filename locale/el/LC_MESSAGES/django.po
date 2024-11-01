@@ -1,0 +1,123 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-01 17:42+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\cardiac_association\settings.py:40
+msgid "English"
+msgstr "Αγγλικά"
+
+#: .\cardiac_association\settings.py:41
+msgid "Greek"
+msgstr "Ελληνικά"
+
+#: .\templates\base.html:15
+msgid "Cardiac Association"
+msgstr "Καρδιολογικός Σύλλογος"
+
+#: .\templates\base.html:29
+msgid "Logo"
+msgstr "Λογότυπο"
+
+#: .\templates\base.html:37
+msgid "What we do"
+msgstr "Τι κάνουμε"
+
+#: .\templates\base.html:40
+msgid "How you can help"
+msgstr "Πώς μπορείτε να βοηθήσετε"
+
+#: .\templates\base.html:44
+msgid "Stay informed"
+msgstr "Μείνετε ενημερωμένοι"
+
+#: .\templates\base.html:47
+msgid "Events"
+msgstr "Εκδηλώσεις"
+
+#: .\templates\base.html:48
+msgid "News"
+msgstr "Νέα"
+
+#: .\templates\base.html:53
+msgid "About us"
+msgstr "Σχετικά με εμάς"
+
+#: .\templates\base.html:56
+msgid "Our history"
+msgstr "Η ιστορία μας"
+
+#: .\templates\base.html:57
+msgid "Our people"
+msgstr "Οι άνθρωποί μας"
+
+#: .\templates\base.html:63
+msgid "Donate"
+msgstr "Δωρεά"
+
+#: .\templates\base.html:66
+msgid "Join us"
+msgstr "Γίνετε μέλος"
+
+#: .\templates\base.html:70 .\templates\base.html:71 .\templates\base.html:80
+#: .\templates\base.html:81
+msgid "Search"
+msgstr "Αναζήτηση"
+
+#: .\templates\base.html:88
+msgid ""
+"\n"
+"        <!-- Content -->\n"
+"        "
+msgstr ""
+
+#: .\templates\base.html:98
+msgid "Get in touch"
+msgstr "Επικοινωνήστε μαζί μας"
+
+#: .\templates\base.html:100
+msgid "The Association of parents and friends"
+msgstr "Ο Σύλλογος γονέων και φίλων"
+
+#: .\templates\base.html:100
+msgid "of children with Heart Disease"
+msgstr "παιδιών με καρδιακή νόσο"
+
+#: .\templates\base.html:102
+msgid "11 Grammou street, Apt 5,"
+msgstr "Οδός Γράμμου 11, Διαμέρισμα 5,"
+
+#: .\templates\base.html:102
+msgid "Strovolos"
+msgstr "Στρόβολος"
+
+#: .\templates\base.html:102
+msgid "Nicosia"
+msgstr "Λευκωσία"
+
+#: .\templates\base.html:102
+msgid "Cyprus"
+msgstr "Κύπρος"
+
+#: .\templates\base.html:104
+msgid "Call us or Email us"
+msgstr "Καλέστε μας ή στείλτε μας email"
+
+#: .\templates\base.html:107
+msgid "Follow us on"
+msgstr "Ακολουθήστε μας στο"
