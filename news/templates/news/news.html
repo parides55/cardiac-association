@@ -1,8 +1,74 @@
 {% extends "base.html" %}
 
 {% load static %}
+{% load i18n %}
+
+{% url 'events' as events_url %}
 
 {% block content %}
-    <h1>NEWS</h1>
-    <h2>Hello world, from The cardiac association!</h2>
+
+<section class='mt-0 hero' id='hero-news'>
+    <div class="container-fluid p-0">
+        <div class='row position-relative hero-image-div'>
+            <img class='img-fluid hero-image' src="{% static 'images/laptop-hands-holding-heart.jpg' %}" alt="{% trans 'Two hands holding a red heart over a laptop' %}">
+            <h1 class='fst-italic fw-bold hero-heading'>{% trans 'Keeping' %}<br>{% trans 'Hearts' %}
+                <br>{% trans 'Informed' %}
+            </h1>
+        </div>
+    </div>
+</section>
+
+<hr class='m-5'>
+
+<section id='intro'>
+    <div class='container-fluid text-center d-flex flex-column'>
+        <div class='row'>
+            <div class='col d-sm-flex justify-content-sm-start ms-sm-5 mb-5'>
+                <h2 class='fs-1 fw-bold'>{% trans 'Our latest news' %}</h2><br>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col'>
+                <p class='fs-5'> 
+                    {% blocktrans %}
+                    Children's well being and health are at the heart of everything we do.
+                    <br>
+                    <br>
+                    Read below our latest news, the issues we are working on and articles from health professionals.
+                    {% endblocktrans %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class='m-5'>
+
+<section id='main'></section>
+
+<hr class='m-5'>
+
+<section id='links'>
+    <div class="container-fluid">
+        <div class="row d-flex flex-column flex-lg-row">
+            <div class="col my-3 d-flex flex-column">
+                <div class='d-flex justify-content-center'>
+                    <img class='w-75' src="{% static 'images/people_in_forest.jpg' %}" alt="{% trans 'A group of people in the forest hanging each other.' %}">
+                </div>
+                <div class='d-flex justify-content-center mt-4'>
+                    <a class='fs-2 fw-bold' href="#">{% trans 'Become a member today' %}</a>
+                </div>
+            </div>
+            <div class='col my-3 pe-lg-5 d-flex flex-column'>
+                <div class='d-flex justify-content-center'>
+                    <img class='w-75' src="{% static 'images/conference.jpg' %}" alt="{% trans 'In the blured background people are in a connference and a speaker delivers a speech.' %}">
+                </div>
+                <div class='d-flex justify-content-center mt-4'>
+                    <a class='fs-2 fw-bold' href="{% url 'events' %}">{% trans 'Find out about our Events' %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}

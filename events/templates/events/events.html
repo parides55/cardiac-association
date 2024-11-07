@@ -1,8 +1,64 @@
 {% extends "base.html" %}
 
 {% load static %}
+{% load i18n %}
 
 {% block content %}
-    <h1>EVENTS</h1>
-    <h2>Hello world, from The cardiac association!</h2>
+
+<section class='mt-0 hero' id='hero-news'>
+    <div class="container-fluid p-0">
+        <div class='row position-relative hero-image-div'>
+            <img class='img-fluid hero-image' src="{% static 'images/conference.jpg' %}" alt="{% trans 'Two hands holding a red heart over a laptop' %}">
+            <h1 class='fst-italic fw-bold hero-heading'>{% trans 'Always in' %}<br>{% trans 'Motion,' %}
+                <br>{% trans 'Always in' %}<br>{% trans 'Hearts' %}
+            </h1>
+        </div>
+    </div>
+</section>
+
+<hr class='m-5'>
+
+<section id='new-events'>
+    <div class="container-fluid">
+        <div class="rows ms-2">
+            <h2 class='fs-1 fw-bold'>{% trans "This month's events" %}</h2>
+        </div>
+    </div>
+</section>
+
+<hr class='m-5'>
+
+<section id='old-events'>
+    <div class="container-fluid">
+        <div class="row text-center mx-2 mx-lg-5">
+            <h2 class='fs-1 fw-bold'>{% trans 'Get inspired from our previous events and help us organise our next ones' %}</h2>
+        </div>
+    </div>
+</section>
+
+<hr class='m-5'>
+
+<section id='links'>
+    <div class="container-fluid">
+        <div class="row d-flex flex-column flex-lg-row">
+            <div class="col my-3 d-flex flex-column">
+                <div class='d-flex justify-content-center'>
+                    <img class='w-75' src="{% static 'images/people_in_forest.jpg' %}" alt="{% trans 'A group of people in the forest hanging each other.' %}">
+                </div>
+                <div class='d-flex justify-content-center mt-4'>
+                    <a class='fs-2 fw-bold' href="#">{% trans 'Become a member today' %}</a>
+                </div>
+            </div>
+            <div class='col my-3 pe-lg-5 d-flex flex-column'>
+                <div class='d-flex justify-content-center'>
+                    <img class='w-75' src="{% static 'images/volunteer-hands.jpg' %}" alt="{% trans 'In the blured background people are in a connference and a speaker delivers a speech.' %}">
+                </div>
+                <div class='d-flex justify-content-center mt-4'>
+                    <a class='fs-2 fw-bold' href="#">{% trans 'How you can help' %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}

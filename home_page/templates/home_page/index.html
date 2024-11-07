@@ -9,10 +9,11 @@
 {% url 'about_us' as about_us_url %}
 
 {% block content %}
-<section class='mt-0' id='hero'>
+<section class='mt-0 hero' id='hero-home'>
     <div class="container-fluid p-0">
-        <div class="row position-relative" id='hero-image-div'>
-            <h1 id='hero-heading' class='fst-italic fw-bold'>{% trans 'Young hearts' %}<br>{% trans 'is our mission' %}</h1>
+        <div class='row position-relative hero-image-div'>
+            <img class='img-fluid hero-image' src="{% static 'images/kid_heart.png.jpg' %}" alt="{% trans 'Two hands of a child holding a red heart' %}">
+            <h1 class='fst-italic fw-bold hero-heading'>{% trans 'Young hearts' %}<br>{% trans 'is our mission' %}</h1>
         </div>
     </div>
 </section>
@@ -103,7 +104,7 @@
 <section id='prompt'>
     <div class="container-fluid">
         <div class="row">
-            <div id='prompt-div' class="col col-lg-5 ms-lg-5 d-flex flex-column justify-content-evenly">
+            <div id='prompt-div' class="col col-sm-5 ms-4 d-flex flex-column justify-content-evenly">
                 <h2 class='fs-1 fw-bold fst-italic text-white'>{% trans 'Every child deserves' %}<br>{% trans 'a chance to live' %}<br>{% trans 'a healthy life!' %}</h2>
                 <p class='text-white fs-5'>
                     {% blocktrans %}
@@ -138,7 +139,7 @@
                     <img class='w-75' src="{% static 'images/conference.jpg' %}" alt="{% trans 'In the blured background people are in a connference and a speaker delivers a speech.' %}">
                 </div>
                 <div class='d-flex justify-content-center mt-4'>
-                    <a class='fs-2 fw-bold' href="#">{% trans 'Find out about our Events' %}</a>
+                    <a class='fs-2 fw-bold' href="{% url 'events' %}">{% trans 'Find out about our Events' %}</a>
                 </div>
             </div>
         </div>
