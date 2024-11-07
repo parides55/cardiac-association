@@ -90,14 +90,10 @@ msgid "Baby being examinated from a doctor."
 msgstr "Βρέφος που εξετάζεται από γιατρό."
 
 #: .\home_page\templates\home_page\index.html:61
-#, fuzzy
-#| msgid "Donate"
 msgid "Donations"
 msgstr "Δωρεές"
 
 #: .\home_page\templates\home_page\index.html:79
-#, fuzzy
-#| msgid "of children with Heart Disease"
 msgid "What are Congenital Heart Diseases?"
 msgstr "Τι είναι οι Συγγενείς Καρδιοπάθειες;"
 
