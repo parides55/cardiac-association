@@ -1,9 +1,9 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import News
+from .models import New
 
 
-@admin.register(News)
+@admin.register(New)
 class NewAdmin(SummernoteModelAdmin):
 
     list_display = ('title', 'created_on', 'status')
