@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-01 23:02+0000\n"
+"POT-Creation-Date: 2024-11-07 13:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,19 +26,81 @@ msgstr "Αγγλικά"
 msgid "Greek"
 msgstr "Ελληνικά"
 
-#: .\home_page\templates\home_page\index.html:15
-msgid "Young hearts"
-msgstr "Νεαρές καρδιές"
+#: .\events\templates\events\events.html:11 .\news\templates\news\news.html:13
+msgid "Two hands holding a red heart over a laptop"
+msgstr ""
+"Δύο χέρια που κρατούν μια κόκκινη καρδιά πάνω από ένα φορητό υπολογιστή"
+
+#: .\events\templates\events\events.html:12
+#: .\events\templates\events\events.html:13
+msgid "Always in"
+msgstr "Πάντα σε"
+
+#: .\events\templates\events\events.html:12
+msgid "Motion,"
+msgstr "Κίνηση"
+
+#: .\events\templates\events\events.html:13 .\news\templates\news\news.html:14
+msgid "Hearts"
+msgstr "Καρδιές"
+
+#: .\events\templates\events\events.html:24
+msgid "This month's events"
+msgstr "Οι εκδηλώσεις αυτού του μήνα"
+
+#: .\events\templates\events\events.html:34
+msgid ""
+"Get inspired from our previous events and help us organise our next ones"
+msgstr ""
+"Εμπνευστείτε από τις προηγούμενες εκδηλώσεις μας και βοηθήστε μας να "
+"οργανώσουμε τις επόμενες"
+
+#: .\events\templates\events\events.html:46
+#: .\home_page\templates\home_page\index.html:131
+#: .\news\templates\news\news.html:56
+msgid "A group of people in the forest hanging each other."
+msgstr "Μια ομάδα ανθρώπων στο δάσος κρατιούνται ο ένας με τον άλλον."
+
+#: .\events\templates\events\events.html:49
+#: .\home_page\templates\home_page\index.html:134
+#: .\news\templates\news\news.html:59
+msgid "Become a member today"
+msgstr "Γίνετε μέλος σήμερα"
+
+#: .\events\templates\events\events.html:54
+#: .\home_page\templates\home_page\index.html:139
+#: .\news\templates\news\news.html:64
+msgid ""
+"In the blured background people are in a connference and a speaker delivers "
+"a speech."
+msgstr ""
+"Στο θολό φόντο, άνθρωποι βρίσκονται σε συνέδριο και ένας ομιλητής δίνει "
+"διάλεξη."
+
+#: .\events\templates\events\events.html:57
+#: .\home_page\templates\home_page\index.html:118 .\templates\base.html:40
+msgid "How you can help"
+msgstr "Πώς μπορείτε να βοηθήσετε"
 
 #: .\home_page\templates\home_page\index.html:15
+#, fuzzy
+#| msgid "Hands forming a circle around a big red heart"
+msgid "Two hands of a child holding a red heart"
+msgstr "Χέρια που σχηματίζουν έναν κύκλο γύρω από μια μεγάλη κόκκινη καρδιά"
+
+#: .\home_page\templates\home_page\index.html:16
+msgid "Young hearts"
+msgstr "Οι Νεαρές καρδιές"
+
+#: .\home_page\templates\home_page\index.html:16
 msgid "is our mission"
 msgstr "είναι η αποστολή μας"
 
-#: .\home_page\templates\home_page\index.html:26
+#: .\home_page\templates\home_page\index.html:27
 msgid "Hands forming a circle around a big red heart"
 msgstr "Χέρια που σχηματίζουν έναν κύκλο γύρω από μια μεγάλη κόκκινη καρδιά"
 
-#: .\home_page\templates\home_page\index.html:31
+#: .\home_page\templates\home_page\index.html:32
 msgid ""
 "\n"
 "                        The Association of Parents and Friends of Heart "
@@ -60,44 +122,44 @@ msgstr ""
 "\n"
 "                        Ο Σύλλογος Γονέων και Φίλων Παιδιών με Καρδιοπάθεια "
 "είναι ένας Φιλανθρωπικός \n"
-"                        Μη Κερδοσκοπικός Σύλλογος που παρέχει στήριξη, βοήθεια "
-"και εκπαιδευτικές υπηρεσίες σε \n"
-"                        όλα τα άτομα με Συγγενείς Καρδιοπάθειες και τις οικογένειές τους. "
-"Ιδρύθηκε το 1985. \n"
+"                        Μη Κερδοσκοπικός Σύλλογος που παρέχει στήριξη, "
+"βοήθεια και εκπαιδευτικές υπηρεσίες σε \n"
+"                        όλα τα άτομα με Συγγενείς Καρδιοπάθειες και τις "
+"οικογένειές τους. Ιδρύθηκε το 1985. \n"
 "                        Οργανώνει διάφορες δράσεις όπως ενημέρωση του κοινού "
 "για τις Συγγενείς Καρδιοπάθειες, \n"
-"                        διαλέξεις με καλεσμένους ιατρούς από Κύπρο και εξωτερικό, "
-"εργαστήρια, προγράμματα σε \n"
-"                        συνεργασία με διάφορους φορείς με τελικό στόχο τη βελτίωση "
-"της ποιότητας ζωής των ατόμων με Συγγενείς Καρδιοπάθειες, \n"
+"                        διαλέξεις με καλεσμένους ιατρούς από Κύπρο και "
+"εξωτερικό, εργαστήρια, προγράμματα σε \n"
+"                        συνεργασία με διάφορους φορείς με τελικό στόχο τη "
+"βελτίωση της ποιότητας ζωής των ατόμων με Συγγενείς Καρδιοπάθειες, \n"
 "                        εκδηλώσεις, κ.λπ.\n"
 "                        "
 
-#: .\home_page\templates\home_page\index.html:43 .\templates\base.html:37
+#: .\home_page\templates\home_page\index.html:44 .\templates\base.html:37
 msgid "What we do"
 msgstr "Τι κάνουμε"
 
-#: .\home_page\templates\home_page\index.html:44
+#: .\home_page\templates\home_page\index.html:45
 msgid "Read our news"
 msgstr "Διαβάστε τα νέα μας"
 
-#: .\home_page\templates\home_page\index.html:45
+#: .\home_page\templates\home_page\index.html:46
 msgid "See our events"
 msgstr "Δείτε τις εκδηλώσεις μας"
 
-#: .\home_page\templates\home_page\index.html:58
+#: .\home_page\templates\home_page\index.html:59
 msgid "Baby being examinated from a doctor."
 msgstr "Βρέφος που εξετάζεται από γιατρό."
 
-#: .\home_page\templates\home_page\index.html:61
+#: .\home_page\templates\home_page\index.html:62
 msgid "Donations"
 msgstr "Δωρεές"
 
-#: .\home_page\templates\home_page\index.html:79
+#: .\home_page\templates\home_page\index.html:80
 msgid "What are Congenital Heart Diseases?"
 msgstr "Τι είναι οι Συγγενείς Καρδιοπάθειες;"
 
-#: .\home_page\templates\home_page\index.html:81
+#: .\home_page\templates\home_page\index.html:82
 msgid ""
 "\n"
 "                        Congenital heart diseases are abnormalities of the "
@@ -113,37 +175,38 @@ msgid ""
 "                        "
 msgstr ""
 "\n"
-"                        Οι συγγενείς καρδιοπάθειες είναι ανωμαλίες στη δομή της "
-"καρδιάς, που ένα άτομο φέρει από τη \n"
-"                        μέρα της γέννησής του. Με άλλα λόγια, όσοι πάσχουν από "
-"συγγενείς καρδιοπάθειες γεννιούνται με κάποιο \n"
+"                        Οι συγγενείς καρδιοπάθειες είναι ανωμαλίες στη δομή "
+"της καρδιάς, που ένα άτομο φέρει από τη \n"
+"                        μέρα της γέννησής του. Με άλλα λόγια, όσοι πάσχουν "
+"από συγγενείς καρδιοπάθειες γεννιούνται με κάποιο \n"
 "                        «δομικό» πρόβλημα στην καρδιά. Η λέξη «συγγενές» "
 "σημαίνει «εκ γενετής». Ο όρος δεν πρέπει να \n"
-"                        συγχέεται με τη λέξη «συγγένεια» με την έννοια της κληρονομικότητας, \n"
+"                        συγχέεται με τη λέξη «συγγένεια» με την έννοια της "
+"κληρονομικότητας, \n"
 "                        με την οποία έχει ελάχιστη σχέση.\n"
 "                        "
 
-#: .\home_page\templates\home_page\index.html:91
+#: .\home_page\templates\home_page\index.html:92
 msgid "More Info"
 msgstr "Περισσότερες πληροφορίες"
 
-#: .\home_page\templates\home_page\index.html:95
+#: .\home_page\templates\home_page\index.html:96
 msgid "Infant laying down and a doctor listens to the heart of the baby"
 msgstr "Βρέφος ξαπλωμένο και ο γιατρός ακούει την καρδιά του μωρού"
 
-#: .\home_page\templates\home_page\index.html:107
+#: .\home_page\templates\home_page\index.html:108
 msgid "Every child deserves"
 msgstr "Κάθε παιδί αξίζει"
 
-#: .\home_page\templates\home_page\index.html:107
+#: .\home_page\templates\home_page\index.html:108
 msgid "a chance to live"
-msgstr "μια ευκαιρία για ζωή"
+msgstr "μια ευκαιρία να ζωή"
 
-#: .\home_page\templates\home_page\index.html:107
+#: .\home_page\templates\home_page\index.html:108
 msgid "a healthy life!"
 msgstr "μια υγιή ζωή!"
 
-#: .\home_page\templates\home_page\index.html:109
+#: .\home_page\templates\home_page\index.html:110
 msgid ""
 "\n"
 "                    Every year, 1 in every 10 kids is born with a heart\n"
@@ -156,31 +219,53 @@ msgid ""
 msgstr ""
 "\n"
 "                    Κάθε χρόνο, 1 στα 10 παιδιά γεννιέται με καρδιοπάθεια\n"
-"                    και 1 στις 5 οικογένειες δεν έχει την οικονομική δυνατότητα\n"
-"                    να πάει το παιδί τους για χειρουργική επέμβαση και θεραπεία.\n"
-"                    Και σχεδόν όλες οι οικογένειες θα είναι συντετριμμένες και\n"
+"                    και 1 στις 5 οικογένειες δεν έχει την οικονομική "
+"δυνατότητα\n"
+"                    να πάει το παιδί τους για χειρουργική επέμβαση και "
+"θεραπεία.\n"
+"                    Και σχεδόν όλες οι οικογένειες θα είναι συντετριμμένες "
+"και\n"
 "                    συναισθηματικά ευάλωτες με τέτοιες ειδήσεις.\n"
 "                    "
 
-#: .\home_page\templates\home_page\index.html:117 .\templates\base.html:40
-msgid "How you can help"
-msgstr "Πώς μπορείτε να βοηθήσετε"
-
-#: .\home_page\templates\home_page\index.html:130
-msgid "A group of people in the forest hanging each other."
-msgstr "Μια ομάδα ανθρώπων στο δάσος κρατιούνται ο ένας με τον άλλον."
-
-#: .\home_page\templates\home_page\index.html:133
-msgid "Become a member today"
-msgstr "Γίνετε μέλος σήμερα"
-
-#: .\home_page\templates\home_page\index.html:138
-msgid "In the blured background people are in a connference and a speaker delivers a speech."
-msgstr "Στο θολό φόντο, άνθρωποι βρίσκονται σε συνέδριο και ένας ομιλητής δίνει διάλεξη."
-
-#: .\home_page\templates\home_page\index.html:141
+#: .\home_page\templates\home_page\index.html:142
+#: .\news\templates\news\news.html:67
 msgid "Find out about our Events"
 msgstr "Μάθετε για τις Εκδηλώσεις μας"
+
+#: .\news\templates\news\news.html:14
+msgid "Keeping"
+msgstr "Κρατώντας τις"
+
+#: .\news\templates\news\news.html:15
+#, fuzzy
+#| msgid "Stay informed"
+msgid "Informed"
+msgstr "Ενημερωμένες"
+
+#: .\news\templates\news\news.html:27
+msgid "Our latest news"
+msgstr "Τα τελευταία νέα μας"
+
+#: .\news\templates\news\news.html:33
+msgid ""
+"\n"
+"                    Children's well being and health are at the heart of "
+"everything we do.\n"
+"                    <br>\n"
+"                    <br>\n"
+"                    Read below our latest news, the issues we are working on "
+"and articles from health professionals.\n"
+"                    "
+msgstr ""
+"\n"
+"                    Η ευημερία και η υγεία των παιδιών είναι στην καρδιά "
+"όλων όσων κάνουμε.\n"
+"                    <br>\n"
+"                    <br>\n"
+"                    Διαβάστε παρακάτω τα τελευταία νέα μας, τα ζητήματα που εργαζόμαστε "
+"και άρθρα από επαγγελματίες υγείας.\n"
+"                    "
 
 #: .\templates\base.html:15
 msgid "Cardiac Association"
