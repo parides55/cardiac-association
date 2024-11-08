@@ -44,7 +44,29 @@
 
 <hr class='m-5'>
 
-<section id='main'></section>
+<section id='main'>
+    <div class="container-fluid">
+        <div class="row mx-2 d-flex flex-column flex-sm-row">
+            {% for new in new_list %}
+            <div class="col col-sm-4 my-2">
+                <div class="card text-bg-dark">
+                    <a href="#">
+                        {% if "placeholder" in new.image.url %}
+                        <img src="{% static 'images/default_logo.png' %}" class="card-img" alt="Logo">
+                        {% else %}
+                        <img src="{{ new.image.url }}" class="card-img" alt="{{ new.title }}">
+                        {% endif %}
+                        <div class="card-img-overlay d-flex flex-column align-self-end">
+                            <h5 class="card-title fs-2">{{ new.title }}</h5>
+                            <p class="card-text fs-5"><small>{{ new.created_on }}</small></p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 
 <hr class='m-5'>
 
