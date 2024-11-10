@@ -63,6 +63,8 @@ INSTALLED_APPS = [
     'events',
     'news',
     'about_us',
+    'what_we_do',
+    'how_you_can_help',
 ]
 
 MIDDLEWARE = [
