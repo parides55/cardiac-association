@@ -6,6 +6,8 @@
 {% url 'news' as news_url %}
 {% url 'our_history' as our_history_url %}
 {% url 'our_people' as our_people_url %}
+{% url 'what_we_do' as what_we_do_url %}
+{% url 'how_you_can_help' as how_you_can_help_url %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,10 +37,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">{% trans 'What we do' %}</a>
+                    <a class="nav-link" aria-current="page" href="{% url 'what_we_do' %}">{% trans 'What we do' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">{% trans 'How you can help' %}</a>
+                    <a class="nav-link" href="{% url 'how_you_can_help' %}">{% trans 'How you can help' %}</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
