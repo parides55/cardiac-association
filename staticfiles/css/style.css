@@ -72,8 +72,27 @@ nav {
     height: 500px;
 }
 
-/* ---------------------------- Home Page --------------------------------------------- */
+/* ---------------------------- News Page --------------------------------------------- */
+.news-link {
+    color: black;
+    text-decoration: none;
+}
 
+.card-img-top {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    width: 100%;
+    height: auto;
+}
+
+.card {
+    border-radius: 0;
+    border-color: transparent;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    height: 450px;
+}
 
 /* ---------------------------- Footer --------------------------------------------- */
 footer {
