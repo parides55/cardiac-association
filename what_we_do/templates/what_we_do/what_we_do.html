@@ -1,8 +1,96 @@
 {% extends "base.html" %}
 
 {% load static %}
+{% load i18n %}
+
+{% url 'how_you_can_help' as how_you_can_help_url %}
 
 {% block content %}
-    <h1>WHAT WE DO</h1>
-    <h2>Hello world, from The cardiac association!</h2>
+
+<section class='mt-0 hero' id='hero-what-we-wdo'>
+    <div class="container-fluid p-0">
+        <div class='row position-relative hero-image-div'>
+            <img class='img-fluid hero-image' src="{% static 'images/kid_heart.png.jpg' %}" alt="{% trans 'Two hands of a child holding a red heart' %}">
+            <h1 class='fst-italic fw-bold hero-heading'>{% trans 'Young hearts' %}<br>{% trans 'is our mission' %}</h1>
+        </div>
+    </div>
+</section>
+
+<section id='description'>
+    <div class="container-fluid">
+        <h2 class="text-center fs-1 fw-bold">{% trans 'What we do' %}</h2>
+        <div class="row text-center d-flex flex-column flex-lg-row">
+            <div class="col my-3">
+                <img class='w-75' src="{% static 'images/red_band.jpg' %}" alt="{% trans 'Red band' %}">
+            </div>
+            <div class="col my-3 pe-lg-5">
+                <div>
+                    <p class='px-3 fs-5'>
+                        {% blocktrans %}
+                        The Association of Parents and Friends of Heart Diseased Children is a Charitable 
+                        Non-Profit Association that provides support, assistance and education services to 
+                        all people with Congenital Heart Diseases and their families. It was founded in 1985. 
+                        It organizes various actions such as informing the public about Congenital Heart Disease, 
+                        lectures with invited doctors inside and outside Cyprus, workshops, programs in 
+                        collaboration with various agencies with the ultimate goal of improving the quality of 
+                        life of people with Congenital Heart Disease, events, etc.
+                        {% endblocktrans %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class='m-5'>
+
+<section class='mt-0 hero' id='statistics'>
+    <div class="container-fluid p-0">
+        <div class='row position-relative hero-image-div'>
+            <img class='img-fluid hero-image' src="{% static 'images/kid_heart.png.jpg' %}" alt="{% trans 'Two hands of a child holding a red heart' %}">
+            <h1 class='fst-italic fw-bold hero-heading'>{% trans 'Statistics' %}</h1>
+        </div>
+    </div>
+</section>
+
+<hr class='m-5'>
+
+<section></section>
+
+<hr class='m-5'>
+
+<section class='mt-0 hero' id='offerings'>
+    <div class="container-fluid p-0">
+        <div class='row position-relative hero-image-div'>
+            <img class='img-fluid hero-image' src="{% static 'images/kid_heart.png.jpg' %}" alt="{% trans 'Two hands of a child holding a red heart' %}">
+            <h1 class='fst-italic fw-bold hero-heading'>{% trans 'Statistics' %}</h1>
+        </div>
+    </div>
+</section>
+
+<hr class='m-5'>
+
+<section id='links-what-we-do'>
+    <div class="container-fluid">
+        <div class="row d-flex flex-column flex-lg-row">
+            <div class="col my-3 d-flex flex-column">
+                <div class='d-flex justify-content-center'>
+                    <img class='w-75' src="{% static 'images/people_in_forest.jpg' %}" alt="{% trans 'A group of people in the forest hanging each other.' %}">
+                </div>
+                <div class='d-flex justify-content-center mt-4'>
+                    <a class='fs-2 fw-bold' href="#">{% trans 'Become a member today' %}</a>
+                </div>
+            </div>
+            <div class='col my-3 pe-lg-5 d-flex flex-column'>
+                <div class='d-flex justify-content-center'>
+                    <img class='w-75' src="{% static 'images/volunteer-hands.jpg' %}" alt="{% trans 'In the blured background people are in a connference and a speaker delivers a speech.' %}">
+                </div>
+                <div class='d-flex justify-content-center mt-4'>
+                    <a class='fs-2 fw-bold' href="{% url 'how_you_can_help' %}">{% trans 'How you can help' %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}
