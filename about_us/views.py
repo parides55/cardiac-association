@@ -2,5 +2,8 @@ from django.shortcuts import render
 
 # Create your views here.
 
-def about_us(request):
-    return render(request, "about_us/about_us.html")
+def our_history(request):
+    return render(request, "about_us/history.html")
+
+def our_people(request):
+    return render(request, "about_us/people.html")
