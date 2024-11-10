@@ -3,6 +3,8 @@
 {% load static %}
 {% load i18n %}
 
+{% url 'how_you_can_help' as how_you_can_help_url %}
+
 {% block content %}
 
 <section class='mt-0 hero' id='hero-news'>
@@ -54,7 +56,7 @@
                     <img class='w-75' src="{% static 'images/volunteer-hands.jpg' %}" alt="{% trans 'In the blured background people are in a connference and a speaker delivers a speech.' %}">
                 </div>
                 <div class='d-flex justify-content-center mt-4'>
-                    <a class='fs-2 fw-bold' href="#">{% trans 'How you can help' %}</a>
+                    <a class='fs-2 fw-bold' href="{% url 'how_you_can_help' %}">{% trans 'How you can help' %}</a>
                 </div>
             </div>
         </div>
