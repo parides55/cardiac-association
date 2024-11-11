@@ -8,6 +8,7 @@
 {% url 'news' as news_url %}
 {% url 'what_we_do' as what_we_do_url %}
 {% url 'how_you-can_help' as how_you_can_help_url %}
+{% url 'heart_disease_info' as heart_disease_info_url %}
 
 {% block content %}
 <section class='mt-0 hero' id='hero-home'>
@@ -90,7 +91,7 @@
                     </p>
                 </div>
                 <div class='d-flex justify-content-end mt-5'>
-                    <a class='pe-3' href="#">{% trans 'More Info' %}</a>
+                    <a class='pe-3' href="{% url 'heart_disease_info' %}">{% trans 'More Info' %}</a>
                 </div>
             </div>
             <div class="col my-3">

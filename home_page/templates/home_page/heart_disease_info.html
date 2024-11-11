@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load i18n %}
+
+{% url 'events' as events_url %}
+
+{% block content %}
+
+<section class='mt-0 hero' id='hero-info-page'>
+    <div class="container-fluid p-0">
+        <div class='row position-relative hero-image-div'>
+            <img class='img-fluid hero-image' src="{% static 'images/baby_examinated.jpg' %}" alt="{% trans 'Figures standing in a row with the middle figure being red with a little heart' %}">
+            <h1 class='fst-italic fw-bold hero-heading'>{% trans 'Young hearts' %}<br>{% trans 'is our mission' %}</h1>
+        </div>
+    </div>
+</section>
+
+<hr class='m-5'>
+
+<section id='intro-info-page'>
+    <div class='container-fluid text-center d-flex flex-column'>
+        <div class='row'>
+            <div class='col d-sm-flex justify-content-sm-start ms-sm-5 mb-5'>
+                <h2 class='fs-1 fw-bold'>{% trans 'What are Congenital Heart Diseases?' %}</h2>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col'>
+                <p class='fs-5'> 
+                    {% blocktrans %}
+                    Congenital heart diseases are abnormalities of the structure of the heart, which a 
+                    person carries with him from the day of his birth. In other words, those suffering 
+                    from congenital heart diseases are born with some "structural" problem in the heart. 
+                    The word "kin" means "by birth." The term should not be confused with "kinship," in 
+                    the sense of heredity, with which it has but little to do.
+                    {% endblocktrans %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class='m-5'>
+
+<section id='links-info-page'>
+    <div class="container-fluid">
+        <div class="row d-flex flex-column flex-lg-row">
+            <div class="col my-3 d-flex flex-column">
+                <div class='d-flex justify-content-center'>
+                    <img class='w-75' src="{% static 'images/people_in_forest.jpg' %}" alt="{% trans 'A group of people in the forest hanging each other.' %}">
+                </div>
+                <div class='d-flex justify-content-center mt-4'>
+                    <a class='fs-2 fw-bold' href="#">{% trans 'Become a member today' %}</a>
+                </div>
+            </div>
+            <div class='col my-3 pe-lg-5 d-flex flex-column'>
+                <div class='d-flex justify-content-center'>
+                    <img class='w-75' src="{% static 'images/conference.jpg' %}" alt="{% trans 'In the blured background people are in a connference and a speaker delivers a speech.' %}">
+                </div>
+                <div class='d-flex justify-content-center mt-4'>
+                    <a class='fs-2 fw-bold' href="{% url 'events' %}">{% trans 'Find out about our Events' %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
