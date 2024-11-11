@@ -1,8 +1,91 @@
 {% extends "base.html" %}
 
 {% load static %}
+{% load i18n %}
+
+{% url 'events' as events_url %}
 
 {% block content %}
-    <h1>HOW YOU CAN HELP</h1>
-    <h2>Hello world, from The cardiac association!</h2>
+
+<section class='mt-0 hero' id='hero-how-you-can-help'>
+    <div class="container-fluid p-0">
+        <div class='row position-relative hero-image-div'>
+            <img class='img-fluid hero-image' src="{% static 'images/kid_heart.png.jpg' %}" alt="{% trans 'Two hands of a child holding a red heart' %}">
+            <h1 class='fst-italic fw-bold hero-heading'>{% trans 'Young hearts' %}<br>{% trans 'is our mission' %}</h1>
+        </div>
+    </div>
+</section>
+
+<hr class='m-5'>
+
+<section id='intro'>
+    <div class='container-fluid text-center d-flex flex-column'>
+        <div class='row'>
+            <div class='col d-sm-flex justify-content-sm-center ms-sm-5 mb-5'>
+                <h2 class='fs-1 fw-bold'>{% trans 'How you can help' %}</h2>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col'>
+                <p class='fs-5'> 
+                    {% blocktrans %}
+                    Join us in making a difference in the lives of children with heart disease. 
+                    Your support, whether through volunteering your time or making a donation, 
+                    can bring hope and care to families facing the challenges of pediatric heart 
+                    conditions. Together, we can provide the resources, medical assistance, and 
+                    emotional support these children and their loved ones need. Every contribution 
+                    counts—help us bring a little more light to their world!
+                    {% endblocktrans %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<hr class='m-5'>
+
+<section></section>
+
+<hr class='m-5'>
+
+<section></section>
+
+<hr class='m-5'>
+
+<section></section>
+
+<hr class='m-5'>
+
+<section></section>
+
+<hr class='m-5'>
+
+<section></section>
+
+<hr class='m-5'>
+
+<section id='links-how-you-can-help'>
+    <div class="container-fluid">
+        <div class="row d-flex flex-column flex-lg-row">
+            <div class="col my-3 d-flex flex-column">
+                <div class='d-flex justify-content-center'>
+                    <img class='w-75' src="{% static 'images/people_in_forest.jpg' %}" alt="{% trans 'A group of people in the forest hanging each other.' %}">
+                </div>
+                <div class='d-flex justify-content-center mt-4'>
+                    <a class='fs-2 fw-bold' href="#">{% trans 'Become a member today' %}</a>
+                </div>
+            </div>
+            <div class='col my-3 pe-lg-5 d-flex flex-column'>
+                <div class='d-flex justify-content-center'>
+                    <img class='w-75' src="{% static 'images/conference.jpg' %}" alt="{% trans 'In the blured background people are in a connference and a speaker delivers a speech.' %}">
+                </div>
+                <div class='d-flex justify-content-center mt-4'>
+                    <a class='fs-2 fw-bold' href="{% url 'events' %}">{% trans 'Find out about our Events' %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}
