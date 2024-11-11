@@ -4,6 +4,7 @@
 {% load i18n %}
 
 {% url 'events' as events_url %}
+{% url 'news' as news_url %}
 
 {% block content %}
 
@@ -178,7 +179,7 @@
                     <img class='w-75' src="{% static 'images/istockphoto-1335915930-1024x1024.jpg' %}" alt="{% trans 'A group of people in the forest hanging each other.' %}">
                 </div>
                 <div class='d-flex justify-content-center mt-4'>
-                    <a class='fs-2 fw-bold' href="#">{% trans 'Read our News' %}</a>
+                    <a class='fs-2 fw-bold' href="{% url 'news' %}">{% trans 'Read our News' %}</a>
                 </div>
             </div>
             <div class='col my-3 pe-lg-5 d-flex flex-column'>
