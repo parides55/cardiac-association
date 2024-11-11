@@ -27,12 +27,12 @@
         </div>
         <div class='row'>
             <div class='col'>
-                <p class='fs-5'> 
+                <p class='fs-5 mx-5'> 
                     {% blocktrans %}
                     Join us in making a difference in the lives of children with heart disease. 
                     Your support, whether through volunteering your time or making a donation, 
                     can bring hope and care to families facing the challenges of pediatric heart 
-                    conditions. Together, we can provide the resources, medical assistance, and 
+                    conditions.<br><br>Together, we can provide the resources, medical assistance, and 
                     emotional support these children and their loved ones need. Every contribution 
                     counts—help us bring a little more light to their world!
                     {% endblocktrans %}
@@ -42,26 +42,131 @@
     </div>
 </section>
 
+<hr class='m-5'>
+
+<section id="help1">
+    <div class="container-fluid">
+        <div class="row">
+            <div id='prompt-div' class="col col-sm-5 ms-4 d-flex flex-column justify-content-evenly">
+                <p class='text-white fs-5'>
+                    {% blocktrans %}
+                    Together, we can make a difference. Your donationcan provide life-saving
+                    treatment, offer support to families in need, and give these children the 
+                    chance to grow, thrive,and experience the joys of childhood.
+                    {% endblocktrans %}
+                </p>
+                    <a class='btn btn-warning text-decoration-underline w-50' href="#">{% trans 'Make a donation today >' %}</a>
+            </div>
+        </div>
+    </div>
+</section>
 
 <hr class='m-5'>
 
-<section></section>
+<section id="help2">
+    <div class="container-fluid">
+        <div class="row text-center d-flex flex-column flex-lg-row">
+            <div class="col my-3">
+                <img class='w-75' src="{% static 'images/istockphoto-2174361430-1024x1024.jpg' %}" alt="{% trans 'Hands forming a circle around a big red heart' %}">
+            </div>
+            <div class="col my-3 pe-lg-5 d-flex align-items-center">
+                <div>
+                    <p class="px-3 fs-5">
+                        {% blocktrans %}
+                        If you're passionate about making a difference, we invite you to join our
+                        dedicated team of volunteers and be a part of the heart of our mission.
+                        Together, we can work hand-in-hand to support children and families
+                        affected by heart disease!
+                        {% endblocktrans %}
+                    </p>
+                    <p class="fs-5 fw-bold mt-5">{% trans 'Call us or Email us!' %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <hr class='m-5'>
 
-<section></section>
+<section id="help3">
+    <div class="container-fluid">
+        <div class="row">
+            <div id='prompt-div' class="col col-sm-5 ms-4 d-flex flex-column justify-content-evenly">
+                <p class='text-white fs-5'>
+                    {% blocktrans %}
+                    Honor a memory or celebrate a special occasion — whether it's a wedding, 
+                    christening, or birthday — by giving a meaningful gift in place of a wreath 
+                    or traditional present.
+                    {% endblocktrans %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
 
 <hr class='m-5'>
 
-<section></section>
+<section id="help4">
+    <div class="container-fluid">
+        <div class="row text-center d-flex flex-column flex-lg-row">
+            <div class="col my-3">
+                <img class='w-75' src="{% static 'images/istockphoto-2174361430-1024x1024.jpg' %}" alt="{% trans 'Hands forming a circle around a big red heart' %}">
+            </div>
+            <div class="col my-3 pe-lg-5 d-flex align-items-center">
+                <div>
+                    <p class="px-3 fs-5 mb-5">
+                        {% blocktrans %}
+                        By choosing from the variety of products offered by our 
+                        Association, you can help support our cause.
+                        {% endblocktrans %}
+                    </p>
+                    <a class="fs-5 fw-bold mt-5" href="#">{% trans 'Visit Our Online Shop >' %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <hr class='m-5'>
 
-<section></section>
+<section id="help5">
+    <div class="container-fluid">
+        <div class="row">
+            <div id='prompt-div' class="col col-sm-5 ms-4 d-flex flex-column justify-content-evenly">
+                <p class='text-white fs-5'>
+                    {% blocktrans %}
+                    Leading a meaningful initiative to support our Association by hosting a
+                    fundraiser or event.
+                    {% endblocktrans %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
 
 <hr class='m-5'>
 
-<section></section>
+<section id="help6">
+    <div class="container-fluid">
+        <div class="row text-center d-flex flex-column flex-lg-row">
+            <div class="col my-3">
+                <img class='w-75' src="{% static 'images/istockphoto-2174361430-1024x1024.jpg' %}" alt="{% trans 'Hands forming a circle around a big red heart' %}">
+            </div>
+            <div class="col my-3 pe-lg-5 d-flex align-items-center">
+                <div>
+                    <p class="px-3 fs-5 mb-5">
+                        {% blocktrans %}
+                        Become an annual supporter—whether you're a business,
+                        organization, or institution—and make a lasting impact 
+                        with your yearly contribution.
+                        {% endblocktrans %}
+                    </p>
+                    <a class="fs-5 fw-bold mt-5" href="#">{% trans 'Become a member >' %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <hr class='m-5'>
 
@@ -70,10 +175,10 @@
         <div class="row d-flex flex-column flex-lg-row">
             <div class="col my-3 d-flex flex-column">
                 <div class='d-flex justify-content-center'>
-                    <img class='w-75' src="{% static 'images/people_in_forest.jpg' %}" alt="{% trans 'A group of people in the forest hanging each other.' %}">
+                    <img class='w-75' src="{% static 'images/istockphoto-1335915930-1024x1024.jpg' %}" alt="{% trans 'A group of people in the forest hanging each other.' %}">
                 </div>
                 <div class='d-flex justify-content-center mt-4'>
-                    <a class='fs-2 fw-bold' href="#">{% trans 'Become a member today' %}</a>
+                    <a class='fs-2 fw-bold' href="#">{% trans 'Read our News' %}</a>
                 </div>
             </div>
             <div class='col my-3 pe-lg-5 d-flex flex-column'>

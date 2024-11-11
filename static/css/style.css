@@ -85,6 +85,24 @@ nav {
     left: 60%;
 }
 
+#help1 {
+    background: url(../images/hands_in_forest.jpg) no-repeat center center;
+    height: 500px;
+    background-size: cover;
+}
+
+#help3 {
+    background: url(../images/hands_in_forest.jpg) no-repeat center center;
+    height: 500px;
+    background-size: cover;
+}
+
+#help5 {
+    background: url(../images/hands_in_forest.jpg) no-repeat center center;
+    height: 500px;
+    background-size: cover;
+}
+
 /* ---------------------------- News Page --------------------------------------------- */
 .news-link {
     color: black;
