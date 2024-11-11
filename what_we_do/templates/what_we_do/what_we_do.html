@@ -57,7 +57,124 @@
 
 <hr class='m-5'>
 
-<section></section>
+<section id="main-goals">
+    <h2 class="fs-1 fw-bold text-center mb-5">{% trans 'Main goals of the Association' %}</h2>
+    <!--Goal 1-->
+    <div class="container-fluid">
+        <div class="row text-center d-flex flex-column flex-lg-row">
+            <div class="col my-3">
+                <img class='w-75' src="{% static 'images/istockphoto-2174361430-1024x1024.jpg' %}" alt="{% trans 'Hands forming a circle around a big red heart' %}">
+            </div>
+            <div class="col my-3 pe-lg-5 d-flex align-items-center">
+                <div>
+                    <p class='px-3 fs-5'>
+                        {% blocktrans %}
+                        The Association supports people with Congenital and Acquired Heart Diseases 
+                        with various services. Information and guidance, Psychological Support, 
+                        Financial Support, safeguarding the rights of patients with Congenital Heart 
+                        Diseases, Informative lectures, Informative meetings, organizes trips to get 
+                        to know each other among members, Pancypriot Emergency Helpline, Discounts 
+                        from various stores, information campaigns, etc.
+                        {% endblocktrans %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Goal 2-->
+    <div class="container-fluid">
+        <div class="row text-center d-flex flex-column-reverse flex-lg-row">
+            <div class="col my-3 pe-lg-5 d-flex align-items-center">
+                <div>
+                    <p class='px-3 fs-5 mt-4'>
+                        {% blocktrans %}
+                        The information, enlightenment and awareness of the public about Congenital 
+                        Heart Diseases The education and empowerment of people with Congenital Heart Diseases.
+                        {% endblocktrans %}
+                    </p>
+                </div>
+            </div>
+            <div class="col my-3">
+                <img class='w-75' src="{% static 'images/baby_examinated.jpg' %}" alt="{% trans 'Infant laying down and a doctor listens to the heart of the baby' %}">
+            </div>
+        </div>
+    </div>
+    <!--Goal 3-->
+    <div class="container-fluid">
+        <div class="row text-center d-flex flex-column flex-lg-row">
+            <div class="col my-3">
+                <img class='w-75' src="{% static 'images/istockphoto-2174361430-1024x1024.jpg' %}" alt="{% trans 'Hands forming a circle around a big red heart' %}">
+            </div>
+            <div class="col my-3 pe-lg-5 d-flex align-items-center">
+                <div>
+                    <p class='px-3 fs-5'>
+                        {% blocktrans %}
+                        Finding resources, sponsors to support the actions of the Association and the various programs it organizes
+                        {% endblocktrans %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Goal 4-->
+    <div class="container-fluid">
+        <div class="row text-center d-flex flex-column-reverse flex-lg-row">
+            <div class="col my-3 pe-lg-5 d-flex align-items-center">
+                <div>
+                    <p class='px-3 fs-5 mt-4'>
+                        {% blocktrans %}
+                        Always aiming at the best quality of life for people with Congenital Heart Diseases, 
+                        the Association, in collaboration with Pediatric Cardiologists, makes efforts to find 
+                        European Programs. So far it has organized the following programs: Exercise and Congenital 
+                        Heart Diseases Pregnancy and Congenital Heart Diseases Rehabilitation Also in collaboration 
+                        with the Center for Specialized Pediatrics To Paidi we participate in the Learning 
+                        Disabilities and Congenital Heart Diseases program.
+                        {% endblocktrans %}
+                    </p>
+                </div>
+            </div>
+            <div class="col my-3">
+                <img class='w-75' src="{% static 'images/baby_examinated.jpg' %}" alt="{% trans 'Infant laying down and a doctor listens to the heart of the baby' %}">
+            </div>
+        </div>
+    </div>
+    <!--Goal 5-->
+    <div class="container-fluid">
+        <div class="row text-center d-flex flex-column flex-lg-row">
+            <div class="col my-3">
+                <img class='w-75' src="{% static 'images/istockphoto-2174361430-1024x1024.jpg' %}" alt="{% trans 'Hands forming a circle around a big red heart' %}">
+            </div>
+            <div class="col my-3 pe-lg-5 d-flex align-items-center">
+                <div>
+                    <p class='px-3 fs-5'>
+                        {% blocktrans %}
+                        The cooperation with the competent bodies such as the Ministry of Health, the Ministry of Labour, 
+                        the Health Committee of the Parliament etc. to ensure a better quality of life for people with 
+                        Congenital Heart Diseases The promotion of the creation of a file of Congenital Heart Diseases.
+                        {% endblocktrans %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Goal 6-->
+    <div class="container-fluid">
+        <div class="row text-center d-flex flex-column-reverse flex-lg-row">
+            <div class="col my-3 pe-lg-5 d-flex align-items-center">
+                <div>
+                    <p class='px-3 fs-5 mt-4'>
+                        {% blocktrans %}
+                        Participation of people with Congenital Heart Diseases in information and education programs.
+                        {% endblocktrans %}
+                    </p>
+                </div>
+            </div>
+            <div class="col my-3">
+                <img class='w-75' src="{% static 'images/baby_examinated.jpg' %}" alt="{% trans 'Infant laying down and a doctor listens to the heart of the baby' %}">
+            </div>
+        </div>
+    </div>
+</section>
 
 <hr class='m-5'>
 
@@ -65,7 +182,8 @@
     <div class="container-fluid p-0">
         <div class='row position-relative hero-image-div'>
             <img class='img-fluid hero-image' src="{% static 'images/kid_heart.png.jpg' %}" alt="{% trans 'Two hands of a child holding a red heart' %}">
-            <h1 class='fst-italic fw-bold hero-heading'>{% trans 'Statistics' %}</h1>
+            <a class="btn btn-secondary services-btn w-25 fs-4" href="#">{%  trans 'Services' %}</a>
+            <a class="btn btn-secondary programs-btn w-25 fs-4" href="#">{%  trans 'Programs' %}</a>
         </div>
     </div>
 </section>

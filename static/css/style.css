@@ -72,6 +72,19 @@ nav {
     height: 500px;
 }
 
+/* ---------------------------- How-you-can-help page --------------------------------------------- */
+.services-btn {
+    position: absolute;
+    top: 75%;
+    left: 10%;
+}
+
+.programs-btn {
+    position: absolute;
+    top: 75%;
+    left: 60%;
+}
+
 /* ---------------------------- News Page --------------------------------------------- */
 .news-link {
     color: black;

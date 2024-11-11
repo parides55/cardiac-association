@@ -73,6 +73,19 @@ nav {
 }
 
 /* ---------------------------- News Page --------------------------------------------- */
+.services-btn {
+    position: absolute;
+    top: 75%;
+    left: 10%;
+}
+
+.programs-btn {
+    position: absolute;
+    top: 75%;
+    left: 60%;
+}
+
+/* ---------------------------- News Page --------------------------------------------- */
 .news-link {
     color: black;
     text-decoration: none;
