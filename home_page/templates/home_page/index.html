@@ -7,6 +7,7 @@
 {% url 'events' as events_url %}
 {% url 'news' as news_url %}
 {% url 'what_we_do' as what_we_do_url %}
+{% url 'how_you-can_help' as how_you_can_help_url %}
 
 {% block content %}
 <section class='mt-0 hero' id='hero-home'>
@@ -115,7 +116,7 @@
                     and emotionally vulnerable having these kind of news.
                     {% endblocktrans %}
                 </p>
-                    <a class='btn btn-light text-decoration-underline w-50' href="#">{% trans 'How you can help' %}</a>
+                    <a class='btn btn-light text-decoration-underline w-50' href="{% url 'how_you_can_help' %}">{% trans 'How you can help' %}</a>
             </div>
         </div>
     </div>
