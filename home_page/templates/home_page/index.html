@@ -6,6 +6,7 @@
 {% url 'home' as home_url %}
 {% url 'events' as events_url %}
 {% url 'news' as news_url %}
+{% url 'what_we_do' as what_we_do_url %}
 
 {% block content %}
 <section class='mt-0 hero' id='hero-home'>
@@ -40,7 +41,7 @@
                     </p>
                 </div>
                 <div class='d-flex justify-content-evenly mt-5'>
-                    <a href="#">{% trans 'What we do' %}</a>
+                    <a href="{% url 'what_we_do' %}">{% trans 'What we do' %}</a>
                     <a href="{% url 'news' %}">{% trans 'Read our news' %}</a>
                     <a href="{% url 'events' %}">{% trans 'See our events' %}</a>
                 </div>
