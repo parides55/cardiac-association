@@ -4,6 +4,8 @@
 {% load i18n %}
 
 {% url 'how_you_can_help' as how_you_can_help_url %}
+{% url 'services' as services_url %}
+{% url 'programs' as programs_url %}
 
 {% block content %}
 
@@ -182,8 +184,8 @@
     <div class="container-fluid p-0">
         <div class='row position-relative hero-image-div'>
             <img class='img-fluid hero-image' src="{% static 'images/kid_heart.png.jpg' %}" alt="{% trans 'Two hands of a child holding a red heart' %}">
-            <a class="btn btn-secondary services-btn w-25 fs-4" href="#">{%  trans 'Services' %}</a>
-            <a class="btn btn-secondary programs-btn w-25 fs-4" href="#">{%  trans 'Programs' %}</a>
+            <a class="btn btn-secondary services-btn w-25 fs-4" href="{% url 'services' %}">{%  trans 'Services' %}</a>
+            <a class="btn btn-secondary programs-btn w-25 fs-4" href="{% url 'services' %}">{%  trans 'Programs' %}</a>
         </div>
     </div>
 </section>
