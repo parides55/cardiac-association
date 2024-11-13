@@ -18,7 +18,7 @@ class Member(models.Model):
     mobile_number = models.CharField(max_length=20)
     work_number = models.CharField(max_length=20, blank=True, null=True)
     date_of_birth = models.DateField()
-    heart_disease = models.BooleanField(default=False)
+    heart_disease_description = models.CharField(max_length=100)
     date_of_diagnosis = models.DateField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     

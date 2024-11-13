@@ -15,7 +15,7 @@ class MemberForm(forms.ModelForm):
             'mobile_number', 
             'work_number', 
             'date_of_birth', 
-            'heart_disease', 
+            'heart_disease_description', 
             'date_of_diagnosis',
         ]
         widgets = {
