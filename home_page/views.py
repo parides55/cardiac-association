@@ -18,13 +18,15 @@ def Become_member(request):
                 member_form.save()
                 messages.success(
                     request,
-                    "You have been successfully registered as a member and we will be in touch with you soon."
+                    f"You have been successfully registered as a member and we will be "
+                    f"in touch with you soon."
                 )
                 return redirect('become_member')
             else:
                 messages.error(
                     request,
-                    "There has been error processing your request. Please try completing the form again."
+                    f"There has been error processing your request. Please try completing "
+                    f"the form again."
                 )
         member_form = MemberForm()
         return render(
