@@ -8,6 +8,8 @@
 {% url 'our_people' as our_people_url %}
 {% url 'what_we_do' as what_we_do_url %}
 {% url 'how_you_can_help' as how_you_can_help_url %}
+{% url 'donations' as donations_url %}
+{% url 'become_member' as become_member_url %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -63,10 +65,10 @@
             </ul>
             <div class='d-flex my-2'>
                 <li class="navbar-nav mx-2">
-                    <a class="btn btn-warning nav-btn nav-buttons" aria-current="page" href="#">{% trans 'Donate' %}</a>
+                    <a class="btn btn-warning nav-btn nav-buttons" aria-current="page" href="{% url 'donations' %}">{% trans 'Donate' %}</a>
                 </li>
                 <li class="navbar-nav mx-2">
-                    <a class="btn btn-success nav-btn nav-buttons" aria-current="page" href="#">{% trans 'Join us' %}</a>
+                    <a class="btn btn-success nav-btn nav-buttons" aria-current="page" href="{% url 'become_member' %}">{% trans 'Join us' %}</a>
                 </li>
                 <li class="navbar-nav mx-2">
                     <a href="/en/">English</a> | <a href="/el/">Ελληνικά</a>

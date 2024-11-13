@@ -5,6 +5,7 @@
 
 {% url 'events' as events_url %}
 {% url 'news' as news_url %}
+{% url 'become_member' as become_member_url %}
 
 {% block content %}
 
@@ -162,7 +163,7 @@
                         with your yearly contribution.
                         {% endblocktrans %}
                     </p>
-                    <a class="fs-5 fw-bold mt-5" href="#">{% trans 'Become a member >' %}</a>
+                    <a class="fs-5 fw-bold mt-5" href="{% url 'become_member' %}">{% trans 'Become a member >' %}</a>
                 </div>
             </div>
         </div>
