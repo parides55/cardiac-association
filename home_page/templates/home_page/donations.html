@@ -3,7 +3,137 @@
 {% load static %}
 {% load i18n %}
 
+{% url 'events' as events_url %}
+{% url 'news' as news_url %}
+{% url 'how_you_can_help' as how_you_can_help_url %}
+
 {% block content %}
-    <h1>DONATIONS</h1>
-    <h2>Hello world, from The cardiac association!</h2>
+
+<section class='mt-0 hero' id='hero-donations'>
+    <div class="container-fluid p-0">
+        <div class='row position-relative hero-image-div'>
+            <img class='img-fluid hero-image' src="{% static 'images/smilling_babies_heads_together.jpg' %}" alt="{% trans 'Four babies laying down with their heads joined and laughing' %}">
+            <h1 class='fst-italic fw-bold hero-heading'>{% trans 'Keep their hope alive' %}</h1>
+        </div>
+    </div>
+</section>
+
+<hr class='m-5'>
+
+<section id='intro-donations'>
+    <div class='container-fluid text-center d-flex flex-column'>
+        <div class='row'>
+            <div class='col d-sm-flex justify-content-sm-start ms-sm-5 mb-5'>
+                <h2 class='fs-1 fw-bold'>{% trans 'Donate' %}</h2>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col'>
+                <p class='fs-5'> 
+                    {% blocktrans %}
+                    Every day, children are born into a life filled with challenges due to heart disease. 
+                    For many, their tiny hearts require urgent medical interventions just to survive their 
+                    first year. These brave children and their families face the emotional and financial 
+                    burden of ongoing treatments, surgeries, and specialized care.<br><br>
+                    Donate today and be the reason a child's heart keeps beating stronger.
+                    {% endblocktrans %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class='m-5'>
+
+<section id='donations'>
+    <div class="container-fluid">
+        <div class="row text-center d-flex flex-column flex-lg-row">
+            <div class="col my-3 px-0">
+                <img class='w-100' src="{% static 'images/melissa-labellarte-j_XVwZqzcdI-unsplash.jpg' %}" alt="{% trans 'Baby being examinated from a doctor.' %}">
+            </div>
+            <div class="col my-3 pe-lg-5 bg-warning px-0">
+                <h2 class='text-center fs-1 fw-bold mt-2'>{% trans 'Donations' %}</h2>
+                <div>
+                    <form action="">
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class='m-5'>
+
+<section id="message">
+    <div class='container-fluid text-center d-flex flex-column'>
+        <div class='row'>
+            <div class='col d-sm-flex justify-content-sm-start ms-sm-5 mb-5'>
+                <h2 class='fs-1 fw-bold'>{% trans 'Every' %}<br>{% trans 'Donation' %}<br>{% trans 'Counts' %}</h2>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col'>
+                <p class='fs-5'> 
+                    {% blocktrans %}
+                    Together, we can make a difference. Your donation can provide life-saving treatment,
+                    offer support to families in need, and give these children the chance to grow, thrive, and
+                    experience the joys of childhood. No contribution is too small—every bit brings hope to a
+                    child fighting for their life.<br><br>
+                    Join us in this mission to mend little hearts and give these children the future they
+                    deserve.
+                    {% endblocktrans %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class='m-5'>
+
+<section id="other-ways">
+    <div class='container-fluid text-center d-flex flex-column'>
+        <div class='row'>
+            <div class='col d-sm-flex justify-content-sm-start ms-sm-5 mb-5'>
+                <h2 class='fs-1 fw-bold'>{% trans 'Other ways to donate' %}</h2>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col'>
+                <ul> 
+                    <li class='fs-5'>{% trans 'Donate by phone' %}</li>
+                    <li class='fs-5'>{% trans 'Donate by posting a check or bank transfer' %}</li>
+                    <li class='fs-5'>{% trans 'Donate at our' %}<a class='fs-5' href="{% url 'events' %}">{% trans 'Events >' %}</a></li>
+                    <li class='fs-5'>{% trans 'Donate by' %}<a class='fs-5' href="#">{% trans 'Visiting our Online shop >' %}</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class='m-5'>
+
+<section id='links-donations'>
+    <div class="container-fluid">
+        <div class="row d-flex flex-column flex-lg-row">
+            <div class="col my-3 d-flex flex-column">
+                <div class='d-flex justify-content-center'>
+                    <img class='w-75' src="{% static 'images/volunteer-hands.jpg' %}" alt="{% trans 'A group of people in the forest hanging each other.' %}">
+                </div>
+                <div class='d-flex justify-content-center mt-4'>
+                    <a class='fs-2 fw-bold' href="{% url 'how_you_can_help' %}">{% trans 'How you can help' %}</a>
+                </div>
+            </div>
+            <div class='col my-3 pe-lg-5 d-flex flex-column'>
+                <div class='d-flex justify-content-center'>
+                    <img class='w-75' src="{% static 'images/istockphoto-1335915930-1024x1024.jpg' %}" alt="{% trans 'Two hands holding a red heart over a laptop.' %}">
+                </div>
+                <div class='d-flex justify-content-center mt-4'>
+                    <a class='fs-2 fw-bold' href="{% url 'news' %}">{% trans 'Read our news' %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}
