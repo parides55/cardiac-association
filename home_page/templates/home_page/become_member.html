@@ -28,7 +28,12 @@
         </div>
         <div class='row'>
             <div class='col'>
-                
+                <form id="memberForm" method="post">
+                    {{ member_form | crispy }}
+                    {% csrf_token %}
+                    <button id="submitButton" type="submit" 
+                    class="btn btn-secondary" aria-label="Submit">{% trans 'Submit' %}</button>
+                </form>
             </div>
         </div>
     </div>

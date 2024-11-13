@@ -57,6 +57,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cloudinary_storage',
+    'crispy_forms',
+    'crispy_bootstrap5',
     'django_summernote',
     'cloudinary',
     'home_page',
@@ -66,6 +68,9 @@ INSTALLED_APPS = [
     'what_we_do',
     'how_you_can_help',
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
