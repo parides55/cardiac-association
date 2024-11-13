@@ -2,6 +2,7 @@
 
 {% load static %}
 {% load i18n %}
+{% load crispy_forms_tags %}
 
 {% url 'events' as events_url %}
 {% url 'news' as news_url %}
@@ -29,7 +30,7 @@
         <div class='row'>
             <div class='col'>
                 <form id="memberForm" method="post">
-                    {{ member_form | crispy }}
+                    {{ member_form|crispy }}
                     {% csrf_token %}
                     <button id="submitButton" type="submit" 
                     class="btn btn-secondary" aria-label="Submit">{% trans 'Submit' %}</button>
