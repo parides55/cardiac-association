@@ -39,3 +39,6 @@ def Become_member(request):
 
 def Donations(request):
     return render(request, "home_page/donations.html")
+
+def OnlineShop(request):
+    return render(request, "home_page/online_shop.html")

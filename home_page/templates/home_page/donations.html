@@ -6,6 +6,7 @@
 {% url 'events' as events_url %}
 {% url 'news' as news_url %}
 {% url 'how_you_can_help' as how_you_can_help_url %}
+{% url 'online_shop' as online_shop_url %}
 
 {% block content %}
 
@@ -104,7 +105,7 @@
                     <li class='fs-5'>{% trans 'Donate by phone' %}</li>
                     <li class='fs-5'>{% trans 'Donate by posting a check or bank transfer' %}</li>
                     <li class='fs-5'>{% trans 'Donate at our' %}<a class='fs-5' href="{% url 'events' %}">{% trans 'Events >' %}</a></li>
-                    <li class='fs-5'>{% trans 'Donate by' %}<a class='fs-5' href="#">{% trans 'Visiting our Online shop >' %}</a></li>
+                    <li class='fs-5'>{% trans 'Donate by' %}<a class='fs-5' href="{% url 'online_shop' %}">{% trans 'Visiting our Online shop >' %}</a></li>
                 </ul>
             </div>
         </div>

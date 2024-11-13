@@ -6,6 +6,7 @@
 {% url 'events' as events_url %}
 {% url 'news' as news_url %}
 {% url 'become_member' as become_member_url %}
+{% url 'online_shop' as online_shop_url %}
 
 {% block content %}
 
@@ -122,7 +123,7 @@
                         Association, you can help support our cause.
                         {% endblocktrans %}
                     </p>
-                    <a class="fs-5 fw-bold mt-5" href="#">{% trans 'Visit Our Online Shop >' %}</a>
+                    <a class="fs-5 fw-bold mt-5" href="{% url 'online_shop' %}">{% trans 'Visit Our Online Shop >' %}</a>
                 </div>
             </div>
         </div>
