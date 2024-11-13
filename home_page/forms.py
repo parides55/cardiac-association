@@ -25,6 +25,5 @@ class MemberForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['heart_disease'].label = "Heart Disease"
         self.fields['date_of_diagnosis'].label = "Date of Diagnosis"
         self.fields['registered_as'].label = "Registered_as"
