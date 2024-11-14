@@ -7,3 +7,4 @@ class News(generic.ListView):
     
     queryset = New.objects.filter(status=1).order_by('-created_on')
     template_name = "news/news.html"
+    paginate_by = 6
