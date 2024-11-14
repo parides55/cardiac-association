@@ -72,6 +72,11 @@ nav {
     height: 500px;
 }
 
+/* ---------------------------- What-we-do page --------------------------------------------- */
+.card-img-div { /* Services */
+    height: 300px; 
+}
+
 /* ---------------------------- How-you-can-help page --------------------------------------------- */
 .services-btn {
     position: absolute;
