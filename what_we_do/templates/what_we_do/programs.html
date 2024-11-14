@@ -12,7 +12,7 @@
     <div class="container-fluid p-0">
         <div class='row position-relative hero-image-div'>
             <img class='img-fluid hero-image' src="{% static 'images/people.jpg' %}" alt="{% trans 'Figures standing in a row with the middle figure being red with a little heart' %}">
-            <h1 class='fst-italic fw-bold hero-heading'>{% trans 'Young hearts' %}<br>{% trans 'is our mission' %}</h1>
+            <h1 class='fst-italic fw-bold hero-heading'>{% trans 'Supporting Hearts,' %}<br>{% trans 'Strengthening Families' %}</h1>
         </div>
     </div>
 </section>
@@ -20,14 +20,14 @@
 <hr class='m-5'>
 
 <section id='intro-programs'>
-    <div class='container-fluid text-center d-flex flex-column'>
+    <div class='container-fluid text-start d-flex flex-column'>
         <div class='row'>
             <div class='col d-sm-flex justify-content-sm-start ms-sm-5 mb-5'>
                 <h2 class='fs-1 fw-bold'>{% trans 'Our supporting programs' %}</h2>
             </div>
         </div>
-        <div class='row'>
-            <div class='col'>
+        <div class='row justify-content-center'>
+            <div class='col-8'>
                 <p class='fs-5'> 
                     {% blocktrans %}
                     The Association, always guided by the needs of its members in order to 
@@ -44,8 +44,103 @@
 <section id="list-of-programs">
     <div class="container-fluid">
         <div class='row'>
-            <div class='col d-sm-flex justify-content-sm-start ms-sm-5 mb-5'>
-                <h2 class='fs-1 fw-bold'>{% trans 'Services we offer' %}</h2>
+            <div class="accordion" id="accordionPanelsStayOpenExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                            {% trans 'Psychological Support Program' %}
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                            <p>{% blocktrans %}In collaboration with Psychologist Mrs. Andri Christoudia, 
+                                it provides support, education and empowerment services to both the sufferers 
+                                themselves and their families.
+                                {% endblocktrans %}
+                            </p>
+                            <ul>
+                                <li>{% trans 'Individual/family psychological support meetings' %}</li>
+                                <li>{% blocktrans %}Parents' School: Various workshops are organized 
+                                    that aim to provide knowledge and skills to parents 
+                                    so that they can empower and support the child with 
+                                    their health issues and so that they can live with 
+                                    confidence and joy, how we communicate with our child 
+                                    and the family environment, preparation of parents and 
+                                    the child for surgery, etc.
+                                    {% endblocktrans %}
+                                </li>
+                                <li>{% trans 'Workshops for sufferers themselves for empowerment and self-confidence' %}
+                                </li>
+                                <li>{% trans 'Experiential workshops with the participation of parents and sufferers.' %}
+                                </li>
+                                <li>{% trans 'Educational/informational lectures' %}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                        {% trans 'Support Program' %}
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <p>
+                                {% blocktrans %}
+                                The Association implements a financial support program for its members who travel 
+                                abroad for their child's heart surgery as many times as necessary.<br><br>
+                                It also supports financially needy member families every Christmas and Easter or 
+                                if for any other reason the need arises.
+                                {% endblocktrans %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                        {% trans 'Information and Awareness Program' %}
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <p>
+                                {% blocktrans %}
+                                Public information and awareness campaigns are organized for Congenital Heart 
+                                Diseases through the media, on the Website, on Facebook, through the information 
+                                brochure, Congenital Heart Disease Week is organized from February 7-14 of each year, 
+                                We participate in conferences in and outside Cyprus, etc.
+                                {% endblocktrans %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+                        {% trans 'Rehabilitation Program' %}
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <p>{% blocktrans %}In collaboration with Pediatric Cardiologists and other organizations, 
+                                various programs are organized with the ultimate goal of improving the quality of life 
+                                of people with Congenital Heart Disease, such as:
+                                {% endblocktrans %}
+                            </p>
+                            <ul>
+                                <li>{% trans 'Exercise and Congenital Heart Disease' %}</li>
+                                <li>{% trans 'Pregnancy and Congenital Heart Disease' %}</li>
+                                <li>{% trans 'Learning Disabilities and Congenital Heart Diseases' %}
+                                </li>
+                                <li>{% trans 'Vocational training' %}
+                                </li>
+                                <li>{% trans 'Informative lectures with Pediatric Cardiologists' %}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
