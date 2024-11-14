@@ -27,6 +27,11 @@ nav {
     font-size: large;
 }
 
+#logo-img {
+    width: 100px;
+    height: auto;
+}
+
 /* ---------------------------- Home Page --------------------------------------------- */
 .hero {
     position: relative;
