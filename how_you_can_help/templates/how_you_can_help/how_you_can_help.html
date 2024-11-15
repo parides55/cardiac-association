@@ -7,6 +7,7 @@
 {% url 'news' as news_url %}
 {% url 'become_member' as become_member_url %}
 {% url 'online_shop' as online_shop_url %}
+{% url 'donations' as donations_url %}
 
 {% block content %}
 
@@ -58,7 +59,7 @@
                     chance to grow, thrive,and experience the joys of childhood.
                     {% endblocktrans %}
                 </p>
-                    <a class='btn btn-warning text-decoration-underline w-50' href="#">{% trans 'Make a donation today >' %}</a>
+                    <a class='btn btn-warning text-decoration-underline w-50' href="{% url 'donations' %}">{% trans 'Make a donation today >' %}</a>
             </div>
         </div>
     </div>
