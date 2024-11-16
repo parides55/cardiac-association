@@ -8,14 +8,14 @@ def events(request):
     current_year = datetime.now().year
     
     current_month_events = Event.objects.filter(
-        date__month=current_month,
-        date__year=current_year,
+        date_of_event__month=current_month,
+        date_of_event__year=current_year,
         status=1
         )
     
     past_events = Event.objects.exclude(
-        date__month=current_month,
-        date__year=current_year,
+        date_of_event__month=current_month,
+        date_of_event__year=current_year,
         status=0
     )
     
