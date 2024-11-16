@@ -59,7 +59,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ new.title }}</h5>
                         <p class="card-text">{{ new.excerpt }}</p>
-                        <a class="btn btn-outline-secondary" href="#">Read</a>
+                        <a class="btn btn-outline-secondary" href="{% url 'new_detail' new.slug %}">Read</a>
                     </div>
                     <div class="card-footer">
                         <small class="text-body-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="gray" class="bi bi-pencil-square" viewBox="0 0 16 16">
