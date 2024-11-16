@@ -122,6 +122,8 @@ nav {
 .card-img-top {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+    height: 300px;
+    width: fit-content;
 }
 
 .card {
@@ -131,6 +133,12 @@ nav {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
     height: 450px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 /* ---------------------------- Footer --------------------------------------------- */

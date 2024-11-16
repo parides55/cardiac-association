@@ -21,10 +21,62 @@
 
 <hr class='m-5'>
 
-<section id='new-events'>
+<section id='this-months-events'>
+    <div class="container-fluid">
+        <div class="rows ms-2">
+            <h2 class='fs-1 fw-bold'>{% trans "This month's events" %}</h2>
+        </div>
+        <div class="row mt-5">
+            {% if current_month_events %}
+            {% for event in current_month_events %}
+            <div class="col d-flex justify-content-center col-md-6 col-lg-4">
+                <div class="card w-75 h-auto">
+                    {% if 'placeholder' in event.image.url %}
+                    <img src="{% static 'images/default_logo.jpg' %}" class="card-img-top" alt="{% trans 'Default image' %}">
+                    {% else %}
+                    <img src="{{ event.image.url }}" class="card-img-top" alt="{{ event.title }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ event.title }}</h5>
+                        <p class="card-text"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="red" class="bi bi-calendar-heart-fill" viewBox="0 0 16 16">
+                            <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2M8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132"/>
+                            </svg> {{ event.date_of_event|date:"F j, Y" }}</p>
+                        <a class="btn btn-outline-danger" href="#">View Event</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section id='upcoming-events'>
     <div class="container-fluid">
         <div class="rows ms-2">
             <h2 class='fs-1 fw-bold'>{% trans "Our upcoming events" %}</h2>
+        </div>
+        <div class="row mt-5">
+            {% if upcoming_events %}
+            {% for event in upcoming_events %}
+            <div class="col d-flex justify-content-center col-md-6 col-lg-4">
+                <div class="card w-75 h-auto">
+                    {% if 'placeholder' in event.image.url %}
+                    <img src="{% static 'images/default_logo.jpg' %}" class="card-img-top" alt="{% trans 'Default image' %}">
+                    {% else %}
+                    <img src="{{ event.image.url }}" class="card-img-top" alt="{{ event.title }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ event.title }}</h5>
+                        <p class="card-text"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="red" class="bi bi-calendar-heart-fill" viewBox="0 0 16 16">
+                            <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2M8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132"/>
+                            </svg> {{ event.date_of_event|date:"F j, Y" }}</p>
+                            <a class="btn btn-outline-danger" href="#">View Event</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
         </div>
     </div>
 </section>
@@ -35,6 +87,28 @@
     <div class="container-fluid">
         <div class="row text-center mx-2 mx-lg-5">
             <h2 class='fs-1 fw-bold'>{% trans 'Get inspired from our previous events and help us organise our next ones' %}</h2>
+        </div>
+        <div class="row mt-5">
+            {% if past_events %}
+            {% for event in past_events %}
+            <div class="col d-flex justify-content-center col-md-6 col-lg-4">
+                <div class="card w-75 h-auto">
+                    {% if 'placeholder' in event.image.url %}
+                    <img src="{% static 'images/default_logo.jpg' %}" class="card-img-top" alt="{% trans 'Default image' %}">
+                    {% else %}
+                    <img src="{{ event.image.url }}" class="card-img-top" alt="{{ event.title }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ event.title }}</h5>
+                        <p class="card-text"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="red" class="bi bi-calendar-heart-fill" viewBox="0 0 16 16">
+                            <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2M8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132"/>
+                            </svg> {{ event.date_of_event|date:"F j, Y" }}</p>
+                            <a class="btn btn-outline-danger" href="#">View Event</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
         </div>
     </div>
 </section>
