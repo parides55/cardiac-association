@@ -23,13 +23,13 @@
 <section id='become-member-form'>
     <div class='container'>
         <div class='row'>
-            <div class='col d-sm-flex justify-content-sm-start ms-sm-5 mb-5'>
+            <div class='col d-sm-flex justify-content-sm-start justify-content-lg-center ms-sm-5 mb-5'>
                 <h2 class='fs-1 fw-bold'>{% trans 'Complete the form and Join Our Family' %}</h2>
             </div>
         </div>
         <div class='row'>
             <div class='col'>
-                <form id="memberForm" method="post">
+                <form class="px-3" id="memberForm" method="post">
                     {{ member_form|crispy }}
                     {% csrf_token %}
                     <button id="submitButton" type="submit" 

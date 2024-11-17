@@ -25,8 +25,8 @@
 
 <section id='intro'>
     <div class="container-fluid">
-        <div class="row text-center d-flex flex-column flex-lg-row">
-            <div class="col my-3">
+        <div class="row d-flex flex-column flex-lg-row">
+            <div class="col my-3 text-center">
                 <img class='w-75' src="{% static 'images/istockphoto-2174361430-1024x1024.jpg' %}" alt="{% trans 'Hands forming a circle around a big red heart' %}">
             </div>
             <div class="col my-3 pe-lg-5">
@@ -77,8 +77,8 @@
 
 <section id='explain'>
     <div class="container-fluid">
-        <div class="row text-center d-flex flex-column flex-lg-row">
-            <div class="col my-3 pe-lg-5">
+        <div class="row d-flex flex-column flex-lg-row">
+            <div class="col my-3 pe-lg-5 d-flex flex-column justify-content-center">
                 <div>
                     <h2 class='ps-3 fs-1 fw-bold'>{% trans 'What are Congenital Heart Diseases?' %}</h2>
                     <p class='px-3 fs-5 mt-4'>
@@ -95,7 +95,7 @@
                     <a class='pe-3' href="{% url 'heart_disease_info' %}">{% trans 'More Info' %}</a>
                 </div>
             </div>
-            <div class="col my-3">
+            <div class="col my-3 text-center">
                 <img class='w-75' src="{% static 'images/baby_examinated.jpg' %}" alt="{% trans 'Infant laying down and a doctor listens to the heart of the baby' %}">
             </div>
         </div>

@@ -23,12 +23,12 @@
 
 <section id='description'>
     <div class="container-fluid">
-        <h2 class="text-center fs-1 fw-bold">{% trans 'What we do' %}</h2>
-        <div class="row text-center d-flex flex-column flex-lg-row">
-            <div class="col my-3">
+        <h2 class="text-center fs-1 fw-bold mb-5">{% trans 'What we do' %}</h2>
+        <div class="row d-flex flex-column flex-lg-row">
+            <div class="col my-3 text-center">
                 <img class='w-75' src="{% static 'images/red_band.jpg' %}" alt="{% trans 'Red band' %}">
             </div>
-            <div class="col my-3 pe-lg-5">
+            <div class="col my-3 pe-lg-5 d-flex align-items-center">
                 <div>
                     <p class='px-3 fs-5'>
                         {% blocktrans %}
@@ -64,8 +64,8 @@
     <h2 class="fs-1 fw-bold text-center mb-5">{% trans 'Main goals of the Association' %}</h2>
     <!--Goal 1-->
     <div class="container-fluid">
-        <div class="row text-center d-flex flex-column flex-lg-row">
-            <div class="col my-3">
+        <div class="row d-flex flex-column flex-lg-row">
+            <div class="col my-3 text-center">
                 <img class='w-75' src="{% static 'images/istockphoto-2174361430-1024x1024.jpg' %}" alt="{% trans 'Hands forming a circle around a big red heart' %}">
             </div>
             <div class="col my-3 pe-lg-5 d-flex align-items-center">
@@ -86,10 +86,10 @@
     </div>
     <!--Goal 2-->
     <div class="container-fluid">
-        <div class="row text-center d-flex flex-column-reverse flex-lg-row">
+        <div class="row d-flex flex-column-reverse flex-lg-row">
             <div class="col my-3 pe-lg-5 d-flex align-items-center">
                 <div>
-                    <p class='px-3 fs-5 mt-4'>
+                    <p class='ps-5 fs-5 mt-4'>
                         {% blocktrans %}
                         The information, enlightenment and awareness of the public about Congenital 
                         Heart Diseases The education and empowerment of people with Congenital Heart Diseases.
@@ -97,15 +97,15 @@
                     </p>
                 </div>
             </div>
-            <div class="col my-3">
+            <div class="col my-3 text-center">
                 <img class='w-75' src="{% static 'images/baby_examinated.jpg' %}" alt="{% trans 'Infant laying down and a doctor listens to the heart of the baby' %}">
             </div>
         </div>
     </div>
     <!--Goal 3-->
     <div class="container-fluid">
-        <div class="row text-center d-flex flex-column flex-lg-row">
-            <div class="col my-3">
+        <div class="row d-flex flex-column flex-lg-row">
+            <div class="col my-3 text-center">
                 <img class='w-75' src="{% static 'images/istockphoto-2174361430-1024x1024.jpg' %}" alt="{% trans 'Hands forming a circle around a big red heart' %}">
             </div>
             <div class="col my-3 pe-lg-5 d-flex align-items-center">
@@ -121,10 +121,10 @@
     </div>
     <!--Goal 4-->
     <div class="container-fluid">
-        <div class="row text-center d-flex flex-column-reverse flex-lg-row">
+        <div class="row d-flex flex-column-reverse flex-lg-row">
             <div class="col my-3 pe-lg-5 d-flex align-items-center">
                 <div>
-                    <p class='px-3 fs-5 mt-4'>
+                    <p class='ps-5 fs-5 mt-4'>
                         {% blocktrans %}
                         Always aiming at the best quality of life for people with Congenital Heart Diseases, 
                         the Association, in collaboration with Pediatric Cardiologists, makes efforts to find 
@@ -136,15 +136,15 @@
                     </p>
                 </div>
             </div>
-            <div class="col my-3">
+            <div class="col my-3 text-center">
                 <img class='w-75' src="{% static 'images/baby_examinated.jpg' %}" alt="{% trans 'Infant laying down and a doctor listens to the heart of the baby' %}">
             </div>
         </div>
     </div>
     <!--Goal 5-->
     <div class="container-fluid">
-        <div class="row text-center d-flex flex-column flex-lg-row">
-            <div class="col my-3">
+        <div class="row d-flex flex-column flex-lg-row">
+            <div class="col my-3 text-center">
                 <img class='w-75' src="{% static 'images/istockphoto-2174361430-1024x1024.jpg' %}" alt="{% trans 'Hands forming a circle around a big red heart' %}">
             </div>
             <div class="col my-3 pe-lg-5 d-flex align-items-center">
@@ -162,17 +162,17 @@
     </div>
     <!--Goal 6-->
     <div class="container-fluid">
-        <div class="row text-center d-flex flex-column-reverse flex-lg-row">
+        <div class="row d-flex flex-column-reverse flex-lg-row">
             <div class="col my-3 pe-lg-5 d-flex align-items-center">
                 <div>
-                    <p class='px-3 fs-5 mt-4'>
+                    <p class='ps-5 fs-5 mt-4'>
                         {% blocktrans %}
                         Participation of people with Congenital Heart Diseases in information and education programs.
                         {% endblocktrans %}
                     </p>
                 </div>
             </div>
-            <div class="col my-3">
+            <div class="col my-3 text-center">
                 <img class='w-75' src="{% static 'images/baby_examinated.jpg' %}" alt="{% trans 'Infant laying down and a doctor listens to the heart of the baby' %}">
             </div>
         </div>
@@ -183,7 +183,7 @@
 
 <section class='mt-0 hero' id='offerings'>
     <div class="container-fluid p-0">
-        <div class='row position-relative hero-image-div'>
+        <div class='row hero-image-div'>
             <img class='img-fluid hero-image' src="{% static 'images/kid_heart.png.jpg' %}" alt="{% trans 'Two hands of a child holding a red heart' %}">
             <a class="btn btn-secondary services-btn w-25 fs-4" href="{% url 'services' %}">{%  trans 'Services' %}</a>
             <a class="btn btn-secondary programs-btn w-25 fs-4" href="{% url 'programs' %}">{%  trans 'Programs' %}</a>

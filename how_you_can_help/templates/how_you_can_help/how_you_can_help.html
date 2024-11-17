@@ -23,13 +23,13 @@
 <hr class='m-5'>
 
 <section id='intro-how-you-can-help'>
-    <div class='container-fluid text-center d-flex flex-column'>
+    <div class='container-fluid text-start d-flex flex-column'>
         <div class='row'>
             <div class='col d-sm-flex justify-content-sm-center ms-sm-5 mb-5'>
                 <h2 class='fs-1 fw-bold'>{% trans 'How you can help' %}</h2>
             </div>
         </div>
-        <div class='row'>
+        <div class='row justify-content-center'>
             <div class='col'>
                 <p class='fs-5 mx-5'> 
                     {% blocktrans %}
@@ -69,8 +69,8 @@
 
 <section id="help2">
     <div class="container-fluid">
-        <div class="row text-center d-flex flex-column flex-lg-row">
-            <div class="col my-3">
+        <div class="row d-flex flex-column flex-lg-row">
+            <div class="col my-3 text-center">
                 <img class='w-75' src="{% static 'images/istockphoto-2174361430-1024x1024.jpg' %}" alt="{% trans 'Hands forming a circle around a big red heart' %}">
             </div>
             <div class="col my-3 pe-lg-5 d-flex align-items-center">
@@ -83,7 +83,7 @@
                         affected by heart disease!
                         {% endblocktrans %}
                     </p>
-                    <p class="fs-5 fw-bold mt-5">{% trans 'Call us or Email us!' %}</p>
+                    <p class="fs-5 fw-bold mt-5 text-center">{% trans 'Call us or Email us!' %}</p>
                 </div>
             </div>
         </div>
@@ -112,8 +112,8 @@
 
 <section id="help4">
     <div class="container-fluid">
-        <div class="row text-center d-flex flex-column flex-lg-row">
-            <div class="col my-3">
+        <div class="row d-flex flex-column flex-lg-row">
+            <div class="col my-3 text-center">
                 <img class='w-75' src="{% static 'images/istockphoto-2174361430-1024x1024.jpg' %}" alt="{% trans 'Hands forming a circle around a big red heart' %}">
             </div>
             <div class="col my-3 pe-lg-5 d-flex align-items-center">
@@ -124,7 +124,7 @@
                         Association, you can help support our cause.
                         {% endblocktrans %}
                     </p>
-                    <a class="fs-5 fw-bold mt-5" href="{% url 'online_shop' %}">{% trans 'Visit Our Online Shop >' %}</a>
+                    <a class="fs-5 fw-bold mt-5 ps-3" href="{% url 'online_shop' %}">{% trans 'Visit Our Online Shop >' %}</a>
                 </div>
             </div>
         </div>
@@ -152,8 +152,8 @@
 
 <section id="help6">
     <div class="container-fluid">
-        <div class="row text-center d-flex flex-column flex-lg-row">
-            <div class="col my-3">
+        <div class="row d-flex flex-column flex-lg-row">
+            <div class="col my-3 text-center">
                 <img class='w-75' src="{% static 'images/istockphoto-2174361430-1024x1024.jpg' %}" alt="{% trans 'Hands forming a circle around a big red heart' %}">
             </div>
             <div class="col my-3 pe-lg-5 d-flex align-items-center">
@@ -165,7 +165,7 @@
                         with your yearly contribution.
                         {% endblocktrans %}
                     </p>
-                    <a class="fs-5 fw-bold mt-5" href="{% url 'become_member' %}">{% trans 'Become a member >' %}</a>
+                    <a class="fs-5 fw-bold mt-5 ps-3" href="{% url 'become_member' %}">{% trans 'Become a member >' %}</a>
                 </div>
             </div>
         </div>
