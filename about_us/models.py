@@ -7,6 +7,10 @@ POSITIONS = ((0, "Chairman"), (1, "Vice Chairman"), (2, "Secretary"), (3, "Assis
 
 
 class People(models.Model):
+
     name = models.CharField(max_length=100)
     image = CloudinaryField('image', default='placeholder')
-    POSITIONS = models.IntegerField(choices=POSITIONS, default=0)
+    position = models.IntegerField(choices=POSITIONS, default=0)
+
+    def __str__(self):
+        return f"{self.name} - {self.get_position_display()}"
