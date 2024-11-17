@@ -50,6 +50,21 @@
             <div class='col d-sm-flex justify-content-sm-start ms-sm-5 mb-5'>
                 <h2 class='fs-1 fw-bold'>{% trans 'Board of Directors' %}</h2>
             </div>
+            <div class="row mt-5">
+                <div class="col d-flex justify-content-center col-md-6 col-lg-4">
+                    <div class="card w-75 h-auto">
+                        {% if 'placeholder' in event.image.url %}
+                        <img src="{% static 'images/profile_pic.jpeg' %}" class="card-img-top" alt="{% trans 'Default image' %}">
+                        {% else %}
+                        <img src="{{ event.image.url }}" class="card-img-top" alt="{{ event.title }}">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">Name Surname</h5>
+                            <p class="card-text">Position</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
