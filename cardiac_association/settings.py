@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     'about_us',
     'what_we_do',
     'how_you_can_help',
+    'shop',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"

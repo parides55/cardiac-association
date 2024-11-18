@@ -36,9 +36,3 @@ def Become_member(request):
     except Exception as e:
         messages.error(request, f"The following error occurred: {str(e)}")
         return redirect('become_member')
-
-def Donations(request):
-    return render(request, "home_page/donations.html")
-
-def OnlineShop(request):
-    return render(request, "home_page/online_shop.html")
