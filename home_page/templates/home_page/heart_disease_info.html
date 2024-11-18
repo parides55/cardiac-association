@@ -42,6 +42,66 @@
     </div>
 </section>
 
+<section id="info-info-pages">
+    <div class="container-fluid">
+        <div class='row'>
+            <div class="accordion" id="accordionPanelsStayOpenExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button fs-3 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                            {% trans 'How are they detected' %}
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                            <p>{% blocktrans %}It is encouraging that many congenital heart diseases are now detected by fetal 
+                                echocardiography. However, the majority of them are diagnosed in the neonatal period, usually 
+                                by the pediatrician in the maternity ward or during the first weeks or months of life.<br><br>
+                                However, there are also several cases where very significant congenital heart diseases can be 
+                                found at any time in childhood, adolescence or even after adulthood. Such cases may include a 
+                                referral from the pediatrician to a pediatric cardiologist, who is called upon to evaluate a 
+                                child with a heart murmur (nine out of ten children are referred for evaluation of a heart murmur), 
+                                with cyanosis or with signs and symptoms of heart failure.
+                                {% endblocktrans %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fs-3 fw-bold text-center" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                        {% trans 'What to do' %}
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <p>
+                                {% blocktrans %}
+                                Referral to a physician specialized and experienced in the diagnosis and treatment of congenital 
+                                heart disease is vital in order to accurately determine the nature of the problem. A pediatric 
+                                cardiologist is the doctor who has the knowledge and expertise to determine:
+                                {% endblocktrans %}
+                            </p>
+                            <ul>
+                                <li>{% trans 'The nature of the heart problem' %}</li>
+                                <li>{% trans 'Medication, if indicated' %}</li>
+                                <li>{% blocktrans %} The frequency of visits needed to monitor the 
+                                    patient and possible tests
+                                    {% endblocktrans %}</li>
+                                <li>{% trans 'Invasive non-surgical cardiac treatment, if indicated' %}</li>
+                                <li>{% blocktrans %} Referral of the patient for possible surgical treatment of the 
+                                    problem by a pediatric cardiac surgeon-cardiac surgeon specializing in congenital 
+                                    heart disease.
+                                    {% endblocktrans %}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <hr class='m-5'>
 
 <section id='links-info-page'>
