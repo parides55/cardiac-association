@@ -22,14 +22,14 @@
 <hr class='m-5'>
 
 <section id='intro-donations'>
-    <div class='container-fluid text-center d-flex flex-column'>
+    <div class='container-fluid text-start d-flex flex-column'>
         <div class='row'>
             <div class='col d-sm-flex justify-content-sm-start ms-sm-5 mb-5'>
                 <h2 class='fs-1 fw-bold'>{% trans 'Donate' %}</h2>
             </div>
         </div>
-        <div class='row'>
-            <div class='col'>
+        <div class='row d-flex justify-content-center'>
+            <div class='col-8'>
                 <p class='fs-5'> 
                     {% blocktrans %}
                     Every day, children are born into a life filled with challenges due to heart disease. 
@@ -67,14 +67,14 @@
 <hr class='m-5'>
 
 <section id="message">
-    <div class='container-fluid text-center d-flex flex-column'>
+    <div class='container-fluid text-start d-flex flex-column'>
         <div class='row'>
             <div class='col d-sm-flex justify-content-sm-start ms-sm-5 mb-5'>
-                <h2 class='fs-1 fw-bold'>{% trans 'Every' %}<br>{% trans 'Donation' %}<br>{% trans 'Counts' %}</h2>
+                <h2 class='fs-1 fw-bold lh-base'>{% trans 'Every' %}<br>{% trans 'Donation' %}<br>{% trans 'Counts' %}</h2>
             </div>
         </div>
-        <div class='row'>
-            <div class='col'>
+        <div class='row d-flex justify-content-center'>
+            <div class='col-8'>
                 <p class='fs-5'> 
                     {% blocktrans %}
                     Together, we can make a difference. Your donation can provide life-saving treatment,
@@ -93,19 +93,19 @@
 <hr class='m-5'>
 
 <section id="other-ways">
-    <div class='container-fluid text-center d-flex flex-column'>
+    <div class='container-fluid text-start d-flex flex-column'>
         <div class='row'>
             <div class='col d-sm-flex justify-content-sm-start ms-sm-5 mb-5'>
                 <h2 class='fs-1 fw-bold'>{% trans 'Other ways to donate' %}</h2>
             </div>
         </div>
-        <div class='row'>
-            <div class='col'>
+        <div class='row d-flex justify-content-center'>
+            <div class='col-8'>
                 <ul> 
-                    <li class='fs-5'>{% trans 'Donate by phone' %}</li>
-                    <li class='fs-5'>{% trans 'Donate by posting a check or bank transfer' %}</li>
-                    <li class='fs-5'>{% trans 'Donate at our' %}<a class='fs-5' href="{% url 'events' %}">{% trans 'Events >' %}</a></li>
-                    <li class='fs-5'>{% trans 'Donate by' %}<a class='fs-5' href="{% url 'online_shop' %}">{% trans 'Visiting our Online shop >' %}</a></li>
+                    <li class='fs-3 lh-base'>{% trans 'Donate by phone' %}</li>
+                    <li class='fs-3 lh-base'>{% trans 'Donate by posting a check or bank transfer' %}</li>
+                    <li class='fs-3 lh-base'>{% trans 'Donate at our' %}<a class='fs-3 ms-2' href="{% url 'events' %}">{% trans 'Events >' %}</a></li>
+                    <li class='fs-3 lh-base'>{% trans 'Donate by' %}<a class='fs-3 ms-2' href="{% url 'online_shop' %}">{% trans 'Visiting our Online shop >' %}</a></li>
                 </ul>
             </div>
         </div>
