@@ -16,20 +16,16 @@ nav {
 }
 
 .nav-item {
-    font-weight: bold;
     margin: 0 10px;
-    font-size: large;
-    font-style: italic;
-}
-
-.nav-buttons {
-    font-weight: bold;
-    font-size: large;
 }
 
 #logo-img {
     width: 100px;
     height: auto;
+}
+
+#search-form {
+    height: 25px;
 }
 
 /* ---------------------------- Home Page --------------------------------------------- */

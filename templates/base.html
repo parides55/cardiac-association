@@ -41,58 +41,84 @@
             <div>
                 <a class="logo" href="{% url 'home' %}"><img id="logo-img" src="{% static 'images/default_logo.jpg' %}" alt="{% trans 'Logo' %}"></a>
             </div>
+            <div>
+                <a class="btn btn-warning nav-btn nav-buttons d-block d-lg-none px-5 px-lg-0" aria-current="page" href="{% url 'donations' %}">{% trans 'Donate' %}</a>
+            </div>
+            <div>
+                <a class="btn btn-success nav-btn nav-buttons d-none d-md-block d-lg-none px-5 px-lg-0" aria-current="page" href="{% url 'become_member' %}">{% trans 'Join us' %}</a>
+
+            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="{% url 'what_we_do' %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {% trans 'What we do' %}
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{% url 'what_we_do' %}">{% trans 'What we do' %}</a></li>
-                        <li><a class="dropdown-item" href="{% url 'services' %}">{% trans 'Our services' %}</a></li>
-                        <li><a class="dropdown-item" href="{% url 'programs' %}">{% trans 'Our programs' %}</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'how_you_can_help' %}">{% trans 'How you can help' %}</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {% trans 'Stay informed' %}
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{% url 'events' %}">{% trans 'Events' %}</a></li>
-                        <li><a class="dropdown-item" href="{% url 'news' %}">{% trans 'News' %}</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {% trans 'About us' %}
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{% url 'our_history' %}">{% trans 'Our history' %}</a></li>
-                        <li><a class="dropdown-item" href="{% url 'our_people' %}">{% trans 'Our people' %}</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <div class='d-flex my-2'>
-                <li class="navbar-nav mx-2">
-                    <a class="btn btn-warning nav-btn nav-buttons" aria-current="page" href="{% url 'donations' %}">{% trans 'Donate' %}</a>
-                </li>
-                <li class="navbar-nav mx-2">
-                    <a class="btn btn-success nav-btn nav-buttons" aria-current="page" href="{% url 'become_member' %}">{% trans 'Join us' %}</a>
-                </li>
-                <li class="navbar-nav mx-2">
-                    <a href="/en/">English</a> | <a href="/el/">Ελληνικά</a>
-                </li>
-            </div>
-            <form id="serach-form" class="d-flex d-lg-none mb-3 mx-2" role="search">
-                <input class="form-control me-2" type="search" placeholder="{{ _('Search') }}" aria-label="{{ _('Search') }}">
-                <button class="btn btn-outline-secondary" type="submit">{% trans 'Search' %}</button>
-            </form>
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="{% url 'what_we_do' %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {% trans 'What we do' %}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'what_we_do' %}">{% trans 'What we do' %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'services' %}">{% trans 'Our services' %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'programs' %}">{% trans 'Our programs' %}</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'how_you_can_help' %}">{% trans 'How you can help' %}</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {% trans 'Stay informed' %}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'events' %}">{% trans 'Events' %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'news' %}">{% trans 'News' %}</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {% trans 'About us' %}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'our_history' %}">{% trans 'Our history' %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'our_people' %}">{% trans 'Our people' %}</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class='d-flex flex-column mt-2'>
+                    <div class="mb-1 d-none d-lg-block">
+                        <form id="search-form" class="d-flex mx-2" role="search">
+                            <input class="form-control me-2" type="search" placeholder="{{ _('Search') }}" aria-label="{{ _('Search') }}">
+                            <button class="btn btn-outline-secondary p-0 border-0" type="submit">{% trans 'Search' %}</button>
+                        </form>
+                    </div>
+                    <div class="d-flex my-2">
+                        <li class="navbar-nav mx-3">
+                            <a class="btn btn-warning nav-btn nav-buttons d-none d-lg-block" aria-current="page" href="{% url 'donations' %}">{% trans 'Donate' %}</a>
+                        </li>
+                        <li class="navbar-nav mx-3">
+                            <a class="btn btn-success nav-btn nav-buttons d-block d-md-none d-lg-block" aria-current="page" href="{% url 'become_member' %}">{% trans 'Join us' %}</a>
+                        </li>
+                        <li class="navbar-nav mx-3">
+                            <div class="dropdown">
+                                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Language
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="/en/">English</a></li>
+                                    <li><a class="dropdown-item" href="/el/">Ελληνικά</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </div>
+                    <div class="mb-1 d-block d-lg-none">
+                        <form id="search-form" class="d-flex mx-2" role="search">
+                            <input class="form-control me-2" type="search" placeholder="{{ _('Search') }}" aria-label="{{ _('Search') }}">
+                            <button class="btn btn-outline-secondary p-0 border-0" type="submit">{% trans 'Search' %}</button>
+                        </form>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </nav>
