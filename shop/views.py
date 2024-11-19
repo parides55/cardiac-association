@@ -59,40 +59,53 @@ def add_to_basket(request, product_id):
         return redirect('online_shop')
 
 
-def view_basket(request):
-    
-    basket = request.session.get('basket', {})
-    items = Basket.objects.filter(session_key=request.session.session_key)
-    total = sum(item['price'] * item['quantity'] for item in basket.values())
-    
-    context = {
-        'basket': basket,
-        'total': total,
-        'items': items,
-    }
-    
-    return render(request, "shop/basket.html", context)
-
-from django.shortcuts import render
-from .models import Basket
 
 def view_basket(request):
-    # Ensure session key is set
-    session_key = request.session.session_key
-
-    if not session_key:
-        request.session.create()
+    
+    try:
+        # Ensure session key is set
         session_key = request.session.session_key
 
-    # Query basket items for the current session
-    basket_items = Basket.objects.filter(session_key=session_key)
+        if not session_key:
+            request.session.create()
+            session_key = request.session.session_key
 
-    # Calculate the total amount
-    total = sum(item.quantity * item.product.price for item in basket_items)
+        # Query basket items for the current session
+        basket_items = Basket.objects.filter(session_key=session_key)
 
-    # Pass the items and total to the template
-    context = {
-        'basket_items': basket_items,
-        'total': total,
-    }
-    return render(request, 'shop/basket.html', context)
+        # Calculate the total amount
+        total = sum(item.quantity * item.product.price for item in basket_items)
+
+        # Pass the items and total to the template
+        context = {
+            'basket_items': basket_items,
+            'total': total,
+        }
+        return render(request, 'shop/basket.html', context)
+
+    except Exception as e:
+        messages.error(request, f"The following error occurred: {e}")
+        return redirect('online_shop')
+
+def remove_from_basket(request, product_id):
+    
+    try:
+        # Ensure session key is set
+        session_key = request.session.session_key
+
+        if not session_key:
+            request.session.create()
+            session_key = request.session.session_key
+
+        # Get the basket item
+        basket_item = get_object_or_404(Basket, session_key=session_key, product_id=product_id)
+
+        # Delete the item
+        basket_item.delete()
+
+        messages.success(request, f"{basket_item.product.name} has been removed from your basket.")
+        return redirect('basket')
+    
+    except Exception as e:
+        messages.error(request, f"The following error occurred: {e}")
+        return redirect('basket')

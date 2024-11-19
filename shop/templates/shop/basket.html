@@ -52,7 +52,7 @@
                             </td>
                             <td class="text-center">
                                 <button type="submit" class="btn btn-danger btn-sm btn-to-remove-item fs-6"
-                                data-basket_id='{{item.id}}' aria-label="Remove"><strong>-</strong></button>
+                                data-basket_id='{{item.product.id}}' aria-label="Remove"><strong>-</strong></button>
                             </td>
                         </tr>
                         {% endfor %}
@@ -105,4 +105,29 @@
     </div>
 </section>
 
+<!-- Modal to confirm removal of product-->
+{% for item in basket_items %}
+<div class="modal fade" id="removalModal" tabindex="-1" aria-labelledby="removalModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title fs-5">{{item.product.title}}</p>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Please confirm you want to remove the above item. </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Close</button>
+                <a href="#" class="btn btn-primary" id="removeConfirm" aria-label="Remove">Remove</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock content %}
+
+{% block forJS %}
+<script src="{% static 'js/basket.js' %}"></script>
 {% endblock %}
