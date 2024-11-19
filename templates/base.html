@@ -9,6 +9,7 @@
 {% url 'what_we_do' as what_we_do_url %}
 {% url 'how_you_can_help' as how_you_can_help_url %}
 {% url 'donations' as donations_url %}
+{% url 'online_shop' as online_shop_url %}
 {% url 'become_member' as become_member_url %}
 {% url 'services' as services_url %}
 {% url 'programs' as programs_url %}
@@ -44,15 +45,11 @@
             <div>
                 <a class="btn btn-warning nav-btn nav-buttons d-block d-lg-none px-5 px-lg-0" aria-current="page" href="{% url 'donations' %}">{% trans 'Donate' %}</a>
             </div>
-            <div>
-                <a class="btn btn-success nav-btn nav-buttons d-none d-md-block d-lg-none px-5 px-lg-0" aria-current="page" href="{% url 'become_member' %}">{% trans 'Join us' %}</a>
-
-            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav mx-2 mx-lg-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="{% url 'what_we_do' %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {% trans 'What we do' %}
@@ -63,8 +60,16 @@
                             <li><a class="dropdown-item" href="{% url 'programs' %}">{% trans 'Our programs' %}</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'how_you_can_help' %}">{% trans 'How you can help' %}</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="{% url 'how_you_can_help' %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {% trans 'How you can help' %}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'how_you_can_help' %}">{% trans 'How you can help' %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'donations' %}">{% trans 'Make a donation' %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'online_shop' %}">{% trans 'Online shop' %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'become_member' %}">{% trans 'Become a member' %}</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -93,11 +98,8 @@
                         </form>
                     </div>
                     <div class="d-flex my-2">
-                        <li class="navbar-nav mx-3">
+                        <li class="navbar-nav mx-lg-3 d-none d-lg-block">
                             <a class="btn btn-warning nav-btn nav-buttons d-none d-lg-block" aria-current="page" href="{% url 'donations' %}">{% trans 'Donate' %}</a>
-                        </li>
-                        <li class="navbar-nav mx-3">
-                            <a class="btn btn-success nav-btn nav-buttons d-block d-md-none d-lg-block" aria-current="page" href="{% url 'become_member' %}">{% trans 'Join us' %}</a>
                         </li>
                         <li class="navbar-nav mx-3">
                             <div class="dropdown">
@@ -109,6 +111,13 @@
                                     <li><a class="dropdown-item" href="/el/">Ελληνικά</a></li>
                                 </ul>
                             </div>
+                        </li>
+                        <li class="navbar-nav mx-3">
+                            <a class="nav-btn nav-buttons" aria-current="page" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="black" class="bi bi-cart3" viewBox="0 0 16 16">
+                                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                                </svg>
+                            </a>
                         </li>
                     </div>
                     <div class="mb-1 d-block d-lg-none">
