@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-07 13:44+0000\n"
+"POT-Creation-Date: 2024-11-19 22:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,129 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: .\about_us\templates\about_us\people.html:14
+#: .\home_page\templates\home_page\become_member.html:15
+#: .\home_page\templates\home_page\heart_disease_info.html:14
+#: .\what_we_do\templates\what_we_do\programs.html:14
+#: .\what_we_do\templates\what_we_do\services.html:19
+msgid ""
+"Figures standing in a row with the middle figure being red with a little "
+"heart"
+msgstr ""
+
+#: .\about_us\templates\about_us\people.html:15
+#: .\home_page\templates\home_page\heart_disease_info.html:15
+#: .\home_page\templates\home_page\index.html:19
+#: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:18
+#: .\what_we_do\templates\what_we_do\services.html:20
+msgid "Young hearts"
+msgstr "Οι Νεαρές καρδιές"
+
+#: .\about_us\templates\about_us\people.html:15
+#: .\home_page\templates\home_page\heart_disease_info.html:15
+#: .\home_page\templates\home_page\index.html:19
+#: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:18
+#: .\what_we_do\templates\what_we_do\services.html:20
+msgid "is our mission"
+msgstr "είναι η αποστολή μας"
+
+#: .\about_us\templates\about_us\people.html:26 .\templates\base.html:90
+msgid "Our people"
+msgstr "Οι άνθρωποί μας"
+
+#: .\about_us\templates\about_us\people.html:32
+msgid ""
+"\n"
+"                    The Board of Directors and dedicated staff of our "
+"charity share a unified mission: \n"
+"                    to provide unwavering support and care for children with "
+"heart disease and their \n"
+"                    families. Together, we work with compassion, commitment, "
+"and expertise to make a \n"
+"                    positive impact, ensuring that every child has access to "
+"the treatment, resources, \n"
+"                    and hope they deserve.\n"
+"                    "
+msgstr ""
+
+#: .\about_us\templates\about_us\people.html:51
+msgid "Board of Directors"
+msgstr ""
+
+#: .\about_us\templates\about_us\people.html:59
+#: .\about_us\templates\about_us\people.html:90
+#: .\events\templates\events\event_info.html:11
+#: .\events\templates\events\events.html:35
+#: .\events\templates\events\events.html:65
+#: .\events\templates\events\events.html:97
+#: .\news\templates\news\new_details.html:11
+#: .\shop\templates\shop\online_shop.html:56
+msgid "Default image"
+msgstr ""
+
+#: .\about_us\templates\about_us\people.html:61
+msgid "Picture of the board member"
+msgstr ""
+
+#: .\about_us\templates\about_us\people.html:82
+msgid "Dedicated Staff"
+msgstr ""
+
+#: .\about_us\templates\about_us\people.html:92
+msgid "Picture of the staff"
+msgstr ""
+
+#: .\about_us\templates\about_us\people.html:114
+#: .\events\templates\events\events.html:123
+#: .\home_page\templates\home_page\heart_disease_info.html:112
+#: .\home_page\templates\home_page\index.html:134
+#: .\news\templates\news\news.html:96 .\shop\templates\shop\donations.html:122
+#: .\what_we_do\templates\what_we_do\programs.html:156
+#: .\what_we_do\templates\what_we_do\services.html:171
+#: .\what_we_do\templates\what_we_do\what_we_do.html:201
+msgid "A group of people in the forest hanging each other."
+msgstr "Μια ομάδα ανθρώπων στο δάσος κρατιούνται ο ένας με τον άλλον."
+
+#: .\about_us\templates\about_us\people.html:117
+#: .\events\templates\events\events.html:126
+#: .\home_page\templates\home_page\heart_disease_info.html:115
+#: .\home_page\templates\home_page\index.html:137
+#: .\news\templates\news\news.html:99
+#: .\what_we_do\templates\what_we_do\programs.html:159
+#: .\what_we_do\templates\what_we_do\services.html:174
+#: .\what_we_do\templates\what_we_do\what_we_do.html:204
+msgid "Become a member today"
+msgstr "Γίνετε μέλος σήμερα"
+
+#: .\about_us\templates\about_us\people.html:122
+#: .\events\templates\events\events.html:131
+#: .\home_page\templates\home_page\become_member.html:58
+#: .\home_page\templates\home_page\heart_disease_info.html:120
+#: .\home_page\templates\home_page\index.html:142
+#: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:190
+#: .\news\templates\news\news.html:104 .\shop\templates\shop\basket.html:90
+#: .\shop\templates\shop\online_shop.html:87
+#: .\what_we_do\templates\what_we_do\programs.html:164
+#: .\what_we_do\templates\what_we_do\services.html:179
+#: .\what_we_do\templates\what_we_do\what_we_do.html:209
+msgid ""
+"In the blured background people are in a connference and a speaker delivers "
+"a speech."
+msgstr ""
+"Στο θολό φόντο, άνθρωποι βρίσκονται σε συνέδριο και ένας ομιλητής δίνει "
+"διάλεξη."
+
+#: .\about_us\templates\about_us\people.html:125
+#: .\home_page\templates\home_page\become_member.html:61
+#: .\home_page\templates\home_page\heart_disease_info.html:123
+#: .\home_page\templates\home_page\index.html:145
+#: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:193
+#: .\news\templates\news\news.html:107 .\shop\templates\shop\basket.html:93
+#: .\shop\templates\shop\online_shop.html:90
+#: .\what_we_do\templates\what_we_do\programs.html:167
+msgid "Find out about our Events"
+msgstr "Μάθετε για τις Εκδηλώσεις μας"
+
 #: .\cardiac_association\settings.py:40
 msgid "English"
 msgstr "Αγγλικά"
@@ -26,81 +149,223 @@ msgstr "Αγγλικά"
 msgid "Greek"
 msgstr "Ελληνικά"
 
-#: .\events\templates\events\events.html:11 .\news\templates\news\news.html:13
+#: .\events\templates\events\events.html:14 .\news\templates\news\news.html:14
 msgid "Two hands holding a red heart over a laptop"
 msgstr ""
 "Δύο χέρια που κρατούν μια κόκκινη καρδιά πάνω από ένα φορητό υπολογιστή"
 
-#: .\events\templates\events\events.html:12
-#: .\events\templates\events\events.html:13
+#: .\events\templates\events\events.html:15
+#: .\events\templates\events\events.html:16
 msgid "Always in"
 msgstr "Πάντα σε"
 
-#: .\events\templates\events\events.html:12
+#: .\events\templates\events\events.html:15
 msgid "Motion,"
 msgstr "Κίνηση"
 
-#: .\events\templates\events\events.html:13 .\news\templates\news\news.html:14
+#: .\events\templates\events\events.html:16 .\news\templates\news\news.html:15
 msgid "Hearts"
 msgstr "Καρδιές"
 
-#: .\events\templates\events\events.html:24
+#: .\events\templates\events\events.html:27
 msgid "This month's events"
 msgstr "Οι εκδηλώσεις αυτού του μήνα"
 
-#: .\events\templates\events\events.html:34
+#: .\events\templates\events\events.html:57
+msgid "Our upcoming events"
+msgstr ""
+
+#: .\events\templates\events\events.html:89
 msgid ""
 "Get inspired from our previous events and help us organise our next ones"
 msgstr ""
 "Εμπνευστείτε από τις προηγούμενες εκδηλώσεις μας και βοηθήστε μας να "
 "οργανώσουμε τις επόμενες"
 
-#: .\events\templates\events\events.html:46
-#: .\home_page\templates\home_page\index.html:131
-#: .\news\templates\news\news.html:56
-msgid "A group of people in the forest hanging each other."
-msgstr "Μια ομάδα ανθρώπων στο δάσος κρατιούνται ο ένας με τον άλλον."
-
-#: .\events\templates\events\events.html:49
-#: .\home_page\templates\home_page\index.html:134
-#: .\news\templates\news\news.html:59
-msgid "Become a member today"
-msgstr "Γίνετε μέλος σήμερα"
-
-#: .\events\templates\events\events.html:54
-#: .\home_page\templates\home_page\index.html:139
-#: .\news\templates\news\news.html:64
-msgid ""
-"In the blured background people are in a connference and a speaker delivers "
-"a speech."
-msgstr ""
-"Στο θολό φόντο, άνθρωποι βρίσκονται σε συνέδριο και ένας ομιλητής δίνει "
-"διάλεξη."
-
-#: .\events\templates\events\events.html:57
-#: .\home_page\templates\home_page\index.html:118 .\templates\base.html:40
+#: .\events\templates\events\events.html:134
+#: .\home_page\templates\home_page\index.html:121
+#: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:29
+#: .\shop\templates\shop\donations.html:125 .\templates\base.html:66
+#: .\templates\base.html:69
+#: .\what_we_do\templates\what_we_do\what_we_do.html:212
 msgid "How you can help"
 msgstr "Πώς μπορείτε να βοηθήσετε"
 
-#: .\home_page\templates\home_page\index.html:15
+#: .\home_page\templates\home_page\become_member.html:16
+msgid "Together, We Can Do More:"
+msgstr ""
+
+#: .\home_page\templates\home_page\become_member.html:16
+#, fuzzy
+#| msgid "Become a member today"
+msgid "Become a Member"
+msgstr "Γίνετε μέλος σήμερα"
+
+#: .\home_page\templates\home_page\become_member.html:27
+msgid "Complete the form and Join Our Family"
+msgstr ""
+
+#: .\home_page\templates\home_page\become_member.html:36
+msgid "Submit"
+msgstr ""
+
+#: .\home_page\templates\home_page\become_member.html:50
+#: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:182
+#: .\shop\templates\shop\basket.html:98
+#: .\shop\templates\shop\donations.html:130
+#: .\shop\templates\shop\online_shop.html:95
+#, fuzzy
+#| msgid "Two hands holding a red heart over a laptop"
+msgid "Two hands holding a red heart over a laptop."
+msgstr ""
+"Δύο χέρια που κρατούν μια κόκκινη καρδιά πάνω από ένα φορητό υπολογιστή"
+
+#: .\home_page\templates\home_page\become_member.html:53
+#: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:185
+#, fuzzy
+#| msgid "Read our news"
+msgid "Read our News"
+msgstr "Διαβάστε τα νέα μας"
+
+#: .\home_page\templates\home_page\heart_disease_info.html:26
+#: .\home_page\templates\home_page\index.html:83
+msgid "What are Congenital Heart Diseases?"
+msgstr "Τι είναι οι Συγγενείς Καρδιοπάθειες;"
+
+#: .\home_page\templates\home_page\heart_disease_info.html:32
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "                        Congenital heart diseases are abnormalities of "
+#| "the structure of the heart, which a \n"
+#| "                        person carries with him from the day of his "
+#| "birth. In other words, those suffering \n"
+#| "                        from congenital heart diseases are born with some "
+#| "\"structural\" problem in the heart. \n"
+#| "                        The word \"kin\" means \"by birth.\" The term "
+#| "should not be confused with \"kinship,\" in \n"
+#| "                        the sense of heredity, with which it has but "
+#| "little to do.\n"
+#| "                        "
+msgid ""
+"\n"
+"                    Congenital heart diseases are abnormalities of the "
+"structure of the heart, which a \n"
+"                    person carries with him from the day of his birth. In "
+"other words, those suffering \n"
+"                    from congenital heart diseases are born with some "
+"\"structural\" problem in the heart. \n"
+"                    The word \"kin\" means \"by birth.\" The term should not "
+"be confused with \"kinship,\" in \n"
+"                    the sense of heredity, with which it has but little to "
+"do.\n"
+"                    "
+msgstr ""
+"\n"
+"                        Οι συγγενείς καρδιοπάθειες είναι ανωμαλίες στη δομή "
+"της καρδιάς, που ένα άτομο φέρει από τη \n"
+"                        μέρα της γέννησής του. Με άλλα λόγια, όσοι πάσχουν "
+"από συγγενείς καρδιοπάθειες γεννιούνται με κάποιο \n"
+"                        «δομικό» πρόβλημα στην καρδιά. Η λέξη «συγγενές» "
+"σημαίνει «εκ γενετής». Ο όρος δεν πρέπει να \n"
+"                        συγχέεται με τη λέξη «συγγένεια» με την έννοια της "
+"κληρονομικότητας, \n"
+"                        με την οποία έχει ελάχιστη σχέση.\n"
+"                        "
+
+#: .\home_page\templates\home_page\heart_disease_info.html:52
+msgid "How are they detected"
+msgstr ""
+
+#: .\home_page\templates\home_page\heart_disease_info.html:57
+msgid ""
+"It is encouraging that many congenital heart diseases are now detected by "
+"fetal \n"
+"                                echocardiography. However, the majority of "
+"them are diagnosed in the neonatal period, usually \n"
+"                                by the pediatrician in the maternity ward or "
+"during the first weeks or months of life.<br><br>\n"
+"                                However, there are also several cases where "
+"very significant congenital heart diseases can be \n"
+"                                found at any time in childhood, adolescence "
+"or even after adulthood. Such cases may include a \n"
+"                                referral from the pediatrician to a "
+"pediatric cardiologist, who is called upon to evaluate a \n"
+"                                child with a heart murmur (nine out of ten "
+"children are referred for evaluation of a heart murmur), \n"
+"                                with cyanosis or with signs and symptoms of "
+"heart failure.\n"
+"                                "
+msgstr ""
+
+#: .\home_page\templates\home_page\heart_disease_info.html:73
+#, fuzzy
+#| msgid "What we do"
+msgid "What to do"
+msgstr "Τι κάνουμε"
+
+#: .\home_page\templates\home_page\heart_disease_info.html:79
+msgid ""
+"\n"
+"                                Referral to a physician specialized and "
+"experienced in the diagnosis and treatment of congenital \n"
+"                                heart disease is vital in order to "
+"accurately determine the nature of the problem. A pediatric \n"
+"                                cardiologist is the doctor who has the "
+"knowledge and expertise to determine:\n"
+"                                "
+msgstr ""
+
+#: .\home_page\templates\home_page\heart_disease_info.html:86
+msgid "The nature of the heart problem"
+msgstr ""
+
+#: .\home_page\templates\home_page\heart_disease_info.html:87
+msgid "Medication, if indicated"
+msgstr ""
+
+#: .\home_page\templates\home_page\heart_disease_info.html:88
+msgid ""
+" The frequency of visits needed to monitor the \n"
+"                                    patient and possible tests\n"
+"                                    "
+msgstr ""
+
+#: .\home_page\templates\home_page\heart_disease_info.html:91
+msgid "Invasive non-surgical cardiac treatment, if indicated"
+msgstr ""
+
+#: .\home_page\templates\home_page\heart_disease_info.html:92
+msgid ""
+" Referral of the patient for possible surgical treatment of the \n"
+"                                    problem by a pediatric cardiac surgeon-"
+"cardiac surgeon specializing in congenital \n"
+"                                    heart disease.\n"
+"                                    "
+msgstr ""
+
+#: .\home_page\templates\home_page\index.html:18
+#: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:17
+#: .\what_we_do\templates\what_we_do\what_we_do.html:16
+#: .\what_we_do\templates\what_we_do\what_we_do.html:55
+#: .\what_we_do\templates\what_we_do\what_we_do.html:187
 #, fuzzy
 #| msgid "Hands forming a circle around a big red heart"
 msgid "Two hands of a child holding a red heart"
 msgstr "Χέρια που σχηματίζουν έναν κύκλο γύρω από μια μεγάλη κόκκινη καρδιά"
 
-#: .\home_page\templates\home_page\index.html:16
-msgid "Young hearts"
-msgstr "Οι Νεαρές καρδιές"
-
-#: .\home_page\templates\home_page\index.html:16
-msgid "is our mission"
-msgstr "είναι η αποστολή μας"
-
-#: .\home_page\templates\home_page\index.html:27
+#: .\home_page\templates\home_page\index.html:30
+#: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:74
+#: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:117
+#: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:157
+#: .\what_we_do\templates\what_we_do\what_we_do.html:69
+#: .\what_we_do\templates\what_we_do\what_we_do.html:109
+#: .\what_we_do\templates\what_we_do\what_we_do.html:148
 msgid "Hands forming a circle around a big red heart"
 msgstr "Χέρια που σχηματίζουν έναν κύκλο γύρω από μια μεγάλη κόκκινη καρδιά"
 
-#: .\home_page\templates\home_page\index.html:32
+#: .\home_page\templates\home_page\index.html:35
+#: .\what_we_do\templates\what_we_do\what_we_do.html:34
 msgid ""
 "\n"
 "                        The Association of Parents and Friends of Heart "
@@ -135,31 +400,36 @@ msgstr ""
 "                        εκδηλώσεις, κ.λπ.\n"
 "                        "
 
-#: .\home_page\templates\home_page\index.html:44 .\templates\base.html:37
+#: .\home_page\templates\home_page\index.html:47 .\templates\base.html:56
+#: .\templates\base.html:59
+#: .\what_we_do\templates\what_we_do\what_we_do.html:26
 msgid "What we do"
 msgstr "Τι κάνουμε"
 
-#: .\home_page\templates\home_page\index.html:45
+#: .\home_page\templates\home_page\index.html:48
+#: .\shop\templates\shop\basket.html:101
+#: .\shop\templates\shop\donations.html:133
+#: .\shop\templates\shop\online_shop.html:98
+#: .\what_we_do\templates\what_we_do\services.html:156
 msgid "Read our news"
 msgstr "Διαβάστε τα νέα μας"
 
-#: .\home_page\templates\home_page\index.html:46
+#: .\home_page\templates\home_page\index.html:49
+#: .\what_we_do\templates\what_we_do\services.html:143
 msgid "See our events"
 msgstr "Δείτε τις εκδηλώσεις μας"
 
-#: .\home_page\templates\home_page\index.html:59
+#: .\home_page\templates\home_page\index.html:62
+#: .\shop\templates\shop\donations.html:53
 msgid "Baby being examinated from a doctor."
 msgstr "Βρέφος που εξετάζεται από γιατρό."
 
-#: .\home_page\templates\home_page\index.html:62
+#: .\home_page\templates\home_page\index.html:65
+#: .\shop\templates\shop\donations.html:56
 msgid "Donations"
 msgstr "Δωρεές"
 
-#: .\home_page\templates\home_page\index.html:80
-msgid "What are Congenital Heart Diseases?"
-msgstr "Τι είναι οι Συγγενείς Καρδιοπάθειες;"
-
-#: .\home_page\templates\home_page\index.html:82
+#: .\home_page\templates\home_page\index.html:85
 msgid ""
 "\n"
 "                        Congenital heart diseases are abnormalities of the "
@@ -186,27 +456,31 @@ msgstr ""
 "                        με την οποία έχει ελάχιστη σχέση.\n"
 "                        "
 
-#: .\home_page\templates\home_page\index.html:92
+#: .\home_page\templates\home_page\index.html:95
+#: .\what_we_do\templates\what_we_do\services.html:64
 msgid "More Info"
 msgstr "Περισσότερες πληροφορίες"
 
-#: .\home_page\templates\home_page\index.html:96
+#: .\home_page\templates\home_page\index.html:99
+#: .\what_we_do\templates\what_we_do\what_we_do.html:101
+#: .\what_we_do\templates\what_we_do\what_we_do.html:140
+#: .\what_we_do\templates\what_we_do\what_we_do.html:176
 msgid "Infant laying down and a doctor listens to the heart of the baby"
 msgstr "Βρέφος ξαπλωμένο και ο γιατρός ακούει την καρδιά του μωρού"
 
-#: .\home_page\templates\home_page\index.html:108
+#: .\home_page\templates\home_page\index.html:111
 msgid "Every child deserves"
 msgstr "Κάθε παιδί αξίζει"
 
-#: .\home_page\templates\home_page\index.html:108
+#: .\home_page\templates\home_page\index.html:111
 msgid "a chance to live"
 msgstr "μια ευκαιρία να ζωή"
 
-#: .\home_page\templates\home_page\index.html:108
+#: .\home_page\templates\home_page\index.html:111
 msgid "a healthy life!"
 msgstr "μια υγιή ζωή!"
 
-#: .\home_page\templates\home_page\index.html:110
+#: .\home_page\templates\home_page\index.html:113
 msgid ""
 "\n"
 "                    Every year, 1 in every 10 kids is born with a heart\n"
@@ -228,26 +502,124 @@ msgstr ""
 "                    συναισθηματικά ευάλωτες με τέτοιες ειδήσεις.\n"
 "                    "
 
-#: .\home_page\templates\home_page\index.html:142
-#: .\news\templates\news\news.html:67
-msgid "Find out about our Events"
-msgstr "Μάθετε για τις Εκδηλώσεις μας"
+#: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:35
+msgid ""
+"\n"
+"                    Join us in making a difference in the lives of children "
+"with heart disease. \n"
+"                    Your support, whether through volunteering your time or "
+"making a donation, \n"
+"                    can bring hope and care to families facing the "
+"challenges of pediatric heart \n"
+"                    conditions.<br><br>Together, we can provide the "
+"resources, medical assistance, and \n"
+"                    emotional support these children and their loved ones "
+"need. Every contribution \n"
+"                    counts—help us bring a little more light to their "
+"world!\n"
+"                    "
+msgstr ""
 
-#: .\news\templates\news\news.html:14
+#: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:56
+msgid ""
+"\n"
+"                    Together, we can make a difference. Your donationcan "
+"provide life-saving\n"
+"                    treatment, offer support to families in need, and give "
+"these children the \n"
+"                    chance to grow, thrive,and experience the joys of "
+"childhood.\n"
+"                    "
+msgstr ""
+
+#: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:62
+msgid "Make a donation today >"
+msgstr ""
+
+#: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:79
+msgid ""
+"\n"
+"                        If you're passionate about making a difference, we "
+"invite you to join our\n"
+"                        dedicated team of volunteers and be a part of the "
+"heart of our mission.\n"
+"                        Together, we can work hand-in-hand to support "
+"children and families\n"
+"                        affected by heart disease!\n"
+"                        "
+msgstr ""
+
+#: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:86
+#, fuzzy
+#| msgid "Call us or Email us"
+msgid "Call us or Email us!"
+msgstr "Καλέστε μας ή στείλτε μας email"
+
+#: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:100
+msgid ""
+"\n"
+"                    Honor a memory or celebrate a special occasion — whether "
+"it's a wedding, \n"
+"                    christening, or birthday — by giving a meaningful gift "
+"in place of a wreath \n"
+"                    or traditional present.\n"
+"                    "
+msgstr ""
+
+#: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:122
+msgid ""
+"\n"
+"                        By choosing from the variety of products offered by "
+"our \n"
+"                        Association, you can help support our cause.\n"
+"                        "
+msgstr ""
+
+#: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:127
+msgid "Visit Our Online Shop >"
+msgstr ""
+
+#: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:141
+msgid ""
+"\n"
+"                    Leading a meaningful initiative to support our "
+"Association by hosting a\n"
+"                    fundraiser or event.\n"
+"                    "
+msgstr ""
+
+#: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:162
+msgid ""
+"\n"
+"                        Become an annual supporter—whether you're a "
+"business,\n"
+"                        organization, or institution—and make a lasting "
+"impact \n"
+"                        with your yearly contribution.\n"
+"                        "
+msgstr ""
+
+#: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:168
+#, fuzzy
+#| msgid "Become a member today"
+msgid "Become a member >"
+msgstr "Γίνετε μέλος σήμερα"
+
+#: .\news\templates\news\news.html:15
 msgid "Keeping"
 msgstr "Κρατώντας τις"
 
-#: .\news\templates\news\news.html:15
+#: .\news\templates\news\news.html:16
 #, fuzzy
 #| msgid "Stay informed"
 msgid "Informed"
 msgstr "Ενημερωμένες"
 
-#: .\news\templates\news\news.html:27
+#: .\news\templates\news\news.html:28
 msgid "Our latest news"
 msgstr "Τα τελευταία νέα μας"
 
-#: .\news\templates\news\news.html:33
+#: .\news\templates\news\news.html:34
 msgid ""
 "\n"
 "                    Children's well being and health are at the heart of "
@@ -263,87 +635,543 @@ msgstr ""
 "όλων όσων κάνουμε.\n"
 "                    <br>\n"
 "                    <br>\n"
-"                    Διαβάστε παρακάτω τα τελευταία νέα μας, τα ζητήματα που εργαζόμαστε "
-"και άρθρα από επαγγελματίες υγείας.\n"
+"                    Διαβάστε παρακάτω τα τελευταία νέα μας, τα ζητήματα που "
+"εργαζόμαστε και άρθρα από επαγγελματίες υγείας.\n"
 "                    "
 
-#: .\templates\base.html:15
-msgid "Cardiac Association"
-msgstr "Καρδιολογικός Σύλλογος"
+#: .\news\templates\news\news.html:55
+msgid "Default image, Logo of the associaiton."
+msgstr ""
 
-#: .\templates\base.html:29
-msgid "Logo"
-msgstr "Λογότυπο"
+#: .\shop\templates\shop\basket.html:16
+msgid "A shopping cart with heart inside it."
+msgstr ""
 
-#: .\templates\base.html:44
-msgid "Stay informed"
-msgstr "Μείνετε ενημερωμένοι"
+#: .\shop\templates\shop\basket.html:17
+msgid "Your Basket"
+msgstr ""
 
-#: .\templates\base.html:47
-msgid "Events"
-msgstr "Εκδηλώσεις"
+#: .\shop\templates\shop\donations.html:16
+#: .\shop\templates\shop\online_shop.html:16
+msgid "Four babies laying down with their heads joined and laughing"
+msgstr ""
 
-#: .\templates\base.html:48
-msgid "News"
-msgstr "Νέα"
+#: .\shop\templates\shop\donations.html:17
+msgid "Keep their hope alive"
+msgstr ""
 
-#: .\templates\base.html:53
-msgid "About us"
-msgstr "Σχετικά με εμάς"
-
-#: .\templates\base.html:56
-msgid "Our history"
-msgstr "Η ιστορία μας"
-
-#: .\templates\base.html:57
-msgid "Our people"
-msgstr "Οι άνθρωποί μας"
-
-#: .\templates\base.html:63
+#: .\shop\templates\shop\donations.html:28 .\templates\base.html:47
+#: .\templates\base.html:103
 msgid "Donate"
 msgstr "Δωρεά"
 
-#: .\templates\base.html:66
-msgid "Join us"
-msgstr "Γίνετε μέλος"
+#: .\shop\templates\shop\donations.html:34
+msgid ""
+"\n"
+"                    Every day, children are born into a life filled with "
+"challenges due to heart disease. \n"
+"                    For many, their tiny hearts require urgent medical "
+"interventions just to survive their \n"
+"                    first year. These brave children and their families face "
+"the emotional and financial \n"
+"                    burden of ongoing treatments, surgeries, and specialized "
+"care.<br><br>\n"
+"                    Donate today and be the reason a child's heart keeps "
+"beating stronger.\n"
+"                    "
+msgstr ""
 
-#: .\templates\base.html:73 .\templates\base.html:74 .\templates\base.html:83
-#: .\templates\base.html:84
+#: .\shop\templates\shop\donations.html:73
+msgid "Every"
+msgstr ""
+
+#: .\shop\templates\shop\donations.html:73
+#, fuzzy
+#| msgid "Donations"
+msgid "Donation"
+msgstr "Δωρεές"
+
+#: .\shop\templates\shop\donations.html:73
+msgid "Counts"
+msgstr ""
+
+#: .\shop\templates\shop\donations.html:79
+msgid ""
+"\n"
+"                    Together, we can make a difference. Your donation can "
+"provide life-saving treatment,\n"
+"                    offer support to families in need, and give these "
+"children the chance to grow, thrive, and\n"
+"                    experience the joys of childhood. No contribution is too "
+"small—every bit brings hope to a\n"
+"                    child fighting for their life.<br><br>\n"
+"                    Join us in this mission to mend little hearts and give "
+"these children the future they\n"
+"                    deserve.\n"
+"                    "
+msgstr ""
+
+#: .\shop\templates\shop\donations.html:99
+msgid "Other ways to donate"
+msgstr ""
+
+#: .\shop\templates\shop\donations.html:105
+msgid "Donate by phone"
+msgstr ""
+
+#: .\shop\templates\shop\donations.html:106
+msgid "Donate by posting a check or bank transfer"
+msgstr ""
+
+#: .\shop\templates\shop\donations.html:107
+#, fuzzy
+#| msgid "Donate"
+msgid "Donate at our"
+msgstr "Δωρεά"
+
+#: .\shop\templates\shop\donations.html:107
+#, fuzzy
+#| msgid "Events"
+msgid "Events >"
+msgstr "Εκδηλώσεις"
+
+#: .\shop\templates\shop\donations.html:108
+#, fuzzy
+#| msgid "Donate"
+msgid "Donate by"
+msgstr "Δωρεά"
+
+#: .\shop\templates\shop\donations.html:108
+msgid "Visiting our Online shop >"
+msgstr ""
+
+#: .\shop\templates\shop\online_shop.html:17
+msgid "Shop. Support. Strengthen Little Hearts."
+msgstr ""
+
+#: .\shop\templates\shop\online_shop.html:28
+msgid "Online Shop"
+msgstr ""
+
+#: .\shop\templates\shop\online_shop.html:34
+msgid ""
+"\n"
+"                    Welcome to our online shop, where every purchase makes a "
+"difference! Explore our \n"
+"                    carefully curated selection of products, knowing that "
+"every item you buy directly \n"
+"                    supports children with heart disease and their families. "
+"By shopping with us, you’re \n"
+"                    not just getting something special—you’re giving hope, "
+"love, and care to those who \n"
+"                    need it most.<br><br> Together, we can make hearts "
+"stronger!\n"
+"                    "
+msgstr ""
+
+#: .\templates\base.html:24
+msgid "Cardiac Association"
+msgstr "Καρδιολογικός Σύλλογος"
+
+#: .\templates\base.html:44
+msgid "Logo"
+msgstr "Λογότυπο"
+
+#: .\templates\base.html:60
+msgid "Our services"
+msgstr ""
+
+#: .\templates\base.html:61
+msgid "Our programs"
+msgstr ""
+
+#: .\templates\base.html:70 .\what_we_do\templates\what_we_do\services.html:182
+msgid "Make a donation"
+msgstr ""
+
+#: .\templates\base.html:71
+msgid "Online shop"
+msgstr ""
+
+#: .\templates\base.html:72 .\what_we_do\templates\what_we_do\services.html:105
+#, fuzzy
+#| msgid "Become a member today"
+msgid "Become a member"
+msgstr "Γίνετε μέλος σήμερα"
+
+#: .\templates\base.html:77
+msgid "Stay informed"
+msgstr "Μείνετε ενημερωμένοι"
+
+#: .\templates\base.html:80
+msgid "Events"
+msgstr "Εκδηλώσεις"
+
+#: .\templates\base.html:81
+msgid "News"
+msgstr "Νέα"
+
+#: .\templates\base.html:86
+msgid "About us"
+msgstr "Σχετικά με εμάς"
+
+#: .\templates\base.html:89
+msgid "Our history"
+msgstr "Η ιστορία μας"
+
+#: .\templates\base.html:97 .\templates\base.html:98 .\templates\base.html:126
+#: .\templates\base.html:127 .\templates\base.html:139
+#: .\templates\base.html:140
 msgid "Search"
 msgstr "Αναζήτηση"
 
-#: .\templates\base.html:99
+#: .\templates\base.html:171
 msgid "Get in touch"
 msgstr "Επικοινωνήστε μαζί μας"
 
-#: .\templates\base.html:101
+#: .\templates\base.html:173
 msgid "The Association of parents and friends"
 msgstr "Ο Σύλλογος γονέων και φίλων"
 
-#: .\templates\base.html:101
+#: .\templates\base.html:173
 msgid "of children with Heart Disease"
 msgstr "παιδιών με καρδιακή νόσο"
 
-#: .\templates\base.html:103
+#: .\templates\base.html:175
 msgid "11 Grammou street, Apt 5,"
 msgstr "Οδός Γράμμου 11, Διαμέρισμα 5,"
 
-#: .\templates\base.html:103
+#: .\templates\base.html:175
 msgid "Strovolos"
 msgstr "Στρόβολος"
 
-#: .\templates\base.html:103
+#: .\templates\base.html:175
 msgid "Nicosia"
 msgstr "Λευκωσία"
 
-#: .\templates\base.html:103
+#: .\templates\base.html:175
 msgid "Cyprus"
 msgstr "Κύπρος"
 
-#: .\templates\base.html:105
+#: .\templates\base.html:177
 msgid "Call us or Email us"
 msgstr "Καλέστε μας ή στείλτε μας email"
 
-#: .\templates\base.html:108
+#: .\templates\base.html:180
 msgid "Follow us on"
 msgstr "Ακολουθήστε μας στο"
+
+#: .\what_we_do\templates\what_we_do\programs.html:15
+#, fuzzy
+#| msgid "Young hearts"
+msgid "Supporting Hearts,"
+msgstr "Οι Νεαρές καρδιές"
+
+#: .\what_we_do\templates\what_we_do\programs.html:15
+msgid "Strengthening Families"
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\programs.html:26
+msgid "Our supporting programs"
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\programs.html:32
+msgid ""
+"\n"
+"                    The Association, always guided by the needs of its "
+"members in order to \n"
+"                    offer them the best possible, organizes various "
+"programs.\n"
+"                    "
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\programs.html:51
+msgid "Psychological Support Program"
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\programs.html:56
+msgid ""
+"In collaboration with Psychologist Mrs. Andri Christoudia, \n"
+"                                it provides support, education and "
+"empowerment services to both the sufferers \n"
+"                                themselves and their families.\n"
+"                                "
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\programs.html:62
+msgid "Individual/family psychological support meetings"
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\programs.html:63
+msgid ""
+"Parents' School: Various workshops are organized \n"
+"                                    that aim to provide knowledge and skills "
+"to parents \n"
+"                                    so that they can empower and support the "
+"child with \n"
+"                                    their health issues and so that they can "
+"live with \n"
+"                                    confidence and joy, how we communicate "
+"with our child \n"
+"                                    and the family environment, preparation "
+"of parents and \n"
+"                                    the child for surgery, etc.\n"
+"                                    "
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\programs.html:72
+msgid "Workshops for sufferers themselves for empowerment and self-confidence"
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\programs.html:74
+msgid "Experiential workshops with the participation of parents and sufferers."
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\programs.html:76
+msgid "Educational/informational lectures"
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\programs.html:84
+msgid "Support Program"
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\programs.html:90
+msgid ""
+"\n"
+"                                The Association implements a financial "
+"support program for its members who travel \n"
+"                                abroad for their child's heart surgery as "
+"many times as necessary.<br><br>\n"
+"                                It also supports financially needy member "
+"families every Christmas and Easter or \n"
+"                                if for any other reason the need arises.\n"
+"                                "
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\programs.html:103
+msgid "Information and Awareness Program"
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\programs.html:109
+msgid ""
+"\n"
+"                                Public information and awareness campaigns "
+"are organized for Congenital Heart \n"
+"                                Diseases through the media, on the Website, "
+"on Facebook, through the information \n"
+"                                brochure, Congenital Heart Disease Week is "
+"organized from February 7-14 of each year, \n"
+"                                We participate in conferences in and outside "
+"Cyprus, etc.\n"
+"                                "
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\programs.html:122
+msgid "Rehabilitation Program"
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\programs.html:127
+msgid ""
+"In collaboration with Pediatric Cardiologists and other organizations, \n"
+"                                various programs are organized with the "
+"ultimate goal of improving the quality of life \n"
+"                                of people with Congenital Heart Disease, "
+"such as:\n"
+"                                "
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\programs.html:133
+#, fuzzy
+#| msgid "What are Congenital Heart Diseases?"
+msgid "Exercise and Congenital Heart Disease"
+msgstr "Τι είναι οι Συγγενείς Καρδιοπάθειες;"
+
+#: .\what_we_do\templates\what_we_do\programs.html:134
+#, fuzzy
+#| msgid "What are Congenital Heart Diseases?"
+msgid "Pregnancy and Congenital Heart Disease"
+msgstr "Τι είναι οι Συγγενείς Καρδιοπάθειες;"
+
+#: .\what_we_do\templates\what_we_do\programs.html:135
+#, fuzzy
+#| msgid "What are Congenital Heart Diseases?"
+msgid "Learning Disabilities and Congenital Heart Diseases"
+msgstr "Τι είναι οι Συγγενείς Καρδιοπάθειες;"
+
+#: .\what_we_do\templates\what_we_do\programs.html:137
+msgid "Vocational training"
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\programs.html:139
+msgid "Informative lectures with Pediatric Cardiologists"
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\services.html:31
+msgid "Services we offer"
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\services.html:37
+msgid ""
+"\n"
+"                    Knowing over the years the feelings that a couple can "
+"develop when their \n"
+"                    child is diagnosed with Congenital Heart Disease, as "
+"well as the family \n"
+"                    environment, the Association provides its members with "
+"various services.\n"
+"                    "
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\services.html:61
+msgid ""
+"Information and guidance on everything concerning children, adolescents and "
+"adults \n"
+"                            with Congenital Heart Disease that falls within "
+"the Association's remit."
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\services.html:77
+msgid "Any help our members need on a daily basis."
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\services.html:89
+msgid "Emotional, Psychological Support"
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\services.html:90
+msgid "Visit our programs"
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\services.html:102
+msgid ""
+"Financial Support to our member families who will \n"
+"                            travel abroad for their child's treatment, as "
+"many times as necessary"
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\services.html:117
+msgid "Financial Support to needy member families"
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\services.html:129
+msgid "Emergency helpline 99722766"
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\services.html:141
+msgid "Lectures with invited doctors in and outside Cyprus"
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\services.html:155
+msgid ""
+"Events/Excursions for getting to know each other, exchanging experiences "
+"among members"
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\what_we_do.html:17
+msgid "Creating Hope"
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\what_we_do.html:17
+msgid "for Children with"
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\what_we_do.html:18
+msgid "Heart Consitions"
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\what_we_do.html:29
+msgid "Red band"
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\what_we_do.html:56
+msgid "Statistics"
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\what_we_do.html:64
+#, fuzzy
+#| msgid "Cardiac Association"
+msgid "Main goals of the Association"
+msgstr "Καρδιολογικός Σύλλογος"
+
+#: .\what_we_do\templates\what_we_do\what_we_do.html:74
+msgid ""
+"\n"
+"                        The Association supports people with Congenital and "
+"Acquired Heart Diseases \n"
+"                        with various services. Information and guidance, "
+"Psychological Support, \n"
+"                        Financial Support, safeguarding the rights of "
+"patients with Congenital Heart \n"
+"                        Diseases, Informative lectures, Informative "
+"meetings, organizes trips to get \n"
+"                        to know each other among members, Pancypriot "
+"Emergency Helpline, Discounts \n"
+"                        from various stores, information campaigns, etc.\n"
+"                        "
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\what_we_do.html:93
+msgid ""
+"\n"
+"                        The information, enlightenment and awareness of the "
+"public about Congenital \n"
+"                        Heart Diseases The education and empowerment of "
+"people with Congenital Heart Diseases.\n"
+"                        "
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\what_we_do.html:114
+msgid ""
+"\n"
+"                        Finding resources, sponsors to support the actions "
+"of the Association and the various programs it organizes\n"
+"                        "
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\what_we_do.html:128
+msgid ""
+"\n"
+"                        Always aiming at the best quality of life for people "
+"with Congenital Heart Diseases, \n"
+"                        the Association, in collaboration with Pediatric "
+"Cardiologists, makes efforts to find \n"
+"                        European Programs. So far it has organized the "
+"following programs: Exercise and Congenital \n"
+"                        Heart Diseases Pregnancy and Congenital Heart "
+"Diseases Rehabilitation Also in collaboration \n"
+"                        with the Center for Specialized Pediatrics To Paidi "
+"we participate in the Learning \n"
+"                        Disabilities and Congenital Heart Diseases program.\n"
+"                        "
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\what_we_do.html:153
+msgid ""
+"\n"
+"                        The cooperation with the competent bodies such as "
+"the Ministry of Health, the Ministry of Labour, \n"
+"                        the Health Committee of the Parliament etc. to "
+"ensure a better quality of life for people with \n"
+"                        Congenital Heart Diseases The promotion of the "
+"creation of a file of Congenital Heart Diseases.\n"
+"                        "
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\what_we_do.html:169
+msgid ""
+"\n"
+"                        Participation of people with Congenital Heart "
+"Diseases in information and education programs.\n"
+"                        "
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\what_we_do.html:188
+msgid "Services"
+msgstr ""
+
+#: .\what_we_do\templates\what_we_do\what_we_do.html:189
+msgid "Programs"
+msgstr ""
+
+#~ msgid "Join us"
+#~ msgstr "Γίνετε μέλος"
