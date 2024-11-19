@@ -1,8 +1,100 @@
 {% extends "base.html" %}
 
 {% load static %}
+{% load i18n %}
+
+{% url 'events' as events_url %}
+{% url 'news' as news_url %}
+{% url 'how_you_can_help' as how_you_can_help_url %}
+{% url 'online_shop' as online_shop_url %}
 
 {% block content %}
-    <h1>ONLINE SHOP</h1>
-    <h2>Hello world, from The cardiac association!</h2>
+
+<section class='mt-0 hero' id='hero-donations'>
+    <div class="container-fluid p-0">
+        <div class='row position-relative hero-image-div'>
+            <img class='img-fluid hero-image' src="{% static 'images/smilling_babies_heads_together.jpg' %}" alt="{% trans 'Four babies laying down with their heads joined and laughing' %}">
+            <h1 class='fst-italic fw-bold hero-heading'>{% trans 'Shop. Support. Strengthen Little Hearts.' %}</h1>
+        </div>
+    </div>
+</section>
+
+<hr class='m-5'>
+
+<section id='intro-donations'>
+    <div class='container-fluid text-start d-flex flex-column'>
+        <div class='row'>
+            <div class='col d-sm-flex justify-content-sm-start ms-sm-5 mb-5'>
+                <h2 class='fs-1 fw-bold'>{% trans 'Online Shop' %}</h2>
+            </div>
+        </div>
+        <div class='row d-flex justify-content-center'>
+            <div class='col-8'>
+                <p class='fs-5'> 
+                    {% blocktrans %}
+                    Welcome to our online shop, where every purchase makes a difference! Explore our 
+                    carefully curated selection of products, knowing that every item you buy directly 
+                    supports children with heart disease and their families. By shopping with us, you’re 
+                    not just getting something special—you’re giving hope, love, and care to those who 
+                    need it most.<br><br> Together, we can make hearts stronger!
+                    {% endblocktrans %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class='m-5'>
+
+<section id='donations'>
+    <div class="container-fluid">
+        <div class="row mt-5">
+            {% for product in products %}
+            <div class="col d-flex justify-content-center col-md-6 col-lg-4">
+                <div class="card w-75 h-auto">
+                    {% if 'placeholder' in product.image.url %}
+                    <img src="{% static 'images/default_logo.jpg' %}" class="card-img-top" alt="{% trans 'Default image' %}">
+                    {% else %}
+                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">{{ product.description }}</p>
+                        <p class="card-text"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="black" class="bi bi-currency-euro" viewBox="0 0 16 16">
+                            <path d="M4 9.42h1.063C5.4 12.323 7.317 14 10.34 14c.622 0 1.167-.068 1.659-.185v-1.3c-.484.119-1.045.17-1.659.17-2.1 0-3.455-1.198-3.775-3.264h4.017v-.928H6.497v-.936q-.002-.165.008-.329h4.078v-.927H6.618c.388-1.898 1.719-2.985 3.723-2.985.614 0 1.175.05 1.659.177V2.194A6.6 6.6 0 0 0 10.341 2c-2.928 0-4.82 1.569-5.244 4.3H4v.928h1.01v1.265H4v.928z"/>
+                            </svg><strong> {{ product.price }}</strong> </p>
+                        <a class="btn btn-outline-success" href="#">Add to Basket</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<hr class='m-5'>
+
+<section id='links-donations'>
+    <div class="container-fluid">
+        <div class="row d-flex flex-column flex-lg-row">
+            <div class="col my-3 d-flex flex-column">
+                <div class='d-flex justify-content-center'>
+                    <img class='w-75' src="{% static 'images/conference.jpg' %}" alt="{% trans 'In the blured background people are in a connference and a speaker delivers a speech.' %}">
+                </div>
+                <div class='d-flex justify-content-center mt-4'>
+                    <a class='fs-2 fw-bold' href="{% url 'news' %}">{% trans 'Find out about our Events' %}</a>
+                </div>
+            </div>
+            <div class='col my-3 pe-lg-5 d-flex flex-column'>
+                <div class='d-flex justify-content-center'>
+                    <img class='w-75' src="{% static 'images/istockphoto-1335915930-1024x1024.jpg' %}" alt="{% trans 'Two hands holding a red heart over a laptop.' %}">
+                </div>
+                <div class='d-flex justify-content-center mt-4'>
+                    <a class='fs-2 fw-bold' href="{% url 'news' %}">{% trans 'Read our news' %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}
