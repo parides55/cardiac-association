@@ -27,7 +27,8 @@ msgid ""
 "Figures standing in a row with the middle figure being red with a little "
 "heart"
 msgstr ""
-
+"Φιγούρες που στέκονται σε σειρά, με τη μεσαία φιγούρα να είναι κόκκινη με "
+"μία μικρή καρδιά."
 #: .\about_us\templates\about_us\people.html:15
 #: .\home_page\templates\home_page\heart_disease_info.html:15
 #: .\home_page\templates\home_page\index.html:19
@@ -62,10 +63,21 @@ msgid ""
 "                    and hope they deserve.\n"
 "                    "
 msgstr ""
-
+"\n"
+"                    Το διοικητικό συμβούλιο  και το αφοσιωμένο προσωπικό της "
+"φιλανθρωπικής μας οργάνωσης μοιράζονται μια ενοποιημένη αποστολή: \n"
+"                    να παρέχουν ακλόνητη υποστήριξη και φροντίδα σε παιδιά με "
+"καρδιακές παθήσεις και τις \n"
+"                    οικογένειες τους. Μαζί, εργαζόμαστε με συμπόνια,
+δέσμευση, "
+"και τεχνογνωσία για να έχουμε \n"
+"                    θετικό αντίκτυπο, διασφαλίζοντας ότι κάθε παιδί έχει πρόσβαση "
+"πρόσβαση στη θεραπεία, τους πόρους \n"
+"                    και την ελπίδα που του αξίζει.\n"
+"                    "
 #: .\about_us\templates\about_us\people.html:51
 msgid "Board of Directors"
-msgstr ""
+msgstr "Διοικητικό Συμβούλιο"
 
 #: .\about_us\templates\about_us\people.html:59
 #: .\about_us\templates\about_us\people.html:90
@@ -76,19 +88,19 @@ msgstr ""
 #: .\news\templates\news\new_details.html:11
 #: .\shop\templates\shop\online_shop.html:56
 msgid "Default image"
-msgstr ""
+msgstr "Προεπιλεγμένη εικόνα"
 
 #: .\about_us\templates\about_us\people.html:61
 msgid "Picture of the board member"
-msgstr ""
+msgstr "Φωτογραφία μέλους του διοικητικού συμβουλίου"
 
 #: .\about_us\templates\about_us\people.html:82
 msgid "Dedicated Staff"
-msgstr ""
+msgstr "Αφοσιωμένο Προσωπικό""
 
 #: .\about_us\templates\about_us\people.html:92
 msgid "Picture of the staff"
-msgstr ""
+msgstr "Φωτογραφία του προσωπικού"
 
 #: .\about_us\templates\about_us\people.html:114
 #: .\events\templates\events\events.html:123
@@ -173,7 +185,7 @@ msgstr "Οι εκδηλώσεις αυτού του μήνα"
 
 #: .\events\templates\events\events.html:57
 msgid "Our upcoming events"
-msgstr ""
+msgstr "Οι επερχόμενες εκδηλώσεις μας"
 
 #: .\events\templates\events\events.html:89
 msgid ""
@@ -193,28 +205,25 @@ msgstr "Πώς μπορείτε να βοηθήσετε"
 
 #: .\home_page\templates\home_page\become_member.html:16
 msgid "Together, We Can Do More:"
-msgstr ""
+msgstr "Μαζί, Μπορούμε να Κάνουμε Περισσότερα:"
 
 #: .\home_page\templates\home_page\become_member.html:16
-#, fuzzy
-#| msgid "Become a member today"
 msgid "Become a Member"
 msgstr "Γίνετε μέλος σήμερα"
 
 #: .\home_page\templates\home_page\become_member.html:27
 msgid "Complete the form and Join Our Family"
-msgstr ""
+msgstr "Συμπληρώστε τη φόρμα και Γίνετε Μέλος της Οικογένειάς μας"
 
 #: .\home_page\templates\home_page\become_member.html:36
 msgid "Submit"
-msgstr ""
+msgstr "Υποβολή"
 
 #: .\home_page\templates\home_page\become_member.html:50
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:182
 #: .\shop\templates\shop\basket.html:98
 #: .\shop\templates\shop\donations.html:130
 #: .\shop\templates\shop\online_shop.html:95
-#, fuzzy
 #| msgid "Two hands holding a red heart over a laptop"
 msgid "Two hands holding a red heart over a laptop."
 msgstr ""
@@ -222,8 +231,6 @@ msgstr ""
 
 #: .\home_page\templates\home_page\become_member.html:53
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:185
-#, fuzzy
-#| msgid "Read our news"
 msgid "Read our News"
 msgstr "Διαβάστε τα νέα μας"
 
@@ -233,20 +240,6 @@ msgid "What are Congenital Heart Diseases?"
 msgstr "Τι είναι οι Συγγενείς Καρδιοπάθειες;"
 
 #: .\home_page\templates\home_page\heart_disease_info.html:32
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "                        Congenital heart diseases are abnormalities of "
-#| "the structure of the heart, which a \n"
-#| "                        person carries with him from the day of his "
-#| "birth. In other words, those suffering \n"
-#| "                        from congenital heart diseases are born with some "
-#| "\"structural\" problem in the heart. \n"
-#| "                        The word \"kin\" means \"by birth.\" The term "
-#| "should not be confused with \"kinship,\" in \n"
-#| "                        the sense of heredity, with which it has but "
-#| "little to do.\n"
-#| "                        "
 msgid ""
 "\n"
 "                    Congenital heart diseases are abnormalities of the "
@@ -266,16 +259,16 @@ msgstr ""
 "της καρδιάς, που ένα άτομο φέρει από τη \n"
 "                        μέρα της γέννησής του. Με άλλα λόγια, όσοι πάσχουν "
 "από συγγενείς καρδιοπάθειες γεννιούνται με κάποιο \n"
-"                        «δομικό» πρόβλημα στην καρδιά. Η λέξη «συγγενές» "
+"                        «δομικό» πρόβλημα στην καρδιά. Η λέξη «συγγενείς» "
 "σημαίνει «εκ γενετής». Ο όρος δεν πρέπει να \n"
-"                        συγχέεται με τη λέξη «συγγένεια» με την έννοια της "
+"                        μπερδευτείτε με τη λέξη «συγγένεια» με την έννοια της "
 "κληρονομικότητας, \n"
 "                        με την οποία έχει ελάχιστη σχέση.\n"
 "                        "
 
 #: .\home_page\templates\home_page\heart_disease_info.html:52
 msgid "How are they detected"
-msgstr ""
+msgstr "Πώς εντοπίζονται"
 
 #: .\home_page\templates\home_page\heart_disease_info.html:57
 msgid ""
@@ -297,6 +290,20 @@ msgid ""
 "heart failure.\n"
 "                                "
 msgstr ""
+"Είναι ενθαρρυντικό το γεγονός ότι πολλές συγγενείς καρδιοπάθειες ανιχνεύονται πλέον με ηχοκαρδιογραφία \n"
+"                                           του εμβρύου. Ωστόσο, η πλειονότητά τους διαγιγνώσκεται στη νεογνική περίοδο,  συνήθως \n"
+"                                από τον παιδίατρο στο μαιευτήριο ή "
+"κατά τις πρώτες εβδομάδες ή μήνες της ζωής.<br><br>\n"
+"                                Ωστόσο, υπάρχουν επίσης αρκετές περιπτώσεις που είναι "
+"πολύ σημαντικές. Συγγενείς καρδιοπάθειες μπορούν να \n"
+"                                μπορούν να βρεθούν ανά πάσα στιγμή στην παιδική ηλικία, την εφηβεία  "
+"ακόμα και μετά την ενηλικίωση. Τέτοιες περιπτώσεις μπορεί να περιλαμβάνουν \n"
+"                                παραπομπή από  τον παιδίατρο σε "
+"παιδοκαρδιολόγο, , ο οποίος καλείται να αξιολογήσει ένα \n"
+"                                παιδί με  καρδιακό φύσημα (εννέα στα δέκα παιδιά παραπέμπονται για αξιολόγηση του α καρδιακό φύσημα), \n"
+"                                με κυάνωση ή με σημεία και συμπτώματα "
+"καρδιακής ανεπάρκειας.\n"
+"                                "
 
 #: .\home_page\templates\home_page\heart_disease_info.html:73
 #, fuzzy
@@ -315,14 +322,23 @@ msgid ""
 "knowledge and expertise to determine:\n"
 "                                "
 msgstr ""
+"\n"
+"                                Η παραπομπή σε γιατρό εξειδικευμένο και "
+"έμπειρο στη διάγνωση και θεραπεία των συγγενών \n"
+"                                καρδιοπαθειών είναι ζωτικής σημασίας για την "
+"ακριβή καθορισμό της φύσης του προβλήματος. \n"
+"                                Ένας παιδοκαρδιολόγος είναι ο γιατρός που "
+"έχει τις γνώσεις και την εξειδίκευση για να \n"
+"                                καθορίσει:\n"
+"                                "
 
 #: .\home_page\templates\home_page\heart_disease_info.html:86
 msgid "The nature of the heart problem"
-msgstr ""
+msgstr "Η φύση του προβλήματος της καρδιάς"
 
 #: .\home_page\templates\home_page\heart_disease_info.html:87
 msgid "Medication, if indicated"
-msgstr ""
+msgstr "Φαρμακευτική αγωγή, εάν χρειάζεται""
 
 #: .\home_page\templates\home_page\heart_disease_info.html:88
 msgid ""
@@ -330,10 +346,13 @@ msgid ""
 "                                    patient and possible tests\n"
 "                                    "
 msgstr ""
+Η συχνότητα επισκέψεων που χρειάζονται για την παρακολούθηση του \n"
+"                                    ασθενούς και τις πιθανές εξετάσεις\n"
+"                                    "
 
 #: .\home_page\templates\home_page\heart_disease_info.html:91
 msgid "Invasive non-surgical cardiac treatment, if indicated"
-msgstr ""
+msgstr "Επεμβατική μη χειρουργική θεραπεία της καρδιάς, εάν χρειάζεται"
 
 #: .\home_page\templates\home_page\heart_disease_info.html:92
 msgid ""
@@ -343,16 +362,19 @@ msgid ""
 "                                    heart disease.\n"
 "                                    "
 msgstr ""
+" Παραπομπή του ασθενούς για πιθανή χειρουργική θεραπεία του \n"
+"                                    προβλήματος από παιδοκαρδιοχειρουργό - "
+"χειρουργό καρδιάς που ειδικεύεται στις \n"
+"                                    συγγενείς καρδιοπάθειες.\n"
+"                                    "
 
 #: .\home_page\templates\home_page\index.html:18
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:17
 #: .\what_we_do\templates\what_we_do\what_we_do.html:16
 #: .\what_we_do\templates\what_we_do\what_we_do.html:55
 #: .\what_we_do\templates\what_we_do\what_we_do.html:187
-#, fuzzy
-#| msgid "Hands forming a circle around a big red heart"
 msgid "Two hands of a child holding a red heart"
-msgstr "Χέρια που σχηματίζουν έναν κύκλο γύρω από μια μεγάλη κόκκινη καρδιά"
+msgstr "Δύο χέρια ενός παιδιού κρατούν μια κόκκινη καρδιά"
 
 #: .\home_page\templates\home_page\index.html:30
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:74
@@ -474,7 +496,7 @@ msgstr "Κάθε παιδί αξίζει"
 
 #: .\home_page\templates\home_page\index.html:111
 msgid "a chance to live"
-msgstr "μια ευκαιρία να ζωή"
+msgstr "μια ευκαιρία να ζει"
 
 #: .\home_page\templates\home_page\index.html:111
 msgid "a healthy life!"
@@ -519,6 +541,16 @@ msgid ""
 "world!\n"
 "                    "
 msgstr ""
+"\n"
+"                    Γίνετε μέρος της αλλαγής στις ζωές των παιδιών με καρδιοπάθειες. \n"
+"                    Η υποστήριξή σας, είτε μέσω εθελοντισμού είτε με μια δωρεά, \n"
+"                    μπορεί να φέρει ελπίδα και φροντίδα στις οικογένειες που \n"
+"                    αντιμετωπίζουν τις προκλήσεις των παιδικών καρδιοπαθειών.\n"
+"                    <br><br>Μαζί, μπορούμε να παρέχουμε τους πόρους, την ιατρική βοήθεια \n"
+"                    και τη συναισθηματική υποστήριξη που χρειάζονται αυτά τα παιδιά και οι \n"
+"                    αγαπημένοι τους. Κάθε συμβολή μετράει—βοηθήστε μας να φέρουμε λίγο \n"
+"                    περισσότερο φως στον κόσμο τους!\n"
+"                    "
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:56
 msgid ""
@@ -531,10 +563,17 @@ msgid ""
 "childhood.\n"
 "                    "
 msgstr ""
+"\n"
+"                    Μαζί, μπορούμε να κάνουμε τη διαφορά. Η δωρεά σας μπορεί \n"
+"                    να προσφέρει ζωτικής σημασίας θεραπεία, υποστήριξη στις \n"
+"                    οικογένειες που έχουν ανάγκη, και να δώσει στα παιδιά αυτά \n"
+"                    την ευκαιρία να μεγαλώσουν, να ευημερήσουν και να \n"
+"                    απολαύσουν τις χαρές της παιδικής ηλικίας.\n"
+"                    "
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:62
 msgid "Make a donation today >"
-msgstr ""
+msgstr "Κάντε μια δωρεά σήμερα "
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:79
 msgid ""
@@ -548,10 +587,17 @@ msgid ""
 "                        affected by heart disease!\n"
 "                        "
 msgstr ""
+"\n"
+"                        Εάν είστε παθιασμένοι να κάνετε τη διαφορά, σας \n"
+"                        προσκαλούμε να γίνετε μέλος της αφοσιωμένης ομάδας \n"
+"                        εθελοντών μας και να αποτελέσετε μέρος της καρδιάς της \n"
+"                        αποστολής μας.\n"
+"                        Μαζί, μπορούμε να εργαστούμε χέρι-χέρι για να \n"
+"                        υποστηρίξουμε παιδιά και οικογένειες που επηρεάζονται \n"
+"                        από καρδιοπάθειες!\n"
+"                        "
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:86
-#, fuzzy
-#| msgid "Call us or Email us"
 msgid "Call us or Email us!"
 msgstr "Καλέστε μας ή στείλτε μας email"
 
@@ -565,6 +611,13 @@ msgid ""
 "                    or traditional present.\n"
 "                    "
 msgstr ""
+"\n"
+"                    Τιμήστε μια ανάμνηση ή γιορτάστε μια ειδική περίσταση - είτε "
+"πρόκειται για γάμο, \n"
+"                    βάπτιση ή γενέθλια - δίνοντας ένα ουσιαστικό δώρο  "
+"αντί για ένα στεφάνι \n"
+"                   ή ένα παραδοσιακό δώρο.\n"
+"                    "
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:122
 msgid ""
@@ -610,8 +663,6 @@ msgid "Keeping"
 msgstr "Κρατώντας τις"
 
 #: .\news\templates\news\news.html:16
-#, fuzzy
-#| msgid "Stay informed"
 msgid "Informed"
 msgstr "Ενημερωμένες"
 
@@ -641,24 +692,24 @@ msgstr ""
 
 #: .\news\templates\news\news.html:55
 msgid "Default image, Logo of the associaiton."
-msgstr ""
+msgstr "Προεπιλεγμένη εικόνα, λογότυπο του συνδέσμου"
 
 #: .\shop\templates\shop\basket.html:16
 msgid "A shopping cart with heart inside it."
-msgstr ""
+msgstr "Ένα καλάθι αγορών με καρδιά μέσα του"
 
 #: .\shop\templates\shop\basket.html:17
 msgid "Your Basket"
-msgstr ""
+msgstr "Το καλάθι σας"
 
 #: .\shop\templates\shop\donations.html:16
 #: .\shop\templates\shop\online_shop.html:16
 msgid "Four babies laying down with their heads joined and laughing"
-msgstr ""
+msgstr "Τέσσερα μωρά ξαπλωμένα με το κεφάλι ενωμένα και γελώντας"
 
 #: .\shop\templates\shop\donations.html:17
 msgid "Keep their hope alive"
-msgstr ""
+msgstr "Κρατήστε την ελπίδα τους ζωντανή" 
 
 #: .\shop\templates\shop\donations.html:28 .\templates\base.html:47
 #: .\templates\base.html:103
@@ -693,7 +744,7 @@ msgstr "Δωρεές"
 
 #: .\shop\templates\shop\donations.html:73
 msgid "Counts"
-msgstr ""
+msgstr "Μετρά"
 
 #: .\shop\templates\shop\donations.html:79
 msgid ""
@@ -713,33 +764,27 @@ msgstr ""
 
 #: .\shop\templates\shop\donations.html:99
 msgid "Other ways to donate"
-msgstr ""
+msgstr "Άλλοι τρόποι δωρεάς"
 
 #: .\shop\templates\shop\donations.html:105
 msgid "Donate by phone"
-msgstr ""
+msgstr "Δωρεά από το τηλέφωνο"
 
 #: .\shop\templates\shop\donations.html:106
 msgid "Donate by posting a check or bank transfer"
-msgstr ""
+msgstr "Κάντε δωρεά δημοσιεύοντας επιταγή ή τραπεζικό έμβασμα"
 
 #: .\shop\templates\shop\donations.html:107
-#, fuzzy
-#| msgid "Donate"
 msgid "Donate at our"
 msgstr "Δωρεά"
 
 #: .\shop\templates\shop\donations.html:107
-#, fuzzy
-#| msgid "Events"
 msgid "Events >"
 msgstr "Εκδηλώσεις"
 
 #: .\shop\templates\shop\donations.html:108
-#, fuzzy
-#| msgid "Donate"
 msgid "Donate by"
-msgstr "Δωρεά"
+msgstr "Δωρείστε"
 
 #: .\shop\templates\shop\donations.html:108
 msgid "Visiting our Online shop >"
