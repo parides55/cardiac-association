@@ -68,8 +68,7 @@ msgstr ""
 "φιλανθρωπικής μας οργάνωσης μοιράζονται μια ενοποιημένη αποστολή: \n"
 "                    να παρέχουν ακλόνητη υποστήριξη και φροντίδα σε παιδιά με "
 "καρδιακές παθήσεις και τις \n"
-"                    οικογένειες τους. Μαζί, εργαζόμαστε με συμπόνια,
-δέσμευση, "
+"                    οικογένειες τους. Μαζί, εργαζόμαστε με συμπόνια, δέσμευση, "
 "και τεχνογνωσία για να έχουμε \n"
 "                    θετικό αντίκτυπο, διασφαλίζοντας ότι κάθε παιδί έχει πρόσβαση "
 "πρόσβαση στη θεραπεία, τους πόρους \n"
@@ -96,7 +95,7 @@ msgstr "Φωτογραφία μέλους του διοικητικού συμβ
 
 #: .\about_us\templates\about_us\people.html:82
 msgid "Dedicated Staff"
-msgstr "Αφοσιωμένο Προσωπικό""
+msgstr "Αφοσιωμένο Προσωπικό"
 
 #: .\about_us\templates\about_us\people.html:92
 msgid "Picture of the staff"
@@ -336,7 +335,7 @@ msgstr "Η φύση του προβλήματος της καρδιάς"
 
 #: .\home_page\templates\home_page\heart_disease_info.html:87
 msgid "Medication, if indicated"
-msgstr "Φαρμακευτική αγωγή, εάν χρειάζεται""
+msgstr "Φαρμακευτική αγωγή, εάν χρειάζεται"
 
 #: .\home_page\templates\home_page\heart_disease_info.html:88
 msgid ""
@@ -344,8 +343,8 @@ msgid ""
 "                                    patient and possible tests\n"
 "                                    "
 msgstr ""
-Η συχνότητα επισκέψεων που χρειάζονται για την παρακολούθηση του \n"
-"                                    ασθενούς και τις πιθανές εξετάσεις\n"
+"Η συχνότητα επισκέψεων που χρειάζονται για την παρακολούθηση του \n"
+"                                    ασθενούς και τις πιθανές εξετάσεις \n"
 "                                    "
 
 #: .\home_page\templates\home_page\heart_disease_info.html:91
@@ -540,14 +539,18 @@ msgid ""
 "                    "
 msgstr ""
 "\n"
-"                    Γίνετε μέρος της αλλαγής στις ζωές των παιδιών με καρδιοπάθειες. \n"
-"                    Η υποστήριξή σας, είτε μέσω εθελοντισμού είτε με μια δωρεά, \n"
-"                    μπορεί να φέρει ελπίδα και φροντίδα στις οικογένειες που \n"
-"                    αντιμετωπίζουν τις προκλήσεις των παιδικών καρδιοπαθειών.\n"
-"                    <br><br>Μαζί, μπορούμε να παρέχουμε τους πόρους, την ιατρική βοήθεια \n"
-"                    και τη συναισθηματική υποστήριξη που χρειάζονται αυτά τα παιδιά και οι \n"
-"                    αγαπημένοι τους. Κάθε συμβολή μετράει—βοηθήστε μας να φέρουμε λίγο \n"
-"                    περισσότερο φως στον κόσμο τους!\n"
+"                    Ελάτε μαζί μας για να κάνουμε τη διαφορά στη ζωή των παιδιών "
+"με καρδιακές παθήσεις. \n"
+"                    Η υποστήριξή σας, είτε μέσω του εθελοντισμού του χρόνου σας είτε "
+"μέσω μιας δωρεάς, \n"
+"                    μπορεί να φέρει ελπίδα και φροντίδα σε οικογένειες που αντιμετωπίζουν τις "
+"προκλήσεις των παιδιατρικών καρδιακών \n"
+"                    παθήσεων.<br><br>Μαζί, μπορούμε να παρέχουμε τους "
+"πόρους, την ιατρική βοήθεια και \n"
+"                    τη συναισθηματική υποστήριξη που χρειάζονται αυτά τα παιδιά και τα αγαπημένα τους "
+"πρόσωπα. Κάθε συνεισφορά \n"
+"                    μετράει — βοηθήστε μας να φέρουμε λίγο περισσότερο φως στον "
+"κόσμο τους!\n"
 "                    "
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:56
@@ -562,11 +565,12 @@ msgid ""
 "                    "
 msgstr ""
 "\n"
-"                    Μαζί, μπορούμε να κάνουμε τη διαφορά. Η δωρεά σας μπορεί \n"
-"                    να προσφέρει ζωτικής σημασίας θεραπεία, υποστήριξη στις \n"
-"                    οικογένειες που έχουν ανάγκη, και να δώσει στα παιδιά αυτά \n"
-"                    την ευκαιρία να μεγαλώσουν, να ευημερήσουν και να \n"
-"                    απολαύσουν τις χαρές της παιδικής ηλικίας.\n"
+"                    Μαζί, μπορούμε να κάνουμε τη διαφορά. Η δωρεά σας "
+"μπορεί να προσφέρει σωτήρια \n"
+"                    θεραπεία, να προσφέρει υποστήριξη σε οικογένειες που έχουν ανάγκη και να δώσει "
+"σε αυτά τα παιδιά την \n"
+"                    ευκαιρία να μεγαλώσουν, να ευδοκιμήσουν και να βιώσουν τις χαρές τη"
+"παιδικής ηλικίας.\n"
 "                    "
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:62
@@ -586,13 +590,13 @@ msgid ""
 "                        "
 msgstr ""
 "\n"
-"                        Εάν είστε παθιασμένοι να κάνετε τη διαφορά, σας \n"
-"                        προσκαλούμε να γίνετε μέλος της αφοσιωμένης ομάδας \n"
-"                        εθελοντών μας και να αποτελέσετε μέρος της καρδιάς της \n"
-"                        αποστολής μας.\n"
-"                        Μαζί, μπορούμε να εργαστούμε χέρι-χέρι για να \n"
-"                        υποστηρίξουμε παιδιά και οικογένειες που επηρεάζονται \n"
-"                        από καρδιοπάθειες!\n"
+"                        Εάν είστε παθιασμένοι με το να κάνετε τη διαφορά, σας "
+"προσκαλούμε να γίνετε μέλος της\n"
+"                        αφοσιωμένης ομάδας εθελοντών μας και να γίνετε μέρος της "
+"καρδιάς της αποστολής μας.\n"
+"                        Μαζί, μπορούμε να εργαστούμε χέρι-χέρι για να υποστηρίξουμε "
+"παιδιά και οικογένειες\n"
+"                        που πλήττονται από καρδιακές παθήσεις!\n"
 "                        "
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:86
@@ -625,10 +629,15 @@ msgid ""
 "                        Association, you can help support our cause.\n"
 "                        "
 msgstr ""
+"\n"
+"                        Επιλέγοντας από την ποικιλία των προϊόντων που προσφέρει "
+"ο \n"
+"                       Σύλλογός μας, μπορείτε να βοηθήσετε στην υποστήριξη του σκοπού μας.\n"
+"                        "
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:127
 msgid "Visit Our Online Shop >"
-msgstr ""
+msgstr "Επισκεφθείτε το ηλεκτρονικό μας κατάστημα >"
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:141
 msgid ""
@@ -638,6 +647,11 @@ msgid ""
 "                    fundraiser or event.\n"
 "                    "
 msgstr ""
+"\n"
+"                    Οδηγώντας μια ουσιαστική πρωτοβουλία για την υποστήριξη μας "
+"του Συλλόγου μας φιλοξενώντας \n"
+"                    έρανο ή εκδήλωση.\n"
+"                    "
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:162
 msgid ""
@@ -649,12 +663,17 @@ msgid ""
 "                        with your yearly contribution.\n"
 "                        "
 msgstr ""
+"\n"
+"                        Γίνετε ετήσιος υποστηρικτής —είτε είστε "
+"επιχείρηση,\n"
+"                        οργανισμός ή ίδρυμα— και ασκήστε μόνιμο"
+"αντίκτυπο  \n"
+"                        με την ετήσια συνεισφορά σας.\n"
+"                        "
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:168
-#, fuzzy
-#| msgid "Become a member today"
 msgid "Become a member >"
-msgstr "Γίνετε μέλος σήμερα"
+msgstr "Γίνετε μέλος"
 
 #: .\news\templates\news\news.html:15
 msgid "Keeping"
@@ -957,6 +976,12 @@ msgid ""
 "programs.\n"
 "                    "
 msgstr ""
+"\n"
+"                    Ο Σύλλογος με γνώμονα πάντα τις ανάγκες των "
+"μελών του για να τους \n"
+"                    προσφέρει το καλύτερο δυνατό διοργανώνει διάφορα "
+"προγράμματα.\n"
+"                    "
 
 #: .\what_we_do\templates\what_we_do\programs.html:51
 msgid "Psychological Support Program"
@@ -970,10 +995,15 @@ msgid ""
 "                                themselves and their families.\n"
 "                                "
 msgstr ""
+"Σε συνεργασία με την Ψυχολόγο κα Άντρη Χριστούδια, \n"
+"                                παρέχει υπηρεσίες υποστήριξης, εκπαίδευσης και "
+"ενδυνάμωσης τόσο στους ίδιους τους πάσχοντες \n"
+"                                όσο και στις οικογένειές τους.\n"
+"                                "
 
 #: .\what_we_do\templates\what_we_do\programs.html:62
 msgid "Individual/family psychological support meetings"
-msgstr ""
+msgstr "Ατομικές/οικογενειακές συναντήσεις ψυχολογικής υποστήριξης"
 
 #: .\what_we_do\templates\what_we_do\programs.html:63
 msgid ""
@@ -991,22 +1021,35 @@ msgid ""
 "                                    the child for surgery, etc.\n"
 "                                    "
 msgstr ""
+"Σχολή Γονέων: Διοργανώνονται διάφορα εργαστήρια \n"
+"                                    που στοχεύουν στην παροχή γνώσεων και δεξιοτήτων "
+"στους γονείς \n"
+"                                    ώστε να ενδυναμώσουν και να υποστηρίξουν το "
+"παιδί με \n"
+"                                    τα θέματα υγείας του και να "
+"ζει με \n"
+"                                    αυτοπεποίθηση και χαρά, πώς επικοινωνούμε "
+"με το παιδί μας \n"
+"                                    με το παιδί μας και την οικογενειακό περιβάλλον, προετοιμασία "
+"γονέων και \n"
+"                                   παιδιού για χειρουργείο κ.λπ.\n"
+"                                    "
 
 #: .\what_we_do\templates\what_we_do\programs.html:72
 msgid "Workshops for sufferers themselves for empowerment and self-confidence"
-msgstr ""
+msgstr "Εργαστήρια για τους ίδιους τους πάσχοντες για ενδυνάμωση και αυτοπεποίθηση"
 
 #: .\what_we_do\templates\what_we_do\programs.html:74
 msgid "Experiential workshops with the participation of parents and sufferers."
-msgstr ""
+msgstr "Βιωματικά εργαστήρια με τη συμμετοχή γονέων και πασχόντων."
 
 #: .\what_we_do\templates\what_we_do\programs.html:76
 msgid "Educational/informational lectures"
-msgstr ""
+msgstr "Εκπαιδευτικές/ενημερωτικές διαλέξεις"
 
 #: .\what_we_do\templates\what_we_do\programs.html:84
 msgid "Support Program"
-msgstr ""
+msgstr "Πρόγραμμα Υποστήριξης"
 
 #: .\what_we_do\templates\what_we_do\programs.html:90
 msgid ""
@@ -1020,10 +1063,19 @@ msgid ""
 "                                if for any other reason the need arises.\n"
 "                                "
 msgstr ""
+"\n"
+"                                Ο Σύλλογος υλοποιεί πρόγραμμα "
+"οικονομικής ενίσχυσης για τα μέλη του που ταξιδεύουν \n"
+"                                στο εξωτερικό για την καρδιοχειρουργική του παιδιού τους όσες "
+"φορές χρειαστεί. <br><br>\n"
+"                                Επίσης, υποστηρίζει οικονομικά άπορες οικογένειες "
+"μελών κάθε Χριστούγεννα και Πάσχα ή \n"
+"                                αν για οποιονδήποτε άλλο λόγο παρουσιαστεί ανάγκη.\n"
+"                                "
 
 #: .\what_we_do\templates\what_we_do\programs.html:103
 msgid "Information and Awareness Program"
-msgstr ""
+msgstr "Πρόγραμμα Ενημέρωσης και Ευαισθητοποίησης"
 
 #: .\what_we_do\templates\what_we_do\programs.html:109
 msgid ""
@@ -1038,10 +1090,20 @@ msgid ""
 "Cyprus, etc.\n"
 "                                "
 msgstr ""
+"\n"
+"                                Διοργανώνονται εκστρατείες ενημέρωσης και ευαισθητοποίησης "
+"του κοινού για τις Συγγενείς Καρδιοπάθειες \n"
+"                                μέσω των ΜΜΕ, στην Ιστοσελίδα, "
+"στο Facebook, μέσω του ενημερωτικού \n"
+"                                φυλλαδίου, διοργανώνεται Εβδομάδα Συγγενών "
+"Καρδιοπαθειών από 7-14 Φεβρουαρίου κάθε έτους, \n"
+"                                Συμμετέχουμε σε συνέδρια εντός και εκτός "
+"Κύπρου, κτλ.\n"
+"                                "
 
 #: .\what_we_do\templates\what_we_do\programs.html:122
 msgid "Rehabilitation Program"
-msgstr ""
+msgstr "Πρόγραμμα Αποκατάστασης"
 
 #: .\what_we_do\templates\what_we_do\programs.html:127
 msgid ""
@@ -1052,36 +1114,36 @@ msgid ""
 "such as:\n"
 "                                "
 msgstr ""
+"Σε συνεργασία με Παιδοκαρδιολόγους και άλλους φορείς, \n"
+"                                διοργανώνονται διάφορα προγράμματα με "
+"απώτερο στόχο τη βελτίωση της ποιότητας ζωής \n"
+"                                των ατόμων με Συγγενή Καρδιοπάθεια, "
+"όπως:\n"
+"                                "
 
 #: .\what_we_do\templates\what_we_do\programs.html:133
-#, fuzzy
-#| msgid "What are Congenital Heart Diseases?"
 msgid "Exercise and Congenital Heart Disease"
-msgstr "Τι είναι οι Συγγενείς Καρδιοπάθειες;"
+msgstr "Άσκηση και συγγενείς καρδιοπάθειες"
 
 #: .\what_we_do\templates\what_we_do\programs.html:134
-#, fuzzy
-#| msgid "What are Congenital Heart Diseases?"
 msgid "Pregnancy and Congenital Heart Disease"
-msgstr "Τι είναι οι Συγγενείς Καρδιοπάθειες;"
+msgstr "Εγκυμοσύνη και συγγενείς καρδιοπάθειες"
 
 #: .\what_we_do\templates\what_we_do\programs.html:135
-#, fuzzy
-#| msgid "What are Congenital Heart Diseases?"
 msgid "Learning Disabilities and Congenital Heart Diseases"
-msgstr "Τι είναι οι Συγγενείς Καρδιοπάθειες;"
+msgstr "Μαθησιακές Δυσκολίες και Συγγενείς Καρδιοπάθειες"
 
 #: .\what_we_do\templates\what_we_do\programs.html:137
 msgid "Vocational training"
-msgstr ""
+msgstr "Επαγγελματική κατάρτιση"
 
 #: .\what_we_do\templates\what_we_do\programs.html:139
 msgid "Informative lectures with Pediatric Cardiologists"
-msgstr ""
+msgstr "Ενημερωτικές διαλέξεις με Παιδοκαρδιολόγους"
 
 #: .\what_we_do\templates\what_we_do\services.html:31
 msgid "Services we offer"
-msgstr ""
+msgstr "Υπηρεσίες που προσφέρουμε"
 
 #: .\what_we_do\templates\what_we_do\services.html:37
 msgid ""
@@ -1094,6 +1156,15 @@ msgid ""
 "various services.\n"
 "                    "
 msgstr ""
+"\n"
+"                    Γνωρίζοντας με τα χρόνια τα συναισθήματα που μπορεί να αναπτύξει "
+"ένα ζευγάρι όταν διαγνωστεί το \n"
+"                    παιδί του με Συγγενή Καρδιοπάθεια, αλλά "
+"και το οικογενειακό \n"
+"                    περιβάλλον, ο Σύλλογος παρέχει στα μέλη του "
+"διάφορες υπηρεσίες.\n"
+"                    "
+
 
 #: .\what_we_do\templates\what_we_do\services.html:61
 msgid ""
@@ -1102,18 +1173,22 @@ msgid ""
 "                            with Congenital Heart Disease that falls within "
 "the Association's remit."
 msgstr ""
+"Πληροφορίες και καθοδήγηση για οτιδήποτε αφορά παιδιά, εφήβους και "
+"ενήλικες  \n"
+"                            με Συγγενή Καρδιοπάθεια που εμπίπτει στην αρμοδιότητα "
+"του Συλλόγου."
 
 #: .\what_we_do\templates\what_we_do\services.html:77
 msgid "Any help our members need on a daily basis."
-msgstr ""
+msgstr "Οποιαδήποτε βοήθεια χρειάζονται τα μέλη μας σε καθημερινή βάση."
 
 #: .\what_we_do\templates\what_we_do\services.html:89
 msgid "Emotional, Psychological Support"
-msgstr ""
+msgstr "Συναισθηματική, Ψυχολογική Υποστήριξη"
 
 #: .\what_we_do\templates\what_we_do\services.html:90
 msgid "Visit our programs"
-msgstr ""
+msgstr "Επισκεφθείτε τα προγράμματά μας"
 
 #: .\what_we_do\templates\what_we_do\services.html:102
 msgid ""
@@ -1121,44 +1196,49 @@ msgid ""
 "                            travel abroad for their child's treatment, as "
 "many times as necessary"
 msgstr ""
+"Οικονομική υποστήριξη στις οικογένειες μελών μας που θα \n"
+"                            ταξιδέψουν στο εξωτερικό για τη θεραπεία του παιδιού τους, όσες "
+"φορές χρειαστεί"
 
 #: .\what_we_do\templates\what_we_do\services.html:117
 msgid "Financial Support to needy member families"
-msgstr ""
+msgstr "Οικονομική στήριξη σε άπορες οικογένειες μελών"
 
 #: .\what_we_do\templates\what_we_do\services.html:129
 msgid "Emergency helpline 99722766"
-msgstr ""
+msgstr "Γραμμή βοήθειας, έκτακτης ανάγκης 99722766"
 
 #: .\what_we_do\templates\what_we_do\services.html:141
 msgid "Lectures with invited doctors in and outside Cyprus"
-msgstr ""
+msgstr "Διαλέξεις με προσκεκλημένους γιατρούς εντός και εκτός Κύπρου"
 
 #: .\what_we_do\templates\what_we_do\services.html:155
 msgid ""
 "Events/Excursions for getting to know each other, exchanging experiences "
 "among members"
 msgstr ""
+"Εκδηλώσεις/Εκδρομές για γνωριμία, ανταλλαγή εμπειριών "
+" μεταξύ των μελών"
 
 #: .\what_we_do\templates\what_we_do\what_we_do.html:17
 msgid "Creating Hope"
-msgstr ""
+msgstr "Δημιουργώντας Ελπίδα"
 
 #: .\what_we_do\templates\what_we_do\what_we_do.html:17
 msgid "for Children with"
-msgstr ""
+msgstr "για Παιδιά με"
 
 #: .\what_we_do\templates\what_we_do\what_we_do.html:18
 msgid "Heart Consitions"
-msgstr ""
+msgstr "Καρδιακές παθήσεις"
 
 #: .\what_we_do\templates\what_we_do\what_we_do.html:29
 msgid "Red band"
-msgstr ""
+msgstr "Κόκκινη ζώνη"
 
 #: .\what_we_do\templates\what_we_do\what_we_do.html:56
 msgid "Statistics"
-msgstr ""
+msgstr "Στατιστικά"
 
 #: .\what_we_do\templates\what_we_do\what_we_do.html:64
 #, fuzzy
@@ -1182,6 +1262,19 @@ msgid ""
 "                        from various stores, information campaigns, etc.\n"
 "                        "
 msgstr ""
+"\n"
+"                        Ο Σύλλογος υποστηρίζει άτομα με Συγγενείς και "
+"Επίκτητες Καρδιοπάθειες \n"
+"                       με διάφορες υπηρεσίες. Ενημέρωση και καθοδήγηση, "
+"Ψυχολογική Υποστήριξη, \n"
+"                        Οικονομική Υποστήριξη, διασφάλιση των δικαιωμάτων των"
+"ασθενών με Συγγενείς Καρδιοπάθειες, \n"
+"                        Ενημερωτικές διαλέξεις, Ενημερωτικές "
+"συναντήσεις, διοργανώνει ταξίδια γνωριμίας \n"
+"                        μεταξύ των μελών, Παγκύπρια Γραμμή "
+"Επείγουσας Ανάγκης, Εκπτώσεις \n"
+"                        από διάφορα καταστήματα, ενημερωτικές εκστρατείες κ.λπ.\n"
+"                        "
 
 #: .\what_we_do\templates\what_we_do\what_we_do.html:93
 msgid ""
@@ -1192,6 +1285,12 @@ msgid ""
 "people with Congenital Heart Diseases.\n"
 "                        "
 msgstr ""
+"\n"
+"                        Η ενημέρωση, η διαφώτιση και η ευαισθητοποίηση του "
+"κοινού για τις Συγγενείς \n"
+"                        Καρδιοπάθειες. Η εκπαίδευση και η ενδυνάμωση των "
+"ατόμων με Συγγενείς Καρδιοπάθειες.n"
+"                        "
 
 #: .\what_we_do\templates\what_we_do\what_we_do.html:114
 msgid ""
@@ -1200,6 +1299,10 @@ msgid ""
 "of the Association and the various programs it organizes\n"
 "                        "
 msgstr ""
+"\n"
+"                        Εύρεση πόρων, χορηγών για την υποστήριξη των δράσεων "
+"του Συλλόγου και των διαφόρων προγραμμάτων που διοργανώνει\n"
+"                        "
 
 #: .\what_we_do\templates\what_we_do\what_we_do.html:128
 msgid ""
@@ -1217,6 +1320,19 @@ msgid ""
 "                        Disabilities and Congenital Heart Diseases program.\n"
 "                        "
 msgstr ""
+"\n"
+"                        Με στόχο πάντα την καλύτερη ποιότητα ζωής των ατόμων "
+"ατόμων με Συγγενείς Καρδιοπάθειες, \n"
+"                         ο Σύλλογος, σε συνεργασία με "
+"Παιδοκαρδιολόγους, καταβάλλει προσπάθειες για την εξεύρεση \n"
+"                        Ευρωπαϊκών Προγραμμάτων. Μέχρι στιγμής έχει οργανώσει τα "
+"εξής προγράμματα: Άσκηση και Συγγενείς \n"
+"                        Καρδιοπάθειες Εγκυμοσύνη και Συγγενείς "
+"Καρδιοπάθειες Αποκατάσταση Επίσης σε συνεργασία \n"
+"                        με το Κέντρο Εξειδικευμένης Παιδιατρικής Το Παιδί "
+"συμμετέχουμε στο πρόγραμμα Μαθησιακές \n"
+"                        Δυσκολίες και Συγγενείς Καρδιοπάθειες.\n"
+"                        "
 
 #: .\what_we_do\templates\what_we_do\what_we_do.html:153
 msgid ""
@@ -1229,6 +1345,14 @@ msgid ""
 "creation of a file of Congenital Heart Diseases.\n"
 "                        "
 msgstr ""
+"\n"
+"                        Η συνεργασία με τους αρμόδιους φορείς όπως "
+"το Υπουργείο Υγείας, το Υπουργείο Εργασίας, \n"
+"                        η Υγειονομική Επιτροπή της Βουλής κ.λπ. για "
+"τη διασφάλιση καλύτερης ποιότητας ζωής των ατόμων με \n"
+"                        συγγενείς καρδιοπάθειες Η προώθηση της "
+"δημιουργίας αρχείου ασθενών Συγγενών Καρδιοπαθειών.\n"
+"                        "
 
 #: .\what_we_do\templates\what_we_do\what_we_do.html:169
 msgid ""
@@ -1237,6 +1361,10 @@ msgid ""
 "Diseases in information and education programs.\n"
 "                        "
 msgstr ""
+"\n"
+"                        Συμμετοχή ατόμων με Συγγενείς Καρδιοπάθειες "
+"σε προγράμματα ενημέρωσης και εκπαίδευσης.\n"
+"                        "
 
 #: .\what_we_do\templates\what_we_do\what_we_do.html:188
 msgid "Services"
