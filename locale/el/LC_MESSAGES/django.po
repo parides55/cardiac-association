@@ -306,10 +306,8 @@ msgstr ""
 "                                "
 
 #: .\home_page\templates\home_page\heart_disease_info.html:73
-#, fuzzy
-#| msgid "What we do"
 msgid "What to do"
-msgstr "Τι κάνουμε"
+msgstr "Τι να κάνετε"
 
 #: .\home_page\templates\home_page\heart_disease_info.html:79
 msgid ""
@@ -714,7 +712,7 @@ msgstr "Κρατήστε την ελπίδα τους ζωντανή"
 #: .\shop\templates\shop\donations.html:28 .\templates\base.html:47
 #: .\templates\base.html:103
 msgid "Donate"
-msgstr "Δωρεά"
+msgstr "Δωρίστε"
 
 #: .\shop\templates\shop\donations.html:34
 msgid ""
@@ -731,16 +729,26 @@ msgid ""
 "beating stronger.\n"
 "                    "
 msgstr ""
+"\n"
+"                    Κάθε μέρα, τα παιδιά γεννιούνται σε μια ζωή γεμάτη "
+"προκλήσεις λόγω καρδιακών παθήσεων. \n"
+"                    Για πολλούς, οι μικροσκοπικές καρδιές τους απαιτούν επείγουσες ιατρικές "
+"παρεμβάσεις μόνο και μόνο για να επιβιώσουν \n"
+"                    τον πρώτο χρόνο τους.  Αυτά τα γενναία παιδιά και οι οικογένειές τους αντιμετωπίζουν "
+"το συναισθηματικό και οικονομικό \n"
+"                    βάρος των συνεχιζόμενων θεραπειών, χειρουργικών επεμβάσεων και εξειδικευμένης"
+"φροντίδας.<br><br>\n"
+"                    Κάντε δωρεά σήμερα και γίνετε ο λόγος που η καρδιά ενός παιδιού συνεχίζει"
+"να χτυπά πιο δυνατά.\n"
+"                    "
 
 #: .\shop\templates\shop\donations.html:73
 msgid "Every"
-msgstr ""
+msgstr "Κάθε"
 
 #: .\shop\templates\shop\donations.html:73
-#, fuzzy
-#| msgid "Donations"
 msgid "Donation"
-msgstr "Δωρεές"
+msgstr "Δωρέα"
 
 #: .\shop\templates\shop\donations.html:73
 msgid "Counts"
@@ -761,6 +769,18 @@ msgid ""
 "                    deserve.\n"
 "                    "
 msgstr ""
+"\n"
+"                    Μαζί, μπορούμε να κάνουμε τη διαφορά.  Η δωρεά σας μπορεί να "
+"προσφέρει σωτήρια θεραπεία,\n"
+"                    να προσφέρει υποστήριξη σε οικογένειες που έχουν ανάγκη και να δώσει σε αυτά τα"
+"παιδιά την ευκαιρία να μεγαλώσουν, να ευδοκιμήσουν και\n"
+"                    να βιώσουν τις χαρές της παιδικής ηλικίας.  Καμία συνεισφορά δεν είναι πολύ "
+"μικρή - κάθε προσφορά φέρνει ελπίδα σε ένα\n"
+"                    παιδί που παλεύει για τη ζωή του.<br><br>\n"
+"                    Ελάτε μαζί μας σε αυτήν την αποστολή για να φτιάξουμε καρδιές και να δώσουμε"
+"σε αυτά τα παιδιά το μέλλον που τους\n"
+"                    αξίζει.\n"
+"                    "
 
 #: .\shop\templates\shop\donations.html:99
 msgid "Other ways to donate"
@@ -784,19 +804,19 @@ msgstr "Εκδηλώσεις"
 
 #: .\shop\templates\shop\donations.html:108
 msgid "Donate by"
-msgstr "Δωρείστε"
+msgstr "Κάντε δωρέα"
 
 #: .\shop\templates\shop\donations.html:108
 msgid "Visiting our Online shop >"
-msgstr ""
+msgstr "επισκεπτόμενοι το ηλεκτρονικό μας κατάστημα"
 
 #: .\shop\templates\shop\online_shop.html:17
 msgid "Shop. Support. Strengthen Little Hearts."
-msgstr ""
+msgstr "Ψωνίστε. Υποστηρίξτε. Δυναμώστε τις Μικρές Καρδιές."
 
 #: .\shop\templates\shop\online_shop.html:28
 msgid "Online Shop"
-msgstr ""
+msgstr "Ηλεκτρονικό κατάστημα"
 
 #: .\shop\templates\shop\online_shop.html:34
 msgid ""
@@ -813,6 +833,18 @@ msgid ""
 "stronger!\n"
 "                    "
 msgstr ""
+"\n"
+"                    Καλώς ήρθατε στο ηλεκτρονικό μας κατάστημα, όπου κάθε αγορά κάνει τη "
+"διαφορά!  Εξερευνήστε την\n"
+"                    προσεκτικά επιλεγμένη συλλογή προϊόντων μας, γνωρίζοντας ότι "
+"κάθε προϊόν που αγοράζετε υποστηρίζει άμεσα \n"
+"                    τα παιδιά με καρδιακές παθήσεις και τις οικογένειές τους. "
+"Με τις αγορές σας από εμάς, \n"
+"                    δεν λαμβάνετε απλώς κάτι ξεχωριστό - δίνετε ελπίδα, "
+"αγάπη και φροντίδα σε όσους \n"
+"                    το χρειάζονται περισσότερο.<br><br> Μαζί, μπορούμε να κάνουμε τις καρδιές "
+"πιο δυνατές!\n"
+"                    "
 
 #: .\templates\base.html:24
 msgid "Cardiac Association"
@@ -824,25 +856,23 @@ msgstr "Λογότυπο"
 
 #: .\templates\base.html:60
 msgid "Our services"
-msgstr ""
+msgstr "Οι υπηρεσίες μας"
 
 #: .\templates\base.html:61
 msgid "Our programs"
-msgstr ""
+msgstr "Τα προγράμματά μας"
 
 #: .\templates\base.html:70 .\what_we_do\templates\what_we_do\services.html:182
 msgid "Make a donation"
-msgstr ""
+msgstr "Κάντε μια δωρεά"
 
 #: .\templates\base.html:71
 msgid "Online shop"
-msgstr ""
+msgstr "Ηλεκτρονικό κατάστημα"
 
 #: .\templates\base.html:72 .\what_we_do\templates\what_we_do\services.html:105
-#, fuzzy
-#| msgid "Become a member today"
 msgid "Become a member"
-msgstr "Γίνετε μέλος σήμερα"
+msgstr "Γίνετε μέλος"
 
 #: .\templates\base.html:77
 msgid "Stay informed"
@@ -907,18 +937,16 @@ msgid "Follow us on"
 msgstr "Ακολουθήστε μας στο"
 
 #: .\what_we_do\templates\what_we_do\programs.html:15
-#, fuzzy
-#| msgid "Young hearts"
 msgid "Supporting Hearts,"
-msgstr "Οι Νεαρές καρδιές"
+msgstr "Στήριξη καρδιών,"
 
 #: .\what_we_do\templates\what_we_do\programs.html:15
 msgid "Strengthening Families"
-msgstr ""
+msgstr "Ενίσχυση οικογενειών"
 
 #: .\what_we_do\templates\what_we_do\programs.html:26
 msgid "Our supporting programs"
-msgstr ""
+msgstr "Τα υποστηρικτικά μας προγράμματα"
 
 #: .\what_we_do\templates\what_we_do\programs.html:32
 msgid ""
@@ -932,7 +960,7 @@ msgstr ""
 
 #: .\what_we_do\templates\what_we_do\programs.html:51
 msgid "Psychological Support Program"
-msgstr ""
+msgstr "Πρόγραμμα Ψυχολογικής Υποστήριξης"
 
 #: .\what_we_do\templates\what_we_do\programs.html:56
 msgid ""
@@ -1212,11 +1240,11 @@ msgstr ""
 
 #: .\what_we_do\templates\what_we_do\what_we_do.html:188
 msgid "Services"
-msgstr ""
+msgstr "Υπηρεσίες"
 
 #: .\what_we_do\templates\what_we_do\what_we_do.html:189
 msgid "Programs"
-msgstr ""
+msgstr "Προγράμματα"
 
 #~ msgid "Join us"
 #~ msgstr "Γίνετε μέλος"
