@@ -4,22 +4,26 @@
 {% load i18n %}
 
 {% block content %}
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col">
-                {% if 'placeholder' in event.image.url %}
-                <img src="{% static 'images/default_logo.jpg' %}" class="card-img-top" alt="{% trans 'Default image' %}">
-                {% else %}
-                <img src="{{ event.image.url }}" class="card-img-top" alt="{{ event.title }}">
-                {% endif %}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <h2 class="fs-1 fw-bold">{{ event.title }}</h2>
-                <p>{{ event.content | safe }}</p>
-                <p>{{ event.date_of_event|date:"F j, Y" }}</p>
-            </div>
+<section class='mt-0 hero' id='hero-events-info'>
+    <div class="container-fluid p-0">
+        <div class='row position-relative hero-image-div'>
+            {% if 'placeholder' in event.image.url %}
+            <img class='img-fluid hero-image' src="{% static 'images/default_logo.jpg' %}" class="card-img-top" alt="{% trans 'Default image' %}">
+            {% else %}
+            <img class='img-fluid hero-image' src="{{ event.image.url }}" class="card-img-top" alt="{{ event.title }}">
+            {% endif %}
         </div>
     </div>
+</section>
+
+<section id="main-content-events">
+    <div class="row">
+        <div class="col">
+            <h2 class="fs-1 fw-bold text-center my-5">{{ event.title }}</h2>
+            <div class="mx-5">{{ event.content | safe }}</div>
+            <p class="my-5 me-3 text-end">{{ event.date_of_event|date:"F j, Y" }}</p>
+        </div>
+    </div>
+</section>
+
 {% endblock %}

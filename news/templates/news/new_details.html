@@ -4,25 +4,30 @@
 {% load i18n %}
 
 {% block content %}
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col">
-                {% if 'placeholder' in new.image.url %}
-                <img src="{% static 'images/default_logo.jpg' %}" class="card-img-top" alt="{% trans 'Default image' %}">
-                {% else %}
-                <img src="{{ new.image.url }}" class="card-img-top" alt="{{ new.title }}">
-                {% endif %}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <h2 class="fs-1 fw-bold">{{ new.title }}</h2>
-                <p>{{ new.content | safe }}</p>
-                <p><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="gray" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
-                    </svg> {{ new.created_on|date:"F j, Y" }}</p>
-            </div>
+<section class='mt-0 hero' id='hero-news-info'>
+    <div class="container-fluid p-0">
+        <div class='row position-relative hero-image-div'>
+            {% if 'placeholder' in new.image.url %}
+            <img class='img-fluid hero-image' src="{% static 'images/default_logo.jpg' %}" class="card-img-top" alt="{% trans 'Default image' %}">
+            {% else %}
+            <img class='img-fluid hero-image' src="{{ new.image.url }}" class="card-img-top" alt="{{ new.title }}">
+            {% endif %}
         </div>
     </div>
+</section>
+
+<section id="main-content-news">
+    <div class="row">
+        <div class="col">
+            <h2 class="fs-1 fw-bold text-center my-5">{{ new.title }}</h2>
+            <div class="mx-5">{{ new.content | safe }}</div>
+            <p class="my-5 me-3 text-end">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="gray" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                </svg> {{ new.created_on|date:"F j, Y" }}
+            </p>
+        </div>
+    </div>
+</section>
 {% endblock %}
