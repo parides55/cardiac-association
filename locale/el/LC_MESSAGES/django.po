@@ -911,7 +911,7 @@ msgstr "Γίνετε μέλος"
 
 #: .\templates\base.html:77
 msgid "Stay informed"
-msgstr "Μείνετε ενημερωμένοι"
+msgstr "Ενημερωθείτε"
 
 #: .\templates\base.html:80
 msgid "Events"
