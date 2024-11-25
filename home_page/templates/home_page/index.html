@@ -10,6 +10,7 @@
 {% url 'how_you-can_help' as how_you_can_help_url %}
 {% url 'heart_disease_info' as heart_disease_info_url %}
 {% url 'become_member' as become_member_url %}
+{% url 'donations' as donations_url %}
 
 {% block content %}
 <section class='mt-0 hero' id='hero-home'>
@@ -17,6 +18,7 @@
         <div class='row position-relative hero-image-div'>
             <img class='img-fluid hero-image' src="{% static 'images/kid_heart.png.jpg' %}" alt="{% trans 'Two hands of a child holding a red heart' %}">
             <h1 class='fst-italic fw-bold hero-heading'>{% trans 'Young hearts' %}<br>{% trans 'is our mission' %}</h1>
+            <a class="cta-btn-home btn btn-warning" href="{% url 'donations' %}">Donate</a>
         </div>
     </div>
 </section>
