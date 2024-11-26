@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.i18n import i18n_patterns
+from django.views.i18n import set_language
 
 urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
@@ -29,3 +30,7 @@ urlpatterns = i18n_patterns(
     path("how_you_can_help/", include("how_you_can_help.urls"), name="how_you_can_help"),
     path("shop/", include("shop.urls"), name="shop"),
 )
+
+urlpatterns += [
+    path('set-language/', set_language, name='set_language'),
+]
