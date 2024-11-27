@@ -121,7 +121,6 @@ nav {
     height: 300px; 
 }
 
-/* ---------------------------- How-you-can-help page --------------------------------------------- */
 .services-btn {
     position: absolute;
     top: 75%;
@@ -134,6 +133,7 @@ nav {
     left: 60%;
 }
 
+/* ---------------------------- How-you-can-help page --------------------------------------------- */
 #help1 {
     background: url(../images/hands_in_forest.jpg) no-repeat center center;
     height: 500px;
