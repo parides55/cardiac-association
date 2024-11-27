@@ -10,6 +10,7 @@
 {% url 'donations' as donations_url %}
 {% url 'become_member' as become_member_url %}
 {% url 'programs' as programs_url %}
+{% url 'donations' as donations_url %}
 
 {% block content %}
 
@@ -115,6 +116,7 @@
                             </svg>
                         </h5>
                         <p class="card-text fs-6 mt-4">{% blocktrans %}Financial Support to needy member families{% endblocktrans %}</p>
+                        <a href="{% url 'donations' %}">{% trans 'Make a donation' %}</a>
                     </div>
                 </div>
             </div>
@@ -127,6 +129,7 @@
                             </svg>
                         </h5>
                         <p class="card-text fs-6 mt-4">{% blocktrans %}Emergency helpline 99722766{% endblocktrans %}</p>
+                        <a href="tel:+35722315196">{%  trans 'Call us ' %}</a>{% trans ' or ' %}<a href="mailto:pediheart@cytanet.com.cy?subject=Inquiry&body=Hello">{% trans ' Email us' %}</a>
                     </div>
                 </div>
             </div>
