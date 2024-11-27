@@ -1231,7 +1231,7 @@ msgid "for Children with"
 msgstr "για Παιδιά με"
 
 #: .\what_we_do\templates\what_we_do\what_we_do.html:18
-msgid "Heart Consitions"
+msgid "Heart Conditions"
 msgstr "Καρδιακές παθήσεις"
 
 #: .\what_we_do\templates\what_we_do\what_we_do.html:29
