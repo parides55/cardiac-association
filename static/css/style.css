@@ -30,6 +30,7 @@ hr {
     border: 3px solid gray;
     border-radius: 5px;
     margin: 20px 20px;
+    display: none; /* Hide the horizontal rule for test*/
 }
 
 .down-arrow {
