@@ -13,7 +13,7 @@ class Event(models.Model):
     content = models.TextField()
     date_of_event = models.DateTimeField()
     created_on = models.DateTimeField(auto_now_add=True)
-    excerpt = models.TextField(blank=True)
+    location = models.CharField(max_length=200)
     status = models.IntegerField(choices=STATUS, default=0)
     
     def __str__(self):
