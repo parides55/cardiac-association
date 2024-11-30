@@ -98,7 +98,7 @@ nav {
 /* ---------------------------- Home Page --------------------------------------------- */
 
 #prompt {
-    background: url(../images/hands_in_forest.jpg) no-repeat center center;
+    background: url(../images/hands_forming_heart_white.jpg) no-repeat center center;
     height: 500px;
     background-size: cover;
 }
@@ -123,14 +123,16 @@ nav {
 
 .services-btn {
     position: absolute;
-    top: 75%;
+    top: 50%;
     left: 10%;
+    width: auto;
 }
 
 .programs-btn {
     position: absolute;
-    top: 75%;
-    left: 60%;
+    top: 50%;
+    left: 50%;
+    width: auto;
 }
 
 /* ---------------------------- How-you-can-help page --------------------------------------------- */
