@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from .forms import BasketForm
+from .forms import BasketForm, DonationForm
 from .models import Product, Basket
 
 # Create your views here.
@@ -10,26 +10,61 @@ def donations(request):
 
 def donation_checkout(request):
     
-    donation_type = request.GET.get('donation_type')
-    donation_amount = request.GET.get('donation_amount')
-    other_amount = request.GET.get('other_amount')
-    
-    if donation_amount == 'other':
-        donation_amount = other_amount
+    try:
+        donation_type = request.GET.get('donation_type')
+        donation_amount = request.GET.get('donation_amount')
+        other_amount = request.GET.get('other_amount')
+        
+        if request.method == 'POST':
+            donation_form = DonationForm(data=request.POST)
+            if donation_form.is_valid():
+                full_name = donation_form.cleaned_data['full_name']
+                email = donation_form.cleaned_data['email']
+                phone_number = donation_form.cleaned_data['phone_number']
+                address = donation_form.cleaned_data['address']
+                address2 = donation_form.cleaned_data['address2']
+                state = donation_form.cleaned_data['state']
+                city = donation_form.cleaned_data['city']
+                postcode = donation_form.cleaned_data['zip']
+                donation_amount = donation_form.cleaned_data['donation_amount']
+                donation_type = donation_form.cleaned_data['donation_type']
+                other_amount = donation_form.cleaned_data['other_amount']
+                donation_form.save()
+                
+                messages.success(request, "Thank you for your donation! We appreciate your support.")
+                
+                return redirect('donations')
+            
+            else:
+                print(request.POST)
+                print(donation_form.errors)
+                messages.error(request, "Something went wrong. Please try again.")
+                return redirect('donations')
+        
+        if donation_amount == 'other':
+            donation_amount = other_amount
 
-        context = {
-            'donation_type': donation_type,
-            'donation_amount': donation_amount,
-            'other_amount': other_amount,
-        }
-        return render(request, 'shop/donation_checkout.html', context)
+            context = {
+                'donation_type': donation_type,
+                'donation_amount': donation_amount,
+                'other_amount': other_amount,
+            }
+
+            return render(request, 'shop/donation_checkout.html', context)
+        
+        else:
+            context = {
+                'donation_type': donation_type,
+                'donation_amount': donation_amount,
+            }
+            return render(request, 'shop/donation_checkout.html', context)
     
-    else:
-        context = {
-            'donation_type': donation_type,
-            'donation_amount': donation_amount,
-        }
-        return render(request, 'shop/donation_checkout.html', context)
+    except Exception as e:
+        print(request.POST)
+        print(e)
+        messages.error(request, f"The following error occurred: {e}")
+        return redirect('donations')
+
 
 def online_shop(request):
 

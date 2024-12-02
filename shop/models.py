@@ -67,7 +67,7 @@ class Order(models.Model):
 class Donation(models.Model):
     
     DONATION_TYPE_CHOICES = [
-        ('one_off', 'One-Off Payment'),
+        ('one-off', 'One-Off Payment'),
         ('monthly', 'Monthly Subscription'),
     ]
     
@@ -87,7 +87,7 @@ class Donation(models.Model):
     
     
     def __str__(self):
-        return f'{self.full_name} / {self.donation_type} / {self.donation_amount} / {self.status}'
+        return f'{self.full_name} / {self.donation_type} / {self.donation_amount} - {self.status}'
     
     
     class Meta:
