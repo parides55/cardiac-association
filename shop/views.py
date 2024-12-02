@@ -7,6 +7,10 @@ from .models import Product, Basket
 def donations(request):
     return render(request, "shop/donations.html")
 
+
+def donation_checkout(request):
+    return render(request, "shop/donation_checkout.html")
+
 def online_shop(request):
 
     products = Product.objects.filter(available=True).order_by('-created_at')
@@ -57,7 +61,6 @@ def add_to_basket(request, product_id):
     except Exception as e:
         messages.error(request, f"The following error occurred: {e}")
         return redirect('online_shop')
-
 
 
 def view_basket(request):
