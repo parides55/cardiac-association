@@ -9,7 +9,27 @@ def donations(request):
 
 
 def donation_checkout(request):
-    return render(request, "shop/donation_checkout.html")
+    
+    donation_type = request.GET.get('donation_type')
+    donation_amount = request.GET.get('donation_amount')
+    other_amount = request.GET.get('other_amount')
+    
+    if donation_amount == 'other':
+        donation_amount = other_amount
+
+        context = {
+            'donation_type': donation_type,
+            'donation_amount': donation_amount,
+            'other_amount': other_amount,
+        }
+        return render(request, 'shop/donation_checkout.html', context)
+    
+    else:
+        context = {
+            'donation_type': donation_type,
+            'donation_amount': donation_amount,
+        }
+        return render(request, 'shop/donation_checkout.html', context)
 
 def online_shop(request):
 

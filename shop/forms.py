@@ -1,5 +1,5 @@
 from django import forms
-from .models import Basket
+from .models import Basket, Donation
 
 
 class BasketForm(forms.ModelForm):
@@ -12,3 +12,15 @@ class BasketForm(forms.ModelForm):
         """
         model = Basket
         fields = ('quantity', )
+
+
+class DonationForm(forms.ModelForm):
+    """
+    A form for users to make a donation.
+    """
+    class Meta:
+        """
+        Specify the django model and fields to be displayed.
+        """
+        model = Donation
+        fields = ('full_name', 'email', 'phone_number', 'address', 'donation_amount', 'donation_type', )
