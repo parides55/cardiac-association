@@ -61,3 +61,34 @@ class Order(models.Model):
 
     class Meta:
         ordering = ('-created_at',)
+
+
+#Donation models
+class Donation(models.Model):
+    
+    DONATION_TYPE_CHOICES = [
+        ('one_off', 'One-Off Payment'),
+        ('monthly', 'Monthly Subscription'),
+    ]
+    
+    STATUS_CHOICES = [
+        ('active', 'Active'),
+        ('inactive', 'Inactive'),
+    ]
+    
+    full_name = models.CharField(max_length=50)
+    email = models.EmailField()
+    phone_number = models.CharField(max_length=20)
+    address = models.CharField(max_length=250)
+    donation_amount = models.DecimalField(max_digits=10, decimal_places=2)
+    donation_type = models.CharField(max_length=20, choices=DONATION_TYPE_CHOICES)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES)
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    
+    def __str__(self):
+        return f'{self.full_name} / {self.donation_type} / {self.donation_amount} / {self.status}'
+    
+    
+    class Meta:
+        ordering = ('-created_at',)

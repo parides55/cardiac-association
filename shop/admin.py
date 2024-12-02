@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Product, Basket, Order
+from .models import Product, Basket, Order, Donation
 
 
 @admin.register(Product)
@@ -17,3 +17,4 @@ class ProductAdmin(admin.ModelAdmin):
 # Register your models here.
 admin.site.register(Basket)
 admin.site.register(Order)
+admin.site.register(Donation)
