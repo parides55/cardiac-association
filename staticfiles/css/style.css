@@ -116,6 +116,11 @@ nav {
     font-size: 30px;
 }
 
+/* ---------------------------- Donations Form --------------------------------------------- */
+.radio-group input[type="radio"] {
+    display: none;
+}
+
 /* ---------------------------- What-we-do page --------------------------------------------- */
 .card-img-div { /* Services */
     height: 300px; 
