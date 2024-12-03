@@ -23,4 +23,7 @@ class DonationForm(forms.ModelForm):
         Specify the django model and fields to be displayed.
         """
         model = Donation
-        fields = ('full_name', 'email', 'phone_number', 'address', 'donation_amount', 'donation_type', )
+        fields = (
+            'full_name', 'email', 'phone_number', 'address', 'address2',
+            'city', 'state', 'postcode', 'donation_amount', 'donation_type',
+            )
