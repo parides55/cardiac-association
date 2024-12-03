@@ -80,10 +80,15 @@ class Donation(models.Model):
     email = models.EmailField()
     phone_number = models.CharField(max_length=20)
     address = models.CharField(max_length=250)
+    address2 = models.CharField(max_length=250, blank=True)
+    state = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)
+    postcode = models.CharField(max_length=20)
     donation_amount = models.DecimalField(max_digits=10, decimal_places=2)
     donation_type = models.CharField(max_length=20, choices=DONATION_TYPE_CHOICES)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES)
     created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     
     
     def __str__(self):
