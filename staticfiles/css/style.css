@@ -77,6 +77,7 @@ nav {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    filter: brightness(70%);
 }
 
 .hero-heading {
@@ -91,7 +92,7 @@ nav {
     transform: translate(-50%, -50%);
     color: white;
     font-size: 5rem;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    text-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
 
@@ -209,7 +210,7 @@ footer {
     }
 
     #prompt {
-        background: url(../images/hands_in_forest.jpg) no-repeat center right;
+        background: url(../images/hands_forming_heart_white.jpg) no-repeat center right;
         height: 500px;
         background-size: cover;
     }
