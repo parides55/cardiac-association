@@ -23,8 +23,8 @@
 
 <section id='basket'>
     <div class="container-fluid">
-        <div class="row mx-4 my-4">
-            <div class="col col-md-12 animate__animated animate__fadeInUp animate__slow">
+        <div class="row mx-4 mt-4">
+            <div class="col col-md-12">
                 {%  if basket_items %}
                 <table class="table table-hover table-striped table-responsive">
                     <thead>
@@ -38,9 +38,17 @@
                     <tbody>
                         {% for item in basket_items %}
                         <tr>
-                            <td>{{ item.product.name }}</td>
+                            <td> <span>
+                                {% if 'placeholder' in item.product.image.url %}
+                                <img src="{% static 'images/default_logo.jpg' %}" class="basket-img" alt="{% trans 'Default image' %}">
+                                {% else %}
+                                <img src="{{ item.product.image.url }}" class="basket-img" alt="{{ product.name }}">
+                                {% endif %}
+                                </span> {{ item.product.name }}
+                            </td>
                             <td>{{ item.quantity }}</td>
                             <td>
+
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="black" class="bi bi-currency-euro" viewBox="0 0 16 16">
                                     <path d="M4 9.42h1.063C5.4 12.323 7.317 14 10.34 14c.622 0 1.167-.068 1.659-.185v-1.3c-.484.119-1.045.17-1.659.17-2.1 0-3.455-1.198-3.775-3.264h4.017v-.928H6.497v-.936q-.002-.165.008-.329h4.078v-.927H6.618c.388-1.898 1.719-2.985 3.723-2.985.614 0 1.175.05 1.659.177V2.194A6.6 6.6 0 0 0 10.341 2c-2.928 0-4.82 1.569-5.244 4.3H4v.928h1.01v1.265H4v.928z"/>
                                 </svg> {{ item.product.price }}
@@ -75,13 +83,66 @@
                         <p class="fs-3">Your basket is empty.</p>
                     {% endif %}
                 </table>
-                <div><a href="{% url 'online_shop' %}" id="continue-shop" class="btn btn-secondary my-5" aria-label="Continue Shoping">Continue Shopping</a></div>
+                <div><a href="{% url 'online_shop' %}" id="continue-shop" class="btn btn-outline-secondary my-5" aria-label="Continue Shoping">Continue Shopping</a></div>
 </section>
 
 <hr>
 
 <section id='user-details'>
-    
+    <div class="container-fluid">
+        <div class="row mx-4 mb-4">
+            <div class="col col-md-12">
+                <p>
+                    <button class="btn btn-secondary my-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+                    Proceed to Checkout
+                    </button>
+                </p>
+                <div>
+                    <div class="collapse collapse-horizontal" id="collapseWidthExample">
+                        <div class="card card-body h-auto">
+                            <form class="row g-3" id="shipping_detail_form" method="POST" action="{% url 'basket_checkout' %}">
+                                {% csrf_token %}
+                                <div class="col-md-6">
+                                    <label for="full-name" class="form-label">{% trans 'Full Name' %}</label>
+                                    <input type="text" class="form-control" id="full-name" name="full_name" placeholder="Full Name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">{% trans 'Email' %}</label>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="your-email@email.com" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="phone_number" class="form-label">{% trans 'Phone Number' %}</label>
+                                    <input type="tel" class="form-control" id="phone_number" name="phone_number" placeholder="phone number" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="address" class="form-label">{% trans 'Address' %}</label>
+                                    <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St, Apartment, studio, or floor" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="City" class="form-label">{% trans 'City' %}</label>
+                                    <input type="text" class="form-control" id="City" name="city" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="area" class="form-label">{% trans 'Area' %}</label>
+                                    <input type="text" class="form-control" id="area" name="area" required>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="postcode" class="form-label">{% trans 'Postcode' %}</label>
+                                    <input type="text" class="form-control" id="postcode" name="postcode" required>
+                                </div>
+                                <div class="col-12 my-3">
+                                    <input type="hidden" name="total" value="{{ total }}">
+                                </div>
+                                <div class="col-12 text-center my-3">
+                                    <button type="submit" class="btn btn-secondary w-25">{% trans 'Proceed to Payment' %}</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <hr>

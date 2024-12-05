@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, reverse
+from django.http import HttpResponseRedirect
 from django.contrib import messages
-from .forms import BasketForm, DonationForm
-from .models import Product, Basket
+from .forms import BasketForm, DonationForm, ShippingDetailForm, TransactionForm
+from .models import Product, Basket, ShippingDetail, Transaction, Donation
 
 # Create your views here.
 def donations(request):
@@ -54,6 +55,8 @@ def donation_checkout(request):
         messages.error(request, f"The following error occurred: {e}")
         return redirect('donations')
 
+
+# Shop views
 
 def online_shop(request):
 
@@ -134,6 +137,7 @@ def view_basket(request):
         messages.error(request, f"The following error occurred: {e}")
         return redirect('online_shop')
 
+
 def remove_from_basket(request, product_id):
     
     try:
@@ -151,8 +155,29 @@ def remove_from_basket(request, product_id):
         basket_item.delete()
 
         messages.success(request, f"{basket_item.product.name} has been removed from your basket.")
-        return redirect('basket')
+        return HttpResponseRedirect(reverse('basket'))
     
+    except Exception as e:
+        messages.error(request, f"The following error occurred: {e}")
+        return redirect('basket')
+
+
+def basket_checkout(request):
+    
+    try:
+        if request.method == "POST":
+            shipping_detail_form = ShippingDetailForm(data=request.POST)
+            if shipping_detail_form.is_valid():
+                shipping_detail = shipping_detail_form.save(commit=False)
+                shipping_detail.total_amount = request.POST.get('total')
+                shipping_detail.save()
+                
+                messages.success(request, "Thank you for your order! Your items will be shipped soon.")
+                return redirect('online_shop')
+            else:
+                messages.error(request, "Something went wrong. Please fill you details again try again.")
+                return redirect('basket')
+
     except Exception as e:
         messages.error(request, f"The following error occurred: {e}")
         return redirect('basket')
