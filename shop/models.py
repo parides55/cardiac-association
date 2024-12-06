@@ -54,6 +54,12 @@ class Basket(models.Model):
 
 
 class ShippingDetail(models.Model):
+    
+    STATUS_CHOICES = [
+        ('pending', 'Pending'),
+        ('shipped', 'Shipped'),
+        ('delivered', 'Delivered'),
+    ]
 
     full_name = models.CharField(max_length=50)
     email = models.EmailField()
@@ -63,6 +69,8 @@ class ShippingDetail(models.Model):
     city = models.CharField(max_length=100)
     postcode = models.CharField(max_length=20)
     total_amount = models.DecimalField(max_digits=10, decimal_places=2)
+    basket_items = models.ManyToManyField(Basket, related_name='shipping_items')
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
     created_at = models.DateTimeField(auto_now_add=True)
 
 
@@ -72,23 +80,6 @@ class ShippingDetail(models.Model):
 
     class Meta:
         ordering = ('-created_at',)
-
-
-class Transaction(models.Model):
-
-    transaction_id = models.CharField(max_length=100, unique=True)
-    shipping_detail = models.ForeignKey(ShippingDetail, on_delete=models.CASCADE, related_name='transactions_details')
-    basket_items = models.ManyToManyField(Basket, related_name='transactions_items')
-    transaction_date = models.DateTimeField(auto_now_add=True)
-
-
-
-    def __str__(self):
-        return f'Transaction {self.transaction_id}'
-
-
-    class Meta:
-        ordering = ('-transaction_date',)
 
 
 #Donation models

@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.http import HttpResponseRedirect
 from django.contrib import messages
-from .forms import BasketForm, DonationForm, ShippingDetailForm, TransactionForm
-from .models import Product, Basket, ShippingDetail, Transaction, Donation
+from .forms import BasketForm, DonationForm, ShippingDetailForm
+from .models import Product, Basket, ShippingDetail, Donation
 
 # Create your views here.
 def donations(request):
@@ -167,15 +167,24 @@ def basket_checkout(request):
     try:
         if request.method == "POST":
             shipping_detail_form = ShippingDetailForm(data=request.POST)
+            print(request.POST)
             if shipping_detail_form.is_valid():
                 shipping_detail = shipping_detail_form.save(commit=False)
                 shipping_detail.total_amount = request.POST.get('total')
-                shipping_detail.save()
+                shipping_detail.save() # Save the shipping detail first to get the ID
+
+                # Set the many-to-many relationship
+                basket_items = Basket.objects.filter(session_key=request.session.session_key)
+                shipping_detail.basket_items.set(basket_items)
+                shipping_detail.save()  # Save again to update the relationship
+
+                # Clear the basket
+                # basket_items.delete()
                 
-                messages.success(request, "Thank you for your order! Your items will be shipped soon.")
-                return redirect('online_shop')
+                messages.success(request, f"Thank you for your order! Your order number is {shipping_detail.id}.")
+                return HttpResponseRedirect(reverse('basket'))
             else:
-                messages.error(request, "Something went wrong. Please fill you details again try again.")
+                messages.error(request, "Something went wrong. Please fill your details in again try again.")
                 return redirect('basket')
 
     except Exception as e:

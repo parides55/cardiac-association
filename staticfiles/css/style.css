@@ -42,6 +42,10 @@ hr {
     z-index: 3;
 }
 
+.hide {
+    display: none;
+}
+
 /* ---------------------------- NavBar --------------------------------------------- */
 nav {
     border-bottom: 3px outset lightgrey;

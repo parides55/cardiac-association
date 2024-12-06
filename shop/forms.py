@@ -1,5 +1,5 @@
 from django import forms
-from .models import Basket, Donation, ShippingDetail, Transaction
+from .models import Basket, Donation, ShippingDetail
 
 
 class BasketForm(forms.ModelForm):
@@ -27,19 +27,6 @@ class ShippingDetailForm(forms.ModelForm):
             'full_name', 'email', 'phone_number',
                 'address', 'city', 'area', 'postcode'
                 )
-
-
-
-class TransactionForm(forms.ModelForm):
-    """
-    A form for users to make a transaction.
-    """
-    class Meta:
-        """
-        Specify the django model and fields to be displayed.
-        """
-        model = Transaction
-        fields = ('shipping_detail',)
 
 
 class DonationForm(forms.ModelForm):
