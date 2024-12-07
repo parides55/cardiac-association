@@ -10,36 +10,34 @@ def donations(request):
 
 
 def donation_checkout(request):
-
     try:
         donation_type = request.GET.get('donation_type')
         donation_amount = request.GET.get('donation_amount')
-        other_amount = request.GET.get('other_amount', None)  # Safely get 'other_amount'
+        other_amount = request.GET.get('other_amount', None)
 
         if request.method == 'POST':
-            donation_form = DonationForm(data=request.POST)
+            # Make a mutable copy of POST data to manipulate it
+            post_data = request.POST.copy()
+            # If donation_amount is "other", replace it with the actual numeric other_amount
+            if post_data.get('donation_amount') == 'other':
+                post_data['donation_amount'] = other_amount
+                if not post_data.get('other_amount'):
+                    messages.error(request, "Please enter an amount for your donation.")
+                    return redirect('donation_checkout')
+
+            # Pass the modified data to the form
+            donation_form = DonationForm(data=post_data)
+
             if donation_form.is_valid():
-                # If donation_amount is "other", replace it with 'other_amount'
-                if donation_form.cleaned_data['donation_amount'] == 'other':
-                    donation_amount = request.POST.get('other_amount', None)
-                    if not donation_amount:
-                        messages.error(request, "Please specify the donation amount.")
-                        return redirect('donation_checkout')
-
-                    # Update donation_form.cleaned_data to reflect the updated donation_amount
-                    donation_form.cleaned_data['donation_amount'] = donation_amount
-
-                # Save the form with validated data
+                print("Form is valid")
+                # Save the donation
                 donation = donation_form.save()
-
                 messages.success(request, "Thank you for your donation! We appreciate your support.")
                 return redirect('donations')
-
             else:
-                print(request.POST)
                 print(donation_form.errors)
                 messages.error(request, "Something went wrong. Please try again.")
-                return redirect('donations')
+                return redirect('donation_checkout')
 
         context = {
             'donation_type': donation_type,
@@ -50,7 +48,6 @@ def donation_checkout(request):
         return render(request, 'shop/donation_checkout.html', context)
 
     except Exception as e:
-        print(request.POST)
         print(e)
         messages.error(request, f"The following error occurred: {e}")
         return redirect('donations')
