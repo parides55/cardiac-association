@@ -21,9 +21,9 @@ def donation_checkout(request):
             # If donation_amount is "other", replace it with the actual numeric other_amount
             if post_data.get('donation_amount') == 'other':
                 post_data['donation_amount'] = other_amount
-                if not post_data.get('other_amount'):
-                    messages.error(request, "Please enter an amount for your donation.")
-                    return redirect('donation_checkout')
+                # if not post_data.get('other_amount'):
+                #     messages.error(request, "Please enter an amount for your donation.")
+                #     return redirect('donation_checkout')
 
             # Pass the modified data to the form
             donation_form = DonationForm(data=post_data)
