@@ -2,9 +2,6 @@
 const removalModal = new bootstrap.Modal(document.getElementById("removalModal"));
 const removeButtons = document.getElementsByClassName("btn-to-remove-item");
 const removeConfirm = document.getElementById("removeConfirm");
-const checkoutButton = document.getElementById("checkoutButton");
-
-const paymentSection = document.getElementById("paymentSection");
 
 // Gets the item's id to be removed from the basket and initiates the removal modal
 for (let button of removeButtons) {
@@ -15,8 +12,3 @@ for (let button of removeButtons) {
     });
     
 }
-
-checkoutButton.addEventListener('click', () => {
-    paymentSection.classList.remove("hide");
-    checkoutButton.classList.add("hide");
-});

@@ -18,8 +18,11 @@
         <div class='row position-relative hero-image-div'>
             <img class='img-fluid hero-image' src="{% static 'images/kid_heart.png.jpg' %}" alt="{% trans 'Two hands of a child holding a red heart' %}">
             <h1 class='fst-italic fw-bold hero-heading'>{% trans 'Young hearts' %}<br>{% trans 'is our mission' %}</h1>
-            <a class="cta-btn-home btn btn-warning" href="{% url 'donations' %}">{% trans 'Donate' %}</a>
-            <img class="down-arrow" src="{% static 'images/Untitled.png' %}" alt="Down arrow">
+            <a class="cta-btn-home btn btn-warning fst-italic" href="#donations-form">{% trans 'Donate' %} <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+                </svg>
+            </a>
+            <img class="down-arrow" src="{% static 'images/down_arrow_curved.png' %}" alt="Down arrow">
         </div>
     </div>
 </section>
@@ -170,7 +173,7 @@
                     and emotionally vulnerable having these kind of news.
                     {% endblocktrans %}
                 </p>
-                <a class='btn btn-light w-50' href="{% url 'how_you_can_help' %}">{% trans 'How you can help' %}</a>
+                <a class='btn btn-dark w-50' href="{% url 'how_you_can_help' %}">{% trans 'How you can help' %}</a>
             </div>
         </div>
     </div>
