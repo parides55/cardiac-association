@@ -147,16 +147,37 @@ nav {
 
 .services-btn {
     position: absolute;
-    top: 50%;
-    left: 10%;
+    top: 40%;
+    left: 20%;
     width: auto;
+    border-radius: 50%;
+    height: 115px;
+    padding-top: 20px;
 }
+
 
 .programs-btn {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 40%;
+    left: 60%;
     width: auto;
+    border-radius: 50%;
+    height: 115px;
+    padding-top: 20px;
+}
+
+#statistics-div {
+    background: url(../images/statistics_background.jpg) no-repeat center right;
+    height: 500px;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#offerings-div {
+    background: url(../images/heart_in_hands.jpg) no-repeat center right;
+    height: 500px;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 /* ---------------------------- How-you-can-help page --------------------------------------------- */
@@ -252,5 +273,15 @@ footer {
 
     #intro-links a {
         margin: 10px 0 10px 5px;
+    }
+
+    .services-btn {
+        left: 10%;
+        height: 95px;
+    }
+
+    .programs-btn {
+        left: 55%;
+        height: 95px;
     }
 }

@@ -52,8 +52,7 @@
 
 <section class='mt-0 hero' id='statistics'>
     <div class="container-fluid p-0">
-        <div class='row position-relative hero-image-div'>
-            <img class='img-fluid hero-image' src="{% static 'images/kid_heart.png.jpg' %}" alt="{% trans 'Two hands of a child holding a red heart' %}">
+        <div class='row position-relative' id="statistics-div">
             <h1 class='fst-italic fw-bold hero-heading'>{% trans 'Statistics' %}</h1>
         </div>
     </div>
@@ -184,10 +183,9 @@
 
 <section class='mt-0 hero' id='offerings'>
     <div class="container-fluid p-0">
-        <div class='row hero-image-div'>
-            <img class='img-fluid hero-image' src="{% static 'images/little_icons.jpg' %}" alt="{% trans 'Two hands of a child holding a red heart' %}">
-            <a class="btn btn-secondary services-btn fs-4" href="{% url 'services' %}">{%  trans 'Services' %}</a>
-            <a class="btn btn-secondary programs-btn fs-4" href="{% url 'programs' %}">{%  trans 'Programs' %}</a>
+        <div class='row' id="offerings-div">
+            <a class="btn btn-secondary services-btn fs-1" href="{% url 'services' %}">{%  trans 'Services' %}</a>
+            <a class="btn btn-secondary programs-btn fs-1" href="{% url 'programs' %}">{%  trans 'Programs' %}</a>
         </div>
     </div>
 </section>
