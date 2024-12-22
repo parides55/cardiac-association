@@ -75,7 +75,7 @@
     <div class="container-fluid">
         <div class="row d-flex flex-column flex-lg-row">
             <div class="col my-3 text-center">
-                <img class='w-75' src="{% static 'images/istockphoto-2174361430-1024x1024.jpg' %}" alt="{% trans 'Hands forming a circle around a big red heart' %}">
+                <img src="{% static 'images/two_figures_holding_puzzle_heart.png' %}" alt="{% trans 'Hands forming a circle around a big red heart' %}">
             </div>
             <div class="col my-3 pe-lg-5 d-flex align-items-center">
                 <div>
@@ -110,11 +110,14 @@
             <div id='prompt-div' class="col col-sm-5 ms-4 d-flex flex-column justify-content-evenly">
                 <p class='fs-5'>
                     {% blocktrans %}
-                    Honor a memory or celebrate a special occasion — whether it's a wedding, 
-                    christening, or birthday — by giving a meaningful gift in place of a wreath 
-                    or traditional present.
+                        By choosing from the variety of products offered by our 
+                        Association, you can help support our cause.
                     {% endblocktrans %}
                 </p>
+                <a class='btn btn-warning w-50' href="{% url 'online_shop' %}">{% trans 'Visit our Online Shop' %}<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671"/>
+                    </svg>
+                </a>
             </div>
         </div>
     </div>
@@ -126,20 +129,17 @@
     <div class="container-fluid">
         <div class="row d-flex flex-column flex-lg-row">
             <div class="col my-3 text-center">
-                <img class='w-75' src="{% static 'images/istockphoto-2174361430-1024x1024.jpg' %}" alt="{% trans 'Hands forming a circle around a big red heart' %}">
+                <img src="{% static 'images/colorful_figures_dancing.png' %}" alt="{% trans 'Hands forming a circle around a big red heart' %}">
             </div>
             <div class="col my-3 pe-lg-5 d-flex align-items-center">
                 <div>
                     <p class="px-3 fs-5 mb-5">
                         {% blocktrans %}
-                        By choosing from the variety of products offered by our 
-                        Association, you can help support our cause.
+                            Honor a memory or celebrate a special occasion — whether it's a wedding, 
+                            christening, or birthday — by giving a meaningful gift in place of a wreath 
+                            or traditional present.
                         {% endblocktrans %}
                     </p>
-                    <a class="fs-5 fw-bold mt-5 ps-3" href="{% url 'online_shop' %}">{% trans 'Visit Our Online Shop >' %}</a>
-                    <svg class="ms-3" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-shop" viewBox="0 0 16 16">
-                        <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.37 2.37 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0M1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5M4 15h3v-5H4zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1zm3 0h-2v3h2z"/>
-                    </svg>
                 </div>
             </div>
         </div>
@@ -154,10 +154,15 @@
             <div id='prompt-div' class="col col-sm-5 ms-4 d-flex flex-column justify-content-evenly">
                 <p class='fs-5'>
                     {% blocktrans %}
-                    Leading a meaningful initiative to support our Association by hosting a
-                    fundraiser or event.
+                        Become an annual supporter—whether you're a business,
+                        organization, or institution—and make a lasting impact 
+                        with your yearly contribution.
                     {% endblocktrans %}
                 </p>
+                <a class='btn btn-warning w-50' href="{% url 'become_member' %}">{% trans 'Become a Member' %}<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671"/>
+                    </svg>
+                </a>
             </div>
         </div>
     </div>
@@ -169,22 +174,16 @@
     <div class="container-fluid">
         <div class="row d-flex flex-column flex-lg-row">
             <div class="col my-3 text-center">
-                <img class='w-75' src="{% static 'images/istockphoto-2174361430-1024x1024.jpg' %}" alt="{% trans 'Hands forming a circle around a big red heart' %}">
+                <img src="{% static 'images/two_figures_holding_heart.png' %}" alt="{% trans 'Hands forming a circle around a big red heart' %}">
             </div>
             <div class="col my-3 pe-lg-5 d-flex align-items-center">
                 <div>
                     <p class="px-3 fs-5 mb-5">
                         {% blocktrans %}
-                        Become an annual supporter—whether you're a business,
-                        organization, or institution—and make a lasting impact 
-                        with your yearly contribution.
+                            Leading a meaningful initiative to support our Association by hosting a
+                            fundraiser or event.
                         {% endblocktrans %}
                     </p>
-                    <a class="fs-5 fw-bold mt-5 ps-3" href="{% url 'become_member' %}">{% trans 'Become a member >' %}</a>
-                    <svg class="ms-3" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
-                        <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-                        <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5"/>
-                    </svg>
                 </div>
             </div>
         </div>
