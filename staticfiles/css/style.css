@@ -146,24 +146,14 @@ nav {
 }
 
 .services-btn {
-    position: absolute;
-    top: 40%;
-    left: 20%;
-    width: auto;
-    border-radius: 50%;
-    height: 115px;
-    padding-top: 20px;
+    width: 50%;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 
 .programs-btn {
-    position: absolute;
-    top: 40%;
-    left: 60%;
-    width: auto;
-    border-radius: 50%;
-    height: 115px;
-    padding-top: 20px;
+    width: 50%;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 #statistics-div {
@@ -178,6 +168,10 @@ nav {
     height: 500px;
     background-size: cover;
     background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 /* ---------------------------- How-you-can-help page --------------------------------------------- */
