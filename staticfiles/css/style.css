@@ -113,6 +113,7 @@ nav {
     background: url(../images/hands_forming_heart_white.jpg) no-repeat center center;
     height: 500px;
     background-size: cover;
+    background-attachment: scroll;
     background-attachment: fixed;
 }
 
@@ -170,6 +171,7 @@ nav {
     background: url(../images/statistics_background.jpg) no-repeat center right;
     height: 500px;
     background-size: cover;
+    background-attachment: scroll;
     background-attachment: fixed;
 }
 
@@ -177,6 +179,7 @@ nav {
     background: url(../images/heart_in_hands.jpg) no-repeat center right;
     height: 500px;
     background-size: cover;
+    background-attachment: scroll;
     background-attachment: fixed;
 }
 
@@ -185,6 +188,7 @@ nav {
     background: url(../images/hands_heart_right.png.jpg) no-repeat center right;
     height: 500px;
     background-size: cover;
+    background-attachment: scroll;
     background-attachment: fixed;
 }
 
@@ -192,6 +196,7 @@ nav {
     background: url(../images/hands_heart_right.png.jpg) no-repeat center right;
     height: 500px;
     background-size: cover;
+    background-attachment: scroll;
     background-attachment: fixed;
 }
 
@@ -199,6 +204,7 @@ nav {
     background: url(../images/hands_heart_right.png.jpg) no-repeat center right;
     height: 500px;
     background-size: cover;
+    background-attachment: scroll;
     background-attachment: fixed;
 }
 
