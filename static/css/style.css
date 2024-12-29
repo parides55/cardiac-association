@@ -113,7 +113,6 @@ nav {
     background: url(../images/hands_forming_heart_white.jpg) no-repeat center center;
     height: 500px;
     background-size: cover;
-    background-attachment: fixed;
 }
 
 #prompt-div {
@@ -179,21 +178,18 @@ nav {
     background: url(../images/hands_heart_right.png.jpg) no-repeat center right;
     height: 500px;
     background-size: cover;
-    background-attachment: fixed;
 }
 
 #help3 {
     background: url(../images/hands_heart_right.png.jpg) no-repeat center right;
     height: 500px;
     background-size: cover;
-    background-attachment: fixed;
 }
 
 #help5 {
     background: url(../images/hands_heart_right.png.jpg) no-repeat center right;
     height: 500px;
     background-size: cover;
-    background-attachment: fixed;
 }
 
 /* ----------------------------Events and News Pages --------------------------------------------- */
@@ -249,7 +245,6 @@ footer {
         background: url(../images/hands_forming_heart_white.jpg) no-repeat center right;
         height: 500px;
         background-size: cover;
-        background-attachment: fixed;
     }
 
     #offerings-div {
