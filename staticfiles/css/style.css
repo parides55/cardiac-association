@@ -127,6 +127,7 @@ nav {
     z-index: 2;
     width: auto;
     font-size: 30px;
+    box-shadow: 20px 10px 15px black;
 }
 
 /* ---------------------------- Basket page --------------------------------------------- */
@@ -164,10 +165,9 @@ nav {
 }
 
 #offerings-div {
-    background: url(../images/heart_in_hands.jpg) no-repeat center right;
+    background: url(../images/paper_background_trasparency_1366x500.png) no-repeat center center;
     height: 500px;
     background-size: cover;
-    background-attachment: fixed;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -236,7 +236,7 @@ footer {
 }
 
 .footer-div-image {
-    background: url(../images/istockphoto-694432168-1024x1024.jpg) no-repeat center center;
+    background: url(../images/kid_smiling_examen.png) no-repeat center center;
 }
 
 /* ---------------------------- Media Queries --------------------------------------------- */
@@ -251,11 +251,21 @@ footer {
         background-size: cover;
         background-attachment: fixed;
     }
+
+    #offerings-div {
+        background: url(../images/paper_background_trasparency_992x500.png) no-repeat center center;
+        background-size: cover;
+    }
 }
 
 @media (max-width: 768px) {
     .hero-heading {
         font-size: 3rem;
+    }
+
+    #offerings-div {
+        background: url(../images/paper_background_trasparency_768x500.png) no-repeat center center;
+        background-size: cover;
     }
 }
 
@@ -267,6 +277,11 @@ footer {
 
     #intro-links a {
         margin: 10px 0 10px 5px;
+    }
+
+    #offerings-div {
+        background: url(../images/paper_background_trasparency_500x500.png) no-repeat center center;
+        background-size: cover;
     }
 
     .services-btn {
