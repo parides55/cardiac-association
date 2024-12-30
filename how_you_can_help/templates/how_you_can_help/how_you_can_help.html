@@ -14,7 +14,7 @@
 <section class='mt-0 hero' id='hero-how-you-can-help'>
     <div class="container-fluid p-0">
         <div class='row position-relative hero-image-div'>
-            <img class='img-fluid hero-image' src="{% static 'images/two_kids_carrying_heart.jpg' %}" alt="{% trans 'Two hands of a child holding a red heart' %}">
+            <img class='img-fluid hero-image' src="{% static 'images/2_kids_holding_heart.jpg' %}" alt="{% trans 'Two kids holding a red heart' %}">
             <h1 class='fst-italic fw-bold hero-heading'>{% trans 'Your Contribution,' %}<br>{% trans 'Their Brighter Future' %}</h1>
             <img class="down-arrow" src="{% static 'images/down_arrow_curved.png' %}" alt="Down arrow">
         </div>
@@ -53,7 +53,7 @@
     <div class="container-fluid">
         <div class="row">
             <div id='prompt-div' class="col col-sm-5 ms-4 d-flex flex-column justify-content-evenly">
-                <p class='fs-5'>
+                <p class='fs-5 text-light'>
                     {% blocktrans %}
                     Together, we can make a difference. Your donationcan provide life-saving
                     treatment, offer support to families in need, and give these children the 
@@ -108,7 +108,7 @@
     <div class="container-fluid">
         <div class="row">
             <div id='prompt-div' class="col col-sm-5 ms-4 d-flex flex-column justify-content-evenly">
-                <p class='fs-5'>
+                <p class='fs-5 text-light'>
                     {% blocktrans %}
                         By choosing from the variety of products offered by our 
                         Association, you can help support our cause.
@@ -152,14 +152,14 @@
     <div class="container-fluid">
         <div class="row">
             <div id='prompt-div' class="col col-sm-5 ms-4 d-flex flex-column justify-content-evenly">
-                <p class='fs-5'>
+                <p class='fs-5 text-light'>
                     {% blocktrans %}
                         Become an annual supporter—whether you're a business,
                         organization, or institution—and make a lasting impact 
                         with your yearly contribution.
                     {% endblocktrans %}
                 </p>
-                <a class='btn btn-danger w-50 py-3 cta-btn' href="{% url 'become_member' %}">{% trans 'Become a Member' %}<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
+                <a class='btn btn-info w-50 py-3 cta-btn' href="{% url 'become_member' %}">{% trans 'Become a Member' %}<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671"/>
                     </svg>
                 </a>

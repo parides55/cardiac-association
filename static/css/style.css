@@ -145,6 +145,10 @@ nav {
     height: 300px; 
 }
 
+#red-ribbon-img {
+    width: 35%;
+}
+
 .services-btn {
     width: 50%;
     box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
@@ -175,25 +179,25 @@ nav {
 
 /* ---------------------------- How-you-can-help page --------------------------------------------- */
 #help1 {
-    background: url(../images/hands_heart_right.png.jpg) no-repeat center right;
+    background: url(../images/red_background_1366x500.png) no-repeat center bottom;
     height: 500px;
     background-size: cover;
 }
 
 #help3 {
-    background: url(../images/hands_heart_right.png.jpg) no-repeat center right;
+    background: url(../images/red_background_1366x500.png) no-repeat center bottom;
     height: 500px;
     background-size: cover;
 }
 
 #help5 {
-    background: url(../images/hands_heart_right.png.jpg) no-repeat center right;
+    background: url(../images/red_background_member_1366x500.png) no-repeat center bottom;
     height: 500px;
     background-size: cover;
 }
 
 .cta-btn {
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 20px 20px 25px rgba(0, 0, 0, 0.5);
 }
 
 /* ----------------------------Events and News Pages --------------------------------------------- */
@@ -255,6 +259,21 @@ footer {
         background: url(../images/paper_background_trasparency_992x500.png) no-repeat center center;
         background-size: cover;
     }
+
+    #help1 {
+        background: url(../images/red_background_992x500.png) no-repeat center bottom;
+        background-size: cover;
+    }
+
+    #help3 {
+        background: url(../images/red_background_992x500.png) no-repeat center bottom;
+        background-size: cover;
+    }
+
+    #help5 {
+        background: url(../images/red_background_member_992x500.png) no-repeat center bottom;
+        background-size: cover;
+    }
 }
 
 @media (max-width: 768px) {
@@ -264,6 +283,21 @@ footer {
 
     #offerings-div {
         background: url(../images/paper_background_trasparency_768x500.png) no-repeat center center;
+        background-size: cover;
+    }
+
+    #help1 {
+        background: url(../images/red_background_768x500.png) no-repeat center bottom;
+        background-size: cover;
+    }
+
+    #help3 {
+        background: url(../images/red_background_768x500.png) no-repeat center bottom;
+        background-size: cover;
+    }
+
+    #help5 {
+        background: url(../images/red_background_member_768x500.png) no-repeat center bottom;
         background-size: cover;
     }
 }
@@ -280,6 +314,21 @@ footer {
 
     #offerings-div {
         background: url(../images/paper_background_trasparency_500x500.png) no-repeat center center;
+        background-size: cover;
+    }
+
+    #help1 {
+        background: url(../images/red_background_500x500.png) no-repeat center bottom;
+        background-size: cover;
+    }
+
+    #help3 {
+        background: url(../images/red_background_500x500.png) no-repeat center bottom;
+        background-size: cover;
+    }
+
+    #help5 {
+        background: url(../images/red_background_member_500x500.png) no-repeat center bottom;
         background-size: cover;
     }
 
