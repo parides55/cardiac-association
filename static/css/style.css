@@ -161,7 +161,7 @@ nav {
 }
 
 #statistics-div {
-    background: url(../images/statistics_background.jpg) no-repeat center right;
+    background: url(../images/default_logo.jpg) no-repeat center right;
     height: 500px;
     background-size: cover;
     background-attachment: fixed;
