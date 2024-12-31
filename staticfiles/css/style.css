@@ -185,7 +185,7 @@ nav {
 }
 
 #help3 {
-    background: url(../images/red_background_1366x500.png) no-repeat center bottom;
+    background: url(../images/red_background_shop_1366x500.png) no-repeat center bottom;
     height: 500px;
     background-size: cover;
 }
@@ -266,7 +266,7 @@ footer {
     }
 
     #help3 {
-        background: url(../images/red_background_992x500.png) no-repeat center bottom;
+        background: url(../images/red_background_shop_992x500.png) no-repeat center bottom;
         background-size: cover;
     }
 
@@ -292,7 +292,7 @@ footer {
     }
 
     #help3 {
-        background: url(../images/red_background_768x500.png) no-repeat center bottom;
+        background: url(../images/red_background_shop_768x500.png) no-repeat center bottom;
         background-size: cover;
     }
 
@@ -323,7 +323,7 @@ footer {
     }
 
     #help3 {
-        background: url(../images/red_background_500x500.png) no-repeat center bottom;
+        background: url(../images/red_background_shop_500x500.png) no-repeat center bottom;
         background-size: cover;
     }
 
