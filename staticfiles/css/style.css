@@ -243,6 +243,12 @@ footer {
     background: url(../images/kid_smiling_examen.png) no-repeat center center;
 }
 
+.up-arrow {
+    position: absolute;
+    margin-top: 35%;
+    right: 5%;
+}
+
 /* ---------------------------- Media Queries --------------------------------------------- */
 @media (max-width: 992px) {
     .footer-div-image {
