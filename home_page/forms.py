@@ -40,3 +40,4 @@ class MemberForm(forms.ModelForm):
             "Heart Disease Description (if not a sufferer, please write N/A)"
         )
         self.fields['date_of_diagnosis'].label = _("Date of Diagnosis")
+
