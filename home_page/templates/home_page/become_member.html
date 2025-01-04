@@ -33,6 +33,15 @@
                 <form class="px-3" id="memberForm" method="post">
                     {{ member_form|crispy }}
                     {% csrf_token %}
+                    <p><small>
+                    {% blocktrans %}
+                        **Note**: By becoming a member of our Association, you contribute to supporting 
+                        children with heart disease and their families. Please note that there is a 
+                        symbolic annual subscription fee of 20 euros for each member. By clicking the 
+                        "Submit" button, you agree to this annual contribution and help us continue our 
+                        mission. Thank you for your support!
+                    {% endblocktrans %}
+                    </small></p>
                     <button id="submitButton" type="submit" 
                     class="btn btn-secondary" aria-label="Submit">{% trans 'Submit' %}</button>
                 </form>
