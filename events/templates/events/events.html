@@ -52,7 +52,16 @@
                 </div>
             </div>
             {% endfor %}
-            {% endif %}
+            {% else %}
+            <p class="text-center my-3"> 
+                {%blocktrans%}
+                There are currently no upcoming events. <br><br> 
+                Our team is working to bring you the latest information soon. <br><br>
+                Please check back later for new updates and events. <br><br>
+                Thank you for your understanding!
+                {%endblocktrans%}
+            </p>
+        {% endif %}
         </div>
     </div>
 </section>
@@ -87,7 +96,16 @@
                 </div>
             </div>
             {% endfor %}
-            {% endif %}
+            {% else %}
+            <p class="text-center my-3"> 
+                {%blocktrans%}
+                There are currently no upcoming events. <br><br> 
+                Our team is working to bring you the latest information soon. <br><br>
+                Please check back later for new updates and events. <br><br>
+                Thank you for your understanding!
+                {%endblocktrans%}
+            </p>
+        {% endif %}
         </div>
     </div>
 </section>
@@ -124,7 +142,16 @@
                 </div>
             </div>
             {% endfor %}
-            {% endif %}
+            {% else %}
+            <p class="text-center my-3"> 
+                {%blocktrans%}
+                There are currently no past events available at the moment. <br><br> 
+                Our team is working to bring you the latest information soon. <br><br>
+                Please check back later for new updates and events. <br><br>
+                Thank you for your understanding!
+                {%endblocktrans%}
+            </p>
+        {% endif %}
         </div>
     </div>
 </section>
