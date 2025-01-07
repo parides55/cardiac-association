@@ -30,10 +30,10 @@
                 <table class="table table-hover table-striped table-responsive">
                     <thead>
                         <tr>
-                            <th>Product</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                            <th>Total</th>
+                            <th>{% trans 'Product' %}</th>
+                            <th>{% trans 'Quantity' %}</th>
+                            <th>{% trans 'Price' %}</th>
+                            <th>{% trans 'Total' %}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -70,7 +70,7 @@
                         </tr>
                         {% endfor %}
                         <tr>
-                            <td colspan="3" class="text-end"><strong>Total Amount</strong></td>
+                            <td colspan="3" class="text-end"><strong>{% trans 'Total Amount' %}</strong></td>
                             <td>
                                 <strong>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="black" class="bi bi-currency-euro" viewBox="0 0 16 16">
@@ -81,10 +81,10 @@
                         </tr>
                     </tbody>
                     {% else %}
-                        <p class="fs-3">Your basket is empty.</p>
+                        <p class="fs-3">{% trans 'Your basket is empty.' %}</p>
                     {% endif %}
                 </table>
-                <div><a href="{% url 'online_shop' %}" id="continue-shop" class="btn btn-outline-secondary my-5" aria-label="Continue Shoping">Continue Shopping</a></div>
+                <div><a href="{% url 'online_shop' %}" id="continue-shop" class="btn btn-outline-secondary my-5" aria-label="Continue Shopping">{% trans 'Continue Shopping' %}</a></div>
 </section>
 
 <hr>
