@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-30 07:06+0000\n"
+"POT-Creation-Date: 2025-01-07 13:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,9 +19,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: .\about_us\templates\about_us\people.html:14
-#: .\home_page\templates\home_page\become_member.html:15
-#: .\what_we_do\templates\what_we_do\programs.html:14
-#: .\what_we_do\templates\what_we_do\services.html:20
 msgid ""
 "Figures standing in a row with the middle figure being red with a little "
 "heart"
@@ -31,9 +28,9 @@ msgstr ""
 
 #: .\about_us\templates\about_us\people.html:15
 msgid "Meet our team"
-msgstr ""
+msgstr "Γνωρίστε την ομάδα μας"
 
-#: .\about_us\templates\about_us\people.html:27 .\templates\base.html:93
+#: .\about_us\templates\about_us\people.html:27 .\templates\base.html:126
 msgid "Our people"
 msgstr "Οι άνθρωποί μας"
 
@@ -69,12 +66,12 @@ msgstr "Διοικητικό Συμβούλιο"
 
 #: .\about_us\templates\about_us\people.html:58
 #: .\about_us\templates\about_us\people.html:88
-#: .\events\templates\events\event_info.html:11
+#: .\events\templates\events\event_info.html:13
 #: .\events\templates\events\events.html:36
 #: .\events\templates\events\events.html:71
 #: .\events\templates\events\events.html:108
-#: .\news\templates\news\new_details.html:11
-#: .\shop\templates\shop\basket.html:43
+#: .\news\templates\news\new_details.html:13
+#: .\shop\templates\shop\basket.html:44
 #: .\shop\templates\shop\online_shop.html:57
 msgid "Default image"
 msgstr "Προεπιλεγμένη εικόνα"
@@ -92,13 +89,6 @@ msgid "Picture of the staff"
 msgstr "Φωτογραφία του προσωπικού"
 
 #: .\about_us\templates\about_us\people.html:112
-#: .\events\templates\events\events.html:139
-#: .\home_page\templates\home_page\heart_disease_info.html:113
-#: .\home_page\templates\home_page\index.html:189
-#: .\news\templates\news\news.html:95 .\shop\templates\shop\donations.html:175
-#: .\what_we_do\templates\what_we_do\programs.html:155
-#: .\what_we_do\templates\what_we_do\services.html:172
-#: .\what_we_do\templates\what_we_do\what_we_do.html:200
 msgid "A group of people in the forest hanging each other."
 msgstr "Μια ομάδα ανθρώπων στο δάσος κρατιούνται ο ένας με τον άλλον."
 
@@ -114,29 +104,19 @@ msgid "Become a member today"
 msgstr "Γίνετε μέλος σήμερα"
 
 #: .\about_us\templates\about_us\people.html:120
-#: .\events\templates\events\events.html:147
-#: .\home_page\templates\home_page\become_member.html:59
-#: .\home_page\templates\home_page\heart_disease_info.html:121
-#: .\home_page\templates\home_page\index.html:197
-#: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:208
-#: .\news\templates\news\news.html:103 .\shop\templates\shop\basket.html:176
-#: .\shop\templates\shop\online_shop.html:88
-#: .\what_we_do\templates\what_we_do\programs.html:163
-#: .\what_we_do\templates\what_we_do\services.html:180
-#: .\what_we_do\templates\what_we_do\what_we_do.html:208
 msgid ""
-"In the blured background people are in a connference and a speaker delivers "
+"In the bluρred background people are in a conference and a speaker delivers "
 "a speech."
 msgstr ""
 "Στο θολό φόντο, άνθρωποι βρίσκονται σε συνέδριο και ένας ομιλητής δίνει "
 "διάλεξη."
 
 #: .\about_us\templates\about_us\people.html:123
-#: .\home_page\templates\home_page\become_member.html:62
+#: .\home_page\templates\home_page\become_member.html:71
 #: .\home_page\templates\home_page\heart_disease_info.html:124
 #: .\home_page\templates\home_page\index.html:200
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:211
-#: .\news\templates\news\news.html:106 .\shop\templates\shop\basket.html:179
+#: .\news\templates\news\news.html:106 .\shop\templates\shop\basket.html:180
 #: .\shop\templates\shop\online_shop.html:91
 #: .\what_we_do\templates\what_we_do\programs.html:166
 msgid "Find out about our Events"
@@ -150,10 +130,25 @@ msgstr "Αγγλικά"
 msgid "Greek"
 msgstr "Ελληνικά"
 
-#: .\events\templates\events\events.html:14 .\news\templates\news\news.html:14
-msgid "Two hands holding a red heart over a laptop"
+#: .\events\templates\events\event_info.html:41
+msgid "Back to events"
+msgstr "Πίσω στις εκδηλώσεις"
+
+#: .\events\templates\events\events.html:14
+#: .\home_page\templates\home_page\become_member.html:68
+#: .\home_page\templates\home_page\heart_disease_info.html:121
+#: .\home_page\templates\home_page\index.html:197
+#: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:208
+#: .\news\templates\news\news.html:103 .\shop\templates\shop\basket.html:177
+#: .\shop\templates\shop\online_shop.html:88
+#: .\what_we_do\templates\what_we_do\programs.html:163
+#: .\what_we_do\templates\what_we_do\services.html:180
+msgid ""
+"In the blurred background people are in a conference and a speaker delivers "
+"a speech."
 msgstr ""
-"Δύο χέρια που κρατούν μια κόκκινη καρδιά πάνω από ένα φορητό υπολογιστή"
+"Στο θολό φόντο, άνθρωποι βρίσκονται σε συνέδριο και ένας ομιλητής δίνει "
+"διάλεξη."
 
 #: .\events\templates\events\events.html:15
 #: .\events\templates\events\events.html:16
@@ -183,24 +178,89 @@ msgstr ""
 "Εμπνευστείτε από τις προηγούμενες εκδηλώσεις μας και βοηθήστε μας να "
 "οργανώσουμε τις επόμενες"
 
+#: .\events\templates\events\events.html:139
+#: .\home_page\templates\home_page\become_member.html:15
+#: .\home_page\templates\home_page\heart_disease_info.html:113
+#: .\home_page\templates\home_page\index.html:189
+#: .\news\templates\news\news.html:95
+#: .\what_we_do\templates\what_we_do\programs.html:155
+#: .\what_we_do\templates\what_we_do\services.html:172
+#: .\what_we_do\templates\what_we_do\what_we_do.html:200
+msgid ""
+"A group of people placing their hands in the middle on top of each other."
+msgstr "Μια ομάδα ανθρώπων που βάζουν τα χέρια τους στη μέση το ένα πάνω στο άλλο."
+
+#: .\events\templates\events\events.html:147
+#: .\shop\templates\shop\donations.html:179
+#: .\what_we_do\templates\what_we_do\what_we_do.html:208
+msgid "Animated image of many hands as a frame."
+msgstr "Κινούμενη εικόνα πολλών χεριών ως πλαίσιο."
+
 #: .\events\templates\events\events.html:150
 #: .\home_page\templates\home_page\index.html:176
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:30
-#: .\shop\templates\shop\donations.html:178 .\templates\base.html:69
-#: .\templates\base.html:72
+#: .\shop\templates\shop\donations.html:182 .\templates\base.html:102
+#: .\templates\base.html:105
 #: .\what_we_do\templates\what_we_do\what_we_do.html:211
 msgid "How you can help"
 msgstr "Πώς μπορείτε να βοηθήσετε"
 
-#: .\home_page\templates\home_page\become_member.html:16
-msgid "Together,"
-msgstr ""
+#: .\home_page\forms.py:29
+msgid "Registered As"
+msgstr "Εγγεγραμμένος ως"
+
+#: .\home_page\forms.py:30
+msgid "Name"
+msgstr "Όνομα"
+
+#: .\home_page\forms.py:31
+msgid "Surname"
+msgstr "Επίθετο"
+
+#: .\home_page\forms.py:32 .\shop\templates\shop\basket.html:112
+#: .\shop\templates\shop\donation_checkout.html:35
+msgid "Email"
+msgstr "Ηλεκτρονική Διεύθυνση"
+
+#: .\home_page\forms.py:33
+msgid "ID Number"
+msgstr "Αριθμός Ταυτότητας"
+
+#: .\home_page\forms.py:34
+msgid "Profession"
+msgstr "Επάγγελμα"
+
+#: .\home_page\forms.py:35
+msgid "Home Number"
+msgstr "Τηλέφωνο οικίας"
+
+#: .\home_page\forms.py:36
+msgid "Mobile Number"
+msgstr "Κινητό τηλέφωνο"
+
+#: .\home_page\forms.py:37
+msgid "Work Number"
+msgstr "Τηλέφωνο Εργασίας"
+
+#: .\home_page\forms.py:38
+msgid "Date of Birth"
+msgstr "Ημερομηνία Γέννησης"
+
+#: .\home_page\forms.py:40
+msgid "Heart Disease Description (if not a sufferer, please write N/A)"
+msgstr "Περιγραφή καρδιακών παθήσεων (εάν δεν πάσχετε, παρακαλούμε γράψτε N/A)"
+
+#: .\home_page\forms.py:42
+msgid "Date of Diagnosis"
+msgstr "Ημερομηνία διάγνωσης"
 
 #: .\home_page\templates\home_page\become_member.html:16
-#, fuzzy
-#| msgid "Together, We Can Do More:"
+msgid "Together,"
+msgstr "Μαζί,"
+
+#: .\home_page\templates\home_page\become_member.html:16
 msgid "We Can Do More:"
-msgstr "Μαζί, Μπορούμε να Κάνουμε Περισσότερα:"
+msgstr "Μπορούμε να Κάνουμε Περισσότερα:"
 
 #: .\home_page\templates\home_page\become_member.html:16
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:162
@@ -212,41 +272,62 @@ msgid "Complete the form and Join Our Family"
 msgstr "Συμπληρώστε τη φόρμα και Γίνετε Μέλος της Οικογένειάς μας"
 
 #: .\home_page\templates\home_page\become_member.html:37
+msgid ""
+"\n"
+"                        **Note**: By becoming a member of our Association, "
+"you contribute to supporting \n"
+"                        children with heart disease and their families. "
+"Please note that there is a \n"
+"                        symbolic annual subscription fee of 20 euros for "
+"each member. By clicking the \n"
+"                        \"Submit\" button, you agree to this annual "
+"contribution and help us continue our \n"
+"                        mission. Thank you for your support!\n"
+"                    "
+msgstr ""
+"\n"
+"                        **Σημείωση**: Γίνοντας μέλος του Συλλόγου μας, "
+"συμβάλλεις στην υποστήριξη  \n"
+"                        των παιδιών με καρδιοπάθεια και των οικογενειών τους. "
+"Σημειώνεται ότι υπάρχει \n"
+"                        συμβολική ετήσια συνδρομή 20 ευρώ για "
+"κάθε μέλος. Κάνοντας κλικ στο \n"
+"                        \"Υποβολή\", συμφωνείτε με αυτήν την ετήσια "
+"συνεισφορά και μας βοηθάτε να συνεχίσουμε την \n"
+"                        αποστολή μας. Σας ευχαριστούμε για την υποστήριξή σας!\n"
+"                    "
+
+#: .\home_page\templates\home_page\become_member.html:46
 msgid "Submit"
 msgstr "Υποβολή"
 
-#: .\home_page\templates\home_page\become_member.html:51
+#: .\home_page\templates\home_page\become_member.html:60
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:200
-#: .\shop\templates\shop\basket.html:184
-#: .\shop\templates\shop\donations.html:183
+#: .\news\templates\news\news.html:14 .\shop\templates\shop\basket.html:185
+#: .\shop\templates\shop\donations.html:187
 #: .\shop\templates\shop\online_shop.html:96
-msgid "Two hands holding a red heart over a laptop."
-msgstr ""
-"Δύο χέρια που κρατούν μια κόκκινη καρδιά πάνω από ένα φορητό υπολογιστή"
+msgid ""
+"A wooden red heart with wooden letter cubes underneath showing the word news."
+msgstr "Μια ξύλινη κόκκινη καρδιά με ξύλινους κύβους γραμμάτων από κάτω που δείχνει τη λέξη νέα."
 
-#: .\home_page\templates\home_page\become_member.html:54
+#: .\home_page\templates\home_page\become_member.html:63
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:203
 msgid "Read our News"
 msgstr "Διαβάστε τα νέα μας"
 
 #: .\home_page\templates\home_page\heart_disease_info.html:14
-#, fuzzy
-#| msgid "Infant laying down and a doctor listens to the heart of the baby"
+#: .\home_page\templates\home_page\index.html:154
 msgid ""
 "A baby is laying down and a doctors examines the baby with a stethoscope."
-msgstr "Βρέφος ξαπλωμένο και ο γιατρός ακούει την καρδιά του μωρού"
+msgstr "Ένα μωρό ξαπλώνει και ο γιατρός εξετάζει το μωρό με στηθοσκόπιο."
 
 #: .\home_page\templates\home_page\heart_disease_info.html:15
-#, fuzzy
-#| msgid "More Info"
 msgid "More Info about"
-msgstr "Περισσότερες πληροφορίες"
+msgstr "Περισσότερες πληροφορίες για"
 
 #: .\home_page\templates\home_page\heart_disease_info.html:15
-#, fuzzy
-#| msgid "What are Congenital Heart Diseases?"
 msgid "Congenital Heart diseases"
-msgstr "Τι είναι οι Συγγενείς Καρδιοπάθειες;"
+msgstr "Συγγενείς Καρδιοπάθειες"
 
 #: .\home_page\templates\home_page\heart_disease_info.html:27
 #: .\home_page\templates\home_page\index.html:140
@@ -385,7 +466,6 @@ msgstr ""
 "                                    "
 
 #: .\home_page\templates\home_page\index.html:19
-#: .\what_we_do\templates\what_we_do\what_we_do.html:16
 msgid "Two hands of a child holding a red heart"
 msgstr "Δύο χέρια ενός παιδιού κρατούν μια κόκκινη καρδιά"
 
@@ -401,14 +481,14 @@ msgstr "είναι η αποστολή μας"
 #: .\home_page\templates\home_page\index.html:124
 #: .\shop\templates\shop\donation_checkout.html:91
 #: .\shop\templates\shop\donations.html:30
-#: .\shop\templates\shop\donations.html:111 .\templates\base.html:50
-#: .\templates\base.html:106
+#: .\shop\templates\shop\donations.html:111 .\templates\base.html:83
+#: .\templates\base.html:139
 msgid "Donate"
 msgstr "Δωρίστε"
 
 #: .\home_page\templates\home_page\index.html:36
-msgid "Hands forming a circle around a big red heart"
-msgstr "Χέρια που σχηματίζουν έναν κύκλο γύρω από μια μεγάλη κόκκινη καρδιά"
+msgid "Logo of the association."
+msgstr "Λογότυπο του Καρδιολογικού Συλλόγου"
 
 #: .\home_page\templates\home_page\index.html:41
 #: .\what_we_do\templates\what_we_do\what_we_do.html:35
@@ -431,7 +511,7 @@ msgid ""
 "                        "
 msgstr ""
 "\n"
-"                        Ο Σύλλογος Γονέων και Φίλων Παιδιών με Καρδιοπάθεια "
+"                        Ο Σύλλογος Γονέων και Φίλων Καρδιοπαθών Παιδιών "
 "είναι ένας Φιλανθρωπικός \n"
 "                        Μη Κερδοσκοπικός Σύλλογος που παρέχει στήριξη, "
 "βοήθεια και εκπαιδευτικές υπηρεσίες σε \n"
@@ -446,15 +526,15 @@ msgstr ""
 "                        εκδηλώσεις, κ.λπ.\n"
 "                        "
 
-#: .\home_page\templates\home_page\index.html:53 .\templates\base.html:59
-#: .\templates\base.html:62
+#: .\home_page\templates\home_page\index.html:53 .\templates\base.html:92
+#: .\templates\base.html:95
 #: .\what_we_do\templates\what_we_do\what_we_do.html:27
 msgid "What we do"
 msgstr "Τι κάνουμε"
 
 #: .\home_page\templates\home_page\index.html:54
-#: .\shop\templates\shop\basket.html:187
-#: .\shop\templates\shop\donations.html:186
+#: .\shop\templates\shop\basket.html:188
+#: .\shop\templates\shop\donations.html:190
 #: .\shop\templates\shop\online_shop.html:99
 #: .\what_we_do\templates\what_we_do\services.html:157
 msgid "Read our news"
@@ -466,8 +546,7 @@ msgid "See our events"
 msgstr "Δείτε τις εκδηλώσεις μας"
 
 #: .\home_page\templates\home_page\index.html:68
-#: .\shop\templates\shop\donations.html:55
-msgid "Baby being examinated from a doctor."
+msgid "Baby being examined from a doctor."
 msgstr "Βρέφος που εξετάζεται από γιατρό."
 
 #: .\home_page\templates\home_page\index.html:71
@@ -478,17 +557,17 @@ msgstr "Δωρεές"
 #: .\home_page\templates\home_page\index.html:79
 #: .\shop\templates\shop\donations.html:66
 msgid "One-off Payment"
-msgstr ""
+msgstr "Απλή πληρωμή"
 
 #: .\home_page\templates\home_page\index.html:82
 #: .\shop\templates\shop\donations.html:69
 msgid "Monthly Subscription"
-msgstr ""
+msgstr "Μηνιαία συνδρομή"
 
 #: .\home_page\templates\home_page\index.html:118
 #: .\shop\templates\shop\donations.html:105
 msgid "Other Amount"
-msgstr ""
+msgstr "Άλλο ποσό"
 
 #: .\home_page\templates\home_page\index.html:142
 msgid ""
@@ -514,10 +593,6 @@ msgstr ""
 msgid "More Info"
 msgstr "Περισσότερες πληροφορίες"
 
-#: .\home_page\templates\home_page\index.html:154
-msgid "Infant laying down and a doctor listens to the heart of the baby"
-msgstr "Βρέφος ξαπλωμένο και ο γιατρός ακούει την καρδιά του μωρού"
-
 #: .\home_page\templates\home_page\index.html:166
 msgid "Every child deserves"
 msgstr "Κάθε παιδί αξίζει"
@@ -531,17 +606,6 @@ msgid "a healthy life!"
 msgstr "μια υγιή ζωή!"
 
 #: .\home_page\templates\home_page\index.html:168
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "                    Every year, 1 in every 10 kids is born with a heart\n"
-#| "                    disease and 1 in every 5 families does not have the\n"
-#| "                    financial capability to take their child for surgery "
-#| "and\n"
-#| "                    therapy. And almost all families will be heartbroken\n"
-#| "                    and emotionally vulnerable having these kind of "
-#| "news.\n"
-#| "                    "
 msgid ""
 "\n"
 "                    Every year, 1 in every 100 kids is born with a heart\n"
@@ -553,7 +617,7 @@ msgid ""
 "                    "
 msgstr ""
 "\n"
-"                    Κάθε χρόνο, 1 στα 10 παιδιά γεννιέται με καρδιοπάθεια\n"
+"                    Κάθε χρόνο, 1 στα 100 παιδιά γεννιέται με καρδιοπάθεια\n"
 "                    και 1 στις 5 οικογένειες δεν έχει την οικονομική "
 "δυνατότητα\n"
 "                    να πάει το παιδί τους για χειρουργική επέμβαση και "
@@ -564,18 +628,16 @@ msgstr ""
 "                    "
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:17
-#, fuzzy
-#| msgid "Two hands of a child holding a red heart"
 msgid "Two kids holding a red heart"
-msgstr "Δύο χέρια ενός παιδιού κρατούν μια κόκκινη καρδιά"
+msgstr "Δύο παιδιά που κρατούν μια κόκκινη καρδιά"
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:18
 msgid "Your Contribution,"
-msgstr ""
+msgstr "Η συνεισφορά σας,"
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:18
 msgid "Their Brighter Future"
-msgstr ""
+msgstr "Το λαμπρό τους μέλλον"
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:36
 msgid ""
@@ -630,15 +692,13 @@ msgstr ""
 "                    "
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:63
-#, fuzzy
-#| msgid "Make a donation today >"
 msgid "Make a donation today"
 msgstr "Κάντε μια δωρεά σήμερα "
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:78
 msgid ""
 "Two human figures holding one half of a heart each and trying to connect them"
-msgstr ""
+msgstr "Δύο ανθρώπινες φιγούρες που κρατούν το μισό της καρδιάς η καθεμία και προσπαθούν να τις συνδέσουν"
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:83
 msgid ""
@@ -663,13 +723,6 @@ msgstr ""
 "                        "
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:112
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "                        By choosing from the variety of products offered "
-#| "by our \n"
-#| "                        Association, you can help support our cause.\n"
-#| "                        "
 msgid ""
 "\n"
 "                        By choosing from the variety of products offered by "
@@ -685,25 +738,14 @@ msgstr ""
 "                        "
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:117
-#, fuzzy
-#| msgid "Visit Our Online Shop >"
 msgid "Visit our Online Shop"
 msgstr "Επισκεφθείτε το ηλεκτρονικό μας κατάστημα >"
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:132
 msgid "Colorful human figures dancing in front of a big red heart"
-msgstr ""
+msgstr "Πολύχρωμες ανθρώπινες φιγούρες που χορεύουν μπροστά από μια μεγάλη κόκκινη καρδιά"
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:137
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "                    Honor a memory or celebrate a special occasion — "
-#| "whether it's a wedding, \n"
-#| "                    christening, or birthday — by giving a meaningful "
-#| "gift in place of a wreath \n"
-#| "                    or traditional present.\n"
-#| "                    "
 msgid ""
 "\n"
 "                            Honor a memory or celebrate a special occasion — "
@@ -722,15 +764,6 @@ msgstr ""
 "                    "
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:156
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "                        Become an annual supporter—whether you're a "
-#| "business,\n"
-#| "                        organization, or institution—and make a lasting "
-#| "impact \n"
-#| "                        with your yearly contribution.\n"
-#| "                        "
 msgid ""
 "\n"
 "                        Become an annual supporter—whether you're a "
@@ -747,19 +780,10 @@ msgstr ""
 "                        "
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:177
-#, fuzzy
-#| msgid "Two hands of a child holding a red heart"
 msgid "Two human figures holding a big red heart."
-msgstr "Δύο χέρια ενός παιδιού κρατούν μια κόκκινη καρδιά"
+msgstr "Δύο ανθρώπινες φιγούρες που κρατούν μια μεγάλη κόκκινη καρδιά."
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:182
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "                    Leading a meaningful initiative to support our "
-#| "Association by hosting a\n"
-#| "                    fundraiser or event.\n"
-#| "                    "
 msgid ""
 "\n"
 "                            Leading a meaningful initiative to support our "
@@ -769,9 +793,13 @@ msgid ""
 msgstr ""
 "\n"
 "                    Οδηγώντας μια ουσιαστική πρωτοβουλία για την υποστήριξη "
-"μας του Συλλόγου μας φιλοξενώντας \n"
-"                    έρανο ή εκδήλωση.\n"
+"του Συλλόγου μας φιλοξενώντας \n"
+"                    ένα έρανο ή μία εκδήλωση.\n"
 "                    "
+
+#: .\news\templates\news\new_details.html:37
+msgid "Back to news"
+msgstr "Πίσω στα νέα μας"
 
 #: .\news\templates\news\news.html:15
 msgid "Keeping"
@@ -817,90 +845,73 @@ msgstr "Ένα καλάθι αγορών με καρδιά μέσα του"
 msgid "Your Basket"
 msgstr "Το καλάθι σας"
 
-#: .\shop\templates\shop\basket.html:97
+#: .\shop\templates\shop\basket.html:98
 msgid "Proceed to Checkout"
-msgstr ""
+msgstr "Προχωρήστε στην πληρωμή"
 
-#: .\shop\templates\shop\basket.html:103
-#, fuzzy
-#| msgid "Your Basket"
+#: .\shop\templates\shop\basket.html:104
 msgid "Your details"
-msgstr "Το καλάθι σας"
+msgstr "Τα στοιχεία σας"
 
-#: .\shop\templates\shop\basket.html:107
+#: .\shop\templates\shop\basket.html:108
 #: .\shop\templates\shop\donation_checkout.html:31
 msgid "Full Name"
-msgstr ""
+msgstr "Ονοματεπώνυμο"
 
-#: .\shop\templates\shop\basket.html:111
-#: .\shop\templates\shop\donation_checkout.html:35
-#, fuzzy
-#| msgid " Email us"
-msgid "Email"
-msgstr "Στείλτε μας email"
-
-#: .\shop\templates\shop\basket.html:115
+#: .\shop\templates\shop\basket.html:116
 #: .\shop\templates\shop\donation_checkout.html:39
 msgid "Phone Number"
-msgstr ""
+msgstr "Αριθμός τηλεφώνου"
 
-#: .\shop\templates\shop\basket.html:119
+#: .\shop\templates\shop\basket.html:120
 #: .\shop\templates\shop\donation_checkout.html:43
 msgid "Address"
-msgstr ""
+msgstr "Διεύθυνση"
 
-#: .\shop\templates\shop\basket.html:123
+#: .\shop\templates\shop\basket.html:124
 #: .\shop\templates\shop\donation_checkout.html:47
 msgid "City"
-msgstr ""
+msgstr "Πόλη"
 
-#: .\shop\templates\shop\basket.html:127
+#: .\shop\templates\shop\basket.html:128
 #: .\shop\templates\shop\donation_checkout.html:51
 msgid "Area"
-msgstr ""
+msgstr "Περιόχη"
 
-#: .\shop\templates\shop\basket.html:131
+#: .\shop\templates\shop\basket.html:132
 #: .\shop\templates\shop\donation_checkout.html:55
 msgid "Postcode"
-msgstr ""
+msgstr "Ταχυδρομικός Κώδικας"
 
-#: .\shop\templates\shop\basket.html:143
+#: .\shop\templates\shop\basket.html:144
 #: .\shop\templates\shop\donation_checkout.html:76
 msgid "Card details"
-msgstr ""
+msgstr "Στοιχεία κάρτας"
 
-#: .\shop\templates\shop\basket.html:158
+#: .\shop\templates\shop\basket.html:159
 msgid "Pay"
-msgstr ""
+msgstr "Πληρώστε"
 
 #: .\shop\templates\shop\donation_checkout.html:11
+#: .\shop\templates\shop\donations.html:17
 msgid "Kids in a circle with their heads attached, holding hands and smiling."
-msgstr ""
+msgstr "Παιδιά σε κύκλο με τα κεφάλια τους ενωμένα, πιασμένα χέρι-χέρι και χαμογελαστά."
 
 #: .\shop\templates\shop\donation_checkout.html:12
 msgid "We appreciate your support"
-msgstr ""
+msgstr "Εκτιμούμε την υποστήριξή σας"
 
 #: .\shop\templates\shop\donation_checkout.html:22
 msgid "Enter your details below to complete your donation"
-msgstr ""
+msgstr "Εισαγάγετε τα στοιχεία σας παρακάτω για να ολοκληρώσετε τη δωρεά σας"
 
 #: .\shop\templates\shop\donation_checkout.html:60
-#, fuzzy
-#| msgid "Donation"
 msgid "Donation Type:"
-msgstr "Δωρέα"
+msgstr "Είδος Δωρέας:"
 
 #: .\shop\templates\shop\donation_checkout.html:61
-#, fuzzy
-#| msgid "Counts"
 msgid "Amount"
-msgstr "Μετρά"
-
-#: .\shop\templates\shop\donations.html:17
-#: .\shop\templates\shop\online_shop.html:16
-msgid "Four babies laying down with their heads joined and laughing"
-msgstr "Τέσσερα μωρά ξαπλωμένα με το κεφάλι ενωμένα και γελώντας"
+msgstr "Ποσό"
 
 #: .\shop\templates\shop\donations.html:18
 msgid "Keep their hope alive"
@@ -933,6 +944,10 @@ msgstr ""
 "                    Κάντε δωρεά σήμερα και γίνετε ο λόγος που η καρδιά ενός "
 "παιδιού συνεχίζεινα χτυπά πιο δυνατά.\n"
 "                    "
+
+#: .\shop\templates\shop\donations.html:55
+msgid "Baby laying down and smiling."
+msgstr "Μωρό ξαπλωμένο και χαμογελά."
 
 #: .\shop\templates\shop\donations.html:126
 msgid "Every"
@@ -983,29 +998,33 @@ msgstr "Άλλοι τρόποι δωρεάς"
 msgid "Donate by phone"
 msgstr "Δωρεά από το τηλέφωνο"
 
-#: .\shop\templates\shop\donations.html:159
+#: .\shop\templates\shop\donations.html:163
 msgid "Donate by posting a check or bank transfer"
-msgstr "Κάντε δωρεά δημοσιεύοντας επιταγή ή τραπεζικό έμβασμα"
+msgstr "Κάντε δωρεά ταχυδρομώντας μια επιταγή ή τραπεζικό έμβασμα"
 
-#: .\shop\templates\shop\donations.html:160
+#: .\shop\templates\shop\donations.html:164
 msgid "Donate at our"
 msgstr "Δωρεά"
 
-#: .\shop\templates\shop\donations.html:160
+#: .\shop\templates\shop\donations.html:164
 msgid "Events >"
 msgstr "Εκδηλώσεις"
 
-#: .\shop\templates\shop\donations.html:161
+#: .\shop\templates\shop\donations.html:165
 msgid "Donate by"
 msgstr "Κάντε δωρέα"
 
-#: .\shop\templates\shop\donations.html:161
+#: .\shop\templates\shop\donations.html:165
 msgid "Visiting our Online shop >"
-msgstr "επισκεπτόμενοι το ηλεκτρονικό μας κατάστημα"
+msgstr "επισκέπτοντας το ηλεκτρονικό μας κατάστημα"
+
+#: .\shop\templates\shop\online_shop.html:16
+msgid "Kids laying down on their bellies and they are laughing."
+msgstr "Παιδιά ξαπλωμένα στην κοιλιά τους και γελάνε."
 
 #: .\shop\templates\shop\online_shop.html:17
 msgid "Shop. Support. Strengthen Little Hearts."
-msgstr "Ψωνίστε. Υποστηρίξτε. Δυναμώστε τις Μικρές Καρδιές."
+msgstr "Ψωνίστε. Υποστηρίξτε. Ενισχύστε τις Μικρές Καρδιές."
 
 #: .\shop\templates\shop\online_shop.html:29
 msgid "Online Shop"
@@ -1039,99 +1058,105 @@ msgstr ""
 "κάνουμε τις καρδιές πιο δυνατές!\n"
 "                    "
 
-#: .\templates\base.html:24
-msgid "Cardiac Association"
-msgstr "Καρδιολογικός Σύλλογος"
+#: .\templates\base.html:25
+msgid "ASSOCIATION OF PARENTS AND FRIENDS OF CHILDREN WITH HEART DISEASE"
+msgstr "ΣΥΛΛΟΓΟΣ ΓΟΝΕΩΝ ΚΑΙ ΦΙΛΩΝ ΚΑΡΔΙΟΠΑΘΩΝ ΠΑΙΔΙΩΝ"
 
-#: .\templates\base.html:47
+#: .\templates\base.html:80
 msgid "Logo"
 msgstr "Λογότυπο"
 
-#: .\templates\base.html:63
+#: .\templates\base.html:96
 msgid "Our services"
 msgstr "Οι υπηρεσίες μας"
 
-#: .\templates\base.html:64
+#: .\templates\base.html:97
 msgid "Our programs"
 msgstr "Τα προγράμματά μας"
 
-#: .\templates\base.html:73 .\what_we_do\templates\what_we_do\services.html:118
+#: .\templates\base.html:106
+#: .\what_we_do\templates\what_we_do\services.html:118
 #: .\what_we_do\templates\what_we_do\services.html:183
 msgid "Make a donation"
 msgstr "Κάντε μια δωρεά"
 
-#: .\templates\base.html:74
+#: .\templates\base.html:107
 msgid "Online shop"
 msgstr "Ηλεκτρονικό κατάστημα"
 
-#: .\templates\base.html:75 .\what_we_do\templates\what_we_do\services.html:105
+#: .\templates\base.html:108
+#: .\what_we_do\templates\what_we_do\services.html:105
 msgid "Become a member"
 msgstr "Γίνετε μέλος"
 
-#: .\templates\base.html:80
+#: .\templates\base.html:113
 msgid "Stay informed"
 msgstr "Ενημερωθείτε"
 
-#: .\templates\base.html:83
+#: .\templates\base.html:116
 msgid "Events"
 msgstr "Εκδηλώσεις"
 
-#: .\templates\base.html:84
+#: .\templates\base.html:117
 msgid "News"
 msgstr "Νέα"
 
-#: .\templates\base.html:89
+#: .\templates\base.html:122
 msgid "About us"
 msgstr "Σχετικά με εμάς"
 
-#: .\templates\base.html:92
+#: .\templates\base.html:125
 msgid "Our history"
 msgstr "Η ιστορία μας"
 
-#: .\templates\base.html:100 .\templates\base.html:101
-#: .\templates\base.html:130 .\templates\base.html:131
+#: .\templates\base.html:133 .\templates\base.html:134
+#: .\templates\base.html:163 .\templates\base.html:164
 msgid "Search"
 msgstr "Αναζήτηση"
 
-#: .\templates\base.html:166
+#: .\templates\base.html:199
 msgid "Get in touch"
 msgstr "Επικοινωνήστε μαζί μας"
 
-#: .\templates\base.html:168
+#: .\templates\base.html:201
 msgid "The Association of parents and friends"
 msgstr "Ο Σύλλογος γονέων και φίλων"
 
-#: .\templates\base.html:168
+#: .\templates\base.html:201
 msgid "of children with Heart Disease"
-msgstr "παιδιών με καρδιακή νόσο"
+msgstr "καρδιοπαθών παιδιών"
 
-#: .\templates\base.html:170
+#: .\templates\base.html:203
 msgid "11 Grammou street, Apt 5,"
 msgstr "Οδός Γράμμου 11, Διαμέρισμα 5,"
 
-#: .\templates\base.html:170
+#: .\templates\base.html:203
 msgid "Strovolos"
 msgstr "Στρόβολος"
 
-#: .\templates\base.html:170
+#: .\templates\base.html:203
 msgid "Nicosia"
 msgstr "Λευκωσία"
 
-#: .\templates\base.html:170
+#: .\templates\base.html:203
 msgid "Cyprus"
 msgstr "Κύπρος"
 
-#: .\templates\base.html:185
+#: .\templates\base.html:218
 msgid "Follow us on"
 msgstr "Ακολουθήστε μας στο"
 
+#: .\what_we_do\templates\what_we_do\programs.html:14
+msgid "Paper figures showing a family holding hands in front of a stethoscope."
+msgstr "Φιγούρες από χαρτί που δείχνουν μια οικογένεια που κρατιέται χέρι χέρι μπροστά από ένα στηθοσκόπιο."
+
 #: .\what_we_do\templates\what_we_do\programs.html:15
 msgid "Supporting Hearts,"
-msgstr "Στήριξη καρδιών,"
+msgstr "Στηρίζοντας καρδιές,"
 
 #: .\what_we_do\templates\what_we_do\programs.html:15
 msgid "Strengthening Families"
-msgstr "Ενίσχυση οικογενειών"
+msgstr "Ενισχύουμς οικογένειες"
 
 #: .\what_we_do\templates\what_we_do\programs.html:27
 msgid "Our supporting programs"
@@ -1311,15 +1336,17 @@ msgstr "Επαγγελματική κατάρτιση"
 msgid "Informative lectures with Pediatric Cardiologists"
 msgstr "Ενημερωτικές διαλέξεις με Παιδοκαρδιολόγους"
 
-#: .\what_we_do\templates\what_we_do\services.html:21
-msgid "From Care to Community:"
-msgstr ""
+#: .\what_we_do\templates\what_we_do\services.html:20
+msgid "A brown paper ripped showing the word community and heart drawn around."
+msgstr "Ένα καφέ χαρτί σχισμένο που δείχνει τη λέξη κοινότητα και καρδιά ζωγραφισμένη τριγύρω."
 
 #: .\what_we_do\templates\what_we_do\services.html:21
-#, fuzzy
-#| msgid "What we do"
+msgid "From Care to Community:"
+msgstr "Προσφορά στην κοινότητα:"
+
+#: .\what_we_do\templates\what_we_do\services.html:21
 msgid "What We Offer"
-msgstr "Τι κάνουμε"
+msgstr "Τι προσφέρουμε"
 
 #: .\what_we_do\templates\what_we_do\services.html:33
 msgid "Services we offer"
@@ -1384,14 +1411,12 @@ msgid "Financial Support to needy member families"
 msgstr "Οικονομική στήριξη σε άπορες οικογένειες μελών"
 
 #: .\what_we_do\templates\what_we_do\services.html:130
-#, fuzzy
-#| msgid "Emergency helpline 99722766"
 msgid "Emergency helpline "
-msgstr "Γραμμή βοήθειας, έκτακτης ανάγκης 99722766"
+msgstr "Γραμμή βοήθειας"
 
 #: .\what_we_do\templates\what_we_do\services.html:130
 msgid "and "
-msgstr ""
+msgstr "και"
 
 #: .\what_we_do\templates\what_we_do\services.html:142
 msgid "Lectures with invited doctors in and outside Cyprus"
@@ -1403,6 +1428,10 @@ msgid ""
 "among members"
 msgstr ""
 "Εκδηλώσεις/Εκδρομές για γνωριμία, ανταλλαγή εμπειριών  μεταξύ των μελών"
+
+#: .\what_we_do\templates\what_we_do\what_we_do.html:16
+msgid "A group of children playing outside."
+msgstr "Μια ομάδα παιδιών που παίζουν έξω."
 
 #: .\what_we_do\templates\what_we_do\what_we_do.html:17
 msgid "Creating Hope"
@@ -1425,14 +1454,12 @@ msgid "Statistics"
 msgstr "Στατιστικά"
 
 #: .\what_we_do\templates\what_we_do\what_we_do.html:64
-#, fuzzy
-#| msgid "Cardiac Association"
 msgid "Main goals of the Association"
-msgstr "Καρδιολογικός Σύλλογος"
+msgstr "Βασικοί στόχοι του Συλλόγου"
 
 #: .\what_we_do\templates\what_we_do\what_we_do.html:69
 msgid "Number 1 in a heart"
-msgstr ""
+msgstr "Νούμερο 1 σε μια καρδιά"
 
 #: .\what_we_do\templates\what_we_do\what_we_do.html:74
 msgid ""
@@ -1482,11 +1509,11 @@ msgstr ""
 
 #: .\what_we_do\templates\what_we_do\what_we_do.html:101
 msgid "Number 2 in a heart"
-msgstr ""
+msgstr "Νούμερο 2 σε μια καρδιά"
 
 #: .\what_we_do\templates\what_we_do\what_we_do.html:109
 msgid "Number 3 in a heart"
-msgstr ""
+msgstr "Νούμερο 2 σε μια καρδιά"
 
 #: .\what_we_do\templates\what_we_do\what_we_do.html:114
 msgid ""
@@ -1532,23 +1559,13 @@ msgstr ""
 
 #: .\what_we_do\templates\what_we_do\what_we_do.html:140
 msgid "Number 4 in a heart"
-msgstr ""
+msgstr "Νούμερο 4 σε μια καρδιά"
 
 #: .\what_we_do\templates\what_we_do\what_we_do.html:148
 msgid "Number 5 in a heart"
-msgstr ""
+msgstr "Νούμερο 5 σε μια καρδιά"
 
 #: .\what_we_do\templates\what_we_do\what_we_do.html:153
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "                        The cooperation with the competent bodies such as "
-#| "the Ministry of Health, the Ministry of Labour, \n"
-#| "                        the Health Committee of the Parliament etc. to "
-#| "ensure a better quality of life for people with \n"
-#| "                        Congenital Heart Diseases The promotion of the "
-#| "creation of a file of Congenital Heart Diseases.\n"
-#| "                        "
 msgid ""
 "\n"
 "                        The cooperation with the competent bodies such as "
@@ -1582,7 +1599,7 @@ msgstr ""
 
 #: .\what_we_do\templates\what_we_do\what_we_do.html:176
 msgid "Number 6 in a heart"
-msgstr ""
+msgstr "Νούμερο 6 σε μια καρδιά"
 
 #: .\what_we_do\templates\what_we_do\what_we_do.html:187
 msgid "Services"
@@ -1591,6 +1608,23 @@ msgstr "Υπηρεσίες"
 #: .\what_we_do\templates\what_we_do\what_we_do.html:188
 msgid "Programs"
 msgstr "Προγράμματα"
+
+#~ msgid "Two hands holding a red heart over a laptop"
+#~ msgstr ""
+#~ "Δύο χέρια που κρατούν μια κόκκινη καρδιά πάνω από ένα φορητό υπολογιστή"
+
+#~ msgid "Two hands holding a red heart over a laptop."
+#~ msgstr ""
+#~ "Δύο χέρια που κρατούν μια κόκκινη καρδιά πάνω από ένα φορητό υπολογιστή"
+
+#~ msgid "Hands forming a circle around a big red heart"
+#~ msgstr "Χέρια που σχηματίζουν έναν κύκλο γύρω από μια μεγάλη κόκκινη καρδιά"
+
+#~ msgid "Infant laying down and a doctor listens to the heart of the baby"
+#~ msgstr "Βρέφος ξαπλωμένο και ο γιατρός ακούει την καρδιά του μωρού"
+
+#~ msgid "Cardiac Association"
+#~ msgstr "Καρδιολογικός Σύλλογος"
 
 #~ msgid "Call us "
 #~ msgstr "Καλέστε μας"
