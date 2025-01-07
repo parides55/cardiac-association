@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-07 13:55+0000\n"
+"POT-Creation-Date: 2025-01-07 22:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -103,14 +103,6 @@ msgstr "Μια ομάδα ανθρώπων στο δάσος κρατιούντ�
 msgid "Become a member today"
 msgstr "Γίνετε μέλος σήμερα"
 
-#: .\about_us\templates\about_us\people.html:120
-msgid ""
-"In the bluρred background people are in a conference and a speaker delivers "
-"a speech."
-msgstr ""
-"Στο θολό φόντο, άνθρωποι βρίσκονται σε συνέδριο και ένας ομιλητής δίνει "
-"διάλεξη."
-
 #: .\about_us\templates\about_us\people.html:123
 #: .\home_page\templates\home_page\become_member.html:71
 #: .\home_page\templates\home_page\heart_disease_info.html:124
@@ -188,7 +180,8 @@ msgstr ""
 #: .\what_we_do\templates\what_we_do\what_we_do.html:200
 msgid ""
 "A group of people placing their hands in the middle on top of each other."
-msgstr "Μια ομάδα ανθρώπων που βάζουν τα χέρια τους στη μέση το ένα πάνω στο άλλο."
+msgstr ""
+"Μια ομάδα ανθρώπων που βάζουν τα χέρια τους στη μέση το ένα πάνω στο άλλο."
 
 #: .\events\templates\events\events.html:147
 #: .\shop\templates\shop\donations.html:179
@@ -288,13 +281,14 @@ msgstr ""
 "\n"
 "                        **Σημείωση**: Γίνοντας μέλος του Συλλόγου μας, "
 "συμβάλλεις στην υποστήριξη  \n"
-"                        των παιδιών με καρδιοπάθεια και των οικογενειών τους. "
-"Σημειώνεται ότι υπάρχει \n"
-"                        συμβολική ετήσια συνδρομή 20 ευρώ για "
-"κάθε μέλος. Κάνοντας κλικ στο \n"
+"                        των παιδιών με καρδιοπάθεια και των οικογενειών "
+"τους. Σημειώνεται ότι υπάρχει \n"
+"                        συμβολική ετήσια συνδρομή 20 ευρώ για κάθε μέλος. "
+"Κάνοντας κλικ στο \n"
 "                        \"Υποβολή\", συμφωνείτε με αυτήν την ετήσια "
 "συνεισφορά και μας βοηθάτε να συνεχίσουμε την \n"
-"                        αποστολή μας. Σας ευχαριστούμε για την υποστήριξή σας!\n"
+"                        αποστολή μας. Σας ευχαριστούμε για την υποστήριξή "
+"σας!\n"
 "                    "
 
 #: .\home_page\templates\home_page\become_member.html:46
@@ -308,7 +302,9 @@ msgstr "Υποβολή"
 #: .\shop\templates\shop\online_shop.html:96
 msgid ""
 "A wooden red heart with wooden letter cubes underneath showing the word news."
-msgstr "Μια ξύλινη κόκκινη καρδιά με ξύλινους κύβους γραμμάτων από κάτω που δείχνει τη λέξη νέα."
+msgstr ""
+"Μια ξύλινη κόκκινη καρδιά με ξύλινους κύβους γραμμάτων από κάτω που δείχνει "
+"τη λέξη νέα."
 
 #: .\home_page\templates\home_page\become_member.html:63
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:203
@@ -698,7 +694,9 @@ msgstr "Κάντε μια δωρεά σήμερα "
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:78
 msgid ""
 "Two human figures holding one half of a heart each and trying to connect them"
-msgstr "Δύο ανθρώπινες φιγούρες που κρατούν το μισό της καρδιάς η καθεμία και προσπαθούν να τις συνδέσουν"
+msgstr ""
+"Δύο ανθρώπινες φιγούρες που κρατούν το μισό της καρδιάς η καθεμία και "
+"προσπαθούν να τις συνδέσουν"
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:83
 msgid ""
@@ -743,7 +741,9 @@ msgstr "Επισκεφθείτε το ηλεκτρονικό μας κατάστ
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:132
 msgid "Colorful human figures dancing in front of a big red heart"
-msgstr "Πολύχρωμες ανθρώπινες φιγούρες που χορεύουν μπροστά από μια μεγάλη κόκκινη καρδιά"
+msgstr ""
+"Πολύχρωμες ανθρώπινες φιγούρες που χορεύουν μπροστά από μια μεγάλη κόκκινη "
+"καρδιά"
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:137
 msgid ""
@@ -845,6 +845,34 @@ msgstr "Ένα καλάθι αγορών με καρδιά μέσα του"
 msgid "Your Basket"
 msgstr "Το καλάθι σας"
 
+#: .\shop\templates\shop\basket.html:33
+msgid "Product"
+msgstr "Προϊόν"
+
+#: .\shop\templates\shop\basket.html:34
+msgid "Quantity"
+msgstr "Ποσότητα"
+
+#: .\shop\templates\shop\basket.html:35
+msgid "Price"
+msgstr "Τιμή"
+
+#: .\shop\templates\shop\basket.html:36
+msgid "Total"
+msgstr "Σύνολο"
+
+#: .\shop\templates\shop\basket.html:73
+msgid "Total Amount"
+msgstr "Συνολικό ποσό"
+
+#: .\shop\templates\shop\basket.html:84
+msgid "Your basket is empty."
+msgstr "Το καλάθι σας είναι άδειο."
+
+#: .\shop\templates\shop\basket.html:87
+msgid "Continue Shopping"
+msgstr "Συνεχίστε τις αγορές"
+
 #: .\shop\templates\shop\basket.html:98
 msgid "Proceed to Checkout"
 msgstr "Προχωρήστε στην πληρωμή"
@@ -895,7 +923,9 @@ msgstr "Πληρώστε"
 #: .\shop\templates\shop\donation_checkout.html:11
 #: .\shop\templates\shop\donations.html:17
 msgid "Kids in a circle with their heads attached, holding hands and smiling."
-msgstr "Παιδιά σε κύκλο με τα κεφάλια τους ενωμένα, πιασμένα χέρι-χέρι και χαμογελαστά."
+msgstr ""
+"Παιδιά σε κύκλο με τα κεφάλια τους ενωμένα, πιασμένα χέρι-χέρι και "
+"χαμογελαστά."
 
 #: .\shop\templates\shop\donation_checkout.html:12
 msgid "We appreciate your support"
@@ -1148,7 +1178,9 @@ msgstr "Ακολουθήστε μας στο"
 
 #: .\what_we_do\templates\what_we_do\programs.html:14
 msgid "Paper figures showing a family holding hands in front of a stethoscope."
-msgstr "Φιγούρες από χαρτί που δείχνουν μια οικογένεια που κρατιέται χέρι χέρι μπροστά από ένα στηθοσκόπιο."
+msgstr ""
+"Φιγούρες από χαρτί που δείχνουν μια οικογένεια που κρατιέται χέρι χέρι "
+"μπροστά από ένα στηθοσκόπιο."
 
 #: .\what_we_do\templates\what_we_do\programs.html:15
 msgid "Supporting Hearts,"
@@ -1338,7 +1370,9 @@ msgstr "Ενημερωτικές διαλέξεις με Παιδοκαρδιο�
 
 #: .\what_we_do\templates\what_we_do\services.html:20
 msgid "A brown paper ripped showing the word community and heart drawn around."
-msgstr "Ένα καφέ χαρτί σχισμένο που δείχνει τη λέξη κοινότητα και καρδιά ζωγραφισμένη τριγύρω."
+msgstr ""
+"Ένα καφέ χαρτί σχισμένο που δείχνει τη λέξη κοινότητα και καρδιά "
+"ζωγραφισμένη τριγύρω."
 
 #: .\what_we_do\templates\what_we_do\services.html:21
 msgid "From Care to Community:"
@@ -1608,6 +1642,13 @@ msgstr "Υπηρεσίες"
 #: .\what_we_do\templates\what_we_do\what_we_do.html:188
 msgid "Programs"
 msgstr "Προγράμματα"
+
+#~ msgid ""
+#~ "In the bluρred background people are in a conference and a speaker "
+#~ "delivers a speech."
+#~ msgstr ""
+#~ "Στο θολό φόντο, άνθρωποι βρίσκονται σε συνέδριο και ένας ομιλητής δίνει "
+#~ "διάλεξη."
 
 #~ msgid "Two hands holding a red heart over a laptop"
 #~ msgstr ""
