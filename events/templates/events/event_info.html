@@ -3,6 +3,8 @@
 {% load static %}
 {% load i18n %}
 
+{% url 'events' as events_url %}
+
 {% block content %}
 <section class='mt-0 hero' id='hero-events-info'>
     <div class="container-fluid p-0">
@@ -12,6 +14,7 @@
             {% else %}
             <img class='img-fluid hero-image' src="{{ event.image.url }}" class="card-img-top" alt="{{ event.title }}">
             {% endif %}
+            <img class="down-arrow" src="{% static 'images/down_arrow.png' %}" alt="Down arrow">
         </div>
     </div>
 </section>
@@ -31,6 +34,11 @@
                     <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
                 </svg> {{ event.location }}
             </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-end my-5 me-3">
+            <a href="{% url 'events' %}">{% trans 'Back to events' %}</a>
         </div>
     </div>
 </section>

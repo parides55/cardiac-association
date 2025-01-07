@@ -3,6 +3,8 @@
 {% load static %}
 {% load i18n %}
 
+{% url 'news' as news_url %}
+
 {% block content %}
 <section class='mt-0 hero' id='hero-news-info'>
     <div class="container-fluid p-0">
@@ -12,6 +14,7 @@
             {% else %}
             <img class='img-fluid hero-image' src="{{ new.image.url }}" class="card-img-top" alt="{{ new.title }}">
             {% endif %}
+            <img class="down-arrow" src="{% static 'images/down_arrow.png' %}" alt="Down arrow">
         </div>
     </div>
 </section>
@@ -27,6 +30,11 @@
                     <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
                 </svg> {{ new.created_on|date:"F j, Y" }}
             </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-end my-5 me-3">
+            <a href="{% url 'news' %}">{% trans 'Back to news' %}</a>
         </div>
     </div>
 </section>
