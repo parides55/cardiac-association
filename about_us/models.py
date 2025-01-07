@@ -2,8 +2,8 @@ from django.db import models
 from cloudinary.models import CloudinaryField
 
 # Create your models here.
-POSITIONS = ((0, "Chairman"), (1, "Vice Chairman"), (2, "Secretary"), (3, "Assistant Secretary"),
-            (4, "Treasurer"), (5,"Assistant Treasurer"), (6, "Member"), (7, "Staff"))
+POSITIONS = ((0, "Πρόεδρος"), (1, "Αντιπρόεδρος"), (2, "Γραμματέας"), (3, "Βοηθός Γραμματέας"),
+            (4, "Ταμίας"), (5,"Βοηθός Ταμίας"), (6, "Μέλος"), (7, "Προσωπικό"))
 
 
 class People(models.Model):
