@@ -94,7 +94,7 @@
         <div class="row mx-4 mb-4">
             <div class="col col-md-12">
                 <p>
-                    <button class="btn btn-secondary my-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+                    <button class="btn btn-secondary my-5 {% if basket_items %}d-block{% else%}d-none{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
                     {% trans 'Proceed to Checkout' %}
                     </button>
                 </p>
