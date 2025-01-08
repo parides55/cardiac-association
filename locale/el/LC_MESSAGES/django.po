@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-07 22:58+0000\n"
+"POT-Creation-Date: 2025-01-08 00:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,11 +68,11 @@ msgstr "Διοικητικό Συμβούλιο"
 #: .\about_us\templates\about_us\people.html:88
 #: .\events\templates\events\event_info.html:13
 #: .\events\templates\events\events.html:36
-#: .\events\templates\events\events.html:71
-#: .\events\templates\events\events.html:108
+#: .\events\templates\events\events.html:80
+#: .\events\templates\events\events.html:126
 #: .\news\templates\news\new_details.html:13
 #: .\shop\templates\shop\basket.html:44
-#: .\shop\templates\shop\online_shop.html:57
+#: .\shop\templates\shop\online_shop.html:58
 msgid "Default image"
 msgstr "Προεπιλεγμένη εικόνα"
 
@@ -93,23 +93,35 @@ msgid "A group of people in the forest hanging each other."
 msgstr "Μια ομάδα ανθρώπων στο δάσος κρατιούνται ο ένας με τον άλλον."
 
 #: .\about_us\templates\about_us\people.html:115
-#: .\events\templates\events\events.html:142
+#: .\events\templates\events\events.html:169
 #: .\home_page\templates\home_page\heart_disease_info.html:116
 #: .\home_page\templates\home_page\index.html:192
-#: .\news\templates\news\news.html:98
+#: .\news\templates\news\news.html:109
 #: .\what_we_do\templates\what_we_do\programs.html:158
 #: .\what_we_do\templates\what_we_do\services.html:175
 #: .\what_we_do\templates\what_we_do\what_we_do.html:203
 msgid "Become a member today"
 msgstr "Γίνετε μέλος σήμερα"
 
+#: .\about_us\templates\about_us\people.html:120
+#, fuzzy
+#| msgid ""
+#| "In the blurred background people are in a conference and a speaker "
+#| "delivers a speech."
+msgid ""
+"In the blured background people are in a connference and a speaker delivers "
+"a speech."
+msgstr ""
+"Στο θολό φόντο, άνθρωποι βρίσκονται σε συνέδριο και ένας ομιλητής δίνει "
+"διάλεξη."
+
 #: .\about_us\templates\about_us\people.html:123
 #: .\home_page\templates\home_page\become_member.html:71
 #: .\home_page\templates\home_page\heart_disease_info.html:124
 #: .\home_page\templates\home_page\index.html:200
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:211
-#: .\news\templates\news\news.html:106 .\shop\templates\shop\basket.html:180
-#: .\shop\templates\shop\online_shop.html:91
+#: .\news\templates\news\news.html:117 .\shop\templates\shop\basket.html:180
+#: .\shop\templates\shop\online_shop.html:100
 #: .\what_we_do\templates\what_we_do\programs.html:166
 msgid "Find out about our Events"
 msgstr "Μάθετε για τις Εκδηλώσεις μας"
@@ -131,8 +143,8 @@ msgstr "Πίσω στις εκδηλώσεις"
 #: .\home_page\templates\home_page\heart_disease_info.html:121
 #: .\home_page\templates\home_page\index.html:197
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:208
-#: .\news\templates\news\news.html:103 .\shop\templates\shop\basket.html:177
-#: .\shop\templates\shop\online_shop.html:88
+#: .\news\templates\news\news.html:114 .\shop\templates\shop\basket.html:177
+#: .\shop\templates\shop\online_shop.html:97
 #: .\what_we_do\templates\what_we_do\programs.html:163
 #: .\what_we_do\templates\what_we_do\services.html:180
 msgid ""
@@ -159,22 +171,65 @@ msgstr "Καρδιές"
 msgid "This month's events"
 msgstr "Οι εκδηλώσεις αυτού του μήνα"
 
-#: .\events\templates\events\events.html:63
+#: .\events\templates\events\events.html:57
+#: .\events\templates\events\events.html:101
+msgid ""
+"\n"
+"                There are currently no upcoming events. <br><br> \n"
+"                Our team is working to bring you the latest information "
+"soon. <br><br>\n"
+"                Please check back later for new updates and events. "
+"<br><br>\n"
+"                Thank you for your understanding!\n"
+"                "
+msgstr ""
+"\n"
+"                Προς το παρόν δεν υπάρχουν επερχόμενες εκδηλώσεις. <br><br> \n"
+"                Η ομάδα μας εργάζεται για να σας φέρει τις πιο πρόσφατες πληροφορίες "
+"σύντομα. <br><br>\n"
+"                Ελέγξτε ξανά αργότερα για νέες ενημερώσεις και εκδηλώσεις. "
+"<br><br>\n"
+"                Σας ευχαριστούμε για την κατανόησή σας!\n"
+"                "
+
+#: .\events\templates\events\events.html:72
 msgid "Our upcoming events"
 msgstr "Οι επερχόμενες εκδηλώσεις μας"
 
-#: .\events\templates\events\events.html:100
+#: .\events\templates\events\events.html:118
 msgid ""
 "Get inspired from our previous events and help us organise our next ones"
 msgstr ""
 "Εμπνευστείτε από τις προηγούμενες εκδηλώσεις μας και βοηθήστε μας να "
 "οργανώσουμε τις επόμενες"
 
-#: .\events\templates\events\events.html:139
+#: .\events\templates\events\events.html:147
+msgid ""
+"\n"
+"                There are currently no past events available at the moment. "
+"<br><br> \n"
+"                Our team is working to bring you the latest information "
+"soon. <br><br>\n"
+"                Please check back later for new updates and events. "
+"<br><br>\n"
+"                Thank you for your understanding!\n"
+"                "
+msgstr ""
+"\n"
+"                Προς το παρόν δεν υπάρχουν διαθέσιμες προηγούμενες εκδηλώσεις αυτήν τη στιγμή. "
+"<br><br> \n"
+"                Η ομάδα μας εργάζεται για να σας φέρει τις πιο πρόσφατες πληροφορίες "
+"σύντομα. <br><br>\n"
+"                Ελέγξτε ξανά αργότερα για νέες ενημερώσεις και εκδηλώσεις. "
+"<br><br>\n"
+"                Σας ευχαριστούμε για την κατανόησή σας!!\n"
+"                "
+
+#: .\events\templates\events\events.html:166
 #: .\home_page\templates\home_page\become_member.html:15
 #: .\home_page\templates\home_page\heart_disease_info.html:113
 #: .\home_page\templates\home_page\index.html:189
-#: .\news\templates\news\news.html:95
+#: .\news\templates\news\news.html:106
 #: .\what_we_do\templates\what_we_do\programs.html:155
 #: .\what_we_do\templates\what_we_do\services.html:172
 #: .\what_we_do\templates\what_we_do\what_we_do.html:200
@@ -183,13 +238,13 @@ msgid ""
 msgstr ""
 "Μια ομάδα ανθρώπων που βάζουν τα χέρια τους στη μέση το ένα πάνω στο άλλο."
 
-#: .\events\templates\events\events.html:147
+#: .\events\templates\events\events.html:174
 #: .\shop\templates\shop\donations.html:179
 #: .\what_we_do\templates\what_we_do\what_we_do.html:208
 msgid "Animated image of many hands as a frame."
 msgstr "Κινούμενη εικόνα πολλών χεριών ως πλαίσιο."
 
-#: .\events\templates\events\events.html:150
+#: .\events\templates\events\events.html:177
 #: .\home_page\templates\home_page\index.html:176
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:30
 #: .\shop\templates\shop\donations.html:182 .\templates\base.html:102
@@ -299,7 +354,7 @@ msgstr "Υποβολή"
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:200
 #: .\news\templates\news\news.html:14 .\shop\templates\shop\basket.html:185
 #: .\shop\templates\shop\donations.html:187
-#: .\shop\templates\shop\online_shop.html:96
+#: .\shop\templates\shop\online_shop.html:105
 msgid ""
 "A wooden red heart with wooden letter cubes underneath showing the word news."
 msgstr ""
@@ -531,7 +586,7 @@ msgstr "Τι κάνουμε"
 #: .\home_page\templates\home_page\index.html:54
 #: .\shop\templates\shop\basket.html:188
 #: .\shop\templates\shop\donations.html:190
-#: .\shop\templates\shop\online_shop.html:99
+#: .\shop\templates\shop\online_shop.html:108
 #: .\what_we_do\templates\what_we_do\services.html:157
 msgid "Read our news"
 msgstr "Διαβάστε τα νέα μας"
@@ -833,9 +888,30 @@ msgstr ""
 "εργαζόμαστε και άρθρα από επαγγελματίες υγείας.\n"
 "                    "
 
-#: .\news\templates\news\news.html:54
+#: .\news\templates\news\news.html:55
 msgid "Default image, Logo of the associaiton."
 msgstr "Προεπιλεγμένη εικόνα, λογότυπο του συνδέσμου"
+
+#: .\news\templates\news\news.html:75
+msgid ""
+"\n"
+"                There are currently no news updates available. <br><br> \n"
+"                Our team is working to bring you the latest information "
+"soon. <br><br>\n"
+"                Please check back later for new updates and stories. "
+"<br><br>\n"
+"                Thank you for your understanding!\n"
+"                "
+msgstr ""
+"\n"
+"                Προς το παρόν δεν υπάρχουν διαθέσιμες ενημερώσεις ειδήσεων. <br><br> \n"
+"                Η ομάδα μας εργάζεται για να σας φέρει τις πιο πρόσφατες πληροφορίες "
+"σύντομα. <br><br>\n"
+"                Ελέγξτε ξανά αργότερα για νέες ενημερώσεις και ιστορίες. "
+"<br><br>\n"
+"                Σας ευχαριστούμε για την κατανόησή σας!\n"
+"                "
+
 
 #: .\shop\templates\shop\basket.html:16
 msgid "A shopping cart with heart inside it."
@@ -1086,6 +1162,20 @@ msgstr ""
 "αγάπη και φροντίδα σε όσους \n"
 "                    το χρειάζονται περισσότερο.<br><br> Μαζί, μπορούμε να "
 "κάνουμε τις καρδιές πιο δυνατές!\n"
+"                    "
+
+#: .\shop\templates\shop\online_shop.html:80
+msgid ""
+"\n"
+"                    We’re currently updating our Products page. <br><br>\n"
+"                    Please check back soon to explore all the wonderful "
+"items we’ll have available!\n"
+"                    "
+msgstr ""
+"\n"
+"                    Αυτήν τη στιγμή ενημερώνουμε τη σελίδα προϊόντων μας. <br><br>\n"
+"                    Ελέγξτε ξανά σύντομα για να εξερευνήσετε όλα τα υπέροχα "
+"είδη που θα έχουμε διαθέσιμα!\n"
 "                    "
 
 #: .\templates\base.html:25
