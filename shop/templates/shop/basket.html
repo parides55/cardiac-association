@@ -139,7 +139,7 @@
                                     <input type="hidden" name="quantity" value="{{ item.quantity }}">
                                     {% endfor %}
                                 </div>
-                                <div class="col-12 d-flex flex-column align-items-center my-3">
+                                {% comment %} <div class="col-12 d-flex flex-column align-items-center my-3">
                                     <div class="card card-body w-50 h-auto">
                                         <h3 class="fst-italic fw-bold">{% trans 'Card details' %}</h3>
                                         <div class="mb-3">
@@ -154,7 +154,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> {% endcomment %}
                                 <div class="col-12 text-center my-3">
                                     <button type="submit" class="btn btn-outline-secondary w-50" aria-label="pay">{% trans 'Pay' %}</button>
                                 </div>

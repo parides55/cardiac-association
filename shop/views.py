@@ -1,3 +1,4 @@
+import requests
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.http import HttpResponseRedirect
 from django.contrib import messages
@@ -5,6 +6,26 @@ from .forms import BasketForm, DonationForm, ShippingDetailForm
 from .models import Product, Basket, ShippingDetail, Donation
 
 # Create your views here.
+
+def process_payment(amount, orderId):
+
+    url = "https://gateway-test.jcc.com.cy/payment/rest/register.do"
+    headers = {"Content-Type": "application/x-www-form-urlencoded"}
+    data = {
+        "amount": amount,
+        "currency": "978",
+        "userName": "CardiacAssociation-api",
+        "password": "mhuxn-I9",
+        "returnUrl": "https://pediheart.org.cy",
+        "description": "Donation to the Cyprus Association of Children with Heart Disease",
+        "language": "en",
+        "orderNumber": orderId
+    }
+
+    return requests.post(url, headers=headers, data=data)
+
+# Donation views
+
 def donations(request):
     return render(request, "shop/donations.html")
 
@@ -143,7 +164,7 @@ def remove_from_basket(request, product_id):
 
         if not session_key:
             request.session.create()
-            session_key = request.session.session_key
+        session_key = request.session.session_key
 
         # Get the basket item
         basket_item = get_object_or_404(Basket, session_key=session_key, product_id=product_id)
@@ -174,16 +195,20 @@ def basket_checkout(request):
                 basket_items = Basket.objects.filter(session_key=request.session.session_key)
                 shipping_detail.basket_items.set(basket_items)
                 shipping_detail.save()  # Save again to update the relationship
-
-                # Clear the basket
-                # basket_items.delete()
                 
-                messages.success(request, f"Thank you for your order! Your order number is {shipping_detail.id}.")
-                return HttpResponseRedirect(reverse('basket'))
+                # Process payment
+                response = process_payment(shipping_detail.total_amount, shipping_detail.id)
+                
+                if response.status_code == 200:
+                    # Clear the basket
+                    basket_items.delete()
+                
+                    messages.success(request, f"Thank you for your order!")
+                    return HttpResponseRedirect(reverse('basket'))
             else:
                 messages.error(request, "Something went wrong. Please fill your details in again try again.")
                 return redirect('basket')
 
     except Exception as e:
-        messages.error(request, f"The following error occurred: {e}")
+        messages.error(request, f"The order was not completed due to the following error occurred: {e}")
         return redirect('basket')
