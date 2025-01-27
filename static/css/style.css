@@ -34,11 +34,11 @@ hr {
 }
 
 .down-arrow {
-    width: 200px;
+    width: 250px;
     height: auto;
     position: absolute;
-    top: 60%;
-    left: 60%;
+    top: 58%;
+    left: 68%;
     z-index: 3;
 }
 
@@ -311,6 +311,12 @@ footer {
 @media (max-width: 576px) {
     h1 {
         letter-spacing: 1px;
+    }
+
+    .down-arrow {
+        width: 230px;
+        top: 62%;
+        left: 55%;
     }
 
     #intro-links {
