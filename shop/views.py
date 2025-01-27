@@ -1,4 +1,5 @@
 import requests
+import os
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.http import HttpResponseRedirect
 from django.contrib import messages
@@ -7,22 +8,60 @@ from .models import Product, Basket, ShippingDetail, Donation
 
 # Create your views here.
 
-def process_payment(amount, orderId):
 
+def process_payment(amount, orderId):
     url = "https://gateway-test.jcc.com.cy/payment/rest/register.do"
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
+
+    # Convert amount to cents
+    amount_in_cents = int(float(amount) * 100)  
+
     data = {
-        "amount": amount,
-        "currency": "978",
-        "userName": "CardiacAssociation-api",
-        "password": "mhuxn-I9",
-        "returnUrl": "https://pediheart.org.cy",
+        "amount": amount_in_cents,
+        "currency": "978",  # EUR currency code
+        "userName": os.getenv("JCC_API_USERNAME"),
+        "password": os.getenv("JCC_API_PASSWORD"),
+        "returnUrl": f"https://pediheart.org.cy/payment-success/{orderId}/",
+        "failUrl": f"https://pediheart.org.cy/payment-failed/{orderId}/",
         "description": "Donation to the Cyprus Association of Children with Heart Disease",
         "language": "en",
         "orderNumber": orderId
     }
 
-    return requests.post(url, headers=headers, data=data)
+    response = requests.post(url, headers=headers, data=data)
+
+    if response.status_code == 200:
+        response_data = response.json()
+        if "formUrl" in response_data:
+            return response_data["formUrl"]  # Redirect user to JCC payment page
+        else:
+            raise Exception(f"JCC Error: {response_data.get('errorMessage', 'Unknown error')}")
+    else:
+        raise Exception(f"JCC API Request Failed: {response.status_code}, {response.text}")
+
+
+def payment_success(request, orderId):
+    try:
+        # Mark order as paid in the database
+        shipping_detail = ShippingDetail.objects.get(id=orderId)
+        shipping_detail.is_paid = True
+        shipping_detail.save()
+
+        # Clear the basket
+        Basket.objects.filter(session_key=request.session.session_key).delete()
+
+        messages.success(request, "Thank you for your order! Your payment was successful.")
+        return redirect('basket')
+
+    except ShippingDetail.DoesNotExist:
+        messages.error(request, "Order not found.")
+        return redirect('basket')
+
+
+def payment_failed(request, orderId):
+    messages.error(request, "Payment failed. Please try again.")
+    return redirect('basket')
+
 
 # Donation views
 
@@ -197,16 +236,15 @@ def basket_checkout(request):
                 shipping_detail.save()  # Save again to update the relationship
                 
                 # Process payment
-                response = process_payment(shipping_detail.total_amount, shipping_detail.id)
-                
-                if response.status_code == 200:
-                    # Clear the basket
-                    basket_items.delete()
-                
-                    messages.success(request, f"Thank you for your order!")
-                    return HttpResponseRedirect(reverse('basket'))
+                try:
+                    payment_url = process_payment(shipping_detail.total_amount, shipping_detail.id)
+                    return redirect(payment_url)  # Redirect user to JCC payment page
+                except Exception as e:
+                    messages.error(request, f"Payment failed: {e}")
+                    return redirect('basket')
+
             else:
-                messages.error(request, "Something went wrong. Please fill your details in again try again.")
+                messages.error(request, "Something went wrong. Please fill in your details and try again.")
                 return redirect('basket')
 
     except Exception as e:
