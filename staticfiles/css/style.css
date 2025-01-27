@@ -309,6 +309,10 @@ footer {
 }
 
 @media (max-width: 576px) {
+    h1 {
+        letter-spacing: 1px;
+    }
+
     #intro-links {
         display: flex;
         flex-direction: column;
