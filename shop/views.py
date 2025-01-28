@@ -22,8 +22,8 @@ def process_payment(amount, orderId):
         "currency": "978",  # EUR currency code
         "userName": "CardiacAssociation-api",
         "password": "mhuxn-I9",
-        "returnUrl": f"https://pediheart.org.cy/payment_success/{orderId}/",
-        "failUrl": f"https://pediheart.org.cy/payment_failed/{orderId}/",
+        "returnUrl": f"https://pediheart.org.cy/shop/payment_success/{orderId}/",
+        "failUrl": f"https://pediheart.org.cy/shop/payment_failed/{orderId}/",
         "description": "Donation to the Cyprus Association of Children with Heart Disease",
         "language": "en",
         "orderNumber": orderId
