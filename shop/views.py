@@ -1,5 +1,6 @@
 import requests
 import os
+from django.conf import settings
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.http import HttpResponseRedirect
 from django.contrib import messages

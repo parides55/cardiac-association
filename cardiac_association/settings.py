@@ -32,6 +32,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
+JCC_API_USERNAME = os.environ.get("JCC_API_USERNAME")
+JCC_API_PASSWORD = os.environ.get("JCC_API_PASSWORD")
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
