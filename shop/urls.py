@@ -9,6 +9,6 @@ urlpatterns = [
     path("basket/remove_from_basket/<int:product_id>/", views.remove_from_basket, name="remove_from_basket"),
     path("donation_checkout/", views.donation_checkout, name="donation_checkout"),
     path("basket_checkout/", views.basket_checkout, name="basket_checkout"),
-    path("payment_success/{orderId}", views.payment_success, name="payment_success"),
-    path("payment_failed/{orderId}", views.payment_failed, name="payment_failed"),
+    path("payment_success/<orderId>", views.payment_success, name="payment_success"),
+    path("payment_failed/<orderId>", views.payment_failed, name="payment_failed"),
 ]
