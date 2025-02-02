@@ -139,22 +139,6 @@
                                     <input type="hidden" name="quantity" value="{{ item.quantity }}">
                                     {% endfor %}
                                 </div>
-                                {% comment %} <div class="col-12 d-flex flex-column align-items-center my-3">
-                                    <div class="card card-body w-50 h-auto">
-                                        <h3 class="fst-italic fw-bold">{% trans 'Card details' %}</h3>
-                                        <div class="mb-3">
-                                            <input type="text" class="form-control" name="card-number" placeholder="Card number" aria-label="Card number" maxlength="16">
-                                        </div>
-                                        <div class="row">
-                                            <div class="col">
-                                                <input type="text" class="form-control" name="expiry-date" placeholder="MM/YY" aria-label="Expiry date" pattern="[1-12]{1}/[25-]{1}">
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" class="form-control" name="cvv" placeholder="CVV" aria-label="CVV number" pattern="[0-9]{3}">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> {% endcomment %}
                                 <div class="col-12 text-center my-3">
                                     <button type="submit" class="btn btn-outline-secondary w-50" aria-label="pay">{% trans 'Pay' %}</button>
                                 </div>
