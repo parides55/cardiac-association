@@ -39,6 +39,9 @@
     <div class="row">
         <div class="col text-end my-5 me-3">
             <a href="{% url 'events' %}">{% trans 'Back to events' %}</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank">
+                Share on Facebook
+            </a>
         </div>
     </div>
 </section>
