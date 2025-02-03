@@ -28,21 +28,16 @@ def process_payment(amount, orderId):
         "orderNumber": orderId
     }
 
-    try:
-        response = requests.post(url, headers=headers, data=data)
+    response = requests.post(url, headers=headers, data=data)
 
-        if response.status_code == 200:
-            response_data = response.json()
-            if "formUrl" in response_data:
-                return response_data["formUrl"]  # Redirect user to JCC payment page
-            else:
-                raise Exception(f"JCC Error: {response_data.get('errorMessage', 'Unknown error')}")
+    if response.status_code == 200:
+        response_data = response.json()
+        if "formUrl" in response_data:
+            return response_data["formUrl"]  # Redirect user to JCC payment page
         else:
-            raise Exception(f"JCC API Request Failed: {response.status_code}, {response.text}")
-
-    except requests.exceptions.RequestException as e:
-        raise Exception(f"JCC API Request Failed: {e}")
-
+            raise Exception(f"JCC Error: {response_data.get('errorMessage', 'Unknown error')}")
+    else:
+        raise Exception(f"JCC API Request Failed: {response.status_code}, {response.text}")
 
 def payment_success(request, orderId):
     try:
