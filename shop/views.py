@@ -19,8 +19,8 @@ def process_payment(amount, orderId):
     data = {
         "amount": amount_in_cents,
         "currency": "978",  # EUR currency code
-        "userName": "CardiacAssociation-api",
-        "password": "mhuxn-I9",
+        "userName": settings.JCC_API_USERNAME,
+        "password": settings.JCC_API_PASSWORD,
         "returnUrl": f"https://pediheart.org.cy/shop/payment_success/{orderId}/",
         "failUrl": f"https://pediheart.org.cy/shop/payment_failed/{orderId}/",
         "description": "Donation to the Cyprus Association of Children with Heart Disease",
