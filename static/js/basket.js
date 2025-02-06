@@ -8,10 +8,10 @@ if (removalModal && removeConfirm) {
     document.addEventListener('click', (e) => {
         if (e.target.classList.contains('btn-to-remove-item')) {
             e.preventDefault();
-            let itemId = e.target.getAttribute('data-basket_id');
+            const itemId = e.target.getAttribute('data-basket_id');
             removeConfirm.href = `remove_from_basket/${itemId}`;
             removalModal.show();
-            removeConfirm.focus();
         }
     });
 }
+
