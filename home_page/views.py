@@ -48,7 +48,7 @@ def process_payment(memberId):
 
 
 def payment_success(request):
-    messages.error(request, f"Welcome to the Association of Children with Heart Disease family." 
+    messages.success(request, f"Welcome to the Association of Children with Heart Disease family." 
                     f"Your membership has been successfully registered.")
     return render(request, "home_page/index.html")
 
