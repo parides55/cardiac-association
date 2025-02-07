@@ -63,8 +63,11 @@ def payment_success(request, memberId):
 
 def payment_failed(request):
 
+    member_form = MemberForm()
+    
     messages.error(request, "Payment failed. Please try again or contact us for further assistance.")
-    return render(request, "home_page/become_member.html")
+    return render(request, "home_page/become_member.html",
+                    {'member_form': member_form})
 
 
 def Become_member(request):
