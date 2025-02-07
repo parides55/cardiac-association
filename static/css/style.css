@@ -209,8 +209,6 @@ nav {
 .card-img-top {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    height: 300px;
-    width: fit-content;
 }
 
 .card {
