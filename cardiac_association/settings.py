@@ -36,7 +36,7 @@ JCC_API_USERNAME = os.environ.get("JCC_API_USERNAME")
 JCC_API_PASSWORD = os.environ.get("JCC_API_PASSWORD")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # Add Greek and English as supported languages
 LANGUAGES = [
