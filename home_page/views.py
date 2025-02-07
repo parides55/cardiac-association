@@ -26,7 +26,7 @@ def process_payment(memberId):
         "currency": "978",  # EUR currency code
         "userName": settings.JCC_API_USERNAME,
         "password": settings.JCC_API_PASSWORD,
-        "returnUrl": f"https://pediheart.org.cy/payment_success/{memberId}/",
+        "returnUrl": f"https://pediheart.org.cy/payment_success/",
         "failUrl": f"https://pediheart.org.cy/payment_failed/",
         "description": "Membership fee of the Association of Children with Heart Disease",
         "language": "en",
@@ -49,14 +49,16 @@ def process_payment(memberId):
         raise Exception(f"The response from the JCC API failed: {e}")
 
 
-def payment_success(request, memberId):
+def payment_success(request):
+  
+    memberId = request.GET.get("orderNumber")
 
     # Mark member as paid in the database
     member = Member.objects.get(id=memberId)
     member.is_paid = True
     member.save()
 
-    messages.success(request, f"Welcome to the Association of Children with Heart Disease family." 
+    messages.success(request, f"Welcome to the family of the Association of Children with Heart Disease." 
                     f"Your membership has been successfully registered.")
     return render(request, "home_page/index.html")
 
