@@ -92,7 +92,7 @@ def Become_member(request):
         member_form = MemberForm()
 
         return render(
-            request, "home_page/index.html",
+            request, "home_page/become_member.html",
             {'member_form': member_form}
         )
 
