@@ -17,7 +17,7 @@ def MoreInfo(request):
 
 
 # Become a member views
-def process_payment(orderId):
+def process_payment(memberId):
     url = "https://gateway-test.jcc.com.cy/payment/rest/register.do"
     headers = {"Content-Type": "application/x-www-form-urlencoded"}  
 
@@ -26,11 +26,11 @@ def process_payment(orderId):
         "currency": "978",  # EUR currency code
         "userName": settings.JCC_API_USERNAME,
         "password": settings.JCC_API_PASSWORD,
-        "returnUrl": f"https://pediheart.org.cy/payment_success/{orderId}/",
+        "returnUrl": f"https://pediheart.org.cy/payment_success/{memberId}/",
         "failUrl": f"https://pediheart.org.cy/payment_failed/",
         "description": "Membership fee of the Association of Children with Heart Disease",
         "language": "en",
-        "orderNumber": orderId
+        "orderNumber": memberId
     }
 
     try:
@@ -49,10 +49,10 @@ def process_payment(orderId):
         raise Exception(f"The response from the JCC API failed: {e}")
 
 
-def payment_success(request, orderId):
+def payment_success(request, memberId):
 
     # Mark member as paid in the database
-    member = Member.objects.get(id=orderId)
+    member = Member.objects.get(id=memberId)
     member.is_paid = True
     member.save()
 
