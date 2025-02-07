@@ -52,7 +52,7 @@ def process_payment(memberId):
 def payment_success(request, memberId):
 
     # Mark member as paid in the database
-    member = get_object_or_404(Member, id=memberId)
+    member = Member.objects.get(id=memberId)
     member.is_paid = True
     member.save()
 
