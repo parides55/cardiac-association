@@ -21,7 +21,7 @@ class Member(models.Model):
     heart_disease_description = models.CharField(max_length=100)
     date_of_diagnosis = models.DateField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    
+    is_paid = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.name} {self.surname}"
