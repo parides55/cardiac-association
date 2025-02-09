@@ -225,6 +225,7 @@ def basket_checkout(request):
     try:
         if request.method == "POST":
             shipping_detail_form = ShippingDetailForm(data=request.POST)
+            print(request.POST)
             if shipping_detail_form.is_valid():
                 shipping_detail = shipping_detail_form.save(commit=False)
                 shipping_detail.total_amount = request.POST.get('total')
