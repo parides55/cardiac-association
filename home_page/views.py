@@ -50,7 +50,7 @@ def process_payment(memberId):
 
 
 def payment_success(request):
-  
+
     memberId = request.GET.get("orderNumber")
 
     # Mark member as paid in the database
