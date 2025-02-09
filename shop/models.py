@@ -64,7 +64,7 @@ class ShippingDetail(models.Model):
     full_name = models.CharField(max_length=50)
     email = models.EmailField()
     phone_number = models.CharField(max_length=20)
-    address = models.TextField(max_length=250)
+    address_for_delivery = models.TextField(max_length=250)
     area = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
     postcode = models.CharField(max_length=20)
