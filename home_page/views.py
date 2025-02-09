@@ -17,7 +17,7 @@ def MoreInfo(request):
 
 
 # Become a member views
-def process_payment(memberId):
+def process_payment(memberId,orderId):
     url = "https://gateway-test.jcc.com.cy/payment/rest/register.do"
     headers = {"Content-Type": "application/x-www-form-urlencoded"}  
 
@@ -26,7 +26,7 @@ def process_payment(memberId):
         "currency": "978",  # EUR currency code
         "userName": settings.JCC_API_USERNAME,
         "password": settings.JCC_API_PASSWORD,
-        "returnUrl": f"https://pediheart.org.cy/payment_success/",
+        "returnUrl": f"https://pediheart.org.cy/payment_success/{orderId}",
         "failUrl": f"https://pediheart.org.cy/payment_failed/",
         "description": "Membership fee of the Association of Children with Heart Disease",
         "language": "en",
@@ -79,7 +79,7 @@ def Become_member(request):
                 
                 # Process payment
                 try:
-                    payment_url = process_payment(member_form.instance.id)
+                    payment_url = process_payment(member_form.instance.id, orderId=member_form.instance.id)
                     return redirect(payment_url) # Redirect user to JCC payment page
                 except Exception as e:
                     messages.error(request, f"An error occurred while processing your payment: {str(e)}")
