@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-09 00:55+0000\n"
+"POT-Creation-Date: 2025-02-09 01:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -954,11 +954,11 @@ msgid "Address"
 msgstr "Διεύθυνση"
 
 #: .\shop\forms.py:82
-msgid "Donamtion Ammount"
+msgid "Donation Amount"
 msgstr "Ποσό Δωρέας"
 
 #: .\shop\forms.py:83
-msgid "Doantion Type"
+msgid "Donation Type"
 msgstr "Είδος Δωρέας:"
 
 #: .\shop\templates\shop\basket.html:16
@@ -1764,6 +1764,9 @@ msgstr "Υπηρεσίες"
 #: .\what_we_do\templates\what_we_do\what_we_do.html:188
 msgid "Programs"
 msgstr "Προγράμματα"
+
+#~ msgid "Doantion Type"
+#~ msgstr "Είδος Δωρέας:"
 
 #~ msgid ""
 #~ "In the bluρred background people are in a conference and a speaker "

@@ -79,5 +79,5 @@ class DonationForm(forms.ModelForm):
         self.fields['city'].label=_('City')
         self.fields['area'].label=_('Area')
         self.fields['postcode'].label=_('Postcode')
-        self.fields['donation_amount'].label=_('Donamtion Ammount')
-        self.fields['donation_type'].label=_('Doantion Type')
+        self.fields['donation_amount'].label=_('Donation Amount')
+        self.fields['donation_type'].label=_('Donation Type')
