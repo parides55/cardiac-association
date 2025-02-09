@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-08 00:25+0000\n"
+"POT-Creation-Date: 2025-02-09 00:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -120,17 +120,17 @@ msgstr ""
 #: .\home_page\templates\home_page\heart_disease_info.html:124
 #: .\home_page\templates\home_page\index.html:200
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:211
-#: .\news\templates\news\news.html:117 .\shop\templates\shop\basket.html:180
+#: .\news\templates\news\news.html:117 .\shop\templates\shop\basket.html:164
 #: .\shop\templates\shop\online_shop.html:100
 #: .\what_we_do\templates\what_we_do\programs.html:166
 msgid "Find out about our Events"
 msgstr "Μάθετε για τις Εκδηλώσεις μας"
 
-#: .\cardiac_association\settings.py:40
+#: .\cardiac_association\settings.py:43
 msgid "English"
 msgstr "Αγγλικά"
 
-#: .\cardiac_association\settings.py:41
+#: .\cardiac_association\settings.py:44
 msgid "Greek"
 msgstr "Ελληνικά"
 
@@ -143,7 +143,7 @@ msgstr "Πίσω στις εκδηλώσεις"
 #: .\home_page\templates\home_page\heart_disease_info.html:121
 #: .\home_page\templates\home_page\index.html:197
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:208
-#: .\news\templates\news\news.html:114 .\shop\templates\shop\basket.html:177
+#: .\news\templates\news\news.html:114 .\shop\templates\shop\basket.html:161
 #: .\shop\templates\shop\online_shop.html:97
 #: .\what_we_do\templates\what_we_do\programs.html:163
 #: .\what_we_do\templates\what_we_do\services.html:180
@@ -266,7 +266,8 @@ msgstr "Όνομα"
 msgid "Surname"
 msgstr "Επίθετο"
 
-#: .\home_page\forms.py:32 .\shop\templates\shop\basket.html:112
+#: .\home_page\forms.py:32 .\shop\forms.py:44 .\shop\forms.py:76
+#: .\shop\templates\shop\basket.html:112
 #: .\shop\templates\shop\donation_checkout.html:35
 msgid "Email"
 msgstr "Ηλεκτρονική Διεύθυνση"
@@ -353,7 +354,7 @@ msgstr "Υποβολή"
 
 #: .\home_page\templates\home_page\become_member.html:60
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:200
-#: .\news\templates\news\news.html:14 .\shop\templates\shop\basket.html:185
+#: .\news\templates\news\news.html:14 .\shop\templates\shop\basket.html:169
 #: .\shop\templates\shop\donations.html:187
 #: .\shop\templates\shop\online_shop.html:105
 msgid ""
@@ -585,7 +586,7 @@ msgid "What we do"
 msgstr "Τι κάνουμε"
 
 #: .\home_page\templates\home_page\index.html:54
-#: .\shop\templates\shop\basket.html:188
+#: .\shop\templates\shop\basket.html:172
 #: .\shop\templates\shop\donations.html:190
 #: .\shop\templates\shop\online_shop.html:108
 #: .\what_we_do\templates\what_we_do\services.html:157
@@ -914,6 +915,52 @@ msgstr ""
 "                Σας ευχαριστούμε για την κατανόησή σας!\n"
 "                "
 
+#: .\shop\forms.py:19 .\shop\templates\shop\basket.html:34
+msgid "Quantity"
+msgstr "Ποσότητα"
+
+#: .\shop\forms.py:43 .\shop\forms.py:75 .\shop\templates\shop\basket.html:108
+#: .\shop\templates\shop\donation_checkout.html:31
+msgid "Full Name"
+msgstr "Ονοματεπώνυμο"
+
+#: .\shop\forms.py:45 .\shop\forms.py:77 .\shop\templates\shop\basket.html:116
+#: .\shop\templates\shop\donation_checkout.html:39
+msgid "Phone Number"
+msgstr "Αριθμός τηλεφώνου"
+
+#: .\shop\forms.py:46
+msgid "Address for Delivery"
+msgstr "Διεύθυνση για παράδοση"
+
+#: .\shop\forms.py:47 .\shop\forms.py:79 .\shop\templates\shop\basket.html:124
+#: .\shop\templates\shop\donation_checkout.html:47
+msgid "City"
+msgstr "Πόλη"
+
+#: .\shop\forms.py:48 .\shop\forms.py:80 .\shop\templates\shop\basket.html:128
+#: .\shop\templates\shop\donation_checkout.html:51
+msgid "Area"
+msgstr "Περιόχη"
+
+#: .\shop\forms.py:49 .\shop\forms.py:81 .\shop\templates\shop\basket.html:132
+#: .\shop\templates\shop\donation_checkout.html:55
+msgid "Postcode"
+msgstr "Ταχυδρομικός Κώδικας"
+
+#: .\shop\forms.py:78 .\shop\templates\shop\basket.html:120
+#: .\shop\templates\shop\donation_checkout.html:43
+msgid "Address"
+msgstr "Διεύθυνση"
+
+#: .\shop\forms.py:82
+msgid "Donamtion Ammount"
+msgstr "Ποσό Δωρέας"
+
+#: .\shop\forms.py:83
+msgid "Doantion Type"
+msgstr "Είδος Δωρέας:"
+
 #: .\shop\templates\shop\basket.html:16
 msgid "A shopping cart with heart inside it."
 msgstr "Ένα καλάθι αγορών με καρδιά μέσα του"
@@ -925,10 +972,6 @@ msgstr "Το καλάθι σας"
 #: .\shop\templates\shop\basket.html:33
 msgid "Product"
 msgstr "Προϊόν"
-
-#: .\shop\templates\shop\basket.html:34
-msgid "Quantity"
-msgstr "Ποσότητα"
 
 #: .\shop\templates\shop\basket.html:35
 msgid "Price"
@@ -958,42 +1001,7 @@ msgstr "Προχωρήστε στην πληρωμή"
 msgid "Your details"
 msgstr "Τα στοιχεία σας"
 
-#: .\shop\templates\shop\basket.html:108
-#: .\shop\templates\shop\donation_checkout.html:31
-msgid "Full Name"
-msgstr "Ονοματεπώνυμο"
-
-#: .\shop\templates\shop\basket.html:116
-#: .\shop\templates\shop\donation_checkout.html:39
-msgid "Phone Number"
-msgstr "Αριθμός τηλεφώνου"
-
-#: .\shop\templates\shop\basket.html:120
-#: .\shop\templates\shop\donation_checkout.html:43
-msgid "Address"
-msgstr "Διεύθυνση"
-
-#: .\shop\templates\shop\basket.html:124
-#: .\shop\templates\shop\donation_checkout.html:47
-msgid "City"
-msgstr "Πόλη"
-
-#: .\shop\templates\shop\basket.html:128
-#: .\shop\templates\shop\donation_checkout.html:51
-msgid "Area"
-msgstr "Περιόχη"
-
-#: .\shop\templates\shop\basket.html:132
-#: .\shop\templates\shop\donation_checkout.html:55
-msgid "Postcode"
-msgstr "Ταχυδρομικός Κώδικας"
-
-#: .\shop\templates\shop\basket.html:144
-#: .\shop\templates\shop\donation_checkout.html:76
-msgid "Card details"
-msgstr "Στοιχεία κάρτας"
-
-#: .\shop\templates\shop\basket.html:159
+#: .\shop\templates\shop\basket.html:143
 msgid "Pay"
 msgstr "Πληρώστε"
 
@@ -1020,6 +1028,10 @@ msgstr "Είδος Δωρέας:"
 msgid "Amount"
 msgstr "Ποσό"
 
+#: .\shop\templates\shop\donation_checkout.html:76
+msgid "Card details"
+msgstr "Στοιχεία κάρτας"
+
 #: .\shop\templates\shop\donation_checkout.html:105
 msgid ""
 "\n"
@@ -1034,8 +1046,8 @@ msgstr ""
 "                        Αυτήν τη στιγμή ενημερώνουμε τη σελίδα μας και δεν "
 "είναι δυνατή η ολοκλήρωση της δωρεάς σας ηλεκτρονικά. <br><br>\n"
 "                        Επικοινωνήστε μαζί μας στο <a href=\"tel:"
-"+35722315196\">22315196</a> για να ολοκληρώσετε τη δωρεά σας. Σας ευχαριστούμε για την "
-"υποστήριξη!\n"
+"+35722315196\">22315196</a> για να ολοκληρώσετε τη δωρεά σας. Σας "
+"ευχαριστούμε για την υποστήριξη!\n"
 "                    "
 
 #: .\shop\templates\shop\donations.html:18
