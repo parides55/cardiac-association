@@ -17,7 +17,7 @@ def MoreInfo(request):
 
 
 # Become a member views
-def process_payment(memberId,orderId):
+def process_payment(memberId):
     url = "https://gateway-test.jcc.com.cy/payment/rest/register.do"
     headers = {"Content-Type": "application/x-www-form-urlencoded"}  
 
@@ -26,7 +26,7 @@ def process_payment(memberId,orderId):
         "currency": "978",  # EUR currency code
         "userName": settings.JCC_API_USERNAME,
         "password": settings.JCC_API_PASSWORD,
-        "returnUrl": f"https://pediheart.org.cy/payment_success/{orderId}",
+        "returnUrl": f"https://pediheart.org.cy/payment_success/{memberId}",
         "failUrl": f"https://pediheart.org.cy/payment_failed/",
         "description": "Membership fee of the Association of Children with Heart Disease",
         "language": "en",
@@ -76,6 +76,9 @@ def Become_member(request):
             member_form = MemberForm(request.POST)
             if member_form.is_valid():
                 member_form.save()
+                # messages.success(request, f"Welcome to the family of the Association of Children with Heart Disease." 
+                #     f"Your membership has been successfully registered.")
+                # return render(request, "home_page/index.html")
                 
                 # Process payment
                 try:
