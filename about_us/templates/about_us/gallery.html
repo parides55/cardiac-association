@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+
+{% for gallery in galleries %}
+    <div class="container mt-5">
+        <h2>{{ gallery.title }}</h2>
+        <p>{{ gallery.description }}</p>
+
+        <div id="carousel{{ gallery.id }}" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner mb-5" style="height: 400px; width: 400px;">
+                {% for image in gallery.images.all %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <img src="{{ image.image.url }}" class="d-block w-100" alt="{{ image.caption }}">
+                        {% if image.caption %}
+                            <div class="carousel-caption d-none d-md-block">
+                                <p>{{ image.caption }}</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+            
+            <!-- Carousel Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel{{ gallery.id }}" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel{{ gallery.id }}" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+{% endfor %}
+
+{% endblock %}

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib import messages
 from django.views import generic
-from .models import People
+from .models import People, Gallery
 
 # Create your views here.
 
@@ -28,3 +28,8 @@ def our_people(request):
     except Exception as e:
         messages.error(request, f"The following error occurred: {e}")
         return render(request, "about_us/people.html")
+
+
+def gallery_view(request):
+    galleries = Gallery.objects.prefetch_related("images").all()
+    return render(request, "about_us/gallery.html", {"galleries": galleries})

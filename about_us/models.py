@@ -14,3 +14,21 @@ class People(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.get_position_display()}"
+
+
+class Gallery(models.Model):
+    title = models.CharField(max_length=255, unique=True)
+    description = models.TextField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+class GalleryImage(models.Model):
+    gallery = models.ForeignKey(Gallery, on_delete=models.CASCADE, related_name="images")
+    image = CloudinaryField('image')
+    caption = models.CharField(max_length=255, blank=True, null=True)
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Image in {self.gallery.title}"

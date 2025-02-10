@@ -6,6 +6,7 @@
 {% url 'news' as news_url %}
 {% url 'our_history' as our_history_url %}
 {% url 'our_people' as our_people_url %}
+{% url 'gallery_view' as gallery_view_url %}
 {% url 'what_we_do' as what_we_do_url %}
 {% url 'how_you_can_help' as how_you_can_help_url %}
 {% url 'donations' as donations_url %}
@@ -124,6 +125,7 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item d-none" href="{% url 'our_history' %}">{% trans 'Our history' %}</a></li>
                             <li><a class="dropdown-item" href="{% url 'our_people' %}">{% trans 'Our people' %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'gallery_view' %}">{% trans 'Our gallery' %}</a></li>
                         </ul>
                     </li>
                 </ul>
