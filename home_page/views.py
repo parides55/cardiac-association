@@ -26,8 +26,8 @@ def process_payment(orderId):
         "currency": "978",  # EUR currency code
         "userName": settings.JCC_API_USERNAME,
         "password": settings.JCC_API_PASSWORD,
-        "returnUrl": f"https://pediheart.org.cy/payment_success/{orderId}",
-        "failUrl": f"https://pediheart.org.cy/payment_failed/",
+        "returnUrl": f"https://pediheart.org.cy/membership_success/{orderId}",
+        "failUrl": f"https://pediheart.org.cy/membership_failed/",
         "description": "Membership fee of the Association of Children with Heart Disease",
         "language": "en",
         "orderNumber": orderId
@@ -49,7 +49,7 @@ def process_payment(orderId):
         raise Exception(f"The response from the JCC API failed: {e}")
 
 
-def payment_success(request, orderId):
+def membership_success(request, orderId):
 
     memberId = request.GET.get("orderNumber")
 
@@ -63,7 +63,7 @@ def payment_success(request, orderId):
     return render(request, "home_page/index.html")
 
 
-def payment_failed(request):
+def membership_failed(request):
     
     messages.error(request, "Payment failed. Please try again or contact us for further assistance.")
     return render(request, "home_page/index.html",)
@@ -76,17 +76,17 @@ def Become_member(request):
             member_form = MemberForm(request.POST)
             if member_form.is_valid():
                 member_form.save()
-                messages.success(request, f"Welcome to the family of the Association of Children with Heart Disease." 
-                    f"Your membership has been successfully registered.")
-                return render(request, "home_page/index.html")
+                # messages.success(request, f"Welcome to the family of the Association of Children with Heart Disease." 
+                #     f"Your membership has been successfully registered.")
+                # return render(request, "home_page/index.html")
                 
-                # # Process payment
-                # try:
-                #     payment_url = process_payment(member_form.isinstance.id)
-                #     return redirect(payment_url) # Redirect user to JCC payment page
-                # except Exception as e:
-                #     messages.error(request, f"An error occurred while processing your payment: {str(e)}")
-                #     return redirect('home_page/index.html')
+                # Process payment
+                try:
+                    payment_url = process_payment(member_form.isinstance.id)
+                    return redirect(payment_url) # Redirect user to JCC payment page
+                except Exception as e:
+                    messages.error(request, f"An error occurred while processing your payment: {str(e)}")
+                    return redirect('home_page/index.html')
             else:
                 messages.error(
                     request,
