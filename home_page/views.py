@@ -82,7 +82,7 @@ def Become_member(request):
                 
                 # Process payment
                 try:
-                    payment_url = process_payment(member_form.isinstance.id)
+                    payment_url = process_payment(member_form.id)
                     return redirect(payment_url) # Redirect user to JCC payment page
                 except Exception as e:
                     messages.error(request, f"An error occurred while processing your payment: {str(e)}")
@@ -103,4 +103,4 @@ def Become_member(request):
 
     except Exception as e:
         messages.error(request, f"The following error occurred: {str(e)}")
-        return redirect('become_member')
+        return redirect('home_page/become_member.html')
