@@ -44,13 +44,13 @@ def process_payment(amount, orderId):
 
 def payment_success(request, orderId):
     try:
-        # Mark order as paid in the database
-        shipping_detail = ShippingDetail.objects.get(id=orderId)
-        shipping_detail.is_paid = True
-        shipping_detail.save()
+        # # Mark order as paid in the database
+        # shipping_detail = ShippingDetail.objects.get(id=orderId)
+        # shipping_detail.is_paid = True
+        # shipping_detail.save()
 
-        # Clear the basket
-        Basket.objects.filter(session_key=request.session.session_key).delete()
+        # # Clear the basket
+        # Basket.objects.filter(session_key=request.session.session_key).delete()
 
         messages.success(request, "Thank you for your order! Your payment was successful.")
         return redirect('basket')
@@ -93,8 +93,16 @@ def donation_checkout(request):
             if donation_form.is_valid():
                 # Save the donation
                 donation = donation_form.save()
-                messages.success(request, "Thank you for your donation! We appreciate your support.")
-                return redirect('donations')
+                # messages.success(request, "Thank you for your donation! We appreciate your support.")
+                # return redirect('donations')
+                
+                # Process payment
+                try:
+                    payment_url = process_payment(donation.donation_amount, donation.id)
+                    return redirect(payment_url)  # Redirect user to JCC payment page
+                except Exception as e:
+                    messages.error(request, f"Payment failed: {e}")
+                    return redirect('basket')
             else:
                 print(donation_form.errors)
                 messages.error(request, "Something went wrong. Please try again.")
