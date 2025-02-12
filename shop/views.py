@@ -10,7 +10,7 @@ from .models import Product, Basket, ShippingDetail, Donation
 # Create your views here.
 
 
-def process_payment(amount, orderId):
+def process_payment(amount, orderId, description):
     url = "https://gateway-test.jcc.com.cy/payment/rest/register.do"
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
 
@@ -27,7 +27,7 @@ def process_payment(amount, orderId):
         "password": settings.JCC_API_PASSWORD,
         "returnUrl": f"https://pediheart.org.cy/shop/payment_success/{orderId}/",
         "failUrl": f"https://pediheart.org.cy/shop/payment_failed/{orderId}/",
-        "description": "Donation to the Cyprus Association of Children with Heart Disease",
+        "description": description,
         "language": "en",
         "orderNumber": unique_order_number
     }
@@ -106,9 +106,10 @@ def donation_checkout(request):
                 # messages.success(request, "Thank you for your donation! We appreciate your support.")
                 # return redirect('donations')
                 
+                description = 'Donation to The Association of Parents and Friends of Children with Heart Disease.'
                 # Process payment
                 try:
-                    payment_url = process_payment(donation.donation_amount, donation.id)
+                    payment_url = process_payment(donation.donation_amount, donation.id, description)
                     return redirect(payment_url)  # Redirect user to JCC payment page
                 except Exception as e:
                     messages.error(request, f"Payment failed: {e}")
@@ -254,9 +255,10 @@ def basket_checkout(request):
                 shipping_detail.basket_items.set(basket_items)
                 shipping_detail.save()  # Save again to update the relationship
                 
+                description = shipping_detail.basket_items
                 # Process payment
                 try:
-                    payment_url = process_payment(shipping_detail.total_amount, shipping_detail.id)
+                    payment_url = process_payment(shipping_detail.total_amount, shipping_detail.id, description)
                     return redirect(payment_url)  # Redirect user to JCC payment page
                 except Exception as e:
                     messages.error(request, f"Payment failed: {e}")
