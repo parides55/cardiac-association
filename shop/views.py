@@ -17,7 +17,8 @@ def process_payment(amount, orderId):
     # Convert amount to cents
     amount_in_cents = int(float(amount) * 100)
 
-    unique_order_number = f"{orderId}-{uuid.uuid4().hex[:8]}"  # Append a random 8-character string
+    # Append a random 8-character string to the orderId to make it unique
+    unique_order_number = f"{orderId}-{uuid.uuid4().hex[:8]}"
 
     data = {
         "amount": amount_in_cents,
