@@ -107,6 +107,7 @@ class Donation(models.Model):
     donation_amount = models.DecimalField(max_digits=10, decimal_places=2)
     donation_type = models.CharField(max_length=20, choices=DONATION_TYPE_CHOICES)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES)
+    is_paid = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
