@@ -1,4 +1,5 @@
 import requests
+import uuid
 from django.conf import settings
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.http import HttpResponseRedirect
@@ -14,7 +15,9 @@ def process_payment(amount, orderId):
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
 
     # Convert amount to cents
-    amount_in_cents = int(float(amount) * 100)  
+    amount_in_cents = int(float(amount) * 100)
+
+    unique_order_number = f"{orderId}-{uuid.uuid4().hex[:8]}"  # Append a random 8-character string
 
     data = {
         "amount": amount_in_cents,
@@ -25,7 +28,7 @@ def process_payment(amount, orderId):
         "failUrl": f"https://pediheart.org.cy/shop/payment_failed/{orderId}/",
         "description": "Donation to the Cyprus Association of Children with Heart Disease",
         "language": "en",
-        "orderNumber": orderId
+        "orderNumber": unique_order_number
     }
 
     try:
