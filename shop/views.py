@@ -91,7 +91,7 @@ def donation_checkout(request):
             donation_form = DonationForm(data=post_data)
 
             if donation_form.is_valid():
-                # Save the donation
+                # Check the type of donation to set status and save the donation
                 donation = donation_form.save(commit=False)
                 if donation.donation_type == 'One-Off Payment':
                     donation.status = 'one-off'
