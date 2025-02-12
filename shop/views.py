@@ -255,7 +255,7 @@ def basket_checkout(request):
                 shipping_detail.basket_items.set(basket_items)
                 shipping_detail.save()  # Save again to update the relationship
                 
-                description = shipping_detail.basket_items.product.name
+                description = "Online purchase from The Association of Parents and Friends of Children with Heart Disease."
                 # Process payment
                 try:
                     payment_url = process_payment(shipping_detail.total_amount, shipping_detail.id, description)
