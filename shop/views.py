@@ -52,7 +52,7 @@ def payment_success(request, orderId):
         # # Clear the basket
         # Basket.objects.filter(session_key=request.session.session_key).delete()
 
-        messages.success(request, "Thank you for your order! Your payment was successful.")
+        messages.success(request, f"Thank you for your order! Your payment was successful.")
         return redirect('basket')
 
     except ShippingDetail.DoesNotExist:
@@ -92,7 +92,13 @@ def donation_checkout(request):
 
             if donation_form.is_valid():
                 # Save the donation
-                donation = donation_form.save()
+                donation = donation_form.save(commit=False)
+                if donation.donation_type == 'One-Off Payment':
+                    donation.status = 'one-off'
+                    donation.save()
+                else:
+                    donation.status = 'active'
+                    donation.save()
                 # messages.success(request, "Thank you for your donation! We appreciate your support.")
                 # return redirect('donations')
                 
