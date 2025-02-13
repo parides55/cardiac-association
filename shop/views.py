@@ -49,40 +49,34 @@ def process_payment(amount, orderId, description):
 def payment_success(request, orderId):
     try:
         if request.GET.get('status') == 'pending':
-            try:
-                # Check if orderId belongs to ShippingDetail
-                shipping_detail = ShippingDetail.objects.get(id=orderId)
-                shipping_detail.is_paid = True
-                shipping_detail.save()
+            # Mark order as paid in the database
+            shipping_detail = ShippingDetail.objects.get(id=orderId)
+            shipping_detail.is_paid = True
+            shipping_detail.save()
 
-                # Clear the basket after successful payment
-                Basket.objects.filter(session_key=request.session.session_key).delete()
+            # Clear the basket
+            Basket.objects.filter(session_key=request.session.session_key).delete()
 
-                messages.success(request, "Thank you for your order! Your payment was successful.")
-                return redirect('basket')
-
-            except ShippingDetail.DoesNotExist:
-                # If ShippingDetail does not exist, check for Donation
-                try:
-                    donation = Donation.objects.get(id=orderId)
-                    donation.is_paid = True
-                    donation.save()
-
-                    messages.success(request, "Thank you for your donation! Your payment was successful.")
-                    return redirect('donations')
-
-                except Donation.DoesNotExist:
-                    messages.error(request, "Order or donation not found.")
-                    return redirect('home')
-
+            messages.success(request, f"Thank you for your order! Your payment was successful.")
+            return redirect('basket')
         else:
-            messages.error(request, "Payment was not completed.")
-            return redirect('home')
+            donation = Donation.objects.get(id=orderId)
+            donation.is_paid = True
+            donation.save()
+            messages.success(request, f"Thank you for your donation! Your payment was successful.")
+            return redirect('donations')
+
+    except ShippingDetail.DoesNotExist:
+        messages.error(request, "Order not found.")
+        return redirect('basket')
+
+    except Donation.DoesNotExist:
+        messages.error(request, "Donation not found.")
+        return redirect('donations')
 
     except Exception as e:
-        messages.error(request, f"An error occurred: {e}")
+        messages.error(request, f"The following error occurred: {e}")
         return redirect('home')
-
 
 
 def payment_failed(request, orderId):
