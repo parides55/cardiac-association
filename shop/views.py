@@ -48,16 +48,24 @@ def process_payment(amount, orderId, description):
 
 def payment_success(request, orderId):
     try:
-        # # Mark order as paid in the database
-        # shipping_detail = ShippingDetail.objects.get(id=orderId)
-        # shipping_detail.is_paid = True
-        # shipping_detail.save()
+        if orderId in request.GET and request.GET.get('status') == 'pending':
+            # Mark order as paid in the database
+            shipping_detail = ShippingDetail.objects.get(id=orderId)
+            shipping_detail.is_paid = True
+            shipping_detail.save()
 
-        # # Clear the basket
-        # Basket.objects.filter(session_key=request.session.session_key).delete()
+            # Clear the basket
+            Basket.objects.filter(session_key=request.session.session_key).delete()
 
-        messages.success(request, f"Thank you for your order! Your payment was successful.")
-        return redirect('basket')
+            messages.success(request, f"Thank you for your order! Your payment was successful.")
+            return redirect('basket')
+        else:
+            donation = Donation.objects.filter(id=orderId)
+            if donation.exists():
+                donation.is_paid = True
+                donation.save()
+                messages.success(request, f"Thank you for your donation! Your payment was successful.")
+                return redirect('donations')
 
     except ShippingDetail.DoesNotExist:
         messages.error(request, "Order not found.")
