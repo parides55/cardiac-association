@@ -60,7 +60,7 @@ def payment_success(request, orderId):
             messages.success(request, f"Thank you for your order! Your payment was successful.")
             return redirect('basket')
         else:
-            donation = Donation.objects.filter(id=orderId)
+            donation = Donation.objects.get(id=orderId)
             if donation.exists():
                 donation.is_paid = True
                 donation.save()
