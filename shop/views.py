@@ -9,6 +9,7 @@ from .models import Product, Basket, ShippingDetail, Donation
 
 # Create your views here.
 
+# JCC API integration
 
 def process_payment(amount, orderId, description):
     url = "https://gateway-test.jcc.com.cy/payment/rest/register.do"
@@ -45,6 +46,7 @@ def process_payment(amount, orderId, description):
             raise Exception(f"JCC API Request Failed: {response.status_code}, {response.text}")
     except Exception as e:
         raise Exception(f"The response from the JCC API failed: {e}")
+
 
 def payment_success(request, orderId):
     try:
@@ -118,17 +120,18 @@ def donation_checkout(request):
                 else:
                     donation.status = 'active'
                     donation.save()
-                # messages.success(request, "Thank you for your donation! We appreciate your support.")
-                # return redirect('donations')
+
+                messages.success(request, "Thank you for your donation! We appreciate your support.")
+                return redirect('donations')
                 
-                description = 'Donation to The Association of Parents and Friends of Children with Heart Disease.'
-                # Process payment
-                try:
-                    payment_url = process_payment(donation.donation_amount, donation.id, description)
-                    return redirect(payment_url)  # Redirect user to JCC payment page
-                except Exception as e:
-                    messages.error(request, f"Payment failed: {e}")
-                    return redirect('basket')
+                # description = 'Donation to The Association of Parents and Friends of Children with Heart Disease.'
+                # # Process payment
+                # try:
+                #     payment_url = process_payment(donation.donation_amount, donation.id, description)
+                #     return redirect(payment_url)  # Redirect user to JCC payment page
+                # except Exception as e:
+                #     messages.error(request, f"Payment failed: {e}")
+                #     return redirect('basket')
             else:
                 print(donation_form.errors)
                 messages.error(request, "Something went wrong. Please try again.")
