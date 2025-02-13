@@ -71,6 +71,14 @@ def payment_success(request, orderId):
         messages.error(request, "Order not found.")
         return redirect('basket')
 
+    except Donation.DoesNotExist:
+        messages.error(request, "Donation not found.")
+        return redirect('donations')
+
+    except Exception as e:
+        messages.error(request, f"The following error occurred: {e}")
+        return redirect('home')
+
 
 def payment_failed(request, orderId):
     messages.error(request, "Payment failed. Please try again.")
