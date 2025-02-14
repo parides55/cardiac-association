@@ -30,8 +30,8 @@
         <div class="row mt-5">
             {% if current_month_events %}
             {% for event in current_month_events %}
-            <div class="col d-flex justify-content-center col-md-6 col-lg-4">
-                <div class="card w-75 h-auto">
+            <div class="col-6 d-flex justify-content-center col-md-4">
+                <div class="card w-100 h-auto">
                     {% if 'placeholder' in event.image.url %}
                     <img src="{% static 'images/default_logo.jpg' %}" class="card-img-top" alt="{% trans 'Default image' %}">
                     {% else %}
@@ -74,8 +74,8 @@
         <div class="row mt-5">
             {% if upcoming_events %}
             {% for event in upcoming_events %}
-            <div class="col d-flex justify-content-center col-md-6 col-lg-4">
-                <div class="card w-75 h-auto">
+            <div class="col-6 d-flex justify-content-center col-md-4">
+                <div class="card w-100 h-auto">
                     {% if 'placeholder' in event.image.url %}
                     <img src="{% static 'images/default_logo.jpg' %}" class="card-img-top" alt="{% trans 'Default image' %}">
                     {% else %}
@@ -120,8 +120,8 @@
         <div class="row mt-5">
             {% if past_events %}
             {% for event in past_events %}
-            <div class="col d-flex justify-content-center col-md-6 col-lg-4">
-                <div class="card w-75 h-auto">
+            <div class="col-6 d-flex justify-content-center col-md-4">
+                <div class="card w-100 h-auto">
                     {% if 'placeholder' in event.image.url %}
                     <img src="{% static 'images/default_logo.jpg' %}" class="card-img-top" alt="{% trans 'Default image' %}">
                     {% else %}

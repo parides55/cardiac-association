@@ -49,8 +49,8 @@
         <div class="row my-5">
             {% if new_list %}
                 {% for new in new_list %}
-                <div class="col d-flex justify-content-center col-md-6 col-lg-4">
-                    <div class="card w-75 h-auto">
+                <div class="col-6 d-flex justify-content-center col-md-4">
+                    <div class="card w-100 h-auto">
                         {% if 'placeholder' in new.image.url %}
                         <img src="{% static 'images/default_logo.jpg' %}" class="card-img-top" alt="{% trans 'Default image, Logo of the associaiton.' %}">
                         {% else %}
