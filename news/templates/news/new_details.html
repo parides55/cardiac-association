@@ -14,6 +14,7 @@
             {% else %}
             <img class='img-fluid hero-image' src="{{ new.image.url }}" class="card-img-top" alt="{{ new.title }}">
             {% endif %}
+            <h1 class='fst-italic fw-bold hero-heading hide'>{{ new.title }}</h1>
             <img class="down-arrow" src="{% static 'images/down_arrow.png' %}" alt="Down arrow">
         </div>
     </div>
@@ -22,7 +23,6 @@
 <section id="main-content-news">
     <div class="row">
         <div class="col">
-            <h2 class="fs-1 fw-bold text-center my-5">{{ new.title }}</h2>
             <div class="mx-5">{{ new.content | safe }}</div>
             <p class="my-5 me-3 text-end">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="gray" class="bi bi-pencil-square" viewBox="0 0 16 16">
