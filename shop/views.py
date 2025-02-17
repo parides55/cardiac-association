@@ -67,7 +67,7 @@ def payment_success(request, orderId):
         #     donation.save()
         #     messages.success(request, f"Thank you for your donation! Your payment was successful.")
         #     return redirect('donations')
-        messages.info(request, f"Order id is: {orderId} and GET is: {request.GET} and POST is: {request.POST}")
+        messages.info(request, f"Order id is: {orderId} and GET is: {request.GET}")
         return redirect('home')
 
     except ShippingDetail.DoesNotExist:
