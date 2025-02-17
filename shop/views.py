@@ -276,17 +276,14 @@ def basket_checkout(request):
                 basket_items = Basket.objects.filter(session_key=request.session.session_key)
                 shipping_detail.basket_items.set(basket_items)
                 shipping_detail.save()  # Save again to update the relationship
-                print(f"POST -- {request.POST}")
-                print(f"GET -- {request.GET}")
-                
-                # description = "Online purchase from The Association of Parents and Friends of Children with Heart Disease."
-                # # Process payment
-                # try:
-                #     payment_url = process_payment(shipping_detail.total_amount, shipping_detail.id, description)
-                #     return redirect(payment_url)  # Redirect user to JCC payment page
-                # except Exception as e:
-                #     messages.error(request, f"Payment failed: {e}")
-                #     return redirect('basket')
+                description = "Online purchase from The Association of Parents and Friends of Children with Heart Disease."
+                # Process payment
+                try:
+                    payment_url = process_payment(shipping_detail.total_amount, shipping_detail.id, description)
+                    return redirect(payment_url)  # Redirect user to JCC payment page
+                except Exception as e:
+                    messages.error(request, f"Payment failed: {e}")
+                    return redirect('basket')
 
             else:
                 messages.error(request, "Something went wrong. Please fill in your details and try again.")
