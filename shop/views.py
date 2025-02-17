@@ -50,25 +50,23 @@ def process_payment(amount, orderId, description):
 
 def payment_success(request, orderId):
     try:
-        # if request.POST.get('status') == 'pending':
-        #     # Mark order as paid in the database
-        #     shipping_detail = ShippingDetail.objects.get(id=orderId)
-        #     shipping_detail.is_paid = True
-        #     shipping_detail.save()
+        if request.POST.get('status') == 'one-off':
+            # Mark order as paid in the database
+            shipping_detail = ShippingDetail.objects.get(id=orderId)
+            shipping_detail.is_paid = True
+            shipping_detail.save()
 
-        #     # Clear the basket
-        #     Basket.objects.filter(session_key=request.session.session_key).delete()
+            # Clear the basket
+            Basket.objects.filter(session_key=request.session.session_key).delete()
 
-        #     messages.success(request, f"Thank you for your order! Your payment was successful.")
-        #     return redirect('basket')
-        # else:
-        #     donation = Donation.objects.get(id=orderId)
-        #     donation.is_paid = True
-        #     donation.save()
-        #     messages.success(request, f"Thank you for your donation! Your payment was successful.")
-        #     return redirect('donations')
-        messages.info(request, f"Order id is: {orderId} and ShippingDetails {ShippingDetail.objects.get(id=orderId)} and Donation is {Donation.objects.get(id=orderId)}")
-        return redirect('home')
+            messages.success(request, f"Thank you for your order! Your payment was successful.")
+            return redirect('basket')
+        else:
+            donation = Donation.objects.get(id=orderId)
+            donation.is_paid = True
+            donation.save()
+            messages.success(request, f"Thank you for your donation! Your payment was successful.")
+            return redirect('donations')
 
     except ShippingDetail.DoesNotExist:
         messages.error(request, "Order not found.")
