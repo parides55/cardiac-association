@@ -50,7 +50,7 @@ def process_payment(amount, orderId, description):
 
 def payment_success(request, orderId):
     try:
-        if request.POST.get('status') == 'one-off':
+        if request.GET.get('status') == 'one-off':
             # Mark order as paid in the database
             shipping_detail = ShippingDetail.objects.get(id=orderId)
             shipping_detail.is_paid = True
