@@ -50,7 +50,7 @@ def process_payment(amount, orderId, description):
 
 def payment_success(request, orderId):
     try:
-        # if request.GET.get('status') == 'pending':
+        # if request.POST.get('status') == 'pending':
         #     # Mark order as paid in the database
         #     shipping_detail = ShippingDetail.objects.get(id=orderId)
         #     shipping_detail.is_paid = True
@@ -68,6 +68,7 @@ def payment_success(request, orderId):
         #     messages.success(request, f"Thank you for your donation! Your payment was successful.")
         #     return redirect('donations')
         messages.info(request, f"Order id is: {orderId} and GET is: {request.GET} and POST is: {request.POST}")
+        return redirect('home')
 
     except ShippingDetail.DoesNotExist:
         messages.error(request, "Order not found.")
@@ -122,17 +123,19 @@ def donation_checkout(request):
                     donation.status = 'active'
                     donation.save()
 
-                # messages.success(request, "Thank you for your donation! We appreciate your support.")
-                # return redirect('donations')
+                print(f"POST -- {request.POST}")
+                print(f"GET -- {request.GET}")
+                messages.success(request, "Thank you for your donation! We appreciate your support.")
+                return redirect('donations')
                 
-                description = 'Donation to The Association of Parents and Friends of Children with Heart Disease.'
-                # Process payment
-                try:
-                    payment_url = process_payment(donation.donation_amount, donation.id, description)
-                    return redirect(payment_url)  # Redirect user to JCC payment page
-                except Exception as e:
-                    messages.error(request, f"Payment failed: {e}")
-                    return redirect('basket')
+                # description = 'Donation to The Association of Parents and Friends of Children with Heart Disease.'
+                # # Process payment
+                # try:
+                #     payment_url = process_payment(donation.donation_amount, donation.id, description)
+                #     return redirect(payment_url)  # Redirect user to JCC payment page
+                # except Exception as e:
+                #     messages.error(request, f"Payment failed: {e}")
+                #     return redirect('basket')
             else:
                 print(donation_form.errors)
                 messages.error(request, "Something went wrong. Please try again.")
@@ -273,15 +276,17 @@ def basket_checkout(request):
                 basket_items = Basket.objects.filter(session_key=request.session.session_key)
                 shipping_detail.basket_items.set(basket_items)
                 shipping_detail.save()  # Save again to update the relationship
+                print(f"POST -- {request.POST}")
+                print(f"GET -- {request.GET}")
                 
-                description = "Online purchase from The Association of Parents and Friends of Children with Heart Disease."
-                # Process payment
-                try:
-                    payment_url = process_payment(shipping_detail.total_amount, shipping_detail.id, description)
-                    return redirect(payment_url)  # Redirect user to JCC payment page
-                except Exception as e:
-                    messages.error(request, f"Payment failed: {e}")
-                    return redirect('basket')
+                # description = "Online purchase from The Association of Parents and Friends of Children with Heart Disease."
+                # # Process payment
+                # try:
+                #     payment_url = process_payment(shipping_detail.total_amount, shipping_detail.id, description)
+                #     return redirect(payment_url)  # Redirect user to JCC payment page
+                # except Exception as e:
+                #     messages.error(request, f"Payment failed: {e}")
+                #     return redirect('basket')
 
             else:
                 messages.error(request, "Something went wrong. Please fill in your details and try again.")
