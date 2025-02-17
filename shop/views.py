@@ -123,19 +123,17 @@ def donation_checkout(request):
                     donation.status = 'active'
                     donation.save()
 
-                print(f"POST -- {request.POST}")
-                print(f"GET -- {request.GET}")
-                messages.success(request, "Thank you for your donation! We appreciate your support.")
-                return redirect('donations')
+                # messages.success(request, "Thank you for your donation! We appreciate your support.")
+                # return redirect('donations')
                 
-                # description = 'Donation to The Association of Parents and Friends of Children with Heart Disease.'
-                # # Process payment
-                # try:
-                #     payment_url = process_payment(donation.donation_amount, donation.id, description)
-                #     return redirect(payment_url)  # Redirect user to JCC payment page
-                # except Exception as e:
-                #     messages.error(request, f"Payment failed: {e}")
-                #     return redirect('basket')
+                description = 'Donation to The Association of Parents and Friends of Children with Heart Disease.'
+                # Process payment
+                try:
+                    payment_url = process_payment(donation.donation_amount, donation.id, description)
+                    return redirect(payment_url)  # Redirect user to JCC payment page
+                except Exception as e:
+                    messages.error(request, f"Payment failed: {e}")
+                    return redirect('basket')
             else:
                 print(donation_form.errors)
                 messages.error(request, "Something went wrong. Please try again.")
