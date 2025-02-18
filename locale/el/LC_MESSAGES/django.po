@@ -794,7 +794,7 @@ msgstr ""
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:117
 msgid "Visit our Online Shop"
-msgstr "Επισκεφθείτε το ηλεκτρονικό μας κατάστημα >"
+msgstr "Επισκεφθείτε το ηλεκτρονικό μας κατάστημα"
 
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:132
 msgid "Colorful human figures dancing in front of a big red heart"
