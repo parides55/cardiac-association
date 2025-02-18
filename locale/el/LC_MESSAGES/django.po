@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-11 08:53+0000\n"
+"POT-Creation-Date: 2025-02-18 22:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -96,7 +96,7 @@ msgstr "Μια ομάδα ανθρώπων στο δάσος κρατιούντ�
 #: .\events\templates\events\events.html:169
 #: .\home_page\templates\home_page\heart_disease_info.html:116
 #: .\home_page\templates\home_page\index.html:192
-#: .\news\templates\news\news.html:109
+#: .\news\templates\news\news.html:110
 #: .\what_we_do\templates\what_we_do\programs.html:158
 #: .\what_we_do\templates\what_we_do\services.html:175
 #: .\what_we_do\templates\what_we_do\what_we_do.html:203
@@ -120,7 +120,7 @@ msgstr ""
 #: .\home_page\templates\home_page\heart_disease_info.html:124
 #: .\home_page\templates\home_page\index.html:200
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:211
-#: .\news\templates\news\news.html:117 .\shop\templates\shop\basket.html:164
+#: .\news\templates\news\news.html:118 .\shop\templates\shop\basket.html:164
 #: .\shop\templates\shop\online_shop.html:100
 #: .\what_we_do\templates\what_we_do\programs.html:166
 msgid "Find out about our Events"
@@ -143,7 +143,7 @@ msgstr "Πίσω στις εκδηλώσεις"
 #: .\home_page\templates\home_page\heart_disease_info.html:121
 #: .\home_page\templates\home_page\index.html:197
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:208
-#: .\news\templates\news\news.html:114 .\shop\templates\shop\basket.html:161
+#: .\news\templates\news\news.html:115 .\shop\templates\shop\basket.html:161
 #: .\shop\templates\shop\online_shop.html:97
 #: .\what_we_do\templates\what_we_do\programs.html:163
 #: .\what_we_do\templates\what_we_do\services.html:180
@@ -230,7 +230,7 @@ msgstr ""
 #: .\home_page\templates\home_page\become_member.html:15
 #: .\home_page\templates\home_page\heart_disease_info.html:113
 #: .\home_page\templates\home_page\index.html:189
-#: .\news\templates\news\news.html:106
+#: .\news\templates\news\news.html:107
 #: .\what_we_do\templates\what_we_do\programs.html:155
 #: .\what_we_do\templates\what_we_do\services.html:172
 #: .\what_we_do\templates\what_we_do\what_we_do.html:200
@@ -532,7 +532,7 @@ msgstr "είναι η αποστολή μας"
 
 #: .\home_page\templates\home_page\index.html:21
 #: .\home_page\templates\home_page\index.html:124
-#: .\shop\templates\shop\donation_checkout.html:91
+#: .\shop\templates\shop\donation_checkout.html:75
 #: .\shop\templates\shop\donations.html:30
 #: .\shop\templates\shop\donations.html:111 .\templates\base.html:84
 #: .\templates\base.html:141
@@ -871,14 +871,26 @@ msgid "Our latest news"
 msgstr "Τα τελευταία νέα μας"
 
 #: .\news\templates\news\news.html:35
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "                    Children's well being and health are at the heart of "
+#| "everything we do.\n"
+#| "                    <br>\n"
+#| "                    <br>\n"
+#| "                    Read below our latest news, the issues we are working "
+#| "on and articles from health professionals.\n"
+#| "                    "
 msgid ""
 "\n"
 "                    Children's well being and health are at the heart of "
 "everything we do.\n"
 "                    <br>\n"
 "                    <br>\n"
-"                    Read below our latest news, the issues we are working on "
-"and articles from health professionals.\n"
+"                    Read below our latest news, the issues we are working "
+"on, articles from \n"
+"                    health professionals and the stories of our members and "
+"our people.\n"
 "                    "
 msgstr ""
 "\n"
@@ -886,15 +898,17 @@ msgstr ""
 "όλων όσων κάνουμε.\n"
 "                    <br>\n"
 "                    <br>\n"
-"                    Διαβάστε παρακάτω τα τελευταία νέα μας, τα ζητήματα που "
-"εργαζόμαστε και άρθρα από επαγγελματίες υγείας.\n"
+"                    Διαβάστε παρακάτω τα τελευταία μας νέα, τα θέματα που "
+"εργαζόμαστε, άρθρα από \n"
+"                    επαγγελματίες υγείας και τις ιστορίες των μελών μας και "
+"των ανθρώπων μας.\n"
 "                    "
 
-#: .\news\templates\news\news.html:55
+#: .\news\templates\news\news.html:56
 msgid "Default image, Logo of the associaiton."
 msgstr "Προεπιλεγμένη εικόνα, λογότυπο του συνδέσμου"
 
-#: .\news\templates\news\news.html:75
+#: .\news\templates\news\news.html:76
 msgid ""
 "\n"
 "                There are currently no news updates available. <br><br> \n"
@@ -1033,11 +1047,7 @@ msgstr "Είδος Δωρέας:"
 msgid "Amount"
 msgstr "Ποσό"
 
-#: .\shop\templates\shop\donation_checkout.html:76
-msgid "Card details"
-msgstr "Στοιχεία κάρτας"
-
-#: .\shop\templates\shop\donation_checkout.html:105
+#: .\shop\templates\shop\donation_checkout.html:89
 msgid ""
 "\n"
 "                        We are currently updating our page and is not "
@@ -1157,7 +1167,7 @@ msgid "Donate by"
 msgstr "Κάντε δωρέα"
 
 #: .\shop\templates\shop\donations.html:165
-msgid "Visiting our Online shop >"
+msgid "Visiting our Online shop "
 msgstr "επισκέπτοντας το ηλεκτρονικό μας κατάστημα"
 
 #: .\shop\templates\shop\online_shop.html:16
@@ -1773,6 +1783,9 @@ msgstr "Υπηρεσίες"
 #: .\what_we_do\templates\what_we_do\what_we_do.html:188
 msgid "Programs"
 msgstr "Προγράμματα"
+
+#~ msgid "Card details"
+#~ msgstr "Στοιχεία κάρτας"
 
 #~ msgid "Doantion Type"
 #~ msgstr "Είδος Δωρέας:"
