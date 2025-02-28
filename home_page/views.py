@@ -1,7 +1,10 @@
-from django.shortcuts import render, get_object_or_404, reverse, redirect
+import os
 import requests
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.conf import settings
 from django.contrib import messages
+from datetime import datetime
+from django.utils import timezone
 from .forms import MemberForm
 from .models import Member
 
@@ -30,13 +33,14 @@ def process_payment(orderId):
         "failUrl": f"https://pediheart.org.cy/membership_failed/",
         "description": "Membership fee of the Association of Children with Heart Disease",
         "language": "en",
-        "orderNumber": orderId
+        "orderNumber": orderId,
+        "binding": True,
     }
 
     try:
         response = requests.post(url, headers=headers, data=data)
 
-        if response.status_code == 200:
+        if response.status_code == 200 and response.json().get("errorCode") == "0":
             response_data = response.json()
             if "formUrl" in response_data:
                 return response_data["formUrl"]  # Redirect user to JCC payment page
@@ -51,22 +55,83 @@ def process_payment(orderId):
 
 def membership_success(request, orderId):
 
-    memberId = request.GET.get("orderNumber")
+    """Verify JCC payment success and store token for future charges."""
+    
+    verification_url = "https://gateway.jcc.com.cy/payment/rest/getOrderStatusExtended.do"
+    headers = {"Content-Type": "application/x-www-form-urlencoded"} 
+    
+    data = {
+        "userName": os.getenv("JCC_API_USERNAME"),
+        "password": os.getenv("JCC_API_PASSWORD"),
+        "orderId": orderId,
+    }
+    
+    try:
+        response = requests.post(verification_url, headers=headers, data=data)
+        response_data = response.json()
 
-    # Mark member as paid in the database
-    member = Member.objects.get(id=orderId)
-    member.is_paid = True
-    member.save()
+        if response_data.get("orderStatus") == 2:  # 2 means payment completed
+            token = response_data.get("bindingId")  # Token for future payments
 
-    messages.success(request, f"Welcome to the family of the Association of Children with Heart Disease." 
-                    f"Your membership has been successfully registered.")
-    return render(request, "home_page/index.html")
+            # Mark member as paid in the database
+            member = Member.objects.get(id=orderId)
+            member.recurring_token = token
+            member.is_paid = True
+            member.save()
+
+            messages.success(request, f"Welcome to the family of the Association of Children with Heart Disease." 
+                            f"Your membership has been successfully registered.")
+            return render(request, "home_page/index.html")
+        else:
+            messages.error(request, "Payment verification failed. Try again or contact us for further assistance.")
+            return render(request, "home_page/index.html",)
+    except Exception as e:
+        messages.error(request, f"An error occurred while processing your payment: {str(e)}")
+        return render(request, "home_page/index.html",)
 
 
 def membership_failed(request):
     
     messages.error(request, "Payment failed. Please try again or contact us for further assistance.")
     return render(request, "home_page/index.html",)
+
+
+def charge_recurring_payment(member):
+    """Charge the user for yearly subscriptions using their stored card token."""
+    
+    url = "https://gateway.jcc.com.cy/payment/rest/paymentOrderBinding.do"
+    headers = {"Content-Type": "application/x-www-form-urlencoded"}
+    
+    data = {
+        "userName": os.getenv("JCC_API_USERNAME"),
+        "password": os.getenv("JCC_API_PASSWORD"),
+        "bindingId": member.recurring_token,  # The stored token
+        "amount": 2000,
+        "currency": "978",
+        "orderNumber": f"RENEW-{member.id}-{datetime.now().strftime('%Y%m%d')}",
+        "description": "Subscription Renewal",
+    }
+    
+    try:
+        response = requests.post(url, headers=headers, data=data)
+        response_data = response.json()
+
+        if response_data.get("errorCode") == "0":  # Success
+            member.last_payment_date = timezone.now()
+            member.save()
+            print(f"Recurring payment successful for Order ID: {member.id}")
+        else:
+            print(f"Recurring payment failed: {response_data.get('errorMessage')}")
+    except Exception as e:
+        print(f"An error occurred while processing recurring payment: {str(e)}")
+
+
+@shared_task
+def process_recurring_payments():
+    """Find active subscriptions and process their payments."""
+    members = Member.objects.filter(is_active=True)  # Get all active subscriptions
+    for member in members:
+        charge_recurring_payment(member)  # Process the payment
 
 
 def Become_member(request):
@@ -77,17 +142,17 @@ def Become_member(request):
             print(member_form.errors)
             if member_form.is_valid():
                 member_form.save()
-                messages.success(request, f"Welcome to the family of the Association of Children with Heart Disease." 
-                    f"Your membership has been successfully registered.")
-                return render(request, "home_page/index.html")
+                # messages.success(request, f"Welcome to the family of the Association of Children with Heart Disease." 
+                #     f"Your membership has been successfully registered.")
+                # return render(request, "home_page/index.html")
                 
-                # # Process payment
-                # try:
-                #     payment_url = process_payment(member_form.instance.id)
-                #     return redirect(payment_url) # Redirect user to JCC payment page
-                # except Exception as e:
-                #     messages.error(request, f"An error occurred while processing your payment: {str(e)}")
-                #     return redirect('home_page/index.html')
+                # Process payment
+                try:
+                    payment_url = process_payment(member_form.instance.id)
+                    return redirect(payment_url) # Redirect user to JCC payment page
+                except Exception as e:
+                    messages.error(request, f"An error occurred while processing your payment: {str(e)}")
+                    return redirect('home_page/index.html')
             else:
                 messages.error(
                     request,
