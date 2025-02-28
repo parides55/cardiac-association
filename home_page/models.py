@@ -20,6 +20,7 @@ class Member(models.Model):
     date_of_birth = models.DateField()
     heart_disease_description = models.CharField(max_length=100)
     date_of_diagnosis = models.DateField(blank=True, null=True)
+    recurring_token = models.CharField(max_length=255, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     is_paid = models.BooleanField(default=False)
 
