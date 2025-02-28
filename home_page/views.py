@@ -126,14 +126,6 @@ def charge_recurring_payment(member):
         print(f"An error occurred while processing recurring payment: {str(e)}")
 
 
-@shared_task
-def process_recurring_payments():
-    """Find active subscriptions and process their payments."""
-    members = Member.objects.filter(is_active=True)  # Get all active subscriptions
-    for member in members:
-        charge_recurring_payment(member)  # Process the payment
-
-
 def Become_member(request):
 
     try:
