@@ -10,10 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
-from pathlib import Path
 import os
 import sys
 import dj_database_url
+from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 from django.contrib.messages import constants as messages
 if os.path.isfile('env.py'):
@@ -25,30 +25,26 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY")
-
 JCC_API_USERNAME = os.environ.get("JCC_API_USERNAME")
 JCC_API_PASSWORD = os.environ.get("JCC_API_PASSWORD")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-# Add Greek and English as supported languages
-LANGUAGES = [
-    ('en', _('English')),
-    ('el', _('Greek')),
-]
-
 # Define the paths for translations
 LOCALE_PATHS = [BASE_DIR / 'locale']
 
 ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com', '*']
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.codeanyapp.com",
+    "https://*.herokuapp.com"
+]
 
 # Application definition
 
@@ -64,6 +60,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'django_summernote',
     'cloudinary',
+    'django_celery_beat',
     'home_page',
     'events',
     'news',
@@ -108,19 +105,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'cardiac_association.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
-
-CSRF_TRUSTED_ORIGINS = [
-    "https://*.codeanyapp.com",
-    "https://*.herokuapp.com"
-]
-
 
 
 # Password validation
@@ -141,13 +131,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# Add Greek and English as supported languages
+LANGUAGES = [
+    ('en', _('English')),
+    ('el', _('Greek')),
+]
 
-TIME_ZONE = 'UTC'
+LANGUAGE_CODE = 'en-us'
 
 USE_I18N = True
 
@@ -155,12 +148,14 @@ USE_L10N = True
 
 USE_TZ = True
 
-MESSAGE_TAGS = {
-    messages.SUCCESS: 'alert-success',
-    messages.ERROR: 'alert-danger',
-    messages.INFO: 'alert-info',
-}
+TIME_ZONE = 'Europe/Athens'
 
+# Celery settings
+CELERY_TIMEZONE = 'Europe/Athens'
+
+CELERY_BROKER_URL = "redis://localhost:6379/0"
+
+CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
@@ -171,3 +166,10 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Miscellaneous settings
+MESSAGE_TAGS = {
+    messages.SUCCESS: 'alert-success',
+    messages.ERROR: 'alert-danger',
+    messages.INFO: 'alert-info',
+}
