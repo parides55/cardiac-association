@@ -1,5 +1,6 @@
 import os
 import requests
+import uuid
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.conf import settings
 from django.contrib import messages
@@ -23,6 +24,9 @@ def MoreInfo(request):
 def process_payment(orderId):
     url = "https://gateway-test.jcc.com.cy/payment/rest/register.do"
     headers = {"Content-Type": "application/x-www-form-urlencoded"}  
+    
+    # Append a random 8-character string to the orderId to make it unique
+    unique_order_number = f"{orderId}-{uuid.uuid4().hex[:8]}"
 
     data = {
         "amount": 2000,
@@ -33,7 +37,7 @@ def process_payment(orderId):
         "failUrl": f"https://pediheart.org.cy/membership_failed/",
         "description": "Membership fee of the Association of Children with Heart Disease",
         "language": "en",
-        "orderNumber": orderId,
+        "orderNumber": unique_order_number,
         "binding": True,
     }
 
