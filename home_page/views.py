@@ -34,8 +34,10 @@ def Become_member(request):
                 # return render(request, "home_page/index.html")
                 
                 # Process payment
+                # Append a random 8-character string to the orderId to make it unique
+                unique_order_number = f"{member_form.instance.id}-{uuid.uuid4().hex[:8]}"
                 try:
-                    payment_url = process_payment(member_form.instance.id)
+                    payment_url = process_payment(unique_order_number)
                     return redirect(payment_url) # Redirect user to JCC payment page
                 except Exception as e:
                     messages.error(request, f"An error occurred while processing your payment: {str(e)}")
@@ -63,9 +65,6 @@ def Become_member(request):
 def process_payment(orderId):
     url = "https://gateway-test.jcc.com.cy/payment/rest/register.do"
     headers = {"Content-Type": "application/x-www-form-urlencoded"}  
-    
-    # Append a random 8-character string to the orderId to make it unique
-    unique_order_number = f"{orderId}-{uuid.uuid4().hex[:8]}"
 
     data = {
         "amount": 2000,
@@ -76,7 +75,7 @@ def process_payment(orderId):
         "failUrl": f"https://pediheart.org.cy/membership_failed/",
         "description": "Membership fee of the Association of Children with Heart Disease",
         "language": "en",
-        "orderNumber": unique_order_number,
+        "orderNumber": orderId,
         "binding": True,
     }
 
