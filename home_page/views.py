@@ -33,7 +33,7 @@ def process_payment(orderId):
         "currency": "978",  # EUR currency code
         "userName": settings.JCC_API_USERNAME,
         "password": settings.JCC_API_PASSWORD,
-        "returnUrl": f"https://pediheart.org.cy/membership_success/{orderId}",
+        "returnUrl": f"https://pediheart.org.cy/membership_success/{unique_order_number}",
         "failUrl": f"https://pediheart.org.cy/membership_failed/",
         "description": "Membership fee of the Association of Children with Heart Disease",
         "language": "en",
@@ -67,7 +67,7 @@ def membership_success(request, orderId):
     data = {
         "userName": settings.JCC_API_USERNAME,
         "password": settings.JCC_API_PASSWORD,
-        "orderId": orderId,
+        "orderNumber": orderId,
     }
     
     try:
