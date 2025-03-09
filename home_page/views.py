@@ -44,7 +44,7 @@ def process_payment(orderId):
     try:
         response = requests.post(url, headers=headers, data=data)
 
-        if response.status_code == 200 and response.json().get("errorCode") == "0":
+        if response.status_code == 200:
             response_data = response.json()
             if "formUrl" in response_data:
                 return response_data["formUrl"]  # Redirect user to JCC payment page
