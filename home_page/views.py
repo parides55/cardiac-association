@@ -144,7 +144,7 @@ def Become_member(request):
                     return redirect(payment_url) # Redirect user to JCC payment page
                 except Exception as e:
                     messages.error(request, f"An error occurred while processing your payment: {str(e)}")
-                    return redirect('home_page/index.html')
+                    return redirect('home')
             else:
                 messages.error(
                     request,
