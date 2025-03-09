@@ -61,8 +61,8 @@ def membership_success(request, orderId):
 
     """Verify JCC payment success and store token for future charges."""
     
-    verification_url = "https://gateway.jcc.com.cy/payment/rest/getOrderStatusExtended.do"
-    headers = {"Content-Type": "application/x-www-form-urlencoded"} 
+    verification_url = "https://gateway-test.jcc.com.cy/payment/rest/getOrderStatusExtended.do"
+    headers = {"Content-type": "application/x-www-form-urlencoded"} 
     
     data = {
         "userName": settings.JCC_API_USERNAME,
