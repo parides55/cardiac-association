@@ -21,6 +21,45 @@ def MoreInfo(request):
 
 
 # Become a member views
+def Become_member(request):
+
+    try:
+        if request.method == 'POST':
+            member_form = MemberForm(request.POST)
+            print(member_form.errors)
+            if member_form.is_valid():
+                member_form.save()
+                # messages.success(request, f"Welcome to the family of the Association of Children with Heart Disease." 
+                #     f"Your membership has been successfully registered.")
+                # return render(request, "home_page/index.html")
+                
+                # Process payment
+                try:
+                    payment_url = process_payment(member_form.instance.id)
+                    return redirect(payment_url) # Redirect user to JCC payment page
+                except Exception as e:
+                    messages.error(request, f"An error occurred while processing your payment: {str(e)}")
+                    return redirect('home')
+            else:
+                messages.error(
+                    request,
+                    f"There has been error processing your request. Please try completing "
+                    f"the form again."
+                )
+                return render(request, "home_page/index.html")
+
+        member_form = MemberForm()
+
+        return render(
+            request, "home_page/become_member.html",
+            {'member_form': member_form}
+        )
+
+    except Exception as e:
+        messages.error(request, f"The following error occurred: {str(e)}")
+        return redirect('become_member')
+
+
 def process_payment(orderId):
     url = "https://gateway-test.jcc.com.cy/payment/rest/register.do"
     headers = {"Content-Type": "application/x-www-form-urlencoded"}  
@@ -76,6 +115,7 @@ def membership_success(request, orderId):
         messages.info(request, f"Payment verification response: {response_data}")
 
         if response_data.get("orderStatus") == 2:  # 2 means payment completed
+            messages.success(request, "Payment successful. Thank you for your support.")
             token = response_data.get("bindingId")  # Token for future payments
 
             # Mark member as paid in the database
@@ -129,42 +169,3 @@ def charge_recurring_payment(member):
             print(f"Recurring payment failed: {response_data.get('errorMessage')}")
     except Exception as e:
         print(f"An error occurred while processing recurring payment: {str(e)}")
-
-
-def Become_member(request):
-
-    try:
-        if request.method == 'POST':
-            member_form = MemberForm(request.POST)
-            print(member_form.errors)
-            if member_form.is_valid():
-                member_form.save()
-                # messages.success(request, f"Welcome to the family of the Association of Children with Heart Disease." 
-                #     f"Your membership has been successfully registered.")
-                # return render(request, "home_page/index.html")
-                
-                # Process payment
-                try:
-                    payment_url = process_payment(member_form.instance.id)
-                    return redirect(payment_url) # Redirect user to JCC payment page
-                except Exception as e:
-                    messages.error(request, f"An error occurred while processing your payment: {str(e)}")
-                    return redirect('home')
-            else:
-                messages.error(
-                    request,
-                    f"There has been error processing your request. Please try completing "
-                    f"the form again."
-                )
-                return render(request, "home_page/index.html")
-
-        member_form = MemberForm()
-
-        return render(
-            request, "home_page/become_member.html",
-            {'member_form': member_form}
-        )
-
-    except Exception as e:
-        messages.error(request, f"The following error occurred: {str(e)}")
-        return redirect('become_member')
