@@ -35,7 +35,8 @@ def Become_member(request):
                 
                 # Process payment
                 try:
-                    payment_url = process_payment(member_form.instance.id)
+                    unique_order_id, payment_url = process_payment(member_form.instance.id)
+                    request.session["order_id"] = unique_order_id
                     return redirect(payment_url) # Redirect user to JCC payment page
                 except Exception as e:
                     messages.error(request, f"An error occurred while processing your payment: {str(e)}")
@@ -86,7 +87,7 @@ def process_payment(orderId):
         if response.status_code == 200:
             response_data = response.json()
             if "formUrl" in response_data:
-                return response_data["formUrl"]  # Redirect user to JCC payment page
+                return unique_order_number, response_data["formUrl"]  # Redirect user to JCC payment page
             else:
                 raise Exception(f"JCC Error: {response_data.get('errorMessage', 'Unknown error')}")
         else:
@@ -101,7 +102,9 @@ def membership_success(request, orderId):
     """Verify JCC payment success and store token for future charges."""
     
     verification_url = "https://gateway-test.jcc.com.cy/payment/rest/getOrderStatusExtended.do"
-    headers = {"Content-type": "application/x-www-form-urlencoded"} 
+    headers = {"Content-type": "application/x-www-form-urlencoded"}
+    
+    orderId = request.session.get("order_id", None)
     
     data = {
         "userName": settings.JCC_API_USERNAME,
