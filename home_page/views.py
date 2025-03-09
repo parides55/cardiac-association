@@ -33,7 +33,7 @@ def process_payment(orderId):
         "currency": "978",  # EUR currency code
         "userName": settings.JCC_API_USERNAME,
         "password": settings.JCC_API_PASSWORD,
-        "returnUrl": f"https://pediheart.org.cy/membership_success/{unique_order_number}",
+        "returnUrl": f"https://pediheart.org.cy/membership_success/{unique_order_number}?{orderId}",
         "failUrl": f"https://pediheart.org.cy/membership_failed/",
         "description": "Membership fee of the Association of Children with Heart Disease",
         "language": "en",
