@@ -47,7 +47,7 @@ def process_payment(orderId):
         if response.status_code == 200:
             response_data = response.json()
             if "formUrl" in response_data:
-                return response_data["formUrl"]  # Redirect user to JCC payment page
+                return unique_order_number, response_data["formUrl"]  # Redirect user to JCC payment page
             else:
                 raise Exception(f"JCC Error: {response_data.get('errorMessage', 'Unknown error')}")
         else:
@@ -62,7 +62,9 @@ def membership_success(request, orderId):
     """Verify JCC payment success and store token for future charges."""
     
     verification_url = "https://gateway-test.jcc.com.cy/payment/rest/getOrderStatusExtended.do"
-    headers = {"Content-type": "application/x-www-form-urlencoded"} 
+    headers = {"Content-type": "application/x-www-form-urlencoded"}
+    
+    orderId = request.session.get("order_id", None)
     
     data = {
         "userName": settings.JCC_API_USERNAME,
@@ -76,8 +78,8 @@ def membership_success(request, orderId):
         messages.info(request, f"Payment verification response: {response_data}")
 
         if response_data.get("orderStatus") == 2:  # 2 means payment completed
-            messages.success(request, "Payment successful. Thank you for your support.")
             token = response_data.get("bindingId")  # Token for future payments
+            messages.success(request, f"Payment successful. Your token is: {token}")
 
             # Mark member as paid in the database
             member = Member.objects.get(id=orderId)
@@ -146,8 +148,9 @@ def Become_member(request):
                 
                 # Process payment
                 try:
-                    payment_url = process_payment(member_form.instance.id)
-                    return redirect(payment_url) # Redirect user to JCC payment page
+                    unique_order_id, payment_url = process_payment(member_form.instance.id)
+                    request.session["order_id"] = unique_order_id  # Store it in session for later retrieval
+                    return redirect(payment_url)
                 except Exception as e:
                     messages.error(request, f"An error occurred while processing your payment: {str(e)}")
                     return redirect('home')
