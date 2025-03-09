@@ -65,8 +65,8 @@ def membership_success(request, orderId):
     headers = {"Content-Type": "application/x-www-form-urlencoded"} 
     
     data = {
-        "userName": os.getenv("JCC_API_USERNAME"),
-        "password": os.getenv("JCC_API_PASSWORD"),
+        "userName": settings.JCC_API_USERNAME,
+        "password": settings.JCC_API_PASSWORD,
         "orderId": orderId,
     }
     
