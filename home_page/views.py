@@ -97,6 +97,8 @@ def process_payment(orderId):
 
 
 def membership_success(request, orderId):
+    
+    messages.info(request, f"Received orderId: {orderId}")
 
     """Verify JCC payment success and store token for future charges."""
     
