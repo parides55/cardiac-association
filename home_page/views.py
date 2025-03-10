@@ -116,7 +116,7 @@ def membership_success(request, orderId):
             token = response_data.get("bindingId")  # Token for future payments
             messages.info(request, f"Token: {token}")
 
-            orderId = orderId.split("-")[0]
+            orderId = orderId.split("-")[0] # Get the original orderId
             # Mark member as paid in the database
             member = Member.objects.get(id=orderId)
             member.recurring_token = token
