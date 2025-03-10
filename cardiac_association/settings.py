@@ -60,7 +60,6 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'django_summernote',
     'cloudinary',
-    'django_celery_beat',
     'home_page',
     'events',
     'news',
@@ -149,13 +148,6 @@ USE_L10N = True
 USE_TZ = True
 
 TIME_ZONE = 'Europe/Athens'
-
-# Celery settings
-CELERY_TIMEZONE = 'Europe/Athens'
-
-CELERY_BROKER_URL = "redis://localhost:6379/0"
-
-CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
