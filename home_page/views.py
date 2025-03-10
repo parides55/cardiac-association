@@ -63,20 +63,19 @@ def Become_member(request):
 
 def process_payment(orderId):
 
-    url = "https://gateway-test.jcc.com.cy/payment/rest/register.do"
+    url = "https://gateway-test.jcc.com.cy/payment/rest/instantPayment.do"
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
 
     data = {
-        "amount": 2000,
-        "currency": "978",  # EUR currency code
         "userName": settings.JCC_API_USERNAME,
         "password": settings.JCC_API_PASSWORD,
-        "returnUrl": f"https://pediheart.org.cy/membership_success/{orderId}",
-        "failUrl": f"https://pediheart.org.cy/membership_failed/",
+        "amount": 2000,
+        "currency": "978",  # EUR currency code
+        "orderNumber": orderId,
         "description": "Membership fee of the Association of Children with Heart Disease",
         "language": "en",
-        "orderNumber": orderId,
-        "bindingId": orderId,  # Unique identifier for the transaction
+        "backUrl": f"https://pediheart.org.cy/membership_success/{orderId}",
+        "failUrl": f"https://pediheart.org.cy/membership_failed/",
     }
 
     try:
@@ -84,8 +83,8 @@ def process_payment(orderId):
 
         if response.status_code == 200:
             response_data = response.json()
-            if "formUrl" in response_data:
-                return response_data["formUrl"]  # Redirect user to JCC payment page
+            if "redirect" in response_data:
+                return response_data["redirect"]  # Redirect user to JCC payment page
             else:
                 raise Exception(f"JCC Error: {response_data.get('errorMessage', 'Unknown error')}")
         else:
