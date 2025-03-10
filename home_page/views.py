@@ -28,19 +28,19 @@ def become_member(request):
             member_form = MemberForm(request.POST)
             if member_form.is_valid():
                 member_form.save()
-                # messages.success(request, f"Welcome to the family of the Association of Children with Heart Disease." 
-                #     f"Your membership has been successfully registered.")
-                # return render(request, "home_page/index.html")
+                messages.success(request, f"Welcome to the family of the Association of Children with Heart Disease." 
+                    f"Your membership has been successfully registered.")
+                return render(request, "home_page/index.html")
                 
-                # Process payment
-                # Append a random 8-character string to the orderId to make it unique
-                unique_order_number = f"{member_form.instance.id}-{uuid.uuid4().hex[:8]}"
-                try:
-                    payment_url = process_payment(unique_order_number)
-                    return redirect(payment_url) # Redirect user to JCC payment page
-                except Exception as e:
-                    messages.error(request, f"An error occurred while processing your payment: {str(e)}")
-                    return redirect('home')
+                # # Process payment
+                # # Append a random 8-character string to the orderId to make it unique
+                # unique_order_number = f"{member_form.instance.id}-{uuid.uuid4().hex[:8]}"
+                # try:
+                #     payment_url = process_payment(unique_order_number)
+                #     return redirect(payment_url) # Redirect user to JCC payment page
+                # except Exception as e:
+                #     messages.error(request, f"An error occurred while processing your payment: {str(e)}")
+                #     return redirect('home')
             else:
                 messages.error(
                     request,
