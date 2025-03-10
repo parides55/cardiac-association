@@ -62,8 +62,11 @@ def Become_member(request):
 
 
 def process_payment(orderId):
+
     url = "https://gateway-test.jcc.com.cy/payment/rest/register.do"
-    headers = {"Content-Type": "application/x-www-form-urlencoded"}  
+    headers = {"Content-Type": "application/x-www-form-urlencoded"}
+
+    bindingId = f"{orderId}-{uuid.uuid4().hex[:10]}"  # Unique bindingId for each payment
 
     data = {
         "amount": 2000,
@@ -75,8 +78,7 @@ def process_payment(orderId):
         "description": "Membership fee of the Association of Children with Heart Disease",
         "language": "en",
         "orderNumber": orderId,
-        "features": "FORCE_CREATE_BINDING",
-        "bindingId": orderId,
+        "bindingId": bindingId,
     }
 
     try:
@@ -96,8 +98,6 @@ def process_payment(orderId):
 
 
 def membership_success(request, orderId):
-    
-    messages.info(request, f"Received orderId: {orderId}")
 
     """Verify JCC payment success and store token for future charges."""
     
@@ -113,7 +113,7 @@ def membership_success(request, orderId):
     try:
         response = requests.post(verification_url, headers=headers, data=data)
         response_data = response.json()
-        messages.info(request, f"OrderStatus: {response_data.get('orderStatus')}")
+        messages.info(request, f"OrderStatus: {response_data}")
 
         if response_data.get("orderStatus") == 2:  # 2 means payment completed
             token = response_data.get("bindingId")  # Token for future payments
