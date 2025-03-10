@@ -116,7 +116,6 @@ def membership_success(request, orderId):
         messages.info(request, f"Payment verification response: {response_data}")
 
         if response_data.get("orderStatus") == 2:  # 2 means payment completed
-            messages.success(request, "Payment successful. Thank you for your support.")
             token = response_data.get("bindingId")  # Token for future payments
 
             # Mark member as paid in the database
