@@ -72,7 +72,7 @@ def process_payment(orderId):
         "userName": settings.JCC_API_USERNAME,
         "password": settings.JCC_API_PASSWORD,
         "returnUrl": f"https://pediheart.org.cy/membership_success/{orderId}",
-        "failUrl": f"https://pediheart.org.cy/membership_failed/",
+        "failUrl": f"https://pediheart.org.cy/membership_failed/{orderId}",
         "description": "Membership fee of the Association of Children with Heart Disease",
         "language": "en",
         "orderNumber": orderId,
@@ -134,7 +134,13 @@ def membership_success(request, orderId):
         return render(request, "home_page/index.html",)
 
 
-def membership_failed(request):
+def membership_failed(request, orderId):
+    
+    """Handle failed payment and delete the member from the database."""
+    
+    orderId = orderId.split("-")[0]  # Get the original orderId
+    member = get_object_or_404(Member, id=orderId)
+    member.delete()
     
     messages.error(request, "Payment failed. Please try again or contact us for further assistance.")
     return render(request, "home_page/index.html",)
