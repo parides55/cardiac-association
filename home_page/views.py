@@ -114,7 +114,7 @@ def membership_success(request, orderId):
         response_data = response.json()
         messages.info(request, f"OrderStatus: {response_data.get('orderStatus')}")
 
-        if response_data.get("orderStatus") == 0:  # 2 means payment completed
+        if response_data.get("orderStatus") == 2:  # 2 means payment completed
             token = response_data.get("bindingId")  # Token for future payments
             messages.info(request, f"Token: {token}")
 
