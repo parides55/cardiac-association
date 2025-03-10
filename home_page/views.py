@@ -21,7 +21,7 @@ def MoreInfo(request):
 
 
 # Become a member views
-def Become_member(request):
+def become_member(request):
 
     try:
         if request.method == 'POST':
