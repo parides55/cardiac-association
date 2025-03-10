@@ -119,6 +119,7 @@ def membership_success(request, orderId):
             # Mark member as paid in the database
             member = Member.objects.get(id=orderId)
             member.recurring_token = token
+            member.last_payment_date = timezone.now()
             member.is_paid = True
             member.save()
 
