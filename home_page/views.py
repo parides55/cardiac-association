@@ -107,7 +107,7 @@ def membership_success(request, orderId):
     data = {
         "userName": settings.JCC_API_USERNAME,
         "password": settings.JCC_API_PASSWORD,
-        "orderId": orderId,
+        "orderNumber": orderId,
     }
     
     try:
