@@ -76,7 +76,6 @@ def process_payment(orderId):
         "description": "Membership fee of the Association of Children with Heart Disease",
         "language": "en",
         "orderNumber": orderId,
-        "bindingId": orderId,  # Unique identifier for the transaction
     }
 
     try:
