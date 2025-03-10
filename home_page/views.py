@@ -26,7 +26,6 @@ def Become_member(request):
     try:
         if request.method == 'POST':
             member_form = MemberForm(request.POST)
-            print(member_form.errors)
             if member_form.is_valid():
                 member_form.save()
                 # messages.success(request, f"Welcome to the family of the Association of Children with Heart Disease." 
@@ -113,7 +112,6 @@ def membership_success(request, orderId):
     try:
         response = requests.post(verification_url, headers=headers, data=data)
         response_data = response.json()
-        messages.info(request, f"Payment verification response: {response_data}")
 
         if response_data.get("orderStatus") == 0:  # 2 means payment completed
             token = response_data.get("bindingId")  # Token for future payments
