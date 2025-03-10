@@ -66,8 +66,6 @@ def process_payment(orderId):
     url = "https://gateway-test.jcc.com.cy/payment/rest/register.do"
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
 
-    bindingId = f"{orderId}-{uuid.uuid4().hex[:10]}"  # Unique bindingId for each payment
-
     data = {
         "amount": 2000,
         "currency": "978",  # EUR currency code
@@ -78,7 +76,7 @@ def process_payment(orderId):
         "description": "Membership fee of the Association of Children with Heart Disease",
         "language": "en",
         "orderNumber": orderId,
-        "bindingId": bindingId,
+        "bindingId": orderId,
     }
 
     try:
