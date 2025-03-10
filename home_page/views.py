@@ -75,7 +75,8 @@ def process_payment(orderId):
         "description": "Membership fee of the Association of Children with Heart Disease",
         "language": "en",
         "orderNumber": orderId,
-        "binding": True,
+        "features": "FORCE_CREATE_BINDING",
+        "bindingId": orderId,
     }
 
     try:
