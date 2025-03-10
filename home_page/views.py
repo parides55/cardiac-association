@@ -137,33 +137,3 @@ def membership_failed(request):
     
     messages.error(request, "Payment failed. Please try again or contact us for further assistance.")
     return render(request, "home_page/index.html",)
-
-
-def charge_recurring_payment(member):
-    """Charge the user for yearly subscriptions using their stored card token."""
-    
-    url = "https://gateway.jcc.com.cy/payment/rest/paymentOrderBinding.do"
-    headers = {"Content-Type": "application/x-www-form-urlencoded"}
-    
-    data = {
-        "userName": os.getenv("JCC_API_USERNAME"),
-        "password": os.getenv("JCC_API_PASSWORD"),
-        "bindingId": member.recurring_token,  # The stored token
-        "amount": 2000,
-        "currency": "978",
-        "orderNumber": f"RENEW-{member.id}-{datetime.now().strftime('%Y%m%d')}",
-        "description": "Subscription Renewal",
-    }
-    
-    try:
-        response = requests.post(url, headers=headers, data=data)
-        response_data = response.json()
-
-        if response_data.get("errorCode") == "0":  # Success
-            member.last_payment_date = timezone.now()
-            member.save()
-            print(f"Recurring payment successful for Order ID: {member.id}")
-        else:
-            print(f"Recurring payment failed: {response_data.get('errorMessage')}")
-    except Exception as e:
-        print(f"An error occurred while processing recurring payment: {str(e)}")
