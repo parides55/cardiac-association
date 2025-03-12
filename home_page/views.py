@@ -45,13 +45,13 @@ def become_member(request):
                     except Exception as e:
                         messages.error(request, f"An error occurred while processing your payment: {str(e)}")
                         return redirect('home')
-                else:
-                    messages.error(
-                        request,
-                        f"There has been error processing your request. Please try completing "
-                        f"the form again."
-                    )
-                    return render(request, "home_page/index.html")
+                # else:
+                #     messages.error(
+                #         request,
+                #         f"There has been error processing your request. Please try completing "
+                #         f"the form again."
+                #     )
+                #     return render(request, "home_page/index.html")
             except Exception as e:
                 messages.error(request, f"The following error occurred: {str(e)}")
 
