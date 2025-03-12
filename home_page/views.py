@@ -28,8 +28,8 @@ def become_member(request):
     try:
         if request.method == 'POST':
             member_form = MemberForm(request.POST)
-            if member_form.is_valid():
-                try:
+            try:
+                if member_form.is_valid():
                     new_member = member_form.save(commit=False)
                     new_member.save()
                     # messages.success(request, f"Welcome to the family of the Association of Children with Heart Disease." 
@@ -45,13 +45,15 @@ def become_member(request):
                     except Exception as e:
                         messages.error(request, f"An error occurred while processing your payment: {str(e)}")
                         return redirect('home')
-                except Exception as e:
+                else:
                     messages.error(
                         request,
                         f"There has been error processing your request. Please try completing "
-                        f"the form again.{str(e)}"
+                        f"the form again."
                     )
                     return render(request, "home_page/index.html")
+            except Exception as e:
+                messages.error(request, f"The following error occurred: {str(e)}")
 
         member_form = MemberForm()
 
