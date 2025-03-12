@@ -122,9 +122,15 @@ def membership_success(request, orderId):
             member.last_payment_date = timezone.now()
             member.is_paid = True
             member.save()
-            messages.info(request, f"{member.email}")
+
             # After successful payment, send a welcome email to the member
-            send_email_to_member(member.email)
+            send_mail(
+                'Subject here',
+                'Here is the message.',
+                settings.EMAIL_HOST_USER,
+                [member.email],
+                fail_silently=False,
+            )
 
             messages.success(request, f"Welcome to the family of the Association of Children with Heart Disease." 
                             f"Your membership has been successfully registered.")
@@ -147,13 +153,3 @@ def membership_failed(request, orderId):
     
     messages.error(request, "Payment failed. Please try again or contact us for further assistance.")
     return render(request, "home_page/index.html",)
-
-
-def send_email_to_member(member_email):
-    send_mail(
-        'Subject here',
-        'Here is the message.',
-        settings.EMAIL_HOST_USER,
-        [member_email],
-        fail_silently=False,
-    )
