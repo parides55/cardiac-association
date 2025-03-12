@@ -114,13 +114,11 @@ def membership_success(request, orderId):
         response_data = response.json()
 
         if response_data.get("orderStatus") == 2:  # 2 means payment completed
-            token = response_data.get("bindingId")  # Token for future payments
-            messages.info(request, f"Token: {token}")
 
             orderId = orderId.split("-")[0] # Get the original orderId
+
             # Mark member as paid in the database
             member = Member.objects.get(id=orderId)
-            member.recurring_token = token
             member.last_payment_date = timezone.now()
             member.is_paid = True
             member.save()
