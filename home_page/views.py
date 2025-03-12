@@ -4,6 +4,8 @@ import uuid
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.conf import settings
 from django.contrib import messages
+from django.core.mail import send_mail
+from django.conf import settings
 from datetime import datetime
 from django.utils import timezone
 from .forms import MemberForm
@@ -27,20 +29,20 @@ def become_member(request):
         if request.method == 'POST':
             member_form = MemberForm(request.POST)
             if member_form.is_valid():
-                member_form.save()
-                messages.success(request, f"Welcome to the family of the Association of Children with Heart Disease." 
-                    f"Your membership has been successfully registered.")
-                return render(request, "home_page/index.html")
+                # member_form.save()
+                # messages.success(request, f"Welcome to the family of the Association of Children with Heart Disease." 
+                #     f"Your membership has been successfully registered.")
+                # return render(request, "home_page/index.html")
                 
-                # # Process payment
-                # # Append a random 8-character string to the orderId to make it unique
-                # unique_order_number = f"{member_form.instance.id}-{uuid.uuid4().hex[:8]}"
-                # try:
-                #     payment_url = process_payment(unique_order_number)
-                #     return redirect(payment_url) # Redirect user to JCC payment page
-                # except Exception as e:
-                #     messages.error(request, f"An error occurred while processing your payment: {str(e)}")
-                #     return redirect('home')
+                # Process payment
+                # Append a random 8-character string to the orderId to make it unique
+                unique_order_number = f"{member_form.instance.id}-{uuid.uuid4().hex[:8]}"
+                try:
+                    payment_url = process_payment(unique_order_number)
+                    return redirect(payment_url) # Redirect user to JCC payment page
+                except Exception as e:
+                    messages.error(request, f"An error occurred while processing your payment: {str(e)}")
+                    return redirect('home')
             else:
                 messages.error(
                     request,
@@ -122,6 +124,9 @@ def membership_success(request, orderId):
             member.last_payment_date = timezone.now()
             member.is_paid = True
             member.save()
+            
+            # After successful payment, send a welcome email to the member
+            send_email_to_member(member.email)
 
             messages.success(request, f"Welcome to the family of the Association of Children with Heart Disease." 
                             f"Your membership has been successfully registered.")
@@ -144,3 +149,13 @@ def membership_failed(request, orderId):
     
     messages.error(request, "Payment failed. Please try again or contact us for further assistance.")
     return render(request, "home_page/index.html",)
+
+
+def send_email_to_member(member_email):
+    send_mail(
+        'Subject here',
+        'Here is the message.',
+        settings.EMAIL_HOST_USER,
+        [member_email],
+        fail_silently=False,
+    )
