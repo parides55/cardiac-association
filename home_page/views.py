@@ -122,7 +122,7 @@ def membership_success(request, orderId):
             member.last_payment_date = timezone.now()
             member.is_paid = True
             member.save()
-            
+            messages.info(request, f"{member.email}")
             # After successful payment, send a welcome email to the member
             send_email_to_member(member.email)
 
