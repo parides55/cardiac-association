@@ -11,6 +11,6 @@ urlpatterns = [
     path("basket_checkout/", views.basket_checkout, name="basket_checkout"),
     path("payment_success_donation/<str:orderId>/", views.payment_success_donation, name="payment_success_donation"),
     path("payment_failed_donation/<str:orderId>/", views.payment_failed_donation, name="payment_failed_donation"),
-    path("payment_success_shop/<int:orderId>/", views.payment_success_shop, name="payment_success_shop"),
-    path("payment_failed_shop/<int:orderId>/", views.payment_failed_shop, name="payment_failed_shop"),
+    path("payment_success_shop/<str:orderId>/", views.payment_success_shop, name="payment_success_shop"),
+    path("payment_failed_shop/<str:orderId>/", views.payment_failed_shop, name="payment_failed_shop"),
 ]
