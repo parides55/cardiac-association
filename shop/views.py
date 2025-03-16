@@ -138,7 +138,7 @@ def payment_success_donation(request, orderId):
             
             send_email_to_donor(donation)
 
-            # orderId = orderId.split("-")[0] # Get the original orderId
+            orderId = orderId.split("-")[0] # Get the original orderId
             donation = Donation.objects.get(id=orderId)
             donation.is_paid = True
             donation.save()
