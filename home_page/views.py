@@ -7,7 +7,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.staticfiles import finders
-from django.core.mail import EmailMultiAlternatives
+from django.core.mail import EmailMultiAlternatives, mail_admins
 from django.conf import settings
 from datetime import datetime
 from django.utils import timezone
@@ -129,6 +129,7 @@ def membership_success(request, orderId):
 
             # After successful payment, send a welcome email to the member
             send_welcome_email(member)
+            send_email_to_the_admin(member)
 
             messages.success(request, f"Welcome to the family of the Association of Children with Heart Disease." 
                             f"Your membership has been successfully registered.")
@@ -216,3 +217,26 @@ def send_welcome_email(member):
         logger.info(f"Welcome email successfully sent to {member.email}")
     except Exception as e:
         logger.error(f"Failed to send welcome email to {member.email}: {e}")
+
+
+def send_email_to_the_admin(member):
+    
+    subject = "Νέο μέλος στον Σύνδεσμο Γονέων και Φίλων Παιδιών με Καρδιοπάθειες"
+    
+    html_content = f"""
+        <html>
+            <body>
+                <p>Νέο μέλος:</p>
+                <p>Όνομα: {member.name}</p>
+                <p>Επώνυμο: {member.surname}</p>
+                <p>Email: {member.email}</p>
+                <p>Τηλέφωνο: {member.phone_number}</p>
+                <p>Ημερομηνία Εγγραφής: {member.date_joined}</p>
+                <p>Πληρωμένο: {member.is_paid}</p>
+                <br><br>
+                <p>Παρακαλώ ελέγξτε τις λεπτομέρειες του νέου μέλους στη βάση δεδομένων.</p>
+            </body>
+        </html>
+    """
+    
+    mail_admins(subject, "", html_message=html_content)
