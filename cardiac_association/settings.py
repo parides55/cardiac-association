@@ -39,6 +39,8 @@ DEBUG = False
 # Define the paths for translations
 LOCALE_PATHS = [BASE_DIR / 'locale']
 
+ADMINS = [('Admin', os.environ.get("EMAIL_HOST_ADDRESS"))]
+
 ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com', '*']
 
 CSRF_TRUSTED_ORIGINS = [
