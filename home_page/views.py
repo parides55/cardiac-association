@@ -1,10 +1,12 @@
 import os
 import requests
 import uuid
-from django.shortcuts import render, get_object_or_404, reverse, redirect
+from logging import logger
+from django.shortcuts import render, get_object_or_404, redirect
 from django.conf import settings
 from django.contrib import messages
-from django.core.mail import send_mail
+from django.contrib.staticfiles import finders
+from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
 from datetime import datetime
 from django.utils import timezone
@@ -125,13 +127,7 @@ def membership_success(request, orderId):
             member.save()
 
             # After successful payment, send a welcome email to the member
-            send_mail(
-                'Subject here',
-                'Here is the message.',
-                settings.EMAIL_HOST_USER,
-                [member.email],
-                fail_silently=False,
-            )
+            send_welcome_email(member)
 
             messages.success(request, f"Welcome to the family of the Association of Children with Heart Disease." 
                             f"Your membership has been successfully registered.")
@@ -154,3 +150,66 @@ def membership_failed(request, orderId):
     
     messages.error(request, "Payment failed. Please try again or contact us for further assistance.")
     return render(request, "home_page/index.html",)
+
+
+def send_welcome_email(member):
+    
+    subject = "Καλωσορίσατε στην οικογένεια του Σύνδεσμου Γονέων και Φίλων Παιδιών με Καρδιοπάθειες"
+    from_email = settings.EMAIL_HOST_USER
+    to_email = [member.email]
+    
+    html_content = f"""
+        <html>
+            <body>
+                <p>Αγαπητέ/ή {member.name} {member.surname}<br><br></p>
+                <p>
+                    Με μεγάλη χαρά σας καλωσορίζουμε ως μέλος του [Όνομα Φιλανθρωπικού Οργανισμού]! 
+                    Η υποστήριξή σας στα παιδιά με καρδιοπάθειες είναι ανεκτίμητη, και εκτιμούμε 
+                    βαθύτατα τη γενναιοδωρία σας.<br><br>
+                    Με τη συνδρομή σας των 20€ ετησίως, συμβάλλετε άμεσα σε προγράμματα που παρέχουν 
+                    απαραίτητη ιατρική φροντίδα, συναισθηματική στήριξη και πόρους για τις οικογένειες 
+                    που το έχουν ανάγκη. Η συνεισφορά σας μας βοηθά να συνεχίσουμε το έργο μας και να 
+                    κάνουμε τη διαφορά στη ζωή αυτών των παιδιών.<br><br>
+                    Ως μέλος μας, θα λαμβάνετε ενημερώσεις για τις δράσεις μας, τις εκδηλώσεις και τους 
+                    τρόπους με τους οποίους μπορείτε να συμμετάσχετε πιο ενεργά. Είμαστε ενθουσιασμένοι 
+                    που σας έχουμε μαζί μας σε αυτή την όμορφη προσπάθεια.<br><br>
+                    Εάν έχετε οποιαδήποτε ερώτηση ή θέλετε να μάθετε περισσότερα για τον αντίκτυπο της 
+                    προσφοράς σας, μη διστάσετε να επικοινωνήσετε μαζί μας στο [email επικοινωνίας].<br>
+                    Σας ευχαριστούμε από καρδιάς για την καλοσύνη και τη γενναιοδωρία σας. Μαζί, 
+                    μπορούμε να δώσουμε ελπίδα στις μικρές καρδιές!<br><br><br>
+                </p>
+                <p>
+                    Με εκτίμηση,<br><br>
+                    
+                    <strong>Σύνδεσμος Γονέων και Φίλων Παιδιών με Καρδιοπάθειες</strong><br>
+                    <img src="cid:default_logo.jpg" alt="Pediheart Logo" width="100px" height=auto><br>
+                    pediheart.org.cy<br><br>
+                    Οδός Γράμμου 11, Διαμέρισμα 5,
+                    Στρόβολος, Λευκωσία, Κύπρος<br><br>
+                    <a href="tel:=35722315196">22315196</a><br>
+                    pediheart@cytanet.com.cy<br><br>
+                </p>
+            </body>
+        </html>
+        """
+        
+    email = EmailMultiAlternatives(subject, "", from_email, to_email)
+    email.attach_alternative(html_content, "text/html")
+
+    # Locate the image in the static folder
+    logo_path = finders.find("images/default_logo.jpg")
+
+    if logo_path:
+        try:
+            with open(logo_path, "rb") as logo_file:
+                email.attach("charity_logo.jpg", logo_file.read(), "image/jpeg")
+        except Exception as e:
+            logger.error(f"Failed to attach logo image: {e}")
+    else:
+        logger.warning("Logo image not found: static/images/default_logo.jpg")
+
+    try:
+        email.send()
+        logger.info(f"Welcome email successfully sent to {member.email}")
+    except Exception as e:
+        logger.error(f"Failed to send welcome email to {member.email}: {e}")
