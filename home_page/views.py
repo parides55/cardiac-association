@@ -91,7 +91,7 @@ def process_payment(orderId):
         if response.status_code == 200:
             response_data = response.json()
             if "formUrl" in response_data:
-                logger.info(f"{response_data['formUrl'].orderNumber}")
+                logger.info(f"{response_data}")
                 return response_data["formUrl"]  # Redirect user to JCC payment page
             else:
                 raise Exception(f"JCC Error: {response_data.get('errorMessage', 'Unknown error')}")
