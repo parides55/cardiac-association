@@ -155,6 +155,8 @@ def membership_failed(request, orderId):
 
 def send_welcome_email(member):
     
+    logger = logging.getLogger(__name__)
+    
     subject = "Καλωσορίσατε στην οικογένεια του Σύνδεσμου Γονέων και Φίλων Παιδιών με Καρδιοπάθειες"
     from_email = settings.EMAIL_HOST_USER
     to_email = [member.email]
@@ -183,7 +185,7 @@ def send_welcome_email(member):
                     Με εκτίμηση,<br><br>
                     
                     <strong>Σύνδεσμος Γονέων και Φίλων Παιδιών με Καρδιοπάθειες</strong><br>
-                    <img src="cid:default_logo.jpg" alt="Pediheart Logo" width="100px" height=auto><br>
+                    <img src="cid:default_logo.jpg" alt="Association's Logo" width="100px" height=auto><br>
                     pediheart.org.cy<br><br>
                     Οδός Γράμμου 11, Διαμέρισμα 5,
                     Στρόβολος, Λευκωσία, Κύπρος<br><br>
@@ -203,14 +205,14 @@ def send_welcome_email(member):
     if logo_path:
         try:
             with open(logo_path, "rb") as logo_file:
-                email.attach("charity_logo.jpg", logo_file.read(), "image/jpeg")
+                email.attach("default_logo.jpg", logo_file.read(), "image/jpeg")
         except Exception as e:
-            Logger.error(f"Failed to attach logo image: {e}")
+            logger.error(f"Failed to attach logo image: {e}")
     else:
-        Logger.warning("Logo image not found: static/images/default_logo.jpg")
+        logger.warning("Logo image not found: static/images/default_logo.jpg")
 
     try:
         email.send()
-        Logger.info(f"Welcome email successfully sent to {member.email}")
+        logger.info(f"Welcome email successfully sent to {member.email}")
     except Exception as e:
-        Logger.error(f"Failed to send welcome email to {member.email}: {e}")
+        logger.error(f"Failed to send welcome email to {member.email}: {e}")
