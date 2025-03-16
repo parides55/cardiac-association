@@ -50,10 +50,12 @@ def donation_checkout(request):
                 # messages.success(request, "Thank you for your donation! We appreciate your support.")
                 # return redirect('donations')
                 
-                description = 'Donation to The Association of Parents and Friends of Children with Heart Disease.'
                 # Process payment
+                description = 'Donation to The Association of Parents and Friends of Children with Heart Disease.'
+                # Append a random 8-character string to the orderId to make it unique
+                unique_order_number = f"{donation.id}-{uuid.uuid4().hex[:8]}"
                 try:
-                    payment_url = process_payment_donation(donation.donation_amount, donation.id, description)
+                    payment_url = process_payment_donation(donation.donation_amount, unique_order_number, description)
                     return redirect(payment_url)  # Redirect user to JCC payment page
                 except Exception as e:
                     messages.error(request, f"Payment failed: {e}")
@@ -85,9 +87,6 @@ def process_payment_donation(amount, orderId, description):
     # Convert amount to cents
     amount_in_cents = int(float(amount) * 100)
 
-    # Append a random 8-character string to the orderId to make it unique
-    unique_order_number = f"{orderId}-{uuid.uuid4().hex[:8]}"
-
     data = {
         "amount": amount_in_cents,
         "currency": "978",  # EUR currency code
@@ -97,7 +96,7 @@ def process_payment_donation(amount, orderId, description):
         "failUrl": f"https://pediheart.org.cy/shop/payment_failed_donation/{orderId}/",
         "description": description,
         "language": "en",
-        "orderNumber": unique_order_number
+        "orderNumber": orderId
     }
 
     try:
