@@ -2,7 +2,6 @@ import os
 import requests
 import uuid
 import logging
-from logging import Logger
 from django.shortcuts import render, get_object_or_404, redirect
 from django.conf import settings
 from django.contrib import messages
