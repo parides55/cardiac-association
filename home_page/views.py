@@ -223,20 +223,18 @@ def send_email_to_the_admin(member):
     
     subject = "Νέο μέλος στον Σύνδεσμο Γονέων και Φίλων Παιδιών με Καρδιοπάθειες"
     
-    html_content = f"""
-        <html>
-            <body>
-                <p>Νέο μέλος:</p>
-                <p>Όνομα: {member.name}</p>
-                <p>Επώνυμο: {member.surname}</p>
-                <p>Email: {member.email}</p>
-                <p>Τηλέφωνο: {member.phone_number}</p>
-                <p>Ημερομηνία Εγγραφής: {member.date_joined}</p>
-                <p>Πληρωμένο: {member.is_paid}</p>
-                <br><br>
-                <p>Παρακαλώ ελέγξτε τις λεπτομέρειες του νέου μέλους στη βάση δεδομένων.</p>
-            </body>
-        </html>
+    text_content = f"""
+    Νέο μέλος:
+
+    Όνομα: {member.name}
+    Επώνυμο: {member.surname}
+    Email: {member.email}
+    Τηλέφωνο: {member.phone_number}
+    Ημερομηνία Εγγραφής: {member.date_joined}
+    Πληρωμένο: {member.is_paid}
+
+    Παρακαλώ ελέγξτε τις λεπτομέρειες του νέου μέλους στη βάση δεδομένων.
     """
+
     
-    mail_admins(subject, "", html_message=html_content)
+    mail_admins(subject, text_content)
