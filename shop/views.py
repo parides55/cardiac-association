@@ -1,9 +1,12 @@
 import requests
 import uuid
+import logging
 from django.conf import settings
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.http import HttpResponseRedirect
 from django.contrib import messages
+from django.core.mail import EmailMultiAlternatives, mail_admins
+from django.contrib.staticfiles import finders
 from .forms import BasketForm, DonationForm, ShippingDetailForm
 from .models import Product, Basket, ShippingDetail, Donation
 
@@ -117,6 +120,11 @@ def payment_success_donation(request, orderId):
         donation = Donation.objects.get(id=orderId)
         donation.is_paid = True
         donation.save()
+        
+        send_email_to_admins(donation)
+        
+        send_email_to_donor(donation)
+        
         messages.success(request, f"Thank you for your donation! Your payment was successful.")
         return redirect('donations')
 
@@ -144,6 +152,92 @@ def payment_failed_donation(request, orderId):
         messages.error(request, f"The following error occurred: {e}")
         return redirect('home')
 
+
+def send_email_to_admins(donation):
+
+    subject = "Παραλήφθηκε νέα δωρεά από την ιστοσελίδα!"
+
+    text_content = f"""
+    Έχετε νέα δωρεά από την ιστοσελίδα!
+
+    Όνομα: {donation.full_name}
+    Email: {donation.email}
+    Τηλέφωνο: {donation.phone_number}    
+    Τύπος δωρεάς: {donation.donation_type}
+    Ποσό: {donation.donation_amount} €
+    Ημερομηνία παραλαβής: {donation.created_at}
+
+    Παρακαλώ ελέγξτε την βάση δεδομένων για περισσότερες πληροφορίες.
+    """
+
+    mail_admins(subject, text_content)
+
+
+def send_email_to_donor(donation):
+
+    logger = logging.getLogger(__name__)
+
+    subject = "Ευχαριστούμε για τη δωρεά σας στον Σύνδεσμο Γονέων και Φίλων Παιδιών με Καρδιοπάθειες"
+    from_email = settings.EMAIL_HOST_USER
+    to_email = [donation.email]
+
+    html_content = f"""
+    <html>
+        <body>
+            <p>Αγαπητέ/ή {donation.full_name}<br><br></p>
+            <p>
+            Εκ μέρους του <strong>Συνδέσμου Γονέων και Φίλων Καρδιοπαθών παιδιών</strong>, θα θέλαμε να 
+            εκφράσουμε την ειλικρινή μας ευγνωμοσύνη για τη γενναιόδωρη δωρεά σας. Η υποστήριξή σας είναι 
+            ανεκτίμητη για εμάς και τα παιδιά που βοηθάμε. Χάρη σε ανθρώπους με ευαισθησία όπως εσείς, 
+            μπορούμε να συνεχίσουμε να προσφέρουμε ουσιαστική βοήθεια στα παιδιά με καρδιοπάθειες και τις 
+            οικογένειές τους.<br>
+            Η καλοσύνη σας δεν προσφέρει μόνο ελπίδα, αλλά έχει και πραγματικό αντίκτυπο στις ζωές τους. 
+            Είτε πρόκειται για τη χρηματοδότηση ιατρικής περίθαλψης, την παροχή ψυχολογικής στήριξης ή 
+            την ευαισθητοποίηση του κοινού, η συμβολή σας μας φέρνει ένα βήμα πιο κοντά στην αποστολή 
+            μας: να εξασφαλίσουμε ότι κάθε παιδί θα λάβει τη φροντίδα και την υποστήριξη που του αξίζει.<br>
+            Εκτιμούμε βαθύτατα τη γενναιοδωρία σας και τη δέσμευσή σας στην προσπάθειά μας. 
+            Παρακάτω θα βρείτε τα στοιχεία της δωρεάς σας:<br><br>
+            Ποσό Δωρεάς: [€ΧΧ.ΧΧ]<br>
+            Τύπος Δωρεάς: [Εφάπαξ/Μηνιαία/Ετήσια]<br><br>
+            Για άλλη μια φορά, σας ευχαριστούμε που είστε δίπλα μας. Αν έχετε οποιαδήποτε ερώτηση ή 
+            επιθυμείτε να μάθετε περισσότερα για τον αντίκτυπο της υποστήριξής σας, μη διστάσετε να 
+            επικοινωνήσετε μαζί μας.<br><br>
+            </p>
+            <p>
+                    Με εκτίμηση,<br><br>
+                    
+                    <strong>Σύνδεσμος Γονέων και Φίλων Παιδιών με Καρδιοπάθειες</strong><br>
+                    <img src="cid:default_logo.jpg" alt="Association's Logo" width="100px" height=auto><br>
+                    <a href="pediheart.org.cy">pediheart.org.cy</a><br>
+                    Οδός Γράμμου 11, Διαμέρισμα 5,
+                    Στρόβολος, Λευκωσία, Κύπρος<br><br>
+                    Tel: <a href="tel:+35722315196">22315196</a><br>
+                    Mail: <a href="mailto:pediheart@cytanet.com.cy">pediheart@cytanet.com.cy</a><br><br>
+                </p>
+        </body>
+    </html>
+    """
+
+    email = EmailMultiAlternatives(subject, "", from_email, to_email)
+    email.attach_alternative(html_content, "text/html")
+
+    # Locate the image in the static folder
+    logo_path = finders.find("images/default_logo.jpg")
+
+    if logo_path:
+        try:
+            with open(logo_path, "rb") as logo_file:
+                email.attach("default_logo.jpg", logo_file.read(), "image/jpeg")
+        except Exception as e:
+            logger.error(f"Failed to attach logo image: {e}")
+    else:
+        logger.warning("Logo image not found: static/images/default_logo.jpg")
+
+    try:
+        email.send()
+        logger.info(f"Welcome email successfully sent to {donation.email}")
+    except Exception as e:
+        logger.error(f"Failed to send welcome email to {donation.email}: {e}")
 
 # ----------- Shop views -----------
 
