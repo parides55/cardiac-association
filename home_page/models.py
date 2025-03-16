@@ -1,10 +1,12 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
+
 
 REGISTRATION_CHOICES = [
-        ('sufferer', 'Sufferer'),
-        ('parent', 'Parent'),
-        ('friend', 'Friend'),
-    ]
+    ('sufferer', _("Sufferer")),
+    ('parent', _("Parent")),
+    ('friend', _("Friend")),
+]
 
 # Create you models here
 class Member(models.Model):

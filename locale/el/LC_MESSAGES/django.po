@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-16 22:27+0000\n"
+"POT-Creation-Date: 2025-03-16 22:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -303,6 +303,18 @@ msgstr "Περιγραφή καρδιακών παθήσεων (εάν δεν π
 #: .\home_page\forms.py:42
 msgid "Date of Diagnosis"
 msgstr "Ημερομηνία διάγνωσης"
+
+#: .\home_page\models.py:6
+msgid "Sufferer"
+msgstr "Παθών"
+
+#: .\home_page\models.py:7
+msgid "Parent"
+msgstr "Γονέας"
+
+#: .\home_page\models.py:8
+msgid "Friend"
+msgstr "Φίλος"
 
 #: .\home_page\templates\home_page\become_member.html:16
 msgid "Together,"
