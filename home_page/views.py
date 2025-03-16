@@ -1,7 +1,8 @@
 import os
 import requests
 import uuid
-from logging import logger
+import logging
+from logging import Logger
 from django.shortcuts import render, get_object_or_404, redirect
 from django.conf import settings
 from django.contrib import messages
@@ -204,12 +205,12 @@ def send_welcome_email(member):
             with open(logo_path, "rb") as logo_file:
                 email.attach("charity_logo.jpg", logo_file.read(), "image/jpeg")
         except Exception as e:
-            logger.error(f"Failed to attach logo image: {e}")
+            Logger.error(f"Failed to attach logo image: {e}")
     else:
-        logger.warning("Logo image not found: static/images/default_logo.jpg")
+        Logger.warning("Logo image not found: static/images/default_logo.jpg")
 
     try:
         email.send()
-        logger.info(f"Welcome email successfully sent to {member.email}")
+        Logger.info(f"Welcome email successfully sent to {member.email}")
     except Exception as e:
-        logger.error(f"Failed to send welcome email to {member.email}: {e}")
+        Logger.error(f"Failed to send welcome email to {member.email}: {e}")
