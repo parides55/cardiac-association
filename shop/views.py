@@ -116,17 +116,38 @@ def process_payment_donation(amount, orderId, description):
 
 
 def payment_success_donation(request, orderId):
+
+    """Verify JCC payment success and update the donation status."""
+    
+    verification_url = "https://gateway-test.jcc.com.cy/payment/rest/getOrderStatusExtended.do"
+    headers = {"Content-type": "application/x-www-form-urlencoded"} 
+
+    data = {
+        "userName": settings.JCC_API_USERNAME,
+        "password": settings.JCC_API_PASSWORD,
+        "orderNumber": orderId,
+    }
+
     try:
-        donation = Donation.objects.get(id=orderId)
-        donation.is_paid = True
-        donation.save()
-        
-        send_email_to_admins(donation)
-        
-        send_email_to_donor(donation)
-        
-        messages.success(request, f"Thank you for your donation! Your payment was successful.")
-        return redirect('donations')
+        response = requests.post(verification_url, headers=headers, data=data)
+        response_data = response.json()
+
+        if response_data.get("orderStatus") == 2:  # 2 means payment completed
+
+            orderId = orderId.split("-")[0] # Get the original orderId
+            donation = Donation.objects.get(id=orderId)
+            donation.is_paid = True
+            donation.save()
+            
+            send_email_to_admins(donation)
+            
+            send_email_to_donor(donation)
+            
+            messages.success(request, f"Thank you for your donation! Your payment was successful.")
+            return redirect('donations')
+        else:
+            messages.error(request, "Payment verification failed. Try again or contact us for further assistance.")
+            return  redirect('donations')
 
     except Donation.DoesNotExist:
         messages.error(request, "Donation not found.")
