@@ -463,7 +463,7 @@ def payment_success_shop(request, orderId):
             
             send_email_to_shopper(shipping_details)
             
-            send_email_to_admins_shop(shipping_details)
+            send_email_to_admin_shop(shipping_details)
             
             Basket.objects.filter(session_key=request.session.session_key).delete()
 
