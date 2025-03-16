@@ -67,7 +67,7 @@ def become_member(request):
         return redirect('become_member')
 
 
-def process_payment(requests, orderId):
+def process_payment(orderId, request):
 
     url = "https://gateway-test.jcc.com.cy/payment/rest/register.do"
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
@@ -96,8 +96,8 @@ def process_payment(requests, orderId):
                 md_order = query_params.get("mdOrder", [None])[0]  # Extract mdOrder
                 
                 # Store mdOrder in session or display a message
-                requests.session["md_order"] = md_order  # Save for later use
-                messages.info(requests, f"UNIQUE ORDER NUMBER: {md_order}")  # Display message
+                request.session["md_order"] = md_order  # Save for later use
+                messages.info(request, f"UNIQUE ORDER NUMBER: {md_order}")  # Display message
                 return response_data["formUrl"]  # Redirect user to JCC payment page
             else:
                 raise Exception(f"JCC Error: {response_data.get('errorMessage', 'Unknown error')}")
