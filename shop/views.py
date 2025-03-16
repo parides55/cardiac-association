@@ -126,8 +126,6 @@ def payment_success_donation(request, orderId):
         "password": settings.JCC_API_PASSWORD,
         "orderNumber": orderId,
     }
-    
-    messages.info(request, f"{orderId}")
 
     try:
         response = requests.post(verification_url, headers=headers, data=data)
@@ -141,7 +139,7 @@ def payment_success_donation(request, orderId):
             donation.save()
 
             # After successful payment, send a welcome email to the member and inform the admin
-            send_email_to_admins(donation)
+            send_email_to_admin_donation(donation)
             send_email_to_donor(donation)
 
             messages.success(request, f"Thank you for your donation! Your payment was successful.")
@@ -176,7 +174,7 @@ def payment_failed_donation(request, orderId):
         return redirect('home')
 
 
-def send_email_to_admins(donation):
+def send_email_to_admin_donation(donation):
 
     subject = f"Παραλήφθηκε νέα δωρεά από τον {donation.full_name}"
 
@@ -227,16 +225,16 @@ def send_email_to_donor(donation):
             επικοινωνήσετε μαζί μας.<br><br>
             </p>
             <p>
-                    Με εκτίμηση,<br><br>
-                    
-                    <strong>Σύνδεσμος Γονέων και Φίλων Παιδιών με Καρδιοπάθειες</strong><br>
-                    <img src="cid:default_logo.jpg" alt="Association's Logo" width="100px" height=auto><br>
-                    <a href="pediheart.org.cy">pediheart.org.cy</a><br>
-                    Οδός Γράμμου 11, Διαμέρισμα 5,
-                    Στρόβολος, Λευκωσία, Κύπρος<br><br>
-                    Tel: <a href="tel:+35722315196">22315196</a><br>
-                    Mail: <a href="mailto:pediheart@cytanet.com.cy">pediheart@cytanet.com.cy</a><br><br>
-                </p>
+                Με εκτίμηση,<br><br>
+                
+                <strong>Σύνδεσμος Γονέων και Φίλων Παιδιών με Καρδιοπάθειες</strong><br>
+                <img src="cid:default_logo.jpg" alt="Association's Logo" width="100px" height=auto><br>
+                <a href="pediheart.org.cy">pediheart.org.cy</a><br>
+                Οδός Γράμμου 11, Διαμέρισμα 5,
+                Στρόβολος, Λευκωσία, Κύπρος<br><br>
+                Tel: <a href="tel:+35722315196">22315196</a><br>
+                Mail: <a href="mailto:pediheart@cytanet.com.cy">pediheart@cytanet.com.cy</a><br><br>
+            </p>
         </body>
     </html>
     """
@@ -383,10 +381,13 @@ def basket_checkout(request):
                 basket_items = Basket.objects.filter(session_key=request.session.session_key)
                 shipping_detail.basket_items.set(basket_items)
                 shipping_detail.save()  # Save again to update the relationship
-                description = "Online purchase from The Association of Parents and Friends of Children with Heart Disease."
+
                 # Process payment
+                description = "Online purchase from The Association of Parents and Friends of Children with Heart Disease."
+                # Append a random 8-character string to the orderId to make it unique
+                unique_order_number = f"{shipping_detail.id}-{uuid.uuid4().hex[:8]}"
                 try:
-                    payment_url = process_payment_shop(shipping_detail.total_amount, shipping_detail.id, description)
+                    payment_url = process_payment_shop(shipping_detail.total_amount, unique_order_number, description)
                     return redirect(payment_url)  # Redirect user to JCC payment page
                 except Exception as e:
                     messages.error(request, f"Payment failed: {e}")
@@ -410,9 +411,6 @@ def process_payment_shop(amount, orderId, description):
     # Convert amount to cents
     amount_in_cents = int(float(amount) * 100)
 
-    # Append a random 8-character string to the orderId to make it unique
-    unique_order_number = f"{orderId}-{uuid.uuid4().hex[:8]}"
-
     data = {
         "amount": amount_in_cents,
         "currency": "978",  # EUR currency code
@@ -422,7 +420,7 @@ def process_payment_shop(amount, orderId, description):
         "failUrl": f"https://pediheart.org.cy/shop/payment_failed_shop/{orderId}/",
         "description": description,
         "language": "en",
-        "orderNumber": unique_order_number
+        "orderNumber": orderId
     }
 
     try:
@@ -441,12 +439,36 @@ def process_payment_shop(amount, orderId, description):
 
 
 def payment_success_shop(request, orderId):
+    """Verify JCC payment success and update the donation status."""
+    
+    verification_url = "https://gateway-test.jcc.com.cy/payment/rest/getOrderStatusExtended.do"
+    headers = {"Content-type": "application/x-www-form-urlencoded"} 
+
+    data = {
+        "userName": settings.JCC_API_USERNAME,
+        "password": settings.JCC_API_PASSWORD,
+        "orderNumber": orderId,
+    }
+
     try:
-        shipping_details = ShippingDetail.objects.get(id=orderId)
-        shipping_details.is_paid = True
-        shipping_details.save()
-        messages.success(request, f"Thank you for your order! Your payment was successful.")
-        return redirect('basket')
+        response = requests.post(verification_url, headers=headers, data=data)
+        response_data = response.json()
+
+        if response_data.get("orderStatus") == 2:  # 2 means payment completed
+
+            orderId = orderId.split("-")[0] # Get the original orderId
+            shipping_details = ShippingDetail.objects.get(id=orderId)
+            shipping_details.is_paid = True
+            shipping_details.save()
+            
+            send_email_to_shopper(shipping_details)
+            
+            send_email_to_admins_shop(shipping_details)
+            
+            Basket.objects.filter(session_key=request.session.session_key).delete()
+
+            messages.success(request, f"Thank you for your order! Your payment was successful.")
+            return redirect('basket')
 
     except ShippingDetail.DoesNotExist:
         messages.error(request, "Order not found.")
@@ -471,3 +493,86 @@ def payment_failed_shop(request, orderId):
     except Exception as e:
         messages.error(request, f"The following error occurred: {e}")
         return redirect('home')
+
+
+def send_email_to_shopper(shipping_details):
+
+    logger = logging.getLogger(__name__)
+
+    subject = "Επιβεβαίωση παραγγελίας από τον Σύνδεσμο Γονέων και Φίλων Παιδιών με Καρδιοπάθειες"
+    from_email = settings.EMAIL_HOST_USER
+    to_email = [shipping_details.email]
+
+    html_content = f"""
+    <html>
+        <body>
+            <p>Αγαπητέ/ή {shipping_details.full_name}<br><br></p>
+            <p>
+                Σας ευχαριστούμε για την υποστήριξή σας! Εκτιμούμε ιδιαίτερα την αγορά σας από τον <strong>Συνδέσμου Γονέων και Φίλων Καρδιοπαθών παιδιών</strong> 
+                και τη συμβολή σας στον σκοπό μας. Η παραγγελία σας ολοκληρώθηκε με επιτυχία και σας παραθέτουμε τις λεπτομέρειες παρακάτω:<br><br>
+                Σύνοψη Παραγγελίας:<br><br>
+                Αριθμός Παραγγελίας: [Αριθμός Παραγγελίας]<br>
+                Ημερομηνία Παραγγελίας: [Ημερομηνία]<br>
+                Προϊόντα που αγοράσατε:<br>
+                [Λίστα προϊόντων – Όνομα, Ποσότητα, Τιμή]<br>
+                Συνολικό Ποσό: [Συνολική Τιμή]<br><br>
+                Η παραγγελία σας θα επεξεργαστεί και θα αποσταλεί το συντομότερο δυνατόν. Θα λάβετε ξεχωριστή ειδοποίηση όταν τα προϊόντα σας 
+                βρίσκονται καθ' οδόν.<br><br>
+                Εάν έχετε οποιαδήποτε ερώτηση ή χρειάζεστε βοήθεια, μη διστάσετε να επικοινωνήσετε μαζί μας.<br><br>
+                Για άλλη μια φορά, σας ευχαριστούμε που στηρίζετε τον <strong>Συνδέσμου Γονέων και Φίλων Καρδιοπαθών παιδιών</strong> και 
+                συμβάλλετε στο έργο μας!<br><br>
+            </p>
+            <p>
+                Με εκτίμηση,<br><br>
+                
+                <strong>Σύνδεσμος Γονέων και Φίλων Παιδιών με Καρδιοπάθειες</strong><br>
+                <img src="cid:default_logo.jpg" alt="Association's Logo" width="100px" height=auto><br>
+                <a href="pediheart.org.cy">pediheart.org.cy</a><br>
+                Οδός Γράμμου 11, Διαμέρισμα 5,
+                Στρόβολος, Λευκωσία, Κύπρος<br><br>
+                Tel: <a href="tel:+35722315196">22315196</a><br>
+                Mail: <a href="mailto:pediheart@cytanet.com.cy">pediheart@cytanet.com.cy</a><br><br>
+            </p>
+        </body>
+    </html>
+    """
+
+    email = EmailMultiAlternatives(subject, "", from_email, to_email)
+    email.attach_alternative(html_content, "text/html")
+
+    # Locate the image in the static folder
+    logo_path = finders.find("images/default_logo.jpg")
+
+    if logo_path:
+        try:
+            with open(logo_path, "rb") as logo_file:
+                email.attach("default_logo.jpg", logo_file.read(), "image/jpeg")
+        except Exception as e:
+            logger.error(f"Failed to attach logo image: {e}")
+    else:
+        logger.warning("Logo image not found: static/images/default_logo.jpg")
+
+    try:
+        email.send()
+        logger.info(f"Welcome email successfully sent to {shipping_details.email}")
+    except Exception as e:
+        logger.error(f"Failed to send welcome email to {shipping_details.email}: {e}")
+
+
+def send_email_to_admin_shop(shipping_details):
+
+    subject = f"Παραλήφθηκε νέα παραγγελία από τον {shipping_details.full_name}"
+
+    text_content = f"""
+    Έχετε νέα παραγγελία από την ιστοσελίδα!
+
+    Όνομα: {shipping_details.full_name}
+    Email: {shipping_details.email}
+    Τηλέφωνο: {shipping_details.phone_number}    
+    Ποσό: {shipping_details.total_amount} €
+    Ημερομηνία παραλαβής: {shipping_details.created_at}
+    
+    Είδη Παραγγελίας:{shipping_details.basket_items.all()}
+    """
+
+    mail_admins(subject, text_content)
