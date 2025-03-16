@@ -176,7 +176,7 @@ def payment_failed_donation(request, orderId):
 
 def send_email_to_admins(donation):
 
-    subject = "Παραλήφθηκε νέα δωρεά από την ιστοσελίδα!"
+    subject = f"Παραλήφθηκε νέα δωρεά από τον {donation.full_name}"
 
     text_content = f"""
     Έχετε νέα δωρεά από την ιστοσελίδα!

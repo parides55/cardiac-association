@@ -220,7 +220,7 @@ def send_welcome_email(member):
 
 def send_email_to_the_admin(member):
     
-    subject = "Νέο μέλος στον Σύνδεσμο Γονέων και Φίλων Παιδιών με Καρδιοπάθειες"
+    subject = f"Εγγραφή Νέου μέλους: {member.name} {member.surname}"
     
     text_content = f"""
     Νέο μέλος:
