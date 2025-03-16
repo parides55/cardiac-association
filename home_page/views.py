@@ -118,6 +118,10 @@ def membership_success(request, orderId):
 
         if response_data.get("orderStatus") == 2:  # 2 means payment completed
 
+            # After successful payment, send a welcome email to the member
+            send_welcome_email(member)
+            send_email_to_the_admin(member)
+
             orderId = orderId.split("-")[0] # Get the original orderId
 
             # Mark member as paid in the database
@@ -125,10 +129,6 @@ def membership_success(request, orderId):
             member.last_payment_date = timezone.now()
             member.is_paid = True
             member.save()
-
-            # After successful payment, send a welcome email to the member
-            send_welcome_email(member)
-            send_email_to_the_admin(member)
 
             messages.success(request, f"Welcome to the family of the Association of Children with Heart Disease." 
                             f"Your membership has been successfully registered.")
