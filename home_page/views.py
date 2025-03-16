@@ -88,6 +88,7 @@ def process_payment(orderId):
 
         if response.status_code == 200:
             response_data = response.json()
+            messages.info(requests, f"UNIQUE ORDER NUMBER: {requests.orderId}")
             if "formUrl" in response_data:
                 return response_data["formUrl"]  # Redirect user to JCC payment page
             else:
