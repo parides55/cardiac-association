@@ -161,6 +161,7 @@ def payment_success_donation(request, orderId):
 
 def payment_failed_donation(request, orderId):
     try:
+        orderId = orderId.split("-")[0] # Get the original orderIdorderId = orderId.split("-")[0] # Get the original orderId
         donation = Donation.objects.get(id=orderId)
         donation.delete()
         messages.error(request, "Payment failed. Please try again.")
