@@ -2,6 +2,7 @@ import os
 import requests
 import uuid
 import logging
+from urllib.parse import urlparse, parse_qs
 from django.shortcuts import render, get_object_or_404, redirect
 from django.conf import settings
 from django.contrib import messages
@@ -66,7 +67,7 @@ def become_member(request):
         return redirect('become_member')
 
 
-def process_payment(orderId):
+def process_payment(requests, orderId):
 
     url = "https://gateway-test.jcc.com.cy/payment/rest/register.do"
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
@@ -89,7 +90,14 @@ def process_payment(orderId):
         if response.status_code == 200:
             response_data = response.json()
             if "formUrl" in response_data:
-                messages.info(requests, f"UNIQUE ORDER NUMBER: {orderId}")
+                # Extract mdOrder from the formUrl
+                parsed_url = urlparse(response_data["formUrl"])
+                query_params = parse_qs(parsed_url.query)
+                md_order = query_params.get("mdOrder", [None])[0]  # Extract mdOrder
+                
+                # Store mdOrder in session or display a message
+                requests.session["md_order"] = md_order  # Save for later use
+                messages.info(requests, f"UNIQUE ORDER NUMBER: {md_order}")  # Display message
                 return response_data["formUrl"]  # Redirect user to JCC payment page
             else:
                 raise Exception(f"JCC Error: {response_data.get('errorMessage', 'Unknown error')}")
