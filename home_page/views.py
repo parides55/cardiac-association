@@ -229,8 +229,8 @@ def send_email_to_the_admin(member):
     Όνομα: {member.name}
     Επώνυμο: {member.surname}
     Email: {member.email}
-    Τηλέφωνο: {member.phone_number}
-    Ημερομηνία Εγγραφής: {member.date_joined}
+    Τηλέφωνο: {member.mobile_number}
+    Ημερομηνία Εγγραφής: {member.created_at}
     Πληρωμένο: {member.is_paid}
 
     Παρακαλώ ελέγξτε τις λεπτομέρειες του νέου μέλους στη βάση δεδομένων.
