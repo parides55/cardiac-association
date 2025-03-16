@@ -101,7 +101,7 @@ def process_payment(orderId):
 
 def membership_success(request, orderId):
 
-    """Verify JCC payment success and store token for future charges."""
+    """Verify JCC payment success and update the member status."""
     
     verification_url = "https://gateway-test.jcc.com.cy/payment/rest/getOrderStatusExtended.do"
     headers = {"Content-type": "application/x-www-form-urlencoded"} 
