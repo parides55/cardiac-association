@@ -42,7 +42,7 @@ def become_member(request):
                 # Append a random 8-character string to the orderId to make it unique
                 unique_order_number = f"{new_member.id}-{uuid.uuid4().hex[:8]}"
                 try:
-                    payment_url = process_payment(unique_order_number)
+                    payment_url = process_payment(request, unique_order_number)
                     return redirect(payment_url) # Redirect user to JCC payment page
                 except Exception as e:
                     messages.error(request, f"An error occurred while processing your payment: {str(e)}")
