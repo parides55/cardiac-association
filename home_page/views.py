@@ -177,7 +177,7 @@ def send_welcome_email(member):
                     τρόπους με τους οποίους μπορείτε να συμμετάσχετε πιο ενεργά. Είμαστε ενθουσιασμένοι 
                     που σας έχουμε μαζί μας σε αυτή την όμορφη προσπάθεια.<br><br>
                     Εάν έχετε οποιαδήποτε ερώτηση ή θέλετε να μάθετε περισσότερα για τον αντίκτυπο της 
-                    προσφοράς σας, μη διστάσετε να επικοινωνήσετε μαζί μας στο [email επικοινωνίας].<br>
+                    προσφοράς σας, μη διστάσετε να επικοινωνήσετε μαζί μας.<br>
                     Σας ευχαριστούμε από καρδιάς για την καλοσύνη και τη γενναιοδωρία σας. Μαζί, 
                     μπορούμε να δώσουμε ελπίδα στις μικρές καρδιές!<br><br><br>
                 </p>
@@ -186,11 +186,11 @@ def send_welcome_email(member):
                     
                     <strong>Σύνδεσμος Γονέων και Φίλων Παιδιών με Καρδιοπάθειες</strong><br>
                     <img src="cid:default_logo.jpg" alt="Association's Logo" width="100px" height=auto><br>
-                    pediheart.org.cy<br><br>
+                    <a href="pediheart.org.cy">pediheart.org.cy</a><br>
                     Οδός Γράμμου 11, Διαμέρισμα 5,
                     Στρόβολος, Λευκωσία, Κύπρος<br><br>
-                    <a href="tel:=35722315196">22315196</a><br>
-                    pediheart@cytanet.com.cy<br><br>
+                    Tel: <a href="tel:+35722315196">22315196</a><br>
+                    Mail: <a href="mailto:pediheart@cytanet.com.cy">pediheart@cytanet.com.cy</a><br><br>
                 </p>
             </body>
         </html>
