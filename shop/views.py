@@ -134,7 +134,7 @@ def payment_success_donation(request, orderId):
 
         if response_data.get("orderStatus") == 2:  # 2 means payment completed
 
-            orderId = orderId.split("-")[0] # Get the original orderId
+            # orderId = orderId.split("-")[0] # Get the original orderId
             donation = Donation.objects.get(id=orderId)
             donation.is_paid = True
             donation.save()
