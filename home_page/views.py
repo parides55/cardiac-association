@@ -47,8 +47,8 @@ def become_member(request):
             else:
                 messages.error(
                     request,
-                    f"The following error occurred while processing your request. Please try completing "
-                    f"the form again. {member_form.errors}"
+                    f"The following error occurred while processing your request:'{member_form.errors}'\n" 
+                    f"Please try completing the form again or contact us."
                 )
                 return render(request, "home_page/index.html")
 
