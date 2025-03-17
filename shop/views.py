@@ -592,7 +592,7 @@ def send_email_to_admin_shop(shipping_details):
     Ημερομηνία παραλαβής: {shipping_details.created_at}
     
     Είδη Παραγγελίας:
-    {''.join(f"- {item.product.name}: {item.quantity} x {item.product.price} € = {item.quantity * item.product.price} €" for item in shipping_details.basket_items.all())}
+    {''.join(f"- {item.product.name}: {item.quantity} x {item.product.price} € = {item.quantity * item.product.price} €\n" for item in shipping_details.basket_items.all())}
     """
 
     mail_admins(subject, text_content)
