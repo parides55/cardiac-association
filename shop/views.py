@@ -503,6 +503,12 @@ def send_email_to_shopper(shipping_details):
     subject = "Επιβεβαίωση παραγγελίας από τον Σύνδεσμο Γονέων και Φίλων Παιδιών με Καρδιοπάθειες"
     from_email = settings.EMAIL_HOST_USER
     to_email = [shipping_details.email]
+    
+    order_items_html = "".join(
+    f"<tr><td>{item.product.name}</td><td>{item.quantity}</td><td>{item.product.price} €</td><td>{item.quantity * item.product.price} €</td></tr>"
+    for item in shipping_details.basket_items.all()
+)
+
 
     html_content = f"""
     <html>
@@ -515,8 +521,20 @@ def send_email_to_shopper(shipping_details):
                 Αριθμός Παραγγελίας: [Αριθμός Παραγγελίας]<br>
                 Ημερομηνία Παραγγελίας: [Ημερομηνία]<br>
                 Προϊόντα που αγοράσατε:<br>
-                [Λίστα προϊόντων – Όνομα, Ποσότητα, Τιμή]<br>
-                Συνολικό Ποσό: [Συνολική Τιμή]<br><br>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Προϊόν</th>
+                            <th>Ποσότητα</th>
+                            <th>Τιμή</th>
+                            <th>Σύνολο</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {order_items_html}
+                    </tbody>
+                </table>
+                <br><br>
                 Η παραγγελία σας θα επεξεργαστεί και θα αποσταλεί το συντομότερο δυνατόν. Θα λάβετε ξεχωριστή ειδοποίηση όταν τα προϊόντα σας 
                 βρίσκονται καθ' οδόν.<br><br>
                 Εάν έχετε οποιαδήποτε ερώτηση ή χρειάζεστε βοήθεια, μη διστάσετε να επικοινωνήσετε μαζί μας.<br><br>
@@ -573,7 +591,8 @@ def send_email_to_admin_shop(shipping_details):
     Ποσό: {shipping_details.total_amount} €
     Ημερομηνία παραλαβής: {shipping_details.created_at}
     
-    Είδη Παραγγελίας:{shipping_details.basket_items.all()}
+    Είδη Παραγγελίας:
+    {''.join(f"- {item.product.name}: {item.quantity} x {item.product.price} € = {item.quantity * item.product.price} €" for item in shipping_details.basket_items.all())}
     """
 
     mail_admins(subject, text_content)
