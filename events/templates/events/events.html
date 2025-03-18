@@ -20,8 +20,6 @@
     </div>
 </section>
 
-<hr>
-
 <section id='this-months-events'>
     <div class="container-fluid">
         <div class="rows ms-2">
@@ -30,7 +28,7 @@
         <div class="row mt-5">
             {% if current_month_events %}
             {% for event in current_month_events %}
-            <div class="col-6 d-flex justify-content-center col-md-4">
+            <div class="col-12 d-flex justify-content-center col-md-4">
                 <div class="card w-100 h-auto">
                     {% if 'placeholder' in event.image.url %}
                     <img src="{% static 'images/default_logo.jpg' %}" class="card-img-top" alt="{% trans 'Default image' %}">
@@ -74,7 +72,7 @@
         <div class="row mt-5">
             {% if upcoming_events %}
             {% for event in upcoming_events %}
-            <div class="col-6 d-flex justify-content-center col-md-4">
+            <div class="col-12 d-flex justify-content-center col-md-4">
                 <div class="card w-100 h-auto">
                     {% if 'placeholder' in event.image.url %}
                     <img src="{% static 'images/default_logo.jpg' %}" class="card-img-top" alt="{% trans 'Default image' %}">
@@ -110,8 +108,6 @@
     </div>
 </section>
 
-<hr>
-
 <section id='old-events'>
     <div class="container-fluid">
         <div class="row text-center mx-2 mx-lg-5">
@@ -120,7 +116,7 @@
         <div class="row mt-5">
             {% if past_events %}
             {% for event in past_events %}
-            <div class="col-6 d-flex justify-content-center col-md-4">
+            <div class="col-12 d-flex justify-content-center col-md-4">
                 <div class="card w-100 h-auto">
                     {% if 'placeholder' in event.image.url %}
                     <img src="{% static 'images/default_logo.jpg' %}" class="card-img-top" alt="{% trans 'Default image' %}">
@@ -155,8 +151,6 @@
         </div>
     </div>
 </section>
-
-<hr >
 
 <section id='links-events'>
     <div class="container-fluid">
