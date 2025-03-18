@@ -328,7 +328,7 @@ def view_basket(request):
         basket_items = Basket.objects.filter(session_key=session_key)
 
         # Calculate the total amount
-        total = sum(item.quantity * item.product.price for item in basket_items)
+        total = int(sum(item.quantity * item.product.price for item in basket_items))
 
         # Pass the items and total to the template
         context = {
