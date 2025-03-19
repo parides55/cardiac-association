@@ -81,6 +81,7 @@ def process_payment(orderId):
         "description": "Membership fee of the Association of Children with Heart Disease",
         "language": "en",
         "orderNumber": orderId,
+        "clientId": f"{orderId}-{uuid.uuid4().hex[:4]}",
     }
 
     try:
@@ -115,6 +116,9 @@ def membership_success(request, orderId):
     try:
         response = requests.post(verification_url, headers=headers, data=data)
         response_data = response.json()
+        
+        binding_id = response_data.get("bindingInfo", {}).get("bindingId")
+        client_id = response_data.get("bindingInfo", {}).get("clientId")
 
         if response_data.get("orderStatus") == 2:  # 2 means payment completed
 
@@ -131,8 +135,9 @@ def membership_success(request, orderId):
             send_email_to_the_admin(member)
 
             messages.success(request, f"Welcome to the family of the Association of Children with Heart Disease." 
-                            f"Your membership has been successfully registered.")
-            return render(request, "home_page/index.html")
+                            f"Your membership has been successfully registered."
+                            f"Your binding ID is: {binding_id} and your client ID is: {client_id}")
+            return render(request, "home_page/index.html", binding_id, client_id)
         else:
             messages.error(request, "Payment verification failed. Try again or contact us for further assistance.")
             return render(request, "home_page/index.html",)
