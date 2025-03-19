@@ -90,7 +90,7 @@ def process_payment(request, orderId):
         if response.status_code == 200:
             response_data = response.json()
             if "formUrl" in response_data:
-                messages.info(request, f"{response_data["formUrl"]}", f"{response_data.get('clientId')}")
+                messages.info(request, f"{response_data["formUrl"]}")
                 return response_data["formUrl"]  # Redirect user to JCC payment page
             else:
                 raise Exception(f"JCC Error: {response_data.get('errorMessage', 'Unknown error')}")
@@ -101,7 +101,7 @@ def process_payment(request, orderId):
         raise Exception(f"The response from the JCC API failed: {e}")
 
 
-def membership_success(request, orderId, clientId):
+def membership_success(request, orderId):
 
     """Verify JCC payment success and update the member status."""
     
@@ -120,39 +120,22 @@ def membership_success(request, orderId, clientId):
 
         if response_data.get("orderStatus") == 2:  # 2 means payment completed
             messages.info(request, f"{response_data}")
-            
-            verification_url_binding = "https://gateway-test.jcc.com.cy/payment/rest/getBindings.do"
-            headers_binding = {"Content-type": "application/x-www-form-urlencoded"} 
-            
-            data_binding = {
-                "userName": settings.JCC_API_USERNAME,
-                "password": settings.JCC_API_PASSWORD,
-                "clientId": clientId,
-            }
-            
-            try:
-                response = requests.post(verification_url_binding, headers=headers_binding, data=data_binding)
-                response_data_binding = response.json()
-                messages.info(request, f"{response_data_binding}")
 
-                orderId = orderId.split("-")[0] # Get the original orderId
+            orderId = orderId.split("-")[0] # Get the original orderId
 
-                # Mark member as paid in the database
-                member = Member.objects.get(id=orderId)
-                member.last_payment_date = timezone.now()
-                member.is_paid = True
-                member.save()
+            # Mark member as paid in the database
+            member = Member.objects.get(id=orderId)
+            member.last_payment_date = timezone.now()
+            member.is_paid = True
+            member.save()
 
-                # After successful payment, send a welcome email to the member and inform the admin
-                send_welcome_email(member)
-                send_email_to_the_admin(member)
+            # After successful payment, send a welcome email to the member and inform the admin
+            send_welcome_email(member)
+            send_email_to_the_admin(member)
 
-                messages.success(request, f"Welcome to the family of the Association of Children with Heart Disease." 
-                                f"Your membership has been successfully registered.")
-                return render(request, "home_page/index.html")
-            except Exception as e:
-                messages.error(request, f"Something went wrong: {str(e)}")
-                return render(request, "home_page/index.html")
+            messages.success(request, f"Welcome to the family of the Association of Children with Heart Disease." 
+                            f"Your membership has been successfully registered.")
+            return render(request, "home_page/index.html")
         else:
             messages.error(request, "Payment verification failed. Try again or contact us for further assistance.")
             return render(request, "home_page/index.html",)
