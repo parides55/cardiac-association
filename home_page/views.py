@@ -91,7 +91,7 @@ def process_payment(request, orderId):
             response_data = response.json()
             if "formUrl" in response_data:
                 messages.info(request, f"{response_data["formUrl"]}", f"{response_data.get('clientId')}")
-                return response_data["formUrl"], response_data.get("clientId")  # Redirect user to JCC payment page
+                return response_data["formUrl"]  # Redirect user to JCC payment page
             else:
                 raise Exception(f"JCC Error: {response_data.get('errorMessage', 'Unknown error')}")
         else:
@@ -151,7 +151,7 @@ def membership_success(request, orderId, clientId):
                                 f"Your membership has been successfully registered.")
                 return render(request, "home_page/index.html")
             except Exception as e:
-                messages.error(request, f"An error occurred while verifying your payment: {str(e)}")
+                messages.error(request, f"Something went wrong: {str(e)}")
                 return render(request, "home_page/index.html")
         else:
             messages.error(request, "Payment verification failed. Try again or contact us for further assistance.")
