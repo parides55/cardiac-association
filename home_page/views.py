@@ -119,7 +119,7 @@ def membership_success(request, orderId):
         response_data = response.json()
 
         if response_data.get("orderStatus") == 2:  # 2 means payment completed
-            messages.info(request, f"{response_data.get("bindingInfo")}")
+            messages.info(request, f"{response_data}")
 
             orderId = orderId.split("-")[0] # Get the original orderId
 
