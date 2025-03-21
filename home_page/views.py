@@ -91,7 +91,6 @@ def process_payment(request, orderId):
         if response.status_code == 200:
             response_data = response.json()
             if "formUrl" in response_data:
-                messages.info(request, f"{response_data}")
                 return response_data["formUrl"]  # Redirect user to JCC payment page
             else:
                 raise Exception(f"JCC Error: {response_data.get('errorMessage', 'Unknown error')}")
@@ -119,7 +118,7 @@ def membership_success(request, orderId):
         response = requests.post(verification_url, headers=headers, data=data)
         response_data = response.json()
         
-        messages.info(request, f"{response_data}")
+        messages.info(request, f"{response_data.get('bindingInfo')}")
 
         if response_data.get("orderStatus") == 2:  # 2 means payment completed
 
