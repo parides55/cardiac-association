@@ -8,7 +8,8 @@ from django.contrib import messages
 from django.contrib.staticfiles import finders
 from django.core.mail import EmailMultiAlternatives, mail_admins
 from django.conf import settings
-from datetime import datetime, timedelta
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
 from .forms import MemberForm
 from .models import Member
 
@@ -127,7 +128,7 @@ def membership_success(request, orderId):
             # Mark member as paid in the database
             member = Member.objects.get(id=orderId)
             member.last_payment_date = today
-            member.next_payment_date += timedelta(days=365)
+            member.next_payment_date = today + relativedelta(years=1)
             member.is_paid = True
             member.save()
 
