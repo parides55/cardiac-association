@@ -8,8 +8,7 @@ from django.contrib import messages
 from django.contrib.staticfiles import finders
 from django.core.mail import EmailMultiAlternatives, mail_admins
 from django.conf import settings
-from datetime import datetime
-from django.utils import timezone
+from datetime import datetime, timedelta
 from .forms import MemberForm
 from .models import Member
 
@@ -123,10 +122,12 @@ def membership_success(request, orderId):
         if response_data.get("orderStatus") == 2:  # 2 means payment completed
 
             orderId = orderId.split("-")[0] # Get the original orderId
+            today = datetime.now()
 
             # Mark member as paid in the database
             member = Member.objects.get(id=orderId)
-            member.last_payment_date = timezone.now()
+            member.last_payment_date = today
+            member.next_payment_date += timedelta(days=365)
             member.is_paid = True
             member.save()
 
