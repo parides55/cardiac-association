@@ -82,6 +82,7 @@ def process_payment(request, orderId):
         "language": "en",
         "orderNumber": orderId,
         "clientId": f"{orderId}-{uuid.uuid4().hex[:4]}",
+        "features": "FORCE_CREATE_BINDING",
     }
 
     try:
