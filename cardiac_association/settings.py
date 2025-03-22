@@ -62,7 +62,6 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'django_summernote',
     'cloudinary',
-    'background_task',
     'home_page',
     'events',
     'news',
