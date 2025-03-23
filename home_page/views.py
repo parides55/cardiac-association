@@ -12,10 +12,12 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from .forms import MemberForm
 from .models import Member
+from .tasks import *
 
 
 # Home page view
 def index(request):
+    charge_annual_subscription.delay()
     return render(request, "home_page/index.html")
 
 
