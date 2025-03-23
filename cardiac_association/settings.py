@@ -34,7 +34,7 @@ JCC_API_USERNAME = os.environ.get("JCC_API_USERNAME")
 JCC_API_PASSWORD = os.environ.get("JCC_API_PASSWORD")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Define the paths for translations
 LOCALE_PATHS = [BASE_DIR / 'locale']
@@ -62,6 +62,8 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'django_summernote',
     'cloudinary',
+    'django_celery_results',
+    'django_celery_beat',
     'home_page',
     'events',
     'news',
@@ -180,3 +182,5 @@ MESSAGE_TAGS = {
 
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
 CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
+CELERY_RESULT_BACKEND = 'django-db'
+CELERY_RESULT_EXTENDED = True
