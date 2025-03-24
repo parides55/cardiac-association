@@ -180,6 +180,7 @@ MESSAGE_TAGS = {
     messages.INFO: 'alert-info',
 }
 
+# Celery settings
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
 CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
 CELERY_RESULT_BACKEND = 'django-db'
