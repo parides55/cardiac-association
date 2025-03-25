@@ -183,7 +183,7 @@ MESSAGE_TAGS = {
 
 # Celery settings
 CELERY_BROKER_URL = os.environ.get("REDIS_URL", 'rediss://localhost:6379/0')
-CELERY_BROKER_TRANSPORT_OPTIONS = {"ssl": {"ssl_cert_reqs": ssl.CERT_NONE}}  # Needed for Upstash Redis
+CELERY_BROKER_TRANSPORT_OPTIONS = {"ssl": {"ssl_cert_reqs": ssl.CERT_REQUIRED}}  # Needed for Upstash Redis
 CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
 CELERY_RESULT_BACKEND = os.environ.get("REDIS_URL")
 CELERY_REDIS_BACKEND_TRANSPORT_OPTIONS = {"ssl_cert_reqs": ssl.CERT_NONE}
