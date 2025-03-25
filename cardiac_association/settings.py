@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 import os
 import sys
+import ssl
 import dj_database_url
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
@@ -182,8 +183,9 @@ MESSAGE_TAGS = {
 
 # Celery settings
 CELERY_BROKER_URL = os.environ.get("REDIS_URL", 'rediss://localhost:6379/0')
-CELERY_BROKER_TRANSPORT_OPTIONS = {"ssl_cert_reqs": "ssl.CERT_NONE"}
+CELERY_BROKER_TRANSPORT_OPTIONS = {"ssl_cert_reqs": ssl.CERT_NONE}  # Needed for Upstash Redis
 CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
 CELERY_RESULT_BACKEND = os.environ.get("REDIS_URL")
+CELERY_REDIS_BACKEND_TRANSPORT_OPTIONS = {"ssl_cert_reqs": ssl.CERT_NONE}
 CELERY_RESULT_EXTENDED = True
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers.DatabaseScheduler'
