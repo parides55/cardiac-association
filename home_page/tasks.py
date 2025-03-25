@@ -4,6 +4,7 @@ from celery import shared_task
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from django.conf import settings
+from django.core.mail import mail_admins
 from .models import *
 
 @shared_task
@@ -31,3 +32,13 @@ def send_email_monthly():
         send_mail(subject, message, from_email, [member.email])
 
     return f"Emails sent to {len(members)} members."
+
+
+@shared_task(name='tesing_task')
+def testing_task():
+    
+    subject = "Testing Task"
+    
+    text_content = "This is a test email using periodic task for the Admin."
+    
+    mail_admins(subject, text_content)
