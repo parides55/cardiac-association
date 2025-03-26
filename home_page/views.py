@@ -129,6 +129,7 @@ def membership_success(request, orderId):
             member = Member.objects.get(id=orderId)
             member.last_payment_date = today
             member.next_payment_date = today + relativedelta(years=1)
+            member.client_id = response_data.get("clientId")
             member.is_paid = True
             member.save()
 
