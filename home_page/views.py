@@ -119,8 +119,6 @@ def membership_success(request, orderId):
     try:
         response = requests.post(verification_url, headers=headers, data=data)
         response_data = response.json()
-        
-        messages.info(request, f"{response_data.get('bindingInfo')}")
 
         if response_data.get("orderStatus") == 2:  # 2 means payment completed
 
