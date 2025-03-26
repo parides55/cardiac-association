@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-18 10:03+0000\n"
+"POT-Creation-Date: 2025-03-26 22:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -67,9 +67,9 @@ msgstr "Διοικητικό Συμβούλιο"
 #: .\about_us\templates\about_us\people.html:58
 #: .\about_us\templates\about_us\people.html:88
 #: .\events\templates\events\event_info.html:13
-#: .\events\templates\events\events.html:36
-#: .\events\templates\events\events.html:80
-#: .\events\templates\events\events.html:126
+#: .\events\templates\events\events.html:34
+#: .\events\templates\events\events.html:78
+#: .\events\templates\events\events.html:122
 #: .\news\templates\news\new_details.html:13
 #: .\shop\templates\shop\basket.html:44
 #: .\shop\templates\shop\online_shop.html:58
@@ -93,7 +93,7 @@ msgid "A group of people in the forest hanging each other."
 msgstr "Μια ομάδα ανθρώπων στο δάσος κρατιούνται ο ένας με τον άλλον."
 
 #: .\about_us\templates\about_us\people.html:115
-#: .\events\templates\events\events.html:169
+#: .\events\templates\events\events.html:163
 #: .\home_page\templates\home_page\heart_disease_info.html:116
 #: .\home_page\templates\home_page\index.html:192
 #: .\news\templates\news\news.html:110
@@ -126,11 +126,11 @@ msgstr ""
 msgid "Find out about our Events"
 msgstr "Μάθετε για τις Εκδηλώσεις μας"
 
-#: .\cardiac_association\settings.py:150
+#: .\cardiac_association\settings.py:153
 msgid "English"
 msgstr "Αγγλικά"
 
-#: .\cardiac_association\settings.py:151
+#: .\cardiac_association\settings.py:154
 msgid "Greek"
 msgstr "Ελληνικά"
 
@@ -167,12 +167,12 @@ msgstr "Κίνηση"
 msgid "Hearts"
 msgstr "Καρδιές"
 
-#: .\events\templates\events\events.html:28
+#: .\events\templates\events\events.html:26
 msgid "This month's events"
 msgstr "Οι εκδηλώσεις αυτού του μήνα"
 
-#: .\events\templates\events\events.html:57
-#: .\events\templates\events\events.html:101
+#: .\events\templates\events\events.html:55
+#: .\events\templates\events\events.html:99
 msgid ""
 "\n"
 "                There are currently no upcoming events. <br><br> \n"
@@ -193,18 +193,18 @@ msgstr ""
 "                Σας ευχαριστούμε για την κατανόησή σας!\n"
 "                "
 
-#: .\events\templates\events\events.html:72
+#: .\events\templates\events\events.html:70
 msgid "Our upcoming events"
 msgstr "Οι επερχόμενες εκδηλώσεις μας"
 
-#: .\events\templates\events\events.html:118
+#: .\events\templates\events\events.html:114
 msgid ""
 "Get inspired from our previous events and help us organise our next ones"
 msgstr ""
 "Εμπνευστείτε από τις προηγούμενες εκδηλώσεις μας και βοηθήστε μας να "
 "οργανώσουμε τις επόμενες"
 
-#: .\events\templates\events\events.html:147
+#: .\events\templates\events\events.html:143
 msgid ""
 "\n"
 "                There are currently no past events available at the moment. "
@@ -226,7 +226,7 @@ msgstr ""
 "                Σας ευχαριστούμε για την κατανόησή σας!!\n"
 "                "
 
-#: .\events\templates\events\events.html:166
+#: .\events\templates\events\events.html:160
 #: .\home_page\templates\home_page\become_member.html:15
 #: .\home_page\templates\home_page\heart_disease_info.html:113
 #: .\home_page\templates\home_page\index.html:189
@@ -239,13 +239,13 @@ msgid ""
 msgstr ""
 "Μια ομάδα ανθρώπων που βάζουν τα χέρια τους στη μέση το ένα πάνω στο άλλο."
 
-#: .\events\templates\events\events.html:174
+#: .\events\templates\events\events.html:168
 #: .\shop\templates\shop\donations.html:178
 #: .\what_we_do\templates\what_we_do\what_we_do.html:208
 msgid "Animated image of many hands as a frame."
 msgstr "Κινούμενη εικόνα πολλών χεριών ως πλαίσιο."
 
-#: .\events\templates\events\events.html:177
+#: .\events\templates\events\events.html:171
 #: .\home_page\templates\home_page\index.html:176
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:30
 #: .\shop\templates\shop\donations.html:181 .\templates\base.html:111
@@ -315,6 +315,22 @@ msgstr "Γονέας"
 #: .\home_page\models.py:8
 msgid "Friend"
 msgstr "Φίλος"
+
+#: .\home_page\models.py:12
+msgid "Active"
+msgstr "Ενεργός"
+
+#: .\home_page\models.py:13
+msgid "Inactive"
+msgstr "Μη ενεργός"
+
+#: .\home_page\models.py:14
+msgid "Pending"
+msgstr "Εκκρεμή"
+
+#: .\home_page\models.py:15
+msgid "Expired"
+msgstr "Έληξε"
 
 #: .\home_page\templates\home_page\become_member.html:16
 msgid "Together,"
