@@ -184,6 +184,6 @@ MESSAGE_TAGS = {
 # Celery settings
 CELERY_BROKER_URL = os.environ.get("REDIS_URL", 'rediss://localhost:6379/0')
 CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
-CELERY_RESULT_BACKEND = 'django-db'
+CELERY_RESULT_BACKEND = 'REDIS_URL'
 CELERY_RESULT_EXTENDED = True
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers.DatabaseScheduler'
