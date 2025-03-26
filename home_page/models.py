@@ -8,6 +8,13 @@ REGISTRATION_CHOICES = [
     ('friend', _("Friend")),
 ]
 
+STATUS_CHOICES = [
+    ('active', _("Active")),
+    ('inactive', _("Inactive")),
+    ('pending', _("Pending")),
+    ('expired', _("Expired")),
+]
+
 # Create you models here
 class Member(models.Model):
     registered_as = models.CharField(max_length=20, choices=REGISTRATION_CHOICES, default='sufferer')
@@ -27,6 +34,7 @@ class Member(models.Model):
     next_payment_date = models.DateTimeField(blank=True, null=True)
     client_id = models.CharField(max_length=100, blank=True, null=True)
     is_paid = models.BooleanField(default=False)
+    membership_status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
 
     def __str__(self):
         return f"{self.name} {self.surname}"
