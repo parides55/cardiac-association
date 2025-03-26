@@ -25,6 +25,7 @@ class Member(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     last_payment_date = models.DateTimeField(blank=True, null=True)
     next_payment_date = models.DateTimeField(blank=True, null=True)
+    client_id = models.CharField(max_length=100, blank=True, null=True)
     is_paid = models.BooleanField(default=False)
 
     def __str__(self):
