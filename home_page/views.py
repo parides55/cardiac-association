@@ -68,7 +68,7 @@ def become_member(request):
         return redirect('become_member')
 
 
-def process_payment(request, orderId):
+def process_payment(orderId):
 
     url = "https://gateway-test.jcc.com.cy/payment/rest/register.do"
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
