@@ -131,7 +131,7 @@ def membership_success(request, orderId):
             member.next_payment_date = today + relativedelta(years=1)
             member.client_id = response_data.get("clientId")
             member.is_paid = True
-            member.is_active = "active"
+            member.membership_status = "active"
             member.save()
 
             # After successful payment, send a welcome email to the member and inform the admin.
