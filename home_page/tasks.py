@@ -1,44 +1,52 @@
 import os
-from django.core.mail import send_mail
+import requests
+from django.core.mail import send_mail, mail_admins
+from django.conf import settings
+from django.contrib import messages
 from celery import shared_task
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-from django.conf import settings
-from django.core.mail import mail_admins
 from .models import *
 
-@shared_task
-def charge_annual_subscription(member_id):
-    
-    today = datetime.now()
-    
-    member = Member.objects.get(id=member_id)
-    member.last_payment_date = datetime.now()
-    member.next_payment_date = today + relativedelta(years=1)
-    member.is_paid = True
-    member.save()
-    return member.id
 
-
-@shared_task(name='send_email_monthly')
-def send_email_monthly():
+@shared_task(name="renew_member_annual_subscription")
+def renew_member_annual_subscription(request):
     
-    subject = "Monthly Newsletter"
-    from_email = settings.EMAIL_HOST_USER
-    members = Member.objects.filter(is_paid=True)
+    # Get all active members and find their credentials
+    members = Member.objects.filter(membership_status = "active")
     
     for member in members:
-        message = f"Dear {member.name},\n\nWe hope you are doing well. Here is our monthly newsletter. We hope you enjoy it.\n\nBest regards,\n\nThe Cardiac Association Team"
-        send_mail(subject, message, from_email, [member.email])
+        try:
+            if member.next_payment_date == datetime.now().month:
+                # Get the credentials for the member
+                client_id = member.client_id
+                credentials = get_credentials(client_id)
+                make_a_payment(request, credentials)
+        except Exception as e:
+            print(f"Error retrieving credentials for member {member.id}: {e}")
 
-    return f"Emails sent to {len(members)} members."
+
+def get_credentials(client_id):
+    
+    url = 'https://gateway-test.jcc.com.cy/payment/rest/getBindings.do'
+    headers = {'Content-type': 'application/x-www-form-urlencoded'}
+    
+    data = {
+        "userName": settings.JCC_API_USERNAME,
+        "password": settings.JCC_API_PASSWORD,
+        "clientId": client_id,
+    }
+    
+    response = requests.post(url, data=data, headers=headers)
+    response = response.json()
+    
+    try:
+        if response.errorCode == 0:
+            bindingId = response.get("bindings", {}).get("bindingId")
+            return bindingId
+    except Exception as e:
+        print(f"Error retrieving binding ID: {e}")
 
 
-@shared_task(name='tesing_task')
-def testing_task():
-    
-    subject = "Testing Task"
-    
-    text_content = "This is a test email using periodic task for the Admin."
-    
-    mail_admins(subject, text_content)
+def make_a_payment(request, bindingId):
+    messages.info(request, f"Making payment for binding ID: {bindingId}")
