@@ -10,7 +10,7 @@ def my_scheduled_task():
     text_content = f"""
     Hi!
     
-    This is a scheduled task from the Heroku Scheduler.
+    This is a scheduled task from the Home_Page running through the Heroku Scheduler.
     
     The time is now: {datetime.now()}
     
