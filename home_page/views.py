@@ -245,3 +245,5 @@ def send_email_to_the_admin(member):
     
     mail_admins(subject, text_content)
 
+
+my_scheduled_task()

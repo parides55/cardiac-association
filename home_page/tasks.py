@@ -8,7 +8,13 @@ def my_scheduled_task():
     subject = f"Task executed at {datetime.now()}"
 
     text_content = f"""
-    This is a scheduled task that runs every 60 seconds.
+    Hi!
+    
+    This is a scheduled task from the Heroku Scheduler.
+    
+    The time is now: {datetime.now()}
+    
+    It works!
     """
 
     mail_admins(subject, text_content)
