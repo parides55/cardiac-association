@@ -11,6 +11,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from .forms import MemberForm
 from .models import Member
+from .tasks import my_scheduled_task
 
 
 # Home page view
@@ -243,3 +244,6 @@ def send_email_to_the_admin(member):
 
     
     mail_admins(subject, text_content)
+
+
+my_scheduled_task()  # Schedule the task to run every 60 seconds
