@@ -9,6 +9,7 @@ from django.core.mail import EmailMultiAlternatives, mail_admins
 from django.contrib.staticfiles import finders
 from .forms import BasketForm, DonationForm, ShippingDetailForm
 from .models import Product, Basket, ShippingDetail, Donation
+from .tasks import my_scheduled_task_2
 
 # Create your views here.
 
