@@ -7,7 +7,6 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.staticfiles import finders
 from django.core.mail import EmailMultiAlternatives, mail_admins
-from django.conf import settings
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from .forms import MemberForm
