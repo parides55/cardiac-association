@@ -1,7 +1,7 @@
 import requests
 from background_task import background
 from django.core.mail import mail_admins
-from django.utils import timezone
+from datetime import datetime
 from django.conf import settings
 from .models import *
 
@@ -11,7 +11,7 @@ def my_scheduled_task():
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
 
     for member in Member.objects.all():
-        if member.membership_status == 'active' and member.next_payment_date == timezone.now().date():
+        if member.membership_status == 'active' and member.next_payment_date == datetime.today().date():
             member_client_id = member.client_id
 
             if not member_client_id:
