@@ -8,26 +8,28 @@ from .models import *
 @background(schedule=60)
 def check_member_for_renewal():
     
+    today = datetime.today().date()
+    
     for member in Member.object.all():
-        if member.membership_status == 'active' and member.next_payment_date == datetime.today():
+        if member.membership_status == 'active' and member.next_payment_date == today:
             member_client_id = member.client_id
             
-        try:
-            stored_credentials = get_credentials(member_client_id)
+            try:
+                stored_credentials = get_credentials(member_client_id)
+                
+                subject = "Membership Renewal"
+                
+                text_content = f"""
+                The membership for {member.name} {member.surname} is due for renewal.
+                
+                The stored credentials/error messages are: {stored_credentials}
+                """
+                
+                mail_admins(subject, text_content)
             
-            subject = "Membership Renewal"
-            
-            text_content = f"""
-            The membership for {member.name} {member.surname} is due for renewal.
-            
-            The stored credentials/error messages are: {stored_credentials}
-            """
-            
-            mail_admins(subject, text_content)
-        
-        except Exception as e:
-            error_message = f"Error checking member {member.name} {member.surname}: {str(e)}"
-            mail_admins("Error in Membership Renewal Check", error_message)
+            except Exception as e:
+                error_message = f"Error checking member {member.name} {member.surname}: {str(e)}"
+                mail_admins("Error in Membership Renewal Check", error_message)
                 
     
 
