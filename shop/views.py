@@ -9,7 +9,6 @@ from django.core.mail import EmailMultiAlternatives, mail_admins
 from django.contrib.staticfiles import finders
 from .forms import BasketForm, DonationForm, ShippingDetailForm
 from .models import Product, Basket, ShippingDetail, Donation
-from .tasks import my_scheduled_task_2
 
 # Create your views here.
 
@@ -597,6 +596,3 @@ def send_email_to_admin_shop(shipping_details):
     """
 
     mail_admins(subject, text_content)
-
-
-my_scheduled_task_2()
