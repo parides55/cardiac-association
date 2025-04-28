@@ -11,7 +11,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from .forms import MemberForm
 from .models import Member
-from .tasks import my_scheduled_task
+from .tasks import check_member_for_renewal
 
 
 # Home page view
@@ -246,4 +246,4 @@ def send_email_to_the_admin(member):
     mail_admins(subject, text_content)
 
 
-my_scheduled_task()
+check_member_for_renewal()
