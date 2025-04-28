@@ -242,7 +242,6 @@ def send_email_to_the_admin(member):
     Παρακαλώ ελέγξτε τις λεπτομέρειες του νέου μέλους στη βάση δεδομένων.
     """
 
-    
     mail_admins(subject, text_content)
 
 
