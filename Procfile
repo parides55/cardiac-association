@@ -1,2 +1,2 @@
-web: gunicorn cardiac_association.wsgi --log-file -
+web: gunicorn cardiac_association.wsgi
 worker: python manage.py process_tasks
