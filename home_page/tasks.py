@@ -25,40 +25,46 @@ def check_member_for_renewal():
     else:
         for member in members_for_renewal:
             member_client_id = member.client_id
+            
+            store_credentials = get_credentials(member_client_id)
         
             subject = "Membership Expiry Reminder"
             
             text_content = f""""
-            {member.name} {member.surname} has a client id of {member_client_id} and the next payment date is {member.next_payment_date}.
+            The store credentials for {member.first_name} {member.last_name} are as follows:
+            
+            Client ID: {member_client_id}
+            
+            Binding ID: {store_credentials}
             
             """           
 
             mail_admins(subject, text_content)
 
-# def get_credentials(client_id):
+def get_credentials(client_id):
 
-#     url = "https://gateway-test.jcc.com.cy/payment/rest/getBindings.do"
-#     headers = {"Content-Type": "application/x-www-form-urlencoded"}
+    url = "https://gateway-test.jcc.com.cy/payment/rest/getBindings.do"
+    headers = {"Content-Type": "application/x-www-form-urlencoded"}
     
-#     data ={
-#         "userName": settings.JCC_USERNAME,
-#         "password": settings.JCC_PASSWORD,
-#         "clientId": client_id,
-#     }
+    data ={
+        "userName": settings.JCC_USERNAME,
+        "password": settings.JCC_PASSWORD,
+        "clientId": client_id,
+    }
     
-#     try:
-#         response = requests.post(url, headers=headers, data=data)
-#         response_data = response.json()
+    try:
+        response = requests.post(url, headers=headers, data=data)
+        response_data = response.json()
         
-#         if response_data.get("errorCode") == "0":
-#             binding_id = response_data.get("bindings", [])
-#             return binding_id
-#         else:
-#             error_message = response_data.get("errorMessage")
-#             return error_message
+        if response_data.get("errorCode") == "0":
+            binding_id = response_data.get("bindings", [])
+            return binding_id
+        else:
+            error_message = response_data.get("errorMessage")
+            return error_message
 
-#     except Exception as e:
-#         return str(e)
+    except Exception as e:
+        return str(e)
 
 
     
