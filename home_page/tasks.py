@@ -30,10 +30,7 @@ def check_member_for_renewal():
             except Exception as e:
                 error_message = f"Error checking member {member.name} {member.surname}: {str(e)}"
                 mail_admins("Error in Membership Renewal Check", error_message)
-                
-    
 
-    
 
     
 def get_credentials(client_id):
