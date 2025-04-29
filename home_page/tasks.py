@@ -18,17 +18,22 @@ def check_member_for_renewal():
         next_payment_date_only=today
     )
     
-    for member in members_for_renewal:
-        member_client_id = member.client_id
-    
-        subject = "Membership Expiry Reminder"
-        
-        text_content = f""""
-        {member.name} {member.surname} has a client id of {member_client_id} and the next payment date is {member.next_payment_date}.
-        
-        """           
-
+    if not members_for_renewal.exists():
+        subject = "No members for renewal"
+        text_content = "There are no members for renewal today."
         mail_admins(subject, text_content)
+    else:
+        for member in members_for_renewal:
+            member_client_id = member.client_id
+        
+            subject = "Membership Expiry Reminder"
+            
+            text_content = f""""
+            {member.name} {member.surname} has a client id of {member_client_id} and the next payment date is {member.next_payment_date}.
+            
+            """           
+
+            mail_admins(subject, text_content)
 
 # def get_credentials(client_id):
 
