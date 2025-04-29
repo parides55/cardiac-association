@@ -10,7 +10,7 @@ def check_member_for_renewal():
     
     today = datetime.today().date()
     
-    for member in Member.object.all():
+    for member in Member.objects.all():
         if member.membership_status == 'active' and member.next_payment_date == today:
             member_client_id = member.client_id
             
