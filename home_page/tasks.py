@@ -31,7 +31,7 @@ def check_member_for_renewal():
             subject = "Membership Expiry Reminder"
             
             text_content = f""""
-            The store credentials for {member.first_name} {member.last_name} are as follows:
+            The store credentials for {member.name} {member.surname} are as follows:
             
             Client ID: {member_client_id}
             
