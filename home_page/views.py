@@ -11,7 +11,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from .forms import MemberForm
 from .models import Member
-from .tasks import check_member_for_renewal
+from .tasks import *
 
 
 # Home page view
