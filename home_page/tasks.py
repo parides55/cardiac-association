@@ -11,7 +11,7 @@ def check_member_for_renewal():
     
     today = datetime.today().date()
     
-    members_for_renewal = Member.objects.filter(membership_status="active")
+    members_for_renewal = Member.objects.filter(membership_status="active", next_payment_date=today)
     
     for member in members_for_renewal:
         member_client_id = member.client_id
@@ -19,7 +19,7 @@ def check_member_for_renewal():
         subject = "Membership Expiry Reminder"
         
         text_content = f""""
-        {member.name} {member.surname} has a client id of {member_client_id}.
+        {member.name} {member.surname} has a client id of {member_client_id} and the next payment date is {member.next_payment_date}.
         
         """           
 
