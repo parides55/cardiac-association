@@ -13,15 +13,17 @@ def check_member_for_renewal():
     
     members_for_renewal = Member.objects.filter(membership_status="active")
     
-    subject = "Membership Expiry Reminder"
+    for member in members_for_renewal:
+        member_client_id = member.client_id
     
-    text_content = f""""
-    Tme members for renewal are :
-    
-    {members_for_renewal}
-    """           
+        subject = "Membership Expiry Reminder"
+        
+        text_content = f""""
+        {member.name} {member.surname} has a client id of {member_client_id}.
+        
+        """           
 
-    mail_admins(subject, text_content)
+        mail_admins(subject, text_content)
 
 # def get_credentials(client_id):
 
