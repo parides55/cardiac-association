@@ -15,14 +15,14 @@ def check_member_for_renewal():
             member_client_id = member.client_id
             
             try:
-                stored_credentials = get_credentials(member_client_id)
+                # stored_credentials = get_credentials(member_client_id)
                 
                 subject = "Membership Renewal"
                 
                 text_content = f"""
                 The membership for {member.name} {member.surname} is due for renewal.
                 
-                The stored credentials/error messages are: {stored_credentials}
+                The client ID is: {member_client_id}
                 """
                 
                 mail_admins(subject, text_content)
