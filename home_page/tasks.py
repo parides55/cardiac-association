@@ -1,7 +1,8 @@
 import requests
 from background_task import background
 from django.core.mail import mail_admins
-from datetime import datetime
+from django.utils import timezone
+from django.db.models.functions import TruncDate
 from django.conf import settings
 from .models import *
 
@@ -9,9 +10,13 @@ from .models import *
 @background(schedule=60)
 def check_member_for_renewal():
     
-    today = datetime.today().date()
+    today = timezone.localdate()
     
-    members_for_renewal = Member.objects.filter(membership_status="active", next_payment_date=today)
+    members_for_renewal = Member.objects.annotate(
+        next_payment_date_only=TruncDate('next_payment_date')).filter(
+        membership_status="active",
+        next_payment_date_only=today
+    )
     
     for member in members_for_renewal:
         member_client_id = member.client_id
