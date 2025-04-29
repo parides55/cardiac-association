@@ -5,6 +5,7 @@ from datetime import datetime
 from django.conf import settings
 from .models import *
 
+
 @background(schedule=60)
 def check_member_for_renewal():
     
@@ -15,14 +16,15 @@ def check_member_for_renewal():
             member_client_id = member.client_id
             
             try:
-                # stored_credentials = get_credentials(member_client_id)
+                stored_credentials = get_credentials(member_client_id)
                 
                 subject = "Membership Renewal"
                 
                 text_content = f"""
                 The membership for {member.name} {member.surname} is due for renewal.
                 
-                The client ID is: {member_client_id}
+                These are the stored credentials:
+                {stored_credentials}
                 """
                 
                 mail_admins(subject, text_content)
@@ -32,7 +34,6 @@ def check_member_for_renewal():
                 mail_admins("Error in Membership Renewal Check", error_message)
 
 
-    
 def get_credentials(client_id):
 
     url = "https://gateway-test.jcc.com.cy/payment/rest/getBindings.do"
