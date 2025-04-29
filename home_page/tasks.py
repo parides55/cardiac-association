@@ -11,7 +11,7 @@ def check_member_for_renewal():
     
     today = datetime.today().date()
     
-    members_for_renewal = Member.objects.filter(next_payment_date__lte=today,)
+    members_for_renewal = Member.objects.filter(membership_status="active")
     
     subject = "Membership Expiry Reminder"
     
