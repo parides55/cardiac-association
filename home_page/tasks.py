@@ -47,8 +47,8 @@ def get_credentials(client_id):
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
     
     data ={
-        "userName": settings.JCC_USERNAME,
-        "password": settings.JCC_PASSWORD,
+        "userName": settings.JCC_API_USERNAME,
+        "password": settings.JCC_API_PASSWORD,
         "clientId": client_id,
     }
     
