@@ -27,16 +27,22 @@ def check_member_for_renewal():
             member_client_id = member.client_id
             
             store_credentials = get_credentials(member_client_id)
-        
-            subject = "Membership Expiry Reminder"
             
+            if isinstance(store_credentials, list) and store_credentials:
+                # Get the first bindingId
+                binding_id = store_credentials[0].get("bindingId", "No binding ID found")
+            else:
+                binding_id = f"Error or no bindings: {store_credentials}"
+
+            subject = "Membership Expiry Reminder"
+
             text_content = f""""
             The store credentials for {member.name} {member.surname} are as follows:
-            
+
             Client ID: {member_client_id}
-            
-            Binding ID: {store_credentials}
-            
+
+            Binding ID: {binding_id}
+
             """           
 
             mail_admins(subject, text_content)
@@ -67,5 +73,19 @@ def get_credentials(client_id):
         return str(e)
 
 
+# def make_payment(member_id, client_id, binding_id):
     
+#     url = "https://gateway-test.jcc.com.cy/payment/rest/instantPayment.do"
+#     headers = {"Content-Type": "application/x-www-form-urlencoded"}
     
+#     data = {
+#         "userName": settings.JCC_API_USERNAME,
+#         "password": settings.JCC_API_PASSWORD,
+#         "orderNumber": member_id,
+#         "amount": 2000,  # Amount in cents
+#         "currency": 978,  # Euro
+#         "clientId": client_id,
+#         "bindingId": binding_id,
+#         "tii": "U",
+#         "backUrl": "https://example.com/success",
+#     }
