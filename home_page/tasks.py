@@ -1,4 +1,5 @@
 import requests
+import uuid
 from background_task import background
 from django.core.mail import mail_admins
 from django.utils import timezone
@@ -34,14 +35,16 @@ def check_member_for_renewal():
             else:
                 binding_id = f"Error or no bindings: {store_credentials}"
 
+            # Make the payment
+            unique_order_number = f"{member.id}-{uuid.uuid4().hex[:8]}"
+            payment_response = make_payment(unique_order_number, member_client_id, binding_id)
+
             subject = "Membership Expiry Reminder"
 
             text_content = f""""
-            The store credentials for {member.name} {member.surname} are as follows:
+            The payment response for {member.name} {member.surname} is as follows:
 
-            Client ID: {member_client_id}
-
-            Binding ID: {binding_id}
+            {payment_response}
 
             """           
 
@@ -73,19 +76,32 @@ def get_credentials(client_id):
         return str(e)
 
 
-# def make_payment(member_id, client_id, binding_id):
+def make_payment(order_number, client_id, binding_id):
     
-#     url = "https://gateway-test.jcc.com.cy/payment/rest/instantPayment.do"
-#     headers = {"Content-Type": "application/x-www-form-urlencoded"}
+    url = "https://gateway-test.jcc.com.cy/payment/rest/instantPayment.do"
+    headers = {"Content-Type": "application/x-www-form-urlencoded"}
     
-#     data = {
-#         "userName": settings.JCC_API_USERNAME,
-#         "password": settings.JCC_API_PASSWORD,
-#         "orderNumber": member_id,
-#         "amount": 2000,  # Amount in cents
-#         "currency": 978,  # Euro
-#         "clientId": client_id,
-#         "bindingId": binding_id,
-#         "tii": "U",
-#         "backUrl": "https://example.com/success",
-#     }
+    data = {
+        "userName": settings.JCC_API_USERNAME,
+        "password": settings.JCC_API_PASSWORD,
+        "orderNumber": order_number,
+        "amount": 2000,  # Amount in cents
+        "currency": 978,  # Euro
+        "clientId": client_id,
+        "bindingId": binding_id,
+        "tii": "U",
+        "backUrl": "https://example.com/success",
+    }
+    
+    try:
+        response = requests.post(url, headers=headers, data=data)
+        response_data = response.json()
+        
+        if response_data.get("errorCode") == "0":
+            payment_response = response_data.get("orderStatus")
+            return payment_response
+        else:
+            error_message = response_data.get("errorMessage")
+            return error_message
+    except Exception as e:
+        return str(e)
