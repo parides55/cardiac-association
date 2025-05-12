@@ -37,7 +37,7 @@ def check_member_for_renewal():
 
             # Make the payment
             unique_order_number = f"{member.id}-{uuid.uuid4().hex[:8]}"
-            payment_response = make_payment(unique_order_number, member_client_id, binding_id)
+            payment_response = make_payment(unique_order_number, member_client_id, binding_id, member.id)
 
             subject = "Membership Expiry Reminder"
 
@@ -76,7 +76,7 @@ def get_credentials(client_id):
         return str(e)
 
 
-def make_payment(order_number, client_id, binding_id):
+def make_payment(order_number, client_id, binding_id, member_id):
     
     url = "https://gateway-test.jcc.com.cy/payment/rest/instantPayment.do"
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
@@ -99,8 +99,28 @@ def make_payment(order_number, client_id, binding_id):
         
         if response_data.get("errorCode") == "0":
             payment_response = response_data.get("orderStatus")
+            # Update the member's next payment date
+            member = Member.objects.get(id=member_id)
+            member.next_payment_date = timezone.now() + timezone.timedelta(days=1)
+            member.save()
+            # Send an email to admins about the successful payment
+            subject = "Payment Success"
+            text_content = f"""
+            Payment successful for {member.name} {member.surname}. Order Number: {order_number}
+
+            """
             return payment_response
         else:
+            member = Member.objects.get(id=member_id)
+            member.membership_status = "expired"
+            member.save()
+            # Send an email to admins about the payment failure
+            subject = "Payment Failure"
+            text_content = f"""
+            Payment failed for {member.name} {member.surname}. Error: {response_data.get("errorMessage")}
+
+            """
+            mail_admins(subject, text_content)
             error_message = response_data.get("errorMessage")
             return error_message
     except Exception as e:
