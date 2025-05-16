@@ -43,11 +43,7 @@ def check_member_for_renewal():
                 payment_response = make_payment(unique_order_number, member_client_id, binding_id, member.id)
 
                 # Send email notification to the member
-                send_email_for_renewal(member)           
-
-        subject = "Members for renewal"
-        text_content = f"Renewal task completed for {members_for_renewal.count()} members."
-        mail_admins(subject, text_content)
+                send_email_for_renewal(member)  
 
     except Exception as e:
         subject = "Error in renewal task"
