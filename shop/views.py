@@ -7,6 +7,8 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.core.mail import EmailMultiAlternatives, mail_admins
 from django.contrib.staticfiles import finders
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
 from .forms import BasketForm, DonationForm, ShippingDetailForm
 from .models import Product, Basket, ShippingDetail, Donation
 
@@ -96,7 +98,9 @@ def process_payment_donation(amount, orderId, description):
         "failUrl": f"https://pediheart.org.cy/shop/payment_failed_donation/{orderId}/",
         "description": description,
         "language": "en",
-        "orderNumber": orderId
+        "orderNumber": orderId,
+        "clientId": f"{orderId}-{uuid.uuid4().hex[:4]}",
+        "features": "FORCE_CREATE_BINDING",
     }
 
     try:
@@ -134,7 +138,12 @@ def payment_success_donation(request, orderId):
         if response_data.get("orderStatus") == 2:  # 2 means payment completed
 
             orderId = orderId.split("-")[0] # Get the original orderId
+            today = datetime.now()
+            
             donation = Donation.objects.get(id=orderId)
+            donation.last_payment_date = today
+            donation.next_payment_date = today + relativedelta(months=1)
+            donation.client_id = response_data.get("bindingInfo", {}).get("clientId")
             donation.is_paid = True
             donation.save()
 
