@@ -1,7 +1,9 @@
 import requests
 import uuid
+import logging
 from background_task import background
-from django.core.mail import mail_admins
+from django.contrib.staticfiles import finders
+from django.core.mail import EmailMultiAlternatives, mail_admins
 from django.utils import timezone
 from django.db.models.functions import TruncDate
 from django.conf import settings
@@ -19,36 +21,39 @@ def check_member_for_renewal():
         next_payment_date_only=today
     )
     
-    if not members_for_renewal.exists():
-        subject = "No members for renewal"
-        text_content = "There are no members for renewal today."
-        mail_admins(subject, text_content)
-    else:
-        for member in members_for_renewal:
-            member_client_id = member.client_id
-            
-            store_credentials = get_credentials(member_client_id)
-            
-            if isinstance(store_credentials, list) and store_credentials:
-                # Get the first bindingId
-                binding_id = store_credentials[0].get("bindingId", "No binding ID found")
-            else:
-                binding_id = f"Error or no bindings: {store_credentials}"
-
-            # Make the payment
-            unique_order_number = f"{member.id}-{uuid.uuid4().hex[:8]}"
-            payment_response = make_payment(unique_order_number, member_client_id, binding_id, member.id)
-
-            subject = "Membership Expiry Reminder"
-
-            text_content = f""""
-            The payment response for {member.name} {member.surname} is as follows:
-
-            {payment_response}
-
-            """           
-
+    try:
+        if not members_for_renewal.exists():
+            subject = "Members for renewal"
+            text_content = "There are no members for renewal today."
             mail_admins(subject, text_content)
+        else:
+            for member in members_for_renewal:
+                member_client_id = member.client_id
+                
+                store_credentials = get_credentials(member_client_id)
+                
+                if isinstance(store_credentials, list) and store_credentials:
+                    # Get the first bindingId
+                    binding_id = store_credentials[0].get("bindingId", "No binding ID found")
+                else:
+                    binding_id = f"Error or no bindings: {store_credentials}"
+
+                # Make the payment
+                unique_order_number = f"{member.id}-{uuid.uuid4().hex[:8]}"
+                payment_response = make_payment(unique_order_number, member_client_id, binding_id, member.id)
+
+                # Send email notification to the member
+                send_email_for_renewal(member)           
+
+        subject = "Members for renewal"
+        text_content = f"Renewal task completed for {members_for_renewal.count()} members."
+        mail_admins(subject, text_content)
+
+    except Exception as e:
+        subject = "Error in renewal task"
+        text_content = f"An error occurred: {str(e)}"
+        mail_admins(subject, text_content)
+
 
 def get_credentials(client_id):
 
@@ -103,25 +108,77 @@ def make_payment(order_number, client_id, binding_id, member_id):
             member = Member.objects.get(id=member_id)
             member.next_payment_date = timezone.now() + timezone.timedelta(days=1)
             member.save()
-            # Send an email to admins about the successful payment
-            subject = "Payment Success"
-            text_content = f"""
-            Payment successful for {member.name} {member.surname}. Order Number: {order_number}
-
-            """
             return payment_response
         else:
+            # Update the member's status to expired
             member = Member.objects.get(id=member_id)
             member.membership_status = "expired"
             member.save()
-            # Send an email to admins about the payment failure
-            subject = "Payment Failure"
-            text_content = f"""
-            Payment failed for {member.name} {member.surname}. Error: {response_data.get("errorMessage")}
-
-            """
-            mail_admins(subject, text_content)
             error_message = response_data.get("errorMessage")
             return error_message
     except Exception as e:
         return str(e)
+
+
+def send_email_for_renewal(member):
+    
+    logger = logging.getLogger(__name__)
+    
+    subject = "Σας ευχαριστούμε που είστε πάντα δίπλα μας!"
+    
+    from_email = settings.EMAIL_HOST_USER
+    to_email = [member.email]
+    
+    html_content = f"""
+    <html>
+        <body>
+            <p>Αγαπητέ/ή {member.name} {member.surname}<br><br></p>
+            <p>
+                Θα θέλαμε να σας ευχαριστήσουμε από καρδιάς για την ανανέωση της ετήσιας 
+                συνδρομής σας στον <strong>Σύνδεσμο Γονέων και Φίλων Καρδιοπαθών Παιδιών.</strong> 
+                Η σταθερή σας υποστήριξη είναι πραγματικά πολύτιμη για εμάς. Χάρη σε μέλη όπως εσείς, 
+                μπορούμε να συνεχίζουμε να στεκόμαστε δίπλα στα παιδιά με καρδιοπάθειες και 
+                στις οικογένειές τους, προσφέροντας βοήθεια, στήριξη και ελπίδα. Αν έχετε 
+                χρόνο και διάθεση, θα χαρούμε πολύ να σας δούμε και πιο ενεργά κοντά μας – 
+                είτε μέσα από τις δράσεις μας, είτε συμμετέχοντας εθελοντικά σε εκδηλώσεις ή 
+                απλώς διαδίδοντας το έργο μας. <br>Μαζί μπορούμε να κάνουμε ακόμα περισσότερα!<br><br><br>
+            </p>
+            <p>
+                Με εκτίμηση,<br><br>
+                
+                <strong>Σύνδεσμος Γονέων και Φίλων Παιδιών με Καρδιοπάθειες</strong><br>
+                <img src="cid:default_logo.jpg" alt="Association's Logo" width="100px" height=auto><br>
+                <a href="pediheart.org.cy">pediheart.org.cy</a><br>
+                Οδός Γράμμου 11, Διαμέρισμα 5,
+                Στρόβολος, Λευκωσία, Κύπρος<br><br>
+                Tel: <a href="tel:+35722315196">22315196</a><br>
+                Mail: <a href="mailto:pediheart@cytanet.com.cy">pediheart@cytanet.com.cy</a><br><br>
+            </p>
+            <p>
+                <strong>Σημείωση:</strong> Εάν θέλετε να τερματίσετε την εγγραφή σας,
+                μπορείτε να το κάνετε <a href="https://example.com/unsubscribe">πατώντας εδώ</a>.
+            </p>
+        </body>
+    </html>
+    """
+    
+    email = EmailMultiAlternatives(subject, "", from_email, to_email)
+    email.attach_alternative(html_content, "text/html")
+
+    # Locate the image in the static folder
+    logo_path = finders.find("images/default_logo.jpg")
+
+    if logo_path:
+        try:
+            with open(logo_path, "rb") as logo_file:
+                email.attach("default_logo.jpg", logo_file.read(), "image/jpeg")
+        except Exception as e:
+            logger.error(f"Failed to attach logo image: {e}")
+    else:
+        logger.warning("Logo image not found: static/images/default_logo.jpg")
+
+    try:
+        email.send()
+        logger.info(f"Welcome email successfully sent to {member.email}")
+    except Exception as e:
+        logger.error(f"Failed to send welcome email to {member.email}: {e}")
