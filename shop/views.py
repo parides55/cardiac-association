@@ -143,6 +143,7 @@ def payment_success_donation(request, orderId):
             donation = Donation.objects.get(id=orderId)
             donation.last_payment_date = today
             if donation.donation_type == 'One-Off Payment':
+                donation.client_id = response_data.get("bindingInfo", {}).get("clientId")
                 donation.is_paid = True
                 donation.save()
             else:
