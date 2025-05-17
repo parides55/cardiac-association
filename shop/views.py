@@ -11,6 +11,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from .forms import BasketForm, DonationForm, ShippingDetailForm
 from .models import Product, Basket, ShippingDetail, Donation
+from .tasks import check_subscriptions_for_payment
 
 # Create your views here.
 
@@ -610,3 +611,5 @@ def send_email_to_admin_shop(shipping_details):
     """
 
     mail_admins(subject, text_content)
+
+check_subscriptions_for_payment()
