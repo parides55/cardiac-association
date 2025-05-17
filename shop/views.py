@@ -142,10 +142,14 @@ def payment_success_donation(request, orderId):
             
             donation = Donation.objects.get(id=orderId)
             donation.last_payment_date = today
-            donation.next_payment_date = today + relativedelta(months=1)
-            donation.client_id = response_data.get("bindingInfo", {}).get("clientId")
-            donation.is_paid = True
-            donation.save()
+            if donation.donation_type == 'One-Off Payment':
+                donation.is_paid = True
+                donation.save()
+            else:
+                donation.next_payment_date = today + relativedelta(months=1)
+                donation.client_id = response_data.get("bindingInfo", {}).get("clientId")
+                donation.is_paid = True
+                donation.save()
 
             # After successful payment, send a welcome email to the member and inform the admin
             send_email_to_admin_donation(donation)
