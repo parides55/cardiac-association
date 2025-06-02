@@ -5,36 +5,62 @@
 
 {% block content %}
 
-{% for gallery in galleries %}
-    <div class="container mt-5">
-        <h2>{{ gallery.title }}</h2>
-        <p>{{ gallery.description }}</p>
 
-        <div id="carousel{{ gallery.id }}" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner mb-5" style="height: 400px; width: 400px;">
-                {% for image in gallery.images.all %}
-                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                        <img src="{{ image.image.url }}" class="d-block w-100" alt="{{ image.caption }}">
-                        {% if image.caption %}
-                            <div class="carousel-caption d-none d-md-block">
-                                <p>{{ image.caption }}</p>
-                            </div>
-                        {% endif %}
-                    </div>
-                {% endfor %}
+<section id="galleries">
+    {% for gallery in galleries %}
+        <div class="container mt-5">
+            <h2>{{ gallery.title }}</h2>
+            <p>{{ gallery.description }}</p>
+
+            <div id="carousel{{ gallery.id }}" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner mb-5" style="height: 400px; width: 400px;">
+                    {% for image in gallery.images.all %}
+                        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                            <img src="{{ image.image.url }}" class="d-block w-100" alt="{{ image.caption }}">
+                            {% if image.caption %}
+                                <div class="carousel-caption d-none d-md-block">
+                                    <p>{{ image.caption }}</p>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+                
+                <!-- Carousel Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carousel{{ gallery.id }}" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carousel{{ gallery.id }}" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-            
-            <!-- Carousel Controls -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#carousel{{ gallery.id }}" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carousel{{ gallery.id }}" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+        </div>
+    {% endfor %}
+</section>
+
+<section id='links-gallery'>
+    <div class="container-fluid">
+        <div class="row d-flex flex-column flex-lg-row">
+            <div class="col my-3 d-flex flex-column">
+                <div class='d-flex justify-content-center'>
+                    <img class='w-75' src="{% static 'images/become_member.jpg' %}" alt="{% trans 'A group of people placing their hands in the middle on top of each other.' %}">
+                </div>
+                <div class='d-flex justify-content-center mt-4'>
+                    <a class='fs-2 fw-bold' href="{% url 'become_member' %}">{% trans 'Become a member today' %}</a>
+                </div>
+            </div>
+            <div class='col my-3 pe-lg-5 d-flex flex-column'>
+                <div class='d-flex justify-content-center'>
+                    <img class='w-75' src="{% static 'images/events.jpg' %}" alt="{% trans 'In the blurred background people are in a conference and a speaker delivers a speech.' %}">
+                </div>
+                <div class='d-flex justify-content-center mt-4'>
+                    <a class='fs-2 fw-bold' href="{% url 'events' %}">{% trans 'Find out about our Events' %}</a>
+                </div>
+            </div>
         </div>
     </div>
-{% endfor %}
+</section>
 
 {% endblock %}
