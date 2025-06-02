@@ -226,6 +226,13 @@ nav {
     justify-content: space-around;
 }
 
+/* ---------------------------- About us Page --------------------------------------------- */
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    width: 4rem;
+    height: 4rem;
+}
+
+
 /* ---------------------------- Footer --------------------------------------------- */
 footer {
     background-color: rgb(248, 249, 250);
