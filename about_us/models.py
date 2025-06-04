@@ -33,7 +33,6 @@ class GalleryImage(models.Model):
     def __str__(self):
         return f"Image in {self.gallery.title}"
 
-
 class GalleryVideo(models.Model):
     gallery = models.ForeignKey(Gallery, on_delete=models.CASCADE, related_name="videos")
     video = CloudinaryField('video')
