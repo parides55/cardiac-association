@@ -31,5 +31,5 @@ def our_people(request):
 
 
 def gallery_view(request):
-    galleries = Gallery.objects.prefetch_related("images").all()
+    galleries = Gallery.objects.prefetch_related("images", "videos").all()
     return render(request, "about_us/gallery.html", {"galleries": galleries})

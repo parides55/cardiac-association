@@ -32,3 +32,13 @@ class GalleryImage(models.Model):
 
     def __str__(self):
         return f"Image in {self.gallery.title}"
+
+
+class GalleryVideo(models.Model):
+    gallery = models.ForeignKey(Gallery, on_delete=models.CASCADE, related_name="videos")
+    video = CloudinaryField('video')
+    caption = models.CharField(max_length=255, blank=True, null=True)
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Video in {self.gallery.title}"
