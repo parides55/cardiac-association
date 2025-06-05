@@ -12,10 +12,10 @@
         <h2>{{ gallery.title }}</h2>
         <p>{{ gallery.description }}</p>
 
-        <div class="row">
+        <div class="row" style="height: 500px; overflow: auto;">
             <!-- Images -->
             {% for image in gallery.images.all %}
-                <div class="col-md-6 mb-3">
+                <div class="col-md-6 mb-3" style="height: 300px; overflow: hidden; ">
                     <a href="{{ image.image.url }}" class="glightbox" data-gallery="gallery{{ gallery.id }}" data-title="{{ image.caption }}">
                         <img src="{{ image.image.url }}" class="img-fluid" alt="{{ image.caption }}">
                     </a>
@@ -32,6 +32,7 @@
             {% endfor %}
         </div>
     </div>
+    <hr class="d-block">
 {% endfor %}
 </section>
 
