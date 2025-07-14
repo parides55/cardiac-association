@@ -29,6 +29,7 @@ urlpatterns = i18n_patterns(
     path("what_we_do/", include("what_we_do.urls"), name="what_we_do"),
     path("how_you_can_help/", include("how_you_can_help.urls"), name="how_you_can_help"),
     path("shop/", include("shop.urls"), name="shop"),
+    path("legal_docs/", include("legal_docs.urls"), name="legal_docs"),
 )
 
 urlpatterns += [
