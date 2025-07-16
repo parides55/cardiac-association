@@ -46,6 +46,11 @@ hr {
     display: none;
 }
 
+.submit-logo-div {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 /* ---------------------------- NavBar --------------------------------------------- */
 nav {
     border-bottom: 3px outset lightgrey;
@@ -339,6 +344,8 @@ footer {
         background: url(../images/red_background_member_768x500.png) no-repeat center bottom;
         background-size: cover;
     }
+
+
 }
 
 @media (max-width: 576px) {
@@ -389,5 +396,11 @@ footer {
     .programs-btn {
         left: 55%;
         height: 95px;
+    }
+
+    .submit-logo-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     }
 }
