@@ -139,8 +139,9 @@
                                     <input type="hidden" name="quantity" value="{{ item.quantity }}">
                                     {% endfor %}
                                 </div>
-                                <div class="col-12 text-center my-3">
+                                <div class="col-12 text-center my-3 submit-logo-div">
                                     <button type="submit" class="btn btn-outline-secondary w-50" aria-label="pay">{% trans 'Pay' %}</button>
+                                    <img width="200" height="auto" src="{% static 'images/JCCgateway_VisaMastercard_V.jpg' %}" alt="{% trans 'Credit card logos' %}">
                                 </div>
                             </form>
                         </div>
