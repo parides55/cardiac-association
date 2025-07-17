@@ -151,8 +151,8 @@ def send_email_for_renewal(member):
                 Mail: <a href="mailto:pediheart@cytanet.com.cy">pediheart@cytanet.com.cy</a><br><br>
             </p>
             <p>
-                <strong>Σημείωση:</strong> Εάν θέλετε να τερματίσετε την εγγραφή σας,
-                μπορείτε να το κάνετε <a href="https://example.com/unsubscribe">πατώντας εδώ</a>.
+                <strong>Σημείωση:</strong> Εάν θέλετε να τερματίσετε την συνδρομή σας,
+                μπορείτε να το κάνετε <a href="https://pediheart.org.cy/en/cancel_membership/">πατώντας εδώ</a>.
             </p>
         </body>
     </html>

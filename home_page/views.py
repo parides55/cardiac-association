@@ -199,6 +199,10 @@ def send_welcome_email(member):
                     Tel: <a href="tel:+35722315196">22315196</a><br>
                     Mail: <a href="mailto:pediheart@cytanet.com.cy">pediheart@cytanet.com.cy</a><br><br>
                 </p>
+                <p>
+                    <strong>Σημείωση:</strong> Εάν θέλετε να τερματίσετε την συνδρομή σας,
+                    μπορείτε να το κάνετε <a href="https://pediheart.org.cy/en/cancel_membership/">πατώντας εδώ</a>.
+                </p>
             </body>
         </html>
         """
