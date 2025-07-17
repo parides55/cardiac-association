@@ -51,7 +51,7 @@ hr {
     justify-content: space-evenly;
 }
 
-.cta-to-pay {
+.button-to-pay {
     width: 35%;
 }
 
@@ -408,7 +408,7 @@ footer {
     align-items: center;
     }
 
-    .cta-to-pay {
+    .button-to-pay {
         width: 60%;
     }
 }
