@@ -84,7 +84,7 @@ def donation_checkout(request):
 # JCC API integration for Donations
 
 def process_payment_donation(amount, orderId, description):
-    url = "https://gateway-test.jcc.com.cy/payment/rest/register.do"
+    url = "https://gateway.jcc.com.cy/payment/rest/register.do"
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
 
     # Convert amount to cents
@@ -123,7 +123,7 @@ def payment_success_donation(request, orderId):
 
     """Verify JCC payment success and update the donation status."""
     
-    verification_url = "https://gateway-test.jcc.com.cy/payment/rest/getOrderStatusExtended.do"
+    verification_url = "https://gateway.jcc.com.cy/payment/rest/getOrderStatusExtended.do"
     headers = {"Content-type": "application/x-www-form-urlencoded"} 
 
     data = {
@@ -420,7 +420,7 @@ def basket_checkout(request):
 # JCC API integration for Shop
 
 def process_payment_shop(amount, orderId, description):
-    url = "https://gateway-test.jcc.com.cy/payment/rest/register.do"
+    url = "https://gateway.jcc.com.cy/payment/rest/register.do"
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
 
     # Convert amount to cents
@@ -456,7 +456,7 @@ def process_payment_shop(amount, orderId, description):
 def payment_success_shop(request, orderId):
     """Verify JCC payment success and update the donation status."""
     
-    verification_url = "https://gateway-test.jcc.com.cy/payment/rest/getOrderStatusExtended.do"
+    verification_url = "https://gateway.jcc.com.cy/payment/rest/getOrderStatusExtended.do"
     headers = {"Content-type": "application/x-www-form-urlencoded"} 
 
     data = {

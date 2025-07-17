@@ -21,11 +21,17 @@ def index(request):
 
 # More Information page about heart disease view
 def MoreInfo(request):
+    """
+    Render the page with more information about heart disease.
+    """
     return render(request, "home_page/heart_disease_info.html")
 
 
 # Become a member views
 def become_member(request):
+    """
+    Handle the membership registration process.
+    """
 
     try:
         if request.method == 'POST':
@@ -69,7 +75,7 @@ def become_member(request):
 
 def process_payment(orderId):
 
-    url = "https://gateway-test.jcc.com.cy/payment/rest/register.do"
+    url = "https://gateway.jcc.com.cy/payment/rest/register.do"
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
 
     data = {
@@ -106,7 +112,7 @@ def membership_success(request, orderId):
 
     """Verify JCC payment success and update the member status."""
     
-    verification_url = "https://gateway-test.jcc.com.cy/payment/rest/getOrderStatusExtended.do"
+    verification_url = "https://gateway.jcc.com.cy/payment/rest/getOrderStatusExtended.do"
     headers = {"Content-type": "application/x-www-form-urlencoded"} 
     
     data = {
@@ -161,6 +167,9 @@ def membership_failed(request, orderId):
 
 
 def send_welcome_email(member):
+    """
+    Send a welcome email to the new member after successful payment.
+    """
     
     logger = logging.getLogger(__name__)
     
@@ -230,6 +239,9 @@ def send_welcome_email(member):
 
 
 def send_email_to_the_admin(member):
+    """
+    Send an email to the admin with the details of the new member.
+    """
     
     subject = f"Εγγραφή Νέου μέλους: {member.name} {member.surname}"
     

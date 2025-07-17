@@ -56,7 +56,7 @@ def check_subscriptions_for_payment():
 
 def get_credentials(client_id):
 
-    url = "https://gateway-test.jcc.com.cy/payment/rest/getBindings.do"
+    url = "https://gateway.jcc.com.cy/payment/rest/getBindings.do"
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
     
     data ={
@@ -82,7 +82,7 @@ def get_credentials(client_id):
 
 def make_payment(order_number, client_id, binding_id, donor_id,amount):
     
-    url = "https://gateway-test.jcc.com.cy/payment/rest/instantPayment.do"
+    url = "https://gateway.jcc.com.cy/payment/rest/instantPayment.do"
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
     
     data = {
