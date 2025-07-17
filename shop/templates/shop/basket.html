@@ -140,8 +140,10 @@
                                     {% endfor %}
                                 </div>
                                 <div class="col-12 text-center my-3 submit-logo-div">
-                                    <button type="submit" class="btn btn-outline-secondary w-50" aria-label="pay">{% trans 'Pay' %}</button>
-                                    <img width="200" height="auto" src="{% static 'images/JCCgateway_VisaMastercard_V.jpg' %}" alt="{% trans 'Credit card logos' %}">
+                                    <button type="submit" class="btn btn-outline-secondary my-2 cta-to-pay" aria-label="pay">{% trans 'Pay' %}</button>
+                                    <a class="my-2 text-secondary" href="{% url 'terms_and_conditions' %}" target="_blank">Terms and Conditions</a>
+                                    <a class="my-2 text-secondary" href="{% url 'privacy_policy' %}" target="_blank">Privacy Policy</a>
+                                    <img class="my-2" width="200" height="auto" src="{% static 'images/JCCgateway_VisaMastercard_V.jpg' %}" alt="{% trans 'Credit card logos' %}">
                                 </div>
                             </form>
                         </div>
