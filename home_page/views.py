@@ -246,3 +246,9 @@ def send_email_to_the_admin(member):
 
 
 check_member_for_renewal()
+
+def cancel_membership(request):
+    """
+    Cancel the membership of a member.
+    """
+    return render(request, "home_page/cancel_membership.html")
