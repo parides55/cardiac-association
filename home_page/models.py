@@ -20,7 +20,7 @@ class Member(models.Model):
     registered_as = models.CharField(max_length=20, choices=REGISTRATION_CHOICES, default='sufferer')
     name = models.CharField(max_length=100)
     surname = models.CharField(max_length=100)
-    email = models.EmailField(unique=True)
+    email = models.EmailField()
     id_number = models.CharField(max_length=20, unique=True)
     profession = models.CharField(max_length=100, blank=True, null=True)
     home_number = models.CharField(max_length=20, blank=True, null=True)
