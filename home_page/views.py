@@ -273,15 +273,19 @@ def cancel_membership(request):
             id_number = request.POST.get("id_number")
 
             member = get_object_or_404(Member, id_number=id_number)
-            member.membership_status = "Inactive"
-            member.save()
+            if member.membership_status == "active":
+                member.membership_status = "inactive"
+                member.save()
 
-            messages.info(request, "Your membership has been successfully cancelled.")
+                messages.info(request, "Your membership has been successfully cancelled.")
 
-            send_cancel_email_to_member(member)
-            send_cancel_email_to_admin(member)
+                send_cancel_email_to_member(member)
+                send_cancel_email_to_admin(member)
 
-            return redirect('home')
+                return redirect('home')
+            else:
+                messages.error(request, "Your membership is already inactive or has been cancelled.")
+                return render(request, "home_page/cancel_membership.html")
 
         return render(request, "home_page/cancel_membership.html")
 
