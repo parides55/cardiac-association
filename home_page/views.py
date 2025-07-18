@@ -273,7 +273,7 @@ def cancel_membership(request):
             id_number = request.POST.get("id_number")
 
             member = get_object_or_404(Member, id_number=id_number)
-            member.membership_status = False
+            member.membership_status = "Inactive"
             member.save()
 
             messages.info(request, "Your membership has been successfully cancelled.")
