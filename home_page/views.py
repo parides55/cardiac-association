@@ -263,8 +263,94 @@ def send_email_to_the_admin(member):
 
 check_member_for_renewal()
 
+
 def cancel_membership(request):
     """
     Cancel the membership of a member.
     """
-    return render(request, "home_page/cancel_membership.html")
+    try:
+        if request.method == "POST":
+            id_number = request.POST.get("id_number")
+
+            member = get_object_or_404(Member, id_number=id_number)
+            member.membership_status = False
+            member.save()
+
+            messages.info(request, "Your membership has been successfully cancelled.")
+
+            send_cancel_email_to_member(member)
+            send_cancel_email_to_admin(member)
+
+            return redirect('home')
+
+        return render(request, "home_page/cancel_membership.html")
+
+    except Exception as e:
+        messages.error(request, f"The following error occurred while canceling your membership: {e}"
+                        f" Please try again using the ID number you used to sign up or contact us"
+                        f" for further assistance.")
+        return render(request, "home_page/cancel_membership.html")
+
+
+def send_cancel_email_to_member(member):
+    """
+    Send a cancellation email to the member.
+    """
+    
+    logger = logging.getLogger(__name__)
+    
+    subject = "Membership Cancellation Confirmation"
+    from_email = settings.EMAIL_HOST_USER
+    to_email = [member.email]
+
+    html_content = f"""
+        <html>
+            <body>
+                <p>Dear {member.name} {member.surname},</p>
+                <p>Your membership with the Association of Children with Heart Disease has been successfully cancelled.</p>
+                <p>Thank you for your past support. If you have any questions or need further assistance, please feel free to contact us.</p>
+                <p>Best regards,<br>
+                Association of Children with Heart Disease</p>
+            </body>
+        </html>
+        """
+
+    email = EmailMultiAlternatives(subject, "", from_email, to_email)
+    email.attach_alternative(html_content, "text/html")
+
+    # Locate the image in the static folder
+    logo_path = finders.find("images/default_logo.jpg")
+
+    if logo_path:
+        try:
+            with open(logo_path, "rb") as logo_file:
+                email.attach("default_logo.jpg", logo_file.read(), "image/jpeg")
+        except Exception as e:
+            logger.error(f"Failed to attach logo image: {e}")
+    else:
+        logger.warning("Logo image not found: static/images/default_logo.jpg")
+
+    try:
+        email.send()
+        logger.info(f"Welcome email successfully sent to {member.email}")
+    except Exception as e:
+        logger.error(f"Failed to send welcome email to {member.email}: {e}")
+
+
+def send_cancel_email_to_admin(member):
+    """
+    Send a cancellation email to the admin with the details of the cancelled membership.
+    """
+    subject = f"Membership Cancellation: {member.name} {member.surname}"
+    
+    text_content = f"""
+    A member has cancelled their membership:
+
+    Name: {member.name}
+    Surname: {member.surname}
+    Email: {member.email}
+    Mobile Number: {member.mobile_number}
+    Cancellation Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+    """
+
+    mail_admins(subject, text_content)
