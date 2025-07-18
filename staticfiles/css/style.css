@@ -254,6 +254,19 @@ nav {
     transform: translate(-50%, -50%);
 }
 
+/* ---------------------------- Cancel Membership --------------------------------------------- */
+#cancelMembershipForm {
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#confirmCancellation {
+    width: 50px;
+}
 
 /* ---------------------------- Footer --------------------------------------------- */
 footer {
