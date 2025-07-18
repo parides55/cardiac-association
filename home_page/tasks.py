@@ -102,7 +102,7 @@ def make_payment(order_number, client_id, binding_id, member_id):
             payment_response = response_data.get("orderStatus")
             # Update the member's next payment date
             member = Member.objects.get(id=member_id)
-            member.next_payment_date = timezone.now() + timezone.timedelta(days=1)
+            member.next_payment_date = timezone.now() + timezone.timedelta(years=1)
             member.save()
             return payment_response
         else:
