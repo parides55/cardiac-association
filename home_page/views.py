@@ -299,18 +299,36 @@ def send_cancel_email_to_member(member):
     
     logger = logging.getLogger(__name__)
     
-    subject = "Membership Cancellation Confirmation"
+    subject = "Σας ευχαριστούμε για την υποστήριξή σας"
     from_email = settings.EMAIL_HOST_USER
     to_email = [member.email]
 
     html_content = f"""
         <html>
             <body>
-                <p>Dear {member.name} {member.surname},</p>
-                <p>Your membership with the Association of Children with Heart Disease has been successfully cancelled.</p>
-                <p>Thank you for your past support. If you have any questions or need further assistance, please feel free to contact us.</p>
-                <p>Best regards,<br>
-                Association of Children with Heart Disease</p>
+                <p>Αγαπητέ/ή <strong> {member.name} {member.surname}</strong>,</p>
+                <p>Εκ μέρους όλων μας στον <strong>Σύλλογο Γονέων και Φίλων Παιδιών με Καρδιοπάθεια</strong>, 
+                θα θέλαμε να σας εκφράσουμε τις εγκάρδιες ευχαριστίες μας για τη μέχρι τώρα υποστήριξή σας και 
+                τη συμμετοχή σας ως μέλος.</p><br>
+                <p>Η συμβολή σας είχε ουσιαστικό αντίκτυπο στις ζωές παιδιών και οικογενειών που αντιμετωπίζουν 
+                συγγενείς καρδιοπάθειες. Είτε με τον χρόνο σας, τις δωρεές σας ή την υποστήριξή σας, είμαστε βαθιά 
+                ευγνώμονες για όλα όσα προσφέρατε στον κοινό μας σκοπό.</p><br>
+                <p>Παρόλο που η συνδρομή σας έφτασε στο τέλος της, ελπίζουμε να παραμείνετε κοντά μας. 
+                Συνεχίζουμε με δράσεις, εκδηλώσεις και πρωτοβουλίες και θα ήταν χαρά μας να σας έχουμε μαζί μας 
+                σε αυτήν τη διαδρομή.</p><br>
+                <p>Μπορείτε να ενημερώνεστε για τα νέα και τις εκδηλώσεις μας πατώντας 
+                <a href="https://pediheart.org.cy/en/events/" target="_blank">εδώ</a></p><br><br>
+                <p>Σας ευχαριστούμε και πάλι για τη στήριξή σας.</p><br><br>
+                <p>
+                    Με εκτίμηση,<br><br>
+                    <strong>Σύνδεσμος Γονέων και Φίλων Παιδιών με Καρδιοπάθειες</strong><br>
+                    <img src="cid:default_logo.jpg" alt="Association's Logo" width="100px" height=auto><br>
+                    <a href="pediheart.org.cy">pediheart.org.cy</a><br>
+                    Οδός Γράμμου 11, Διαμέρισμα 5,
+                    Στρόβολος, Λευκωσία, Κύπρος<br><br>
+                    Tel: <a href="tel:+35722315196">22315196</a><br>
+                    Mail: <a href="mailto:pediheart@cytanet.com.cy">pediheart@cytanet.com.cy</a><br><br>
+                </p>
             </body>
         </html>
         """
