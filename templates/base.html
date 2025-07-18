@@ -154,6 +154,8 @@
                             <li><a class="dropdown-item d-none" href="{% url 'our_history' %}">{% trans 'Our history' %}</a></li>
                             <li><a class="dropdown-item" href="{% url 'our_people' %}">{% trans 'Our people' %}</a></li>
                             <li><a class="dropdown-item" href="{% url 'gallery_view' %}">{% trans 'Our gallery' %}</a></li>
+                            <li><a class="dropdown-item" href="#get-in-touch">{% trans 'Contact Us' %}</a></li>
+                            
                         </ul>
                     </li>
                 </ul>
@@ -231,7 +233,7 @@
     <footer>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-5 footer-div order-3 order-lg-1">
+                <div id="get-in-touch" class="col-lg-5 footer-div order-3 order-lg-1">
                     <h5>{% trans 'Get in touch' %}</h5>
                     <br>
                     <p>{% trans 'The Association of parents and friends' %}<br>{% trans 'of children with Heart Disease' %}</p>
