@@ -13,4 +13,5 @@ urlpatterns = [
     path("payment_failed_donation/<str:orderId>/", views.payment_failed_donation, name="payment_failed_donation"),
     path("payment_success_shop/<str:orderId>/", views.payment_success_shop, name="payment_success_shop"),
     path("payment_failed_shop/<str:orderId>/", views.payment_failed_shop, name="payment_failed_shop"),
+    path("cancel_monthly_donation/", views.cancel_monthly_donation, name="cancel_monthly_donation")
 ]
