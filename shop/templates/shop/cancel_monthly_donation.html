@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+
+<div class="container-fluid">
+  <div class="row my-5">
+    <div class="col">
+      <h1>{% trans 'Cancel Monthly Subscription' %}</h1>
+    </div>
+    <div class="row my-5">
+      <div class="col">
+        <form id="cancelMembershipForm" method="post" action="{% url 'cancel_membership' %}">
+          {% csrf_token %}
+          <div>
+            <label for="id_number">{% trans 'ID Number' %}</label>
+            <input type="text" id="id_number" name="id_number" placeholder="{% trans 'Enter your ID number' %}" required>
+          </div>
+          <div class="d-flex">
+            <label for="confirmCancellation">{% trans 'I confirm that I want to cancel my monthly subscription' %}</label>
+            <input type="checkbox" id="confirmCancellation" name="confirmCancellation" required>
+          </div>
+          <div>
+            <p><small>
+                {% blocktrans %}
+                **Note**: By canceling your membership, you will no longer receive updates or
+                benefits associated with being a member. If you have any questions or concerns,
+                please <a href="#get-in-touch">contact us</a>.
+                {% endblocktrans %}
+              </small></p>
+          </div>
+          <div>
+            <button type="submit" class="btn btn-danger">{% trans 'Cancel Membership' %}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

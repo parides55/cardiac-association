@@ -160,6 +160,7 @@ def payment_success_donation(request, orderId):
             messages.success(request, f"Thank you for your donation! Your payment was successful.")
             return redirect('donations')
         else:
+            # !!!add a step to inform admin when a payment is not completed.
             messages.error(request, "Payment verification failed. Try again or contact us for further assistance.")
             return  redirect('donations')
 
@@ -176,6 +177,7 @@ def payment_failed_donation(request, orderId):
     try:
         orderId = orderId.split("-")[0] # Get the original orderId
         donation = Donation.objects.get(id=orderId)
+        # !!!add a step to send email to admin that the payment of the above donation failed. Don't delete.
         donation.delete()
         messages.error(request, "Payment failed. Please try again.")
         return redirect('donations')
@@ -224,19 +226,17 @@ def send_email_to_donor(donation):
             <p>
             Εκ μέρους του <strong>Συνδέσμου Γονέων και Φίλων Καρδιοπαθών παιδιών</strong>, θα θέλαμε να 
             εκφράσουμε την ειλικρινή μας ευγνωμοσύνη για τη γενναιόδωρη δωρεά σας. Η υποστήριξή σας είναι 
-            ανεκτίμητη για εμάς και τα παιδιά που βοηθάμε. Χάρη σε ανθρώπους με ευαισθησία όπως εσείς, 
-            μπορούμε να συνεχίσουμε να προσφέρουμε ουσιαστική βοήθεια στα παιδιά με καρδιοπάθειες και τις 
-            οικογένειές τους.<br>
-            Η καλοσύνη σας δεν προσφέρει μόνο ελπίδα, αλλά έχει και πραγματικό αντίκτυπο στις ζωές τους. 
+            ανεκτίμητη για εμάς και τα παιδιά που βοηθάμε.<br><br> Χάρη σε ανθρώπους με ευαισθησία όπως εσείς,μπορούμε να συνεχίσουμε να προσφέρουμε ουσιαστική βοήθεια στα παιδιά με καρδιοπάθειες και τις 
+            οικογένειές τους. Η καλοσύνη σας δεν προσφέρει μόνο ελπίδα, αλλά έχει και πραγματικό αντίκτυπο στις ζωές τους.<br><br>
             Είτε πρόκειται για τη χρηματοδότηση ιατρικής περίθαλψης, την παροχή ψυχολογικής στήριξης ή 
             την ευαισθητοποίηση του κοινού, η συμβολή σας μας φέρνει ένα βήμα πιο κοντά στην αποστολή 
-            μας: να εξασφαλίσουμε ότι κάθε παιδί θα λάβει τη φροντίδα και την υποστήριξη που του αξίζει.<br>
+            μας: <strong>να εξασφαλίσουμε ότι κάθε παιδί θα λάβει τη φροντίδα και την υποστήριξη που του αξίζει.</strong><br><br>
             Εκτιμούμε βαθύτατα τη γενναιοδωρία σας και τη δέσμευσή σας στην προσπάθειά μας. 
             Παρακάτω θα βρείτε τα στοιχεία της δωρεάς σας:<br><br>
+            Μοναδικός αρ. δωρεάς: {donatio.id}<br>
             Ποσό Δωρεάς: €{donation.donation_amount}<br>
             Τύπος Δωρεάς: {donation.donation_type}<br><br>
             Για άλλη μια φορά, σας ευχαριστούμε που είστε δίπλα μας. Αν έχετε οποιαδήποτε ερώτηση ή 
-            επιθυμείτε να μάθετε περισσότερα για τον αντίκτυπο της υποστήριξής σας, μη διστάσετε να 
             επικοινωνήσετε μαζί μας.<br><br>
             </p>
             <p>
@@ -250,6 +250,9 @@ def send_email_to_donor(donation):
                 Tel: <a href="tel:+35722315196">22315196</a><br>
                 Mail: <a href="mailto:pediheart@cytanet.com.cy">pediheart@cytanet.com.cy</a><br><br>
             </p>
+            <p>
+                    <strong>Σημείωση:</strong> Εάν θέλετε να τερματίσετε την μηνιαία συνδρομή σας, μπορείτε να το κάνετε <a href="https://pediheart.org.cy/en/cancel_monthly_donation/">πατώντας εδώ</a>.
+                </p>
         </body>
     </html>
     """
@@ -273,7 +276,16 @@ def send_email_to_donor(donation):
         email.send()
         logger.info(f"Welcome email successfully sent to {donation.email}")
     except Exception as e:
+        # !!!add step to inform admin that email not send
         logger.error(f"Failed to send welcome email to {donation.email}: {e}")
+        
+
+def cancel_monthly_donation(request):
+    """
+    Cancels the monthly subscriptions of a donor.
+    """
+    
+    return render(request, 'shop/cancel_monthly_donation.html')
 
 # ----------- Shop views -----------
 

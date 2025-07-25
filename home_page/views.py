@@ -40,10 +40,6 @@ def become_member(request):
                 new_member = member_form.save(commit=False)
                 new_member.save()
 
-                # messages.success(request, f"Welcome to the family of the Association of Children with Heart Disease." 
-                #     f"Your membership has been successfully registered.")
-                # return render(request, "home_page/index.html")
-                
                 # Process payment
                 # Append a random 8-character string to the orderId to make it unique
                 unique_order_number = f"{new_member.id}-{uuid.uuid4().hex[:8]}"
@@ -160,6 +156,7 @@ def membership_failed(request, orderId):
     
     orderId = orderId.split("-")[0]  # Get the original orderId
     member = get_object_or_404(Member, id=orderId)
+    # !!!add a step to send email to admin to inform about failed payment of a member.
     member.delete()
     
     messages.error(request, "Payment failed. Please try again or contact us for further assistance.")
@@ -185,7 +182,7 @@ def send_welcome_email(member):
                     Με μεγάλη χαρά σας καλωσορίζουμε ως μέλος του <strong>Συνδέσμου Γονέων και Φίλων Καρδιοπαθών παιδιών</strong>! 
                     Η υποστήριξή σας στα παιδιά με καρδιοπάθειες είναι ανεκτίμητη, και εκτιμούμε 
                     βαθύτατα τη γενναιοδωρία σας.<br><br>
-                    Με τη συνδρομή σας των 20€ ετησίως, συμβάλλετε άμεσα σε προγράμματα που παρέχουν 
+                    Με τη συνδρομή σας των €20 ετησίως, συμβάλλετε άμεσα σε προγράμματα που παρέχουν 
                     απαραίτητη ιατρική φροντίδα, συναισθηματική στήριξη και πόρους για τις οικογένειες 
                     που το έχουν ανάγκη. Η συνεισφορά σας μας βοηθά να συνεχίσουμε το έργο μας και να 
                     κάνουμε τη διαφορά στη ζωή αυτών των παιδιών.<br><br>
@@ -235,6 +232,7 @@ def send_welcome_email(member):
         email.send()
         logger.info(f"Welcome email successfully sent to {member.email}")
     except Exception as e:
+        # !!!add step to send email to admin about failed email
         logger.error(f"Failed to send welcome email to {member.email}: {e}")
 
 
@@ -333,6 +331,9 @@ def send_cancel_email_to_member(member):
                     Tel: <a href="tel:+35722315196">22315196</a><br>
                     Mail: <a href="mailto:pediheart@cytanet.com.cy">pediheart@cytanet.com.cy</a><br><br>
                 </p>
+                <p>
+                    <strong><small>Αν τερματίσατε τη συνδρομή σας καταλάθος <a href="https://pediheart.org.cy/become_member">πατήστε εδώ</a> για επανεγγραφή.</strong></small>
+                </p>
             </body>
         </html>
         """
@@ -356,6 +357,7 @@ def send_cancel_email_to_member(member):
         email.send()
         logger.info(f"Welcome email successfully sent to {member.email}")
     except Exception as e:
+        # !!!add step to send email to admin for failed email
         logger.error(f"Failed to send welcome email to {member.email}: {e}")
 
 
