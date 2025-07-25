@@ -10,7 +10,7 @@ from django.conf import settings
 from .models import *
 
 
-@background(schedule=60)
+@background(schedule=60, repeat=None)
 def check_member_for_renewal():
     
     today = timezone.localdate()
