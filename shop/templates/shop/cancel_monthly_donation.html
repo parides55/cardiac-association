@@ -14,8 +14,16 @@
       <div class="col">
         <form id="cancelMembershipForm" method="post" action="{% url 'cancel_membership' %}">
           {% csrf_token %}
+          <div class="">
+            <h5>
+          {% blocktrans %}
+          We are sorry to see you go! If you wish to cancel your monthly donation, please 
+          enter your Donation ID correctly to process the cancellation.
+          {% endblocktrans %}
+        </h5>
+          </div>
           <div>
-            <label for="donation_id">{% trans 'Donation ID' %}</label>
+            <label for="donation_id"><strong>{% trans 'Donation ID' %}</strong></label>
             <input type="text" id="donation_id" name="donation_id" placeholder="{% trans 'Enter your Donation ID' %}" required>
           </div>
           <div class="d-flex">
