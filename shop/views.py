@@ -284,8 +284,118 @@ def cancel_monthly_donation(request):
     """
     Cancels the monthly subscriptions of a donor.
     """
+    try:
+        if request.method == "POST":
+            donation_id = request.POST.get('donation_id')
+            
+            donation = get_object_or_404(Donation, id=donation_id)
+            if donation.status == 'active':
+                donation.status = 'inactive'
+                
+                messages.info(request, "Your monthly subscription has been successfully cancelled.")
+                
+                send_cancel_email_donor(donation)
+                send_cancel_email_admin(donation)
+                
+                return redirect('home')
+            else:
+                messages.error(request, "Your monthly subscription is already inactive or has been cancelled.")
+                return redirect('cancel_monthly_donation')
+            
+        return render(request, "shop/cancel_monthly_donation.html")
+            
+    except Donation.DoesNotExist:
+        messages.error(request, "Donation not found.")
+        return redirect('cancel_monthly_donation')
     
-    return render(request, 'shop/cancel_monthly_donation.html')
+    except Exception as e:
+        messages.error(request, f"The following error occurred: {e}")
+        return redirect('cancel_monthly_donation')
+            
+
+def send_cancel_email_donor(donation):
+    """
+    Send a cancellation email to the donor.
+    """
+    
+    logger = logging.getLogger(__name__)
+    
+    subject = "Σας ευχαριστούμε για την υποστήριξή σας"
+    from_email = settings.EMAIL_HOST_USER
+    to_email = [donation.email]
+
+    html_content = f"""
+        <html>
+            <body>
+                <p>Αγαπητέ/ή <strong> {donation.fullname}</strong>,</p>
+                <p>Εκ μέρους όλων μας στον <strong>Σύλλογο Γονέων και Φίλων Παιδιών με Καρδιοπάθεια</strong>, 
+                θα θέλαμε να σας εκφράσουμε τις εγκάρδιες ευχαριστίες μας για τη μέχρι τώρα υποστήριξή σας και 
+                τη συμμετοχή σας ως μέλος.</p>
+                <p>Η συμβολή σας είχε ουσιαστικό αντίκτυπο στις ζωές παιδιών και οικογενειών που αντιμετωπίζουν 
+                συγγενείς καρδιοπάθειες. Είτε με τον χρόνο σας, τις δωρεές σας ή την υποστήριξή σας, είμαστε βαθιά 
+                ευγνώμονες για όλα όσα προσφέρατε στον κοινό μας σκοπό.</p>
+                <p>Παρόλο που η συνδρομή σας έφτασε στο τέλος της, ελπίζουμε να παραμείνετε κοντά μας. 
+                Συνεχίζουμε με δράσεις, εκδηλώσεις και πρωτοβουλίες και θα ήταν χαρά μας να σας έχουμε μαζί μας 
+                σε αυτήν τη διαδρομή.</p><br>
+                <p>Μπορείτε να ενημερώνεστε για τα νέα και τις εκδηλώσεις μας πατώντας 
+                <a href="https://pediheart.org.cy/en/events/" target="_blank">εδώ</a></p><br>
+                <p>Σας ευχαριστούμε και πάλι για τη στήριξή σας.</p><br><br>
+                <p>
+                    Με εκτίμηση,<br><br>
+                    <strong>Σύνδεσμος Γονέων και Φίλων Παιδιών με Καρδιοπάθειες</strong><br>
+                    <img src="cid:default_logo.jpg" alt="Association's Logo" width="100px" height=auto><br>
+                    <a href="pediheart.org.cy">pediheart.org.cy</a><br>
+                    Οδός Γράμμου 11, Διαμέρισμα 5,
+                    Στρόβολος, Λευκωσία, Κύπρος<br><br>
+                    Tel: <a href="tel:+35722315196">22315196</a><br>
+                    Mail: <a href="mailto:pediheart@cytanet.com.cy">pediheart@cytanet.com.cy</a><br><br>
+                </p>
+                <p>
+                    <strong><small>Αν τερματίσατε τη συνδρομή σας καταλάθος <a href="https://pediheart.org.cy/become_member">πατήστε εδώ</a> για επανεγγραφή.</strong></small>
+                </p>
+            </body>
+        </html>
+        """
+
+    email = EmailMultiAlternatives(subject, "", from_email, to_email)
+    email.attach_alternative(html_content, "text/html")
+
+    # Locate the image in the static folder
+    logo_path = finders.find("images/default_logo.jpg")
+
+    if logo_path:
+        try:
+            with open(logo_path, "rb") as logo_file:
+                email.attach("default_logo.jpg", logo_file.read(), "image/jpeg")
+        except Exception as e:
+            logger.error(f"Failed to attach logo image: {e}")
+    else:
+        logger.warning("Logo image not found: static/images/default_logo.jpg")
+
+    try:
+        email.send()
+        logger.info(f"Welcome email successfully sent to {donation.email}")
+    except Exception as e:
+        # !!!add step to send email to admin for failed email
+        logger.error(f"Failed to send welcome email to {donation.email}: {e}")
+
+
+def send_cancel_email_admin(donation):
+    """
+    Send a cancellation email to the admin with the details of the cancelled subscription.
+    """
+    subject = f"Membership Cancellation: {donation.fullname} "
+    
+    text_content = f"""
+    A member has cancelled their membership:
+
+    Name: {donation.fullname}
+    Email: {donation.email}
+    Mobile Number: {donation.mobile_number}
+    Cancellation Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+    """
+
+    mail_admins(subject, text_content)
 
 # ----------- Shop views -----------
 

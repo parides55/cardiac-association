@@ -255,7 +255,7 @@ nav {
 }
 
 /* ---------------------------- Cancel Membership --------------------------------------------- */
-#cancelMembershipForm {
+#cancelMembershipForm, #cancelDonationForm {
     height: 50vh;
     width: 100%;
     display: flex;
