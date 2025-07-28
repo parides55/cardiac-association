@@ -251,8 +251,8 @@ def send_email_to_donor(donation):
                 Mail: <a href="mailto:pediheart@cytanet.com.cy">pediheart@cytanet.com.cy</a><br><br>
             </p>
             <p>
-                    <strong>Σημείωση:</strong> Εάν θέλετε να τερματίσετε την μηνιαία συνδρομή σας, μπορείτε να το κάνετε <a href="https://pediheart.org.cy/en/shop/cancel_monthly_donation/">πατώντας εδώ</a>.
-                </p>
+                <strong>Σημείωση:</strong> Εάν θέλετε να τερματίσετε την μηνιαία συνδρομή σας, μπορείτε να το κάνετε <a href="https://pediheart.org.cy/en/shop/cancel_monthly_donation/">πατώντας εδώ</a>.
+            </p>
         </body>
     </html>
     """

@@ -156,7 +156,7 @@ def send_email_for_renewal(donor):
             </p>
             <p>
                 <strong>Σημείωση:</strong> Εάν θέλετε να τερματίσετε την εγγραφή σας,
-                μπορείτε να το κάνετε <a href="https://example.com/unsubscribe">πατώντας εδώ</a>.
+                μπορείτε να το κάνετε <a href="https://pediheart.org.cy/en/shop/cancel_monthly_donation/">πατώντας εδώ</a>.
             </p>
         </body>
     </html>
