@@ -288,9 +288,11 @@ def cancel_monthly_donation(request):
         if request.method == "POST":
             donation_id = request.POST.get('donation_id')
             
-            donation = get_object_or_404(Donation, id=donation_id)
+            donation = get_object_or_404(Donation, donation_id=donation_id)
             if donation.status == 'active':
                 donation.status = 'inactive'
+                donation.next_payment_date = None
+                donation.save()
                 
                 messages.info(request, "Your monthly subscription has been successfully cancelled.")
                 
@@ -327,7 +329,7 @@ def send_cancel_email_donor(donation):
     html_content = f"""
         <html>
             <body>
-                <p>Αγαπητέ/ή <strong> {donation.fullname}</strong>,</p>
+                <p>Αγαπητέ/ή <strong> {donation.full_name}</strong>,</p>
                 <p>Εκ μέρους όλων μας στον <strong>Σύλλογο Γονέων και Φίλων Παιδιών με Καρδιοπάθεια</strong>, 
                 θα θέλαμε να σας εκφράσουμε τις εγκάρδιες ευχαριστίες μας για τη μέχρι τώρα υποστήριξή σας και 
                 τη συμμετοχή σας ως μέλος.</p>
@@ -349,9 +351,6 @@ def send_cancel_email_donor(donation):
                     Στρόβολος, Λευκωσία, Κύπρος<br><br>
                     Tel: <a href="tel:+35722315196">22315196</a><br>
                     Mail: <a href="mailto:pediheart@cytanet.com.cy">pediheart@cytanet.com.cy</a><br><br>
-                </p>
-                <p>
-                    <strong><small>Αν τερματίσατε τη συνδρομή σας καταλάθος <a href="https://pediheart.org.cy/become_member">πατήστε εδώ</a> για επανεγγραφή.</strong></small>
                 </p>
             </body>
         </html>
@@ -389,9 +388,9 @@ def send_cancel_email_admin(donation):
     text_content = f"""
     A member has cancelled their membership:
 
-    Name: {donation.fullname}
+    Name: {donation.full_name}
     Email: {donation.email}
-    Mobile Number: {donation.mobile_number}
+    Mobile Number: {donation.phone_number}
     Cancellation Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
     """
 
