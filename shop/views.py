@@ -734,4 +734,4 @@ def send_email_to_admin_shop(shipping_details):
 
     mail_admins(subject, text_content)
 
-check_subscriptions_for_payment()
+check_subscriptions_for_payment(repeat=None)
