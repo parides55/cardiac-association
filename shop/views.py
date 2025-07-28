@@ -288,7 +288,7 @@ def cancel_monthly_donation(request):
         if request.method == "POST":
             donation_id = request.POST.get('donation_id')
             
-            donation = get_object_or_404(Donation, donation_id=donation_id)
+            donation = get_object_or_404(Donation, id=donation_id)
             if donation.status == 'active':
                 donation.status = 'inactive'
                 donation.next_payment_date = None
