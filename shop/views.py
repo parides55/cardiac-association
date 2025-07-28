@@ -383,7 +383,7 @@ def send_cancel_email_admin(donation):
     """
     Send a cancellation email to the admin with the details of the cancelled subscription.
     """
-    subject = f"Membership Cancellation: {donation.fullname} "
+    subject = f"Membership Cancellation: {donation.full_name} "
     
     text_content = f"""
     A member has cancelled their membership:
