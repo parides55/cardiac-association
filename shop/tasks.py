@@ -24,6 +24,7 @@ def check_subscriptions_for_payment():
     )
     
     try:
+        donors_for_payment_list = []
         if not donors_for_payment.exists():
             subject = "Donors for payment"
             text_content = "There are no donors for payment today."
@@ -47,7 +48,13 @@ def check_subscriptions_for_payment():
 
                 # Send email notification to the member
                 send_email_for_renewal(donor)
-    
+                donors_for_payment_list.append((donor.full_name, donor.id))
+
+            if donors_for_payment_list:
+                subject = "Donors for payment"
+                text_content = f"The following donors have paid the monthly subscription today:\n" + "\n".join([f"{name} ({id})" for name, id in donors_for_payment_list])
+                mail_admins(subject, text_content)
+
     except Exception as e:
         subject = "Error in renewal task"
         text_content = f"An error occurred: {str(e)}"

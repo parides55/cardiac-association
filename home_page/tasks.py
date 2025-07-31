@@ -22,6 +22,7 @@ def check_member_for_renewal():
     )
     
     try:
+        renewed_members_list = []
         if not members_for_renewal.exists():
             subject = "Members for renewal"
             text_content = "There are no members for renewal today."
@@ -43,7 +44,13 @@ def check_member_for_renewal():
                 payment_response = make_payment(unique_order_number, member_client_id, binding_id, member.id)
 
                 # Send email notification to the member
-                send_email_for_renewal(member)  
+                send_email_for_renewal(member)
+                renewed_members_list.append((member.name, member.surname, member.id_number))
+
+            if renewed_members_list:
+                subject = "Members renewed successfully"
+                text_content = f"The following members have been renewed:\n" + "\n".join([f"{name} {surname} ({id_number})" for name, surname, id_number in renewed_members_list])
+                mail_admins(subject, text_content)
 
     except Exception as e:
         subject = "Error in renewal task"
