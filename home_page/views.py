@@ -259,7 +259,7 @@ def send_email_to_the_admin(member):
     mail_admins(subject, text_content)
 
 
-check_member_for_renewal(repeat=None)
+# check_member_for_renewal()
 
 # Cancel membership views
 
