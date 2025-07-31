@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-28 17:06+0300\n"
+"POT-Creation-Date: 2025-08-01 00:04+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -401,13 +401,18 @@ msgstr ""
 msgid "Read our News"
 msgstr "Διαβάστε τα νέα μας"
 
+#: .\home_page\templates\home_page\cancel_membership.html:11
+#: .\home_page\templates\home_page\cancel_membership.html:35
+msgid "Cancel Membership"
+msgstr "Ακύρωση Συνδρομής"
+
 #: .\home_page\templates\home_page\cancel_membership.html:19
 msgid "Enter your ID number"
-msgstr ""
+msgstr "Εισάγετε την ταυτότητά σας"
 
 #: .\home_page\templates\home_page\cancel_membership.html:22
 msgid "I confirm that I want to cancel my membership"
-msgstr ""
+msgstr "Επιβεβαιώνω ότι θέλω να ακυρώσω τη συνδρομή μου"
 
 #: .\home_page\templates\home_page\cancel_membership.html:27
 msgid ""
@@ -427,10 +432,6 @@ msgstr ""
 "                        παρακαλούμε <a href=\"#get-in-touch\">επικοινωνήστε "
 "μαζί μας</a>.\n"
 "                    "
-
-#: .\home_page\templates\home_page\cancel_membership.html:35
-msgid "Cancel Membership"
-msgstr "Ακύρωση Συνδρομής"
 
 #: .\home_page\templates\home_page\heart_disease_info.html:14
 #: .\home_page\templates\home_page\index.html:154
