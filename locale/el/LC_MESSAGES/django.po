@@ -1379,7 +1379,7 @@ msgstr "Η ιστορία μας"
 
 #: .\templates\base.html:157
 msgid "Contact Us"
-msgstr ""
+msgstr "Επικοινωνία"
 
 #: .\templates\base.html:165 .\templates\base.html:166
 #: .\templates\base.html:201 .\templates\base.html:202
