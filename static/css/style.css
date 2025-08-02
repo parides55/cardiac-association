@@ -138,6 +138,59 @@ nav {
     box-shadow: 20px 10px 15px black;
 }
 
+/* ---------------------------- Event Modal --------------------------------------------- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.modal-button {
+    background-color: #e63946;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 15px;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.modal-cta-buttons-div {
+    display: flex;
+    justify-content: space-around;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+
+
 /* ---------------------------- Basket page --------------------------------------------- */
 .basket-img {
     height: 50px;
@@ -424,4 +477,13 @@ footer {
     .button-to-pay {
         width: 60%;
     }
+
+    .modal {
+        top: 15%;
+    }
+
+    .modal-cta-buttons-div {
+    display: flex;
+    flex-direction: column;
+}
 }

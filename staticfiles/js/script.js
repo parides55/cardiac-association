@@ -16,3 +16,22 @@ window.onload = () => {
         ctaButtonHome.classList.add('animate__animated', 'animate__fadeInLeft', 'animate__slower');
     }
 };
+
+document.addEventListener('DOMContentLoaded', function () {
+    setTimeout(function () {
+        const modal = document.getElementById('eventModal');
+        const closeBtn = document.getElementById('closeModal');
+
+        modal.style.display = 'block';
+
+        closeBtn.onclick = function () {
+            modal.style.display = 'none';
+        };
+
+        window.onclick = function (event) {
+            if (event.target === modal) {
+            modal.style.display = 'none';
+            }
+        };
+    }, 5000); // show after 5 seconds
+});
