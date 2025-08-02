@@ -21,12 +21,11 @@
 </section>
 
 <section id='this-months-events'>
-    <div class="container-fluid">
+    <div class="container-fluid {% if current_month_events %} d-block {% else %} d-none {% endif %}">
         <div class="rows ms-2">
             <h2 class='fs-1 fw-bold'>{% trans "This month's events" %}</h2>
         </div>
         <div class="row mt-5">
-            {% if current_month_events %}
             {% for event in current_month_events %}
             <div class="col-12 d-flex justify-content-center col-md-4">
                 <div class="card w-100 h-auto">
@@ -50,27 +49,16 @@
                 </div>
             </div>
             {% endfor %}
-            {% else %}
-            <p class="text-center my-3"> 
-                {%blocktrans%}
-                There are currently no upcoming events. <br><br> 
-                Our team is working to bring you the latest information soon. <br><br>
-                Please check back later for new updates and events. <br><br>
-                Thank you for your understanding!
-                {%endblocktrans%}
-            </p>
-        {% endif %}
         </div>
     </div>
 </section>
 
 <section id='upcoming-events'>
-    <div class="container-fluid">
+    <div class="container-fluid {% if upcoming_events %} d-block {% else %} d-none {% endif %}">
         <div class="rows ms-2">
             <h2 class='fs-1 fw-bold'>{% trans "Our upcoming events" %}</h2>
         </div>
         <div class="row mt-5">
-            {% if upcoming_events %}
             {% for event in upcoming_events %}
             <div class="col-12 d-flex justify-content-center col-md-4">
                 <div class="card w-100 h-auto">
@@ -94,16 +82,6 @@
                 </div>
             </div>
             {% endfor %}
-            {% else %}
-            <p class="text-center my-3"> 
-                {%blocktrans%}
-                There are currently no upcoming events. <br><br> 
-                Our team is working to bring you the latest information soon. <br><br>
-                Please check back later for new updates and events. <br><br>
-                Thank you for your understanding!
-                {%endblocktrans%}
-            </p>
-        {% endif %}
         </div>
     </div>
 </section>
