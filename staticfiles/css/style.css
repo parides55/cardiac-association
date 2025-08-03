@@ -171,7 +171,7 @@ nav {
 
 .modal-cta-buttons-div {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
 }
 
 .close {
@@ -483,5 +483,5 @@ footer {
     .modal-cta-buttons-div {
     display: flex;
     flex-direction: column;
-}
+    }
 }
