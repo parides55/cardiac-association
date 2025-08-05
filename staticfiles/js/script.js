@@ -33,5 +33,5 @@ document.addEventListener('DOMContentLoaded', function () {
             modal.style.display = 'none';
             }
         };
-    }, 5000); // show after 5 seconds
+    }, 3500); // show after 5 seconds
 });
