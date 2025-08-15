@@ -45,16 +45,19 @@ def donation_checkout(request):
                 donation = donation_form.save(commit=False)
                 if donation.donation_type == 'One-Off Payment':
                     donation.status = 'one-off'
+                    form_description = "Donation to The Association of Parents and Friends of Children with Heart Disease."
+                    donation.save()
+                elif donation.donation_type == "Sea Marathon":
+                    donation.status = 'one-off'
+                    form_description = "Donation to the Sea Marathon."
                     donation.save()
                 else:
                     donation.status = 'active'
+                    form_description = "Donation to The Association of Parents and Friends of Children with Heart Disease."
                     donation.save()
-
-                # messages.success(request, "Thank you for your donation! We appreciate your support.")
-                # return redirect('donations')
                 
                 # Process payment
-                description = 'Donation to The Association of Parents and Friends of Children with Heart Disease.'
+                description = form_description
                 # Append a random 8-character string to the orderId to make it unique
                 unique_order_number = f"{donation.id}-{uuid.uuid4().hex[:8]}"
                 try:
@@ -62,11 +65,11 @@ def donation_checkout(request):
                     return redirect(payment_url)  # Redirect user to JCC payment page
                 except Exception as e:
                     messages.error(request, f"Payment failed: {e}")
-                    return redirect('donation')
+                    return redirect('donations')
             else:
                 print(donation_form.errors)
                 messages.error(request, "Something went wrong. Please try again.")
-                return redirect('donation')
+                return redirect('donations')
 
         context = {
             'donation_type': donation_type,
