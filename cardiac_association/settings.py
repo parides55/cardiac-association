@@ -143,6 +143,8 @@ EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_ADDRESS")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
+DEFAULT_FROM_EMAIL = "info@pediheart.org.cy"
+SERVER_EMAIL = "info@pediheart.org.cy"
 
 
 # Internationalization
