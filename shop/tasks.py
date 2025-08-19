@@ -112,7 +112,7 @@ def make_payment(order_number, client_id, binding_id, donor_id,amount):
             payment_response = response_data.get("orderStatus")
             # Update the donor's next payment date
             donor = Donation.objects.get(id=donor_id)
-            donor.next_payment_date = timezone.now() + timezone.timedelta(days=1)
+            donor.next_payment_date = timezone.now() + timezone.timedelta(month=1)
             donor.save()
             return payment_response
         else:
