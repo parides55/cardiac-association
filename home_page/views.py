@@ -39,23 +39,16 @@ def become_member(request):
             if member_form.is_valid():
                 new_member = member_form.save(commit=False)
                 new_member.save()
-                
-                messages.success(
-                    request, f'Welcome {new_member.name}, you have successfully registered!'
-                )
-                
-                send_welcome_email(new_member)
-                send_email_to_the_admin(new_member)
 
-                # # Process payment
-                # # Append a random 8-character string to the orderId to make it unique
-                # unique_order_number = f"{new_member.id}-{uuid.uuid4().hex[:8]}"
-                # try:
-                #     payment_url = process_payment(unique_order_number)
-                #     return redirect(payment_url) # Redirect user to JCC payment page
-                # except Exception as e:
-                #     messages.error(request, f"An error occurred while processing your payment: {str(e)}")
-                #     return redirect('home')
+                # Process payment
+                # Append a random 8-character string to the orderId to make it unique
+                unique_order_number = f"{new_member.id}-{uuid.uuid4().hex[:8]}"
+                try:
+                    payment_url = process_payment(unique_order_number)
+                    return redirect(payment_url) # Redirect user to JCC payment page
+                except Exception as e:
+                    messages.error(request, f"An error occurred while processing your payment: {str(e)}")
+                    return redirect('home')
             else:
                 messages.error(
                     request,
