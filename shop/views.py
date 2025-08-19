@@ -251,7 +251,7 @@ def send_email_to_donor(donation):
                 Οδός Γράμμου 11, Διαμέρισμα 5,
                 Στρόβολος, Λευκωσία, Κύπρος<br><br>
                 Tel: <a href="tel:+35722315196">22315196</a><br>
-                Mail: <a href="mailto:pediheart@cytanet.com.cy">pediheart@cytanet.com.cy</a><br><br>
+                Mail: <a href="mailto:info@pediheart.org.cy">info@pediheart.org.cy</a><br><br>
             </p>
             <p>
                 <strong>Σημείωση:</strong> Εάν θέλετε να τερματίσετε την μηνιαία συνδρομή σας, μπορείτε να το κάνετε <a href="https://pediheart.org.cy/en/shop/cancel_monthly_donation/">πατώντας εδώ</a>.
@@ -281,7 +281,7 @@ def send_email_to_donor(donation):
     except Exception as e:
         # !!!add step to inform admin that email not send
         logger.error(f"Failed to send welcome email to {donation.email}: {e}")
-        
+
 
 def cancel_monthly_donation(request):
     """
@@ -316,7 +316,7 @@ def cancel_monthly_donation(request):
     except Exception as e:
         messages.error(request, f"The following error occurred: {e}")
         return redirect('cancel_monthly_donation')
-            
+
 
 def send_cancel_email_donor(donation):
     """
@@ -353,7 +353,7 @@ def send_cancel_email_donor(donation):
                     Οδός Γράμμου 11, Διαμέρισμα 5,
                     Στρόβολος, Λευκωσία, Κύπρος<br><br>
                     Tel: <a href="tel:+35722315196">22315196</a><br>
-                    Mail: <a href="mailto:pediheart@cytanet.com.cy">pediheart@cytanet.com.cy</a><br><br>
+                    Mail: <a href="mailto:info@pediheart.org.cy">info@pediheart.org.cy</a><br><br>
                 </p>
             </body>
         </html>
@@ -689,7 +689,7 @@ def send_email_to_shopper(shipping_details):
                 Οδός Γράμμου 11, Διαμέρισμα 5,
                 Στρόβολος, Λευκωσία, Κύπρος<br><br>
                 Tel: <a href="tel:+35722315196">22315196</a><br>
-                Mail: <a href="mailto:pediheart@cytanet.com.cy">pediheart@cytanet.com.cy</a><br><br>
+                Mail: <a href="mailto:info@pediheart.org.cy">info@pediheart.org.cy</a><br><br>
             </p>
         </body>
     </html>

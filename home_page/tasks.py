@@ -155,7 +155,7 @@ def send_email_for_renewal(member):
                 Οδός Γράμμου 11, Διαμέρισμα 5,
                 Στρόβολος, Λευκωσία, Κύπρος<br><br>
                 Tel: <a href="tel:+35722315196">22315196</a><br>
-                Mail: <a href="mailto:pediheart@cytanet.com.cy">pediheart@cytanet.com.cy</a><br><br>
+                Mail: <a href="mailto:info@pediheart.org.cy">info@pediheart.org.cy</a><br><br>
             </p>
             <p>
                 <strong>Σημείωση:</strong> Εάν θέλετε να τερματίσετε την συνδρομή σας,
