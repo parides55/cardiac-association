@@ -4,6 +4,7 @@ import logging
 from background_task import background
 from django.contrib.staticfiles import finders
 from django.core.mail import EmailMultiAlternatives, mail_admins
+from dateutil.relativedelta import relativedelta
 from django.utils import timezone
 from django.db.models.functions import TruncDate
 from django.conf import settings
@@ -109,7 +110,7 @@ def make_payment(order_number, client_id, binding_id, member_id):
             payment_response = response_data.get("orderStatus")
             # Update the member's next payment date
             member = Member.objects.get(id=member_id)
-            member.next_payment_date = timezone.now() + timezone.timedelta(years=1)
+            member.next_payment_date = timezone.now() + relativedelta(years=1)
             member.save()
             return payment_response
         else:
