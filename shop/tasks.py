@@ -4,6 +4,7 @@ import logging
 from background_task import background
 from django.contrib.staticfiles import finders
 from django.core.mail import EmailMultiAlternatives, mail_admins
+from dateutil.relativedelta import relativedelta
 from django.utils import timezone
 from django.db.models.functions import TruncDate
 from django.conf import settings
@@ -107,17 +108,16 @@ def make_payment(order_number, client_id, binding_id, donor_id,amount):
     try:
         response = requests.post(url, headers=headers, data=data)
         response_data = response.json()
+        donor = Donation.objects.get(id=donor_id)
         
         if response_data.get("errorCode") == "0":
             payment_response = response_data.get("orderStatus")
             # Update the donor's next payment date
-            donor = Donation.objects.get(id=donor_id)
-            donor.next_payment_date = timezone.now() + timezone.timedelta(month=1)
+            donor.next_payment_date = timezone.now() + relativedelta(months=1)
             donor.save()
             return payment_response
         else:
             # Update the donor's status to expired
-            donor = Donation.objects.get(id=donor_id)
             donor.status = "expired"
             donor.save()
             error_message = response_data.get("errorMessage")
