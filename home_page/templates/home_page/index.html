@@ -24,8 +24,8 @@
             </a>
             <a href="#intro"><img class="down-arrow hide" src="{% static 'images/down_arrow.png' %}" alt="Down arrow"></a>
         </div>
-        <!-- Tempo Event Modal -->
-        <div id="eventModal" class="modal">
+        <!-- Tempo Event Modal start-->
+        <!--<div id="eventModal" class="modal">
             <div class="modal-content">
                 <span class="close" id="closeModal">&times;</span>
                 <img src="{% static 'images/thalassios_marathonios.jpg' %}" alt="Poster for the event" class="img-fluid">
@@ -85,7 +85,8 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </div>-->
+        <!--Tempo event model finish-->
     </div>
 </section>
 
@@ -142,9 +143,6 @@
 
                                 <input type="radio" class="btn-check" name="donation_type" id="monthly" value="Monthly Subscription" autocomplete="off">
                                 <label class="btn btn-outline-dark" for="monthly">{% trans 'Monthly Subscription' %}</label>
-
-                                <input type="radio" class="btn-check" name="donation_type" id="tempo_event" value="Sea Marathon" autocomplete="off" checked>
-                                <label class="btn btn-outline-dark" for="tempo_event">{% trans 'Sea Marathon' %}</label>
 
                             </div>
 
