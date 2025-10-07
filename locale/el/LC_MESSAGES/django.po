@@ -567,7 +567,7 @@ msgstr "Δύο χέρια ενός παιδιού κρατούν μια κόκκ
 
 #: .\home_page\templates\home_page\index.html:20
 msgid "Don't let the hope"
-msgstr "Μην αφήσετετ την ελπίδα"
+msgstr "Μην αφήσετε την ελπίδα"
 
 #: .\home_page\templates\home_page\index.html:20
 msgid "fade away"
