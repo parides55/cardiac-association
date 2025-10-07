@@ -567,11 +567,11 @@ msgstr "Δύο χέρια ενός παιδιού κρατούν μια κόκκ
 
 #: .\home_page\templates\home_page\index.html:20
 msgid "Don't let the hope"
-msgstr "Μην αφήσετετ την ελπίδα να σβήσει"
+msgstr "Μην αφήσετετ την ελπίδα"
 
 #: .\home_page\templates\home_page\index.html:20
 msgid "fade away"
-msgstr ""
+msgstr "να σβήσει"
 
 #: .\home_page\templates\home_page\index.html:21
 #: .\home_page\templates\home_page\index.html:187
