@@ -8,6 +8,7 @@ from .models import People, Gallery
 def our_history(request):
     return render(request, "about_us/history.html")
 
+
 def our_people(request):
 
     try:
@@ -31,5 +32,5 @@ def our_people(request):
 
 
 def gallery_view(request):
-    galleries = Gallery.objects.prefetch_related("images", "videos").all()
+    galleries = Gallery.objects.prefetch_related("images", "videos").all().order_by("-created_at")
     return render(request, "about_us/gallery.html", {"galleries": galleries})
