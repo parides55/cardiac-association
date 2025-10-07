@@ -1,2 +1,13 @@
 env.py
-__pycache__
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyd
+*.pdb
+*.egg-info/
+*.log
+# --- IDE / Editor Files ---
+.vscode/
+.idea/
