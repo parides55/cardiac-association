@@ -139,7 +139,7 @@ nav {
 }
 
 /* ---------------------------- Event Modal --------------------------------------------- */
-.modal {
+/* .modal {
     display: none;
     position: fixed;
     z-index: 999;
@@ -185,7 +185,7 @@ nav {
 @keyframes fadeIn {
     from {opacity: 0;}
     to {opacity: 1;}
-}
+} */
 
 
 
