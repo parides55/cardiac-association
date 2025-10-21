@@ -186,5 +186,4 @@ def send_email_for_renewal(member):
         logger.info(f"Welcome email successfully sent to {member.email}")
     except Exception as e:
         logger.error(f"Failed to send welcome email to {member.email}: {e}")
-        
-check_member_for_renewal()
+

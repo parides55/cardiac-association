@@ -195,5 +195,3 @@ def send_email_for_renewal(donor):
     except Exception as e:
         logger.error(f"Failed to send welcome email to {donor.email}: {e}")
 
-
-check_subscriptions_for_payment()
