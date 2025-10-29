@@ -1,7 +1,6 @@
 import requests
 import uuid
 import logging
-from background_task import background
 from django.contrib.staticfiles import finders
 from django.core.mail import EmailMultiAlternatives, mail_admins
 from dateutil.relativedelta import relativedelta
@@ -11,7 +10,6 @@ from django.conf import settings
 from .models import *
 
 
-@background(schedule=60)
 def check_subscriptions_for_payment():
     """
     Check subscriptions for payment and process them.
