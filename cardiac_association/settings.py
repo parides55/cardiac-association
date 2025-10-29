@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'cloudinary',
     'background_task',
+    'django_extensions',
     'home_page',
     'events',
     'news',
