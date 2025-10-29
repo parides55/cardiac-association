@@ -61,6 +61,6 @@ class DonationAdmin(admin.ModelAdmin):
     """
     Admin customization for the Donation model.
     """
-    list_display = ('id', 'full_name', 'donation_amount', 'status', 'donation_type', 'created_at')
-    list_filter = ('created_at', 'donation_type')
+    list_display = ('id', 'full_name', 'is_paid', 'status', 'donation_type', 'created_at')
+    list_filter = ('created_at', 'donation_type', 'is_paid')
     search_fields = ('full_name', 'email', 'phone_number', 'address')
