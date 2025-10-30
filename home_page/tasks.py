@@ -23,9 +23,10 @@ def check_member_for_renewal():
     try:
         renewed_members_list = []
         if not members_for_renewal.exists():
-            subject = "Members for renewal"
-            text_content = "There are no members for renewal today."
-            mail_admins(subject, text_content)
+            mail_admins(
+                subject="Ειδοποίηση Ανανέωσης Μελών",
+                message="Δεν υπάρχουν μέλη προς ανανέωση σήμερα."
+            )
         else:
             for member in members_for_renewal:
                 member_client_id = member.client_id
@@ -47,14 +48,16 @@ def check_member_for_renewal():
                 renewed_members_list.append((member.name, member.surname, member.id_number))
 
             if renewed_members_list:
-                subject = "Members renewed successfully"
-                text_content = f"The following members have been renewed:\n" + "\n".join([f"{name} {surname} ({id_number})" for name, surname, id_number in renewed_members_list])
-                mail_admins(subject, text_content)
+                mail_admins(
+                    subject="Ειδοποίηση Επιτυχούς Ανανέωσης Μελών",
+                    message=f"Τα παρακάτω μέλη έχουν ανανεωθεί:\n" + "\n".join([f"{name} {surname} ({id_number})" for name, surname, id_number in renewed_members_list])
+                )
 
     except Exception as e:
-        subject = "Error in renewal task"
-        text_content = f"An error occurred: {str(e)}"
-        mail_admins(subject, text_content)
+        mail_admins(
+            subject="Ειδοποίηση Σφάλματος στην Εργασία Ανανέωσης",
+            message=f"Παρουσιάστηκε σφάλμα: {str(e)}"
+        )
 
 
 def get_credentials(client_id):
