@@ -143,19 +143,17 @@ nav {
     display: none;
     position: fixed;
     z-index: 999;
-    left: -43%;
-    top: 5%;
-    width: 100%;
-    height: 100%;
+    left: 0;
+    top: 20%;
+    max-width: 13rem;
+    height: auto;
     overflow: auto;
 }
 
 .modal-content {
     background-color: red;
-    margin: 10% auto;
     padding: 5px;
     border-radius: 10px;
-    width: 90%;
     max-width: 13rem;
     text-align: center;
     animation: fadeIn 0.5s ease-in-out;
@@ -375,7 +373,8 @@ footer {
     }
 
     .modal {
-        left: -41%;
+        left: -4%;
+        top: 13%;
     }
 }
 
@@ -405,8 +404,8 @@ footer {
     }
 
     .modal {
-        left: -36%;
-        top: 10%;
+        left: -4%;
+        top: 15%;
     }
 }
 
@@ -471,8 +470,8 @@ footer {
     }
 
     .modal {
-        left: -28%;
-        top: 10%;
+        left: -7%;
+        top: 18%;
     }
 
     .modal-cta-buttons-div {
