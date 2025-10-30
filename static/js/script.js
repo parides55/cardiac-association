@@ -17,21 +17,11 @@ window.onload = () => {
     }
 };
 
-// document.addEventListener('DOMContentLoaded', function () {
-//     setTimeout(function () {
-//         const modal = document.getElementById('eventModal');
-//         const closeBtn = document.getElementById('closeModal');
+document.addEventListener('DOMContentLoaded', function () {
+    setTimeout(function () {
+        const modal = document.getElementById('eventModal');
 
-//         modal.style.display = 'block';
+        modal.style.display = 'block';
 
-//         closeBtn.onclick = function () {
-//             modal.style.display = 'none';
-//         };
-
-//         window.onclick = function (event) {
-//             if (event.target === modal) {
-//             modal.style.display = 'none';
-//             }
-//         };
-//     }, 3500); // show after 5 seconds
-// });
+    }, 3500); // show after 5 seconds
+});
