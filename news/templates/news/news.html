@@ -43,6 +43,7 @@
     </div>
 </section>
 
+{% get_current_language as LANGUAGE_CODE %}
 <section id='main'>
     <div class="container-fluid">
         <div class="row my-5">
@@ -56,8 +57,13 @@
                         <img src="{{ new.image.url }}" class="card-img-top" alt="{{ new.title }}">
                         {% endif %}
                         <div class="card-body">
-                            <h5 class="card-title">{{ new.title }}</h5>
-                            <p class="card-text">{{ new.excerpt }}</p>
+                            {% if LANGUAGE_CODE == 'el' %}
+                                <h5 class="card-title">{{ new.title_greek }}</h5>
+                                <p class="card-text">{{ new.excerpt_greek }}</p>
+                            {% else %}
+                                <h5 class="card-title">{{ new.title_english }}</h5>
+                                <p class="card-text">{{ new.excerpt_english }}</p>
+                            {% endif %}
                             <a class="btn btn-outline-secondary" href="{% url 'new_detail' new.slug %}">Read</a>
                         </div>
                         <div class="card-footer">
