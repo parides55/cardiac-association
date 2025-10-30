@@ -25,9 +25,10 @@ def check_subscriptions_for_payment():
     try:
         donors_for_payment_list = []
         if not donors_for_payment.exists():
-            subject = "Donors for payment"
-            text_content = "There are no donors for payment today."
-            mail_admins(subject, text_content)
+            mail_admins(
+                subject="Ειδοποίηση Πληρωμής Δωρητών",
+                message="Δεν υπάρχουν δωρητές προς πληρωμή σήμερα."
+            )
         else:
             for donor in donors_for_payment:
                 donor_client_id = donor.client_id
@@ -50,14 +51,15 @@ def check_subscriptions_for_payment():
                 donors_for_payment_list.append((donor.full_name, donor.id))
 
             if donors_for_payment_list:
-                subject = "Donors for payment"
-                text_content = f"The following donors have paid the monthly subscription today:\n" + "\n".join([f"{name} ({id})" for name, id in donors_for_payment_list])
-                mail_admins(subject, text_content)
+                mail_admins(subject="Δωρητές που πληρώθηκαν επιτυχώς",
+                    message=f"Οι παρακάτω δωρητές έχουν πληρωθεί:\n" + "\n".join([f"{full_name} (ID: {donor_id})" for full_name, donor_id in donors_for_payment_list])
+                )
 
     except Exception as e:
-        subject = "Error in renewal task"
-        text_content = f"An error occurred: {str(e)}"
-        mail_admins(subject, text_content)
+        mail_admins(
+            subject="Ειδοποίηση Σφάλματος στην Εργασία Πληρωμής Δωρητών",
+            message=f"Παρουσιάστηκε σφάλμα: {str(e)}"
+        )
 
 
 def get_credentials(client_id):
@@ -83,6 +85,10 @@ def get_credentials(client_id):
             return error_message
 
     except Exception as e:
+        mail_admins(
+            subject="Ειδοποίηση Σφάλματος στην Αναζήτηση Πιστοποιητικών",
+            message=f"Παρουσιάστηκε σφάλμα: {str(e)}"
+        )
         return str(e)
 
 
