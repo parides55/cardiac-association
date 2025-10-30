@@ -73,14 +73,18 @@
                     <img src="{{ event.image.url }}" class="card-img-top" alt="{{ event.title }}">
                     {% endif %}
                     <div class="card-body">
-                        <h5 class="card-title">{{ event.title }}</h5>
+                        {% if LANGUAGE_CODE == 'el' %}
+                        <h5 class="card-title">{{ event.title_greek }}</h5>
+                        {% else %}
+                        <h5 class="card-title">{{ event.title_english }}</h5>
+                        {% endif %}
                         <p class="card-text"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="red" class="bi bi-calendar-heart-fill" viewBox="0 0 16 16">
                             <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2M8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132"/>
                             </svg> {{ event.date_of_event|date:"F j, Y" }}
                         </p>
                         <p><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="red" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
                             <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
-                            </svg> {{ event.location }}
+                            </svg> {% if LANGUAGE_CODE == 'el' %} {{ event.location_greek }} {% else %} {{ event.location_english }} {% endif %}
                         </p>
                         <a class="btn btn-outline-danger" href="{% url 'event_info' event.slug %}">View Event</a>
                     </div>
@@ -107,14 +111,18 @@
                     <img src="{{ event.image.url }}" class="card-img-top" alt="{{ event.title }}">
                     {% endif %}
                     <div class="card-body">
-                        <h5 class="card-title">{{ event.title }}</h5>
+                        {% if LANGUAGE_CODE == 'el' %}
+                        <h5 class="card-title">{{ event.title_greek }}</h5>
+                        {% else %}
+                        <h5 class="card-title">{{ event.title_english }}</h5>
+                        {% endif %}
                         <p class="card-text"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="red" class="bi bi-calendar-heart-fill" viewBox="0 0 16 16">
                             <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2M8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132"/>
                             </svg> {{ event.date_of_event|date:"F j, Y" }}
                         </p>
                         <p><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="red" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
                             <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
-                            </svg> {{ event.location }}
+                            </svg> {% if LANGUAGE_CODE == 'el' %} {{ event.location_greek }} {% else %} {{ event.location_english }} {% endif %}
                         </p>
                         <a class="btn btn-outline-danger" href="{% url 'event_info' event.slug %}">View Event</a>
                     </div>
