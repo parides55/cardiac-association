@@ -179,8 +179,11 @@ def payment_failed_donation(request, orderId):
     try:
         orderId = orderId.split("-")[0] # Get the original orderId
         donation = Donation.objects.get(id=orderId)
-        # !!!add a step to send email to admin that the payment of the above donation failed. Don't delete.
-        donation.delete()
+        mail_admins(
+            subject="Ειδοποίηση Αποτυχημένης Πληρωμής Δωρεάς",
+            message=f"Η πληρωμή για τη δωρεά με ID: {donation.id} απέτυχε.\n"
+                    f"Δωρητής: {donation.full_name}, Email: {donation.email}, Τηλέφωνο: {donation.phone_number}"
+        )
         messages.error(request, "Payment failed. Please try again.")
         return redirect('donations')
 
@@ -621,8 +624,12 @@ def payment_failed_shop(request, orderId):
     try:
         orderId = orderId.split("-")[0] # Get the original orderId
         shipping_details = ShippingDetail.objects.get(id=orderId)
-        shipping_details.delete()
-        messages.error(request, "Payment failed. Please try again.")
+        mail_admins(
+            subject="Ειδοποίηση Αποτυχημένης Πληρωμής Παραγγελίας",
+            message=f"Η πληρωμή για την παραγγελία με ID: {shipping_details.id} απέτυχε.\n"
+                    f"Όνομα: {shipping_details.full_name}, Email: {shipping_details.email}, Τηλέφωνο: {shipping_details.phone_number}"
+        )
+        messages.error(request, "Payment failed. Please try again or contact us for further assistance.")
         return redirect('basket')
 
     except ShippingDetail.DoesNotExist:
