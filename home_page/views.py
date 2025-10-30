@@ -152,13 +152,14 @@ def membership_success(request, orderId):
 
 def membership_failed(request, orderId):
     
-    """Handle failed payment and delete the member from the database."""
+    """Handle failed payment and inform admin about it."""
     
     orderId = orderId.split("-")[0]  # Get the original orderId
     member = get_object_or_404(Member, id=orderId)
-    # !!!add a step to send email to admin to inform about failed payment of a member.
-    member.delete()
-    
+    mail_admins(subject="Η πληρωμή της συνδρομής απέτυχε.",
+                message=f"Η πληρωμή για τον/την μέλος {member.name} {member.surname} (ID: {member.id}) απέτυχε.\n\n"
+                        f"Στοιχεία επικοινωνίας: Email: {member.email}, Τηλέφωνο: {member.mobile_number}.")
+
     messages.error(request, "Payment failed. Please try again or contact us for further assistance.")
     return render(request, "home_page/index.html",)
 
