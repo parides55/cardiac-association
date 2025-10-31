@@ -19,9 +19,11 @@ window.onload = () => {
 
 document.addEventListener('DOMContentLoaded', function () {
     setTimeout(function () {
-        const modal = document.getElementById('eventModal');
+        const eventModal = document.getElementById('eventModal');
+        const memberModal = document.getElementById('memberModal');
 
-        modal.style.display = 'block';
+        eventModal.style.display = 'block';
+        memberModal.style.display = 'block';
 
     }, 3500); // show after 5 seconds
 });

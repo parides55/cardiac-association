@@ -138,25 +138,39 @@ nav {
     box-shadow: 20px 10px 15px black;
 }
 
-/* ---------------------------- Event Modal --------------------------------------------- */
+/* ---------------------------- Event and Member Modals --------------------------------------------- */
 .modal {
     display: none;
     position: fixed;
     z-index: 999;
     left: -3%;
-    top: 20%;
-    max-width: 13rem;
+    max-width: 15rem;
     height: auto;
     overflow: auto;
 }
 
+#eventModal {
+    top: 20%;
+}
+
+#memberModal {
+    top: 27%;
+}
+
 .modal-content {
-    background-color: red;
     padding: 5px;
     border-radius: 10px;
-    max-width: 13rem;
+    max-width: 15rem;
     text-align: center;
     animation: fadeIn 0.5s ease-in-out;
+}
+
+#event-content {
+    background-color: red;
+}
+
+#member-content {
+    background-color: #ffc107;
 }
 
 .close {
@@ -374,7 +388,14 @@ footer {
 
     .modal {
         left: -4%;
-        top: 13%;
+    }
+
+    #eventModal {
+    top: 12%;
+    }
+
+    #memberModal {
+        top: 16%;
     }
 }
 
@@ -405,7 +426,13 @@ footer {
 
     .modal {
         left: -4%;
-        top: 15%;
+    }
+    #eventModal {
+    top: 15%;
+    }
+
+    #memberModal {
+        top: 17%;
     }
 }
 
@@ -471,7 +498,14 @@ footer {
 
     .modal {
         left: -7%;
-        top: 18%;
+    }
+
+    #eventModal {
+    top: 13%;
+    }
+
+    #memberModal {
+        top: 20%;
     }
 
     .modal-cta-buttons-div {

@@ -225,11 +225,16 @@
 
     <!-- Tempo Event Modal start-->
         <div id="eventModal" class="modal">
-            <div class="modal-content">
-                <a class="text-decoration-none text-light" href="{% url 'events' %}">{% trans 'See our events' %}</a>
+            <div id="event-content" class="modal-content">
+                <a class="text-decoration-none text-light" href="{% url 'events' %}">{% trans 'Our events' %}</a>
             </div>
         </div>
-        <!--Tempo event model finish-->
+        <div id="memberModal" class="modal">
+            <div id="member-content" class="modal-content">
+                <a class="text-decoration-none text-light" href="{% url 'become_member' %}">{% trans 'Become a member' %}</a>
+            </div>
+        </div>
+    <!--Tempo event model finish-->
 
     <main>
         {% block content %}
