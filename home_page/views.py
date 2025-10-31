@@ -47,6 +47,8 @@ def become_member(request):
                     payment_url = process_payment(unique_order_number)
                     return redirect(payment_url) # Redirect user to JCC payment page
                 except Exception as e:
+                    # Inform Admin about the error
+                    inform_admin_new_member_failed(new_member, str(e))
                     messages.error(request, f"An error occurred while processing your payment: {str(e)}")
                     return redirect('home')
             else:
@@ -55,7 +57,8 @@ def become_member(request):
                     f"The following error occurred while processing your request:'{member_form.errors}'\n" 
                     f"Please try completing the form again or contact us."
                 )
-                return render(request, "home_page/index.html")
+                member_form = MemberForm()
+                return render(request, "home_page/become_member.html", {'member_form': member_form})
 
         member_form = MemberForm()
 
@@ -65,6 +68,8 @@ def become_member(request):
         )
 
     except Exception as e:
+        # Inform Admin about the error
+        inform_admin_new_member_failed(new_member, str(e))
         messages.error(request, f"The following error occurred: {str(e)}")
         return redirect('become_member')
 
@@ -259,6 +264,26 @@ def send_email_to_the_admin(member):
 
     mail_admins(subject, text_content)
 
+
+def inform_admin_new_member_failed(member, error_message):
+    """
+    Inform the admin about a new member whose payment failed.
+    """
+    subject = f"Η εγγραφή νέου μέλους απέτυχε: {member.name} {member.surname}"
+    
+    text_content = f"""
+    Η εγγραφή για τον/την μέλος **{member.name} {member.surname}** (ID: {member.id}) απέτυχε για τον πιο κάτω λόγο:
+    
+    {error_message}
+
+    Στοιχεία επικοινωνίας:
+    Email: **{member.email}**
+    Τηλέφωνο: **{member.mobile_number}**
+
+    Παρακαλώ επικοινωνήστε με το μέλος για περαιτέρω βοήθεια.
+    """
+
+    mail_admins(subject, text_content)
 
 # Cancel membership views
 
