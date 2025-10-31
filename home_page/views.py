@@ -168,7 +168,7 @@ def membership_failed(request, orderId):
     messages.error(request, "Payment failed. Please try again or contact us for further assistance.")
     return render(request, "home_page/index.html",)
 
-
+# Emails to send 
 def send_welcome_email(member):
     """
     Send a welcome email to the new member after successful payment.
