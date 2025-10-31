@@ -195,7 +195,7 @@ def payment_failed_donation(request, orderId):
         messages.error(request, f"The following error occurred: {e}")
         return redirect('home')
 
-
+# Welcome emails
 def send_email_to_admin_donation(donation):
 
     subject = f"Παραλήφθηκε νέα δωρεά από τον {donation.full_name}"
@@ -284,7 +284,7 @@ def send_email_to_donor(donation):
         # !!!add step to inform admin that email not send
         logger.error(f"Failed to send welcome email to {donation.email}: {e}")
 
-
+# Cancel monthly donations
 def cancel_monthly_donation(request):
     """
     Cancels the monthly subscriptions of a donor.
@@ -319,7 +319,7 @@ def cancel_monthly_donation(request):
         messages.error(request, f"The following error occurred: {e}")
         return redirect('cancel_monthly_donation')
 
-
+# Cancelation Emails
 def send_cancel_email_donor(donation):
     """
     Send a cancellation email to the donor.
@@ -640,7 +640,7 @@ def payment_failed_shop(request, orderId):
         messages.error(request, f"The following error occurred: {e}")
         return redirect('home')
 
-
+# Shopping emails
 def send_email_to_shopper(shipping_details):
 
     logger = logging.getLogger(__name__)
