@@ -149,6 +149,10 @@ nav {
     overflow: auto;
 }
 
+.modal:hover {
+    translate: 1.1rem;
+}
+
 #eventModal {
     top: 20%;
 }
