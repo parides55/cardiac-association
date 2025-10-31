@@ -166,7 +166,7 @@ def membership_failed(request, orderId):
                         f"Στοιχεία επικοινωνίας:\n Email: **{member.email}**\n Τηλέφωνο: **{member.mobile_number}**.")
     member.delete()
     messages.error(request, "Payment failed. Please try again or contact us for further assistance.")
-    return render(request, "home_page/index.html",)
+    return redirect('become_member')
 
 # Emails to send 
 def send_welcome_email(member):
