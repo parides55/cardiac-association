@@ -567,9 +567,21 @@ def basket_checkout(request):
                 inform_admin_failed_shop(shipping_detail, str(shipping_detail_form.errors))
                 messages.error(request, "Something went wrong. Please fill in your details and try again.")
                 return redirect('basket')
+        
+        # Handle GET request
+        else:
+            basket_items = Basket.objects.filter(session_key=request.session.session_key)
+            total = int(sum(item.quantity * item.product.price for item in basket_items))
+            form = ShippingDetailForm()
+            context = {
+                'basket_items': basket_items,
+                'total': total,
+                'shipping_detail_form': form,
+            }
+            return render(request, 'shop/basket_checkout.html', context)
 
     except Exception as e:
-        messages.error(request, f"The order was not completed due to the following error occurred: {e}")
+        messages.error(request, f"The order was not completed due to the following error occurring: {e}")
         return redirect('basket')
 
 
