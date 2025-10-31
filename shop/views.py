@@ -63,6 +63,7 @@ def donation_checkout(request):
                     payment_url = process_payment_donation(donation.donation_amount, unique_order_number, description)
                     return redirect(payment_url)  # Redirect user to JCC payment page
                 except Exception as e:
+                    inform_admin_failed_donation(donation, str(e))
                     messages.error(request, f"Payment failed: {e}")
                     return redirect('donations')
             else:
@@ -79,7 +80,7 @@ def donation_checkout(request):
         return render(request, 'shop/donation_checkout.html', context)
 
     except Exception as e:
-        print(e)
+        inform_admin_failed_donation(donation, str(e))
         messages.error(request, f"The following error occurred: {e}")
         return redirect('donations')
 
@@ -182,8 +183,10 @@ def payment_failed_donation(request, orderId):
         mail_admins(
             subject="Ειδοποίηση Αποτυχημένης Πληρωμής Δωρεάς",
             message=f"Η πληρωμή για τη δωρεά με ID: {donation.id} απέτυχε.\n"
-                    f"Δωρητής: {donation.full_name}, Email: {donation.email}, Τηλέφωνο: {donation.phone_number}"
+                    f"Δωρητής: {donation.full_name},\n Email: {donation.email},\n Τηλέφωνο: {donation.phone_number}"
+                    f"\n Τύπος Δωρεάς: {donation.donation_type},\n Ποσό Δωρεάς: €{donation.donation_amount}."
         )
+        donation.delete()
         messages.error(request, "Payment failed. Please try again.")
         return redirect('donations')
 
@@ -283,6 +286,32 @@ def send_email_to_donor(donation):
     except Exception as e:
         # !!!add step to inform admin that email not send
         logger.error(f"Failed to send welcome email to {donation.email}: {e}")
+
+
+def inform_admin_failed_donation(donor, error_message):
+    """
+    Informs admin about a failed donation and sends donors details.
+    """
+    
+    subject = "Αποτυχημένη εκτέλεση δωρεάς"
+    
+    text_content = f"""
+    Ο χρήστης **{donor.full_name}** δεν κατάφερε να ολοκληρώσει τη δωρεά του για το πιο κάτω λόγο:
+    
+    {error_message}
+    
+    Στοιχεία δωρεάς:
+    
+    Email: {donor.email}
+    Κινητό τηλέφωνο: {donor.phone_number}
+    Τύπος δωρεάς: {donor.donation_type}
+    Ποσό δωρεάς: {donor.donation_amount}
+    
+    Παρακαλώ επικοινωνήστε με το χρήστη.
+    """
+    
+    mail_admins(subject, text_content)
+
 
 # Cancel monthly donations
 def cancel_monthly_donation(request):
@@ -512,7 +541,6 @@ def basket_checkout(request):
     try:
         if request.method == "POST":
             shipping_detail_form = ShippingDetailForm(data=request.POST)
-            print(request.POST)
             if shipping_detail_form.is_valid():
                 shipping_detail = shipping_detail_form.save(commit=False)
                 shipping_detail.total_amount = request.POST.get('total')
@@ -531,10 +559,12 @@ def basket_checkout(request):
                     payment_url = process_payment_shop(shipping_detail.total_amount, unique_order_number, description)
                     return redirect(payment_url)  # Redirect user to JCC payment page
                 except Exception as e:
+                    inform_admin_failed_shop(shipping_detail, str(e))
                     messages.error(request, f"Payment failed: {e}")
                     return redirect('basket')
 
             else:
+                inform_admin_failed_shop(shipping_detail, str(shipping_detail_form.errors))
                 messages.error(request, "Something went wrong. Please fill in your details and try again.")
                 return redirect('basket')
 
@@ -740,5 +770,32 @@ def send_email_to_admin_shop(shipping_details):
     {''.join(f"- {item.product.name}: {item.quantity} x {item.product.price} € = {item.quantity * item.product.price} €\n" for item in shipping_details.basket_items.all())}
     """
 
+    mail_admins(subject, text_content)
+
+
+def inform_admin_failed_shop(shopper, error_message):
+    """
+    Informs admin about a failed transaction and sends shopper's details.
+    """
+    
+    subject = "Αποτυχημένη εκτέλεση δωρεάς"
+    
+    text_content = f"""
+    Ο χρήστης **{shopper.full_name}** δεν κατάφερε να ολοκληρώσει την αγορά του για το πιο κάτω λόγο:
+    
+    {error_message}
+    
+    Στοιχεία αγοράς:
+    
+    Email: {shopper.email}
+    Κινητό τηλέφωνο: {shopper.phone_number}
+    
+    Παραγγελεία: {shopper.basket_items}
+    
+    Ποσό αγοράς: €{shopper.total_amount}
+    
+    Παρακαλώ επικοινωνήστε με το χρήστη.
+    """
+    
     mail_admins(subject, text_content)
 
