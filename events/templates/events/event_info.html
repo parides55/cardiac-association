@@ -3,10 +3,32 @@
 {% load static %}
 {% load i18n %}
 
+{% get_current_language as LANGUAGE_CODE %}
+
 {% url 'events' as events_url %}
 
+<!--Add meta tags dynamically for Facebook posts-->
+{% block meta %}
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+
+    {% if LANGUAGE_CODE == 'el' %}
+        <meta property="og:title" content="{{ event.title_greek }}">
+        <meta property="og:description" content="{{ event.content_greek|striptags|truncatewords:30 }}">
+    {% else %}
+        <meta property="og:title" content="{{ event.title_english }}">
+        <meta property="og:description" content="{{ event.content_english|striptags|truncatewords:30 }}">
+    {% endif %}
+
+    {% if 'placeholder' in event.image.url %}
+        <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'images/default_logo.jpg' %}">
+    {% else %}
+        <meta property="og:image" content="{{ event.image.url }}">
+    {% endif %}
+{% endblock %}
+
 {% block content %}
-{% get_current_language as LANGUAGE_CODE %}
+
 <section class='mt-0 hero' id='hero-events-info'>
     <div class="container-fluid p-0">
         <div class='row position-relative hero-image-div'>
