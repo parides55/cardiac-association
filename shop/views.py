@@ -283,7 +283,7 @@ def send_email_to_donor(donation):
     
     # Generate and attach PDF receipt
     try:
-        pdf_buffer = generate_receipt_pdf_donation(donation)
+        pdf_buffer = generate_donation_receipt_pdf(donation)
         email.attach(f"receipt_{donation.id}.pdf", pdf_buffer.getvalue(), "application/pdf")
     except Exception as e:
         logger.error(f"Failed to generate or attach PDF receipt: {e}")
