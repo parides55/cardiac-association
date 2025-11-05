@@ -12,6 +12,7 @@ from dateutil.relativedelta import relativedelta
 from .forms import MemberForm
 from .models import Member
 from .tasks import *
+from .pdf_generator import *
 
 
 # Home page view
@@ -233,6 +234,13 @@ def send_welcome_email(member):
             logger.error(f"Failed to attach logo image: {e}")
     else:
         logger.warning("Logo image not found: static/images/default_logo.jpg")
+
+    # Generate and attach PDF receipt
+    try:
+        pdf_buffer = generate_receipt_pdf_member(member)
+        email.attach(f"receipt_{member.id}.pdf", pdf_buffer.getvalue(), "application/pdf")
+    except Exception as e:
+        logger.error(f"Failed to generate or attach PDF receipt: {e}")
 
     try:
         email.send()
