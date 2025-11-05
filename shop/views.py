@@ -11,6 +11,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from .forms import BasketForm, DonationForm, ShippingDetailForm
 from .models import Product, Basket, ShippingDetail, Donation
+from .pdf_generator import *
 
 # Create your views here.
 
@@ -279,7 +280,15 @@ def send_email_to_donor(donation):
             logger.error(f"Failed to attach logo image: {e}")
     else:
         logger.warning("Logo image not found: static/images/default_logo.jpg")
+    
+    # Generate and attach PDF receipt
+    try:
+        pdf_buffer = generate_receipt_pdf_donation(donation)
+        email.attach(f"receipt_{donation.id}.pdf", pdf_buffer.getvalue(), "application/pdf")
+    except Exception as e:
+        logger.error(f"Failed to generate or attach PDF receipt: {e}")
 
+    # Send Email
     try:
         email.send()
         logger.info(f"Welcome email successfully sent to {donation.email}")
@@ -311,7 +320,6 @@ def inform_admin_failed_donation(donor, error_message):
     """
     
     mail_admins(subject, text_content)
-
 
 # Cancel monthly donations
 def cancel_monthly_donation(request):
