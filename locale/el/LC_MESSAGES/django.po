@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-31 15:48+0200\n"
+"POT-Creation-Date: 2025-11-05 19:40+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,7 +27,7 @@ msgstr ""
 "Φιγούρες που στέκονται σε σειρά, με τη μεσαία φιγούρα να είναι κόκκινη με "
 "μία μικρή καρδιά."
 
-#: .\about_us\templates\about_us\gallery.html:12 .\templates\base.html:156
+#: .\about_us\templates\about_us\gallery.html:12 .\templates\base.html:146
 msgid "Our gallery"
 msgstr "H γκαλερί μας"
 
@@ -91,7 +91,7 @@ msgstr "Μάθετε για τις Εκδηλώσεις μας"
 msgid "Meet our team"
 msgstr "Γνωρίστε την ομάδα μας"
 
-#: .\about_us\templates\about_us\people.html:27 .\templates\base.html:155
+#: .\about_us\templates\about_us\people.html:27 .\templates\base.html:145
 msgid "Our people"
 msgstr "Οι άνθρωποί μας"
 
@@ -127,11 +127,11 @@ msgstr "Διοικητικό Συμβούλιο"
 
 #: .\about_us\templates\about_us\people.html:58
 #: .\about_us\templates\about_us\people.html:88
-#: .\events\templates\events\event_info.html:14
+#: .\events\templates\events\event_info.html:36
 #: .\events\templates\events\events.html:34
 #: .\events\templates\events\events.html:71
 #: .\events\templates\events\events.html:109
-#: .\news\templates\news\new_details.html:14
+#: .\news\templates\news\new_details.html:35
 #: .\shop\templates\shop\basket.html:44
 #: .\shop\templates\shop\online_shop.html:58
 msgid "Default image"
@@ -153,15 +153,15 @@ msgstr "Φωτογραφία του προσωπικού"
 msgid "A group of people in the forest hanging each other."
 msgstr "Μια ομάδα ανθρώπων στο δάσος κρατιούνται ο ένας με τον άλλον."
 
-#: .\cardiac_association\settings.py:156
+#: .\cardiac_association\settings.py:155
 msgid "English"
 msgstr "Αγγλικά"
 
-#: .\cardiac_association\settings.py:157
+#: .\cardiac_association\settings.py:156
 msgid "Greek"
 msgstr "Ελληνικά"
 
-#: .\events\templates\events\event_info.html:50
+#: .\events\templates\events\event_info.html:72
 msgid "Back to events"
 msgstr "Πίσω στις εκδηλώσεις"
 
@@ -181,6 +181,12 @@ msgstr "Καρδιές"
 #: .\events\templates\events\events.html:27
 msgid "This month's events"
 msgstr "Οι εκδηλώσεις αυτού του μήνα"
+
+#: .\events\templates\events\events.html:52
+#: .\events\templates\events\events.html:89
+#: .\events\templates\events\events.html:127
+msgid "View Event"
+msgstr "Προβολή Εκδήλωσης"
 
 #: .\events\templates\events\events.html:64
 msgid "Our upcoming events"
@@ -224,8 +230,8 @@ msgstr "Κινούμενη εικόνα πολλών χεριών ως πλαί�
 #: .\events\templates\events\events.html:162
 #: .\home_page\templates\home_page\index.html:176
 #: .\how_you_can_help\templates\how_you_can_help\how_you_can_help.html:30
-#: .\shop\templates\shop\donations.html:181 .\templates\base.html:131
-#: .\templates\base.html:134
+#: .\shop\templates\shop\donations.html:181 .\templates\base.html:121
+#: .\templates\base.html:124
 #: .\what_we_do\templates\what_we_do\what_we_do.html:211
 msgid "How you can help"
 msgstr "Πώς μπορείτε να βοηθήσετε"
@@ -577,8 +583,8 @@ msgstr "να σβήσει"
 #: .\home_page\templates\home_page\index.html:124
 #: .\shop\templates\shop\donation_checkout.html:75
 #: .\shop\templates\shop\donations.html:30
-#: .\shop\templates\shop\donations.html:111 .\templates\base.html:106
-#: .\templates\base.html:171
+#: .\shop\templates\shop\donations.html:111 .\templates\base.html:96
+#: .\templates\base.html:161
 msgid "Donate"
 msgstr "Δωρίστε"
 
@@ -622,8 +628,8 @@ msgstr ""
 "                        εκδηλώσεις, κ.λπ.\n"
 "                        "
 
-#: .\home_page\templates\home_page\index.html:53 .\templates\base.html:121
-#: .\templates\base.html:124
+#: .\home_page\templates\home_page\index.html:53 .\templates\base.html:111
+#: .\templates\base.html:114
 #: .\what_we_do\templates\what_we_do\what_we_do.html:27
 msgid "What we do"
 msgstr "Τι κάνουμε"
@@ -897,7 +903,7 @@ msgstr ""
 "                    ένα έρανο ή μία εκδήλωση.\n"
 "                    "
 
-#: .\news\templates\news\new_details.html:46
+#: .\news\templates\news\new_details.html:67
 msgid "Back to news"
 msgstr "Πίσω στα νέα μας"
 
@@ -940,6 +946,10 @@ msgstr ""
 #: .\news\templates\news\news.html:55
 msgid "Default image, Logo of the associaiton."
 msgstr "Προεπιλεγμένη εικόνα, λογότυπο του συνδέσμου"
+
+#: .\news\templates\news\news.html:67
+msgid "Read"
+msgstr "Διαβάστε"
 
 #: .\news\templates\news\news.html:80
 msgid ""
@@ -1252,8 +1262,8 @@ msgstr "Παιδιά ξαπλωμένα στην κοιλιά τους και γ
 msgid "Shop. Support. Strengthen Little Hearts."
 msgstr "Ψωνίστε. Υποστηρίξτε. Ενισχύστε τις Μικρές Καρδιές."
 
-#: .\shop\templates\shop\online_shop.html:29 .\templates\base.html:110
-#: .\templates\base.html:175
+#: .\shop\templates\shop\online_shop.html:29 .\templates\base.html:100
+#: .\templates\base.html:165
 msgid "Online Shop"
 msgstr "Ηλεκτρονικό κατάστημα"
 
@@ -1304,111 +1314,111 @@ msgstr ""
 msgid "ASSOCIATION OF PARENTS AND FRIENDS OF CHILDREN WITH HEART DISEASE"
 msgstr "ΣΥΛΛΟΓΟΣ ΓΟΝΕΩΝ ΚΑΙ ΦΙΛΩΝ ΚΑΡΔΙΟΠΑΘΩΝ ΠΑΙΔΙΩΝ"
 
-#: .\templates\base.html:101
+#: .\templates\base.html:91
 msgid "Logo"
 msgstr "Λογότυπο"
 
-#: .\templates\base.html:109 .\templates\base.html:174
+#: .\templates\base.html:99 .\templates\base.html:164
 msgid "Make a Donation"
 msgstr "Κάντε μια δωρεά"
 
-#: .\templates\base.html:125
+#: .\templates\base.html:115
 msgid "Our services"
 msgstr "Οι υπηρεσίες μας"
 
-#: .\templates\base.html:126
+#: .\templates\base.html:116
 msgid "Our programs"
 msgstr "Τα προγράμματά μας"
 
-#: .\templates\base.html:135
+#: .\templates\base.html:125
 #: .\what_we_do\templates\what_we_do\services.html:118
 #: .\what_we_do\templates\what_we_do\services.html:183
 msgid "Make a donation"
 msgstr "Κάντε μια δωρεά"
 
-#: .\templates\base.html:136
+#: .\templates\base.html:126
 msgid "Online shop"
 msgstr "Ηλεκτρονικό κατάστημα"
 
-#: .\templates\base.html:137 .\templates\base.html:234
+#: .\templates\base.html:127 .\templates\base.html:224
 #: .\what_we_do\templates\what_we_do\services.html:105
 msgid "Become a member"
 msgstr "Γίνετε μέλος"
 
-#: .\templates\base.html:142
+#: .\templates\base.html:132
 msgid "Stay informed"
 msgstr "Ενημερωθείτε"
 
-#: .\templates\base.html:145
+#: .\templates\base.html:135
 msgid "Events"
 msgstr "Εκδηλώσεις"
 
-#: .\templates\base.html:146
+#: .\templates\base.html:136
 msgid "News"
 msgstr "Νέα"
 
-#: .\templates\base.html:151
+#: .\templates\base.html:141
 msgid "About us"
 msgstr "Σχετικά με εμάς"
 
-#: .\templates\base.html:154
+#: .\templates\base.html:144
 msgid "Our history"
 msgstr "Η ιστορία μας"
 
-#: .\templates\base.html:157
+#: .\templates\base.html:147
 msgid "Contact Us"
 msgstr "Επικοινωνία"
 
-#: .\templates\base.html:164 .\templates\base.html:165
-#: .\templates\base.html:200 .\templates\base.html:201
+#: .\templates\base.html:154 .\templates\base.html:155
+#: .\templates\base.html:190 .\templates\base.html:191
 msgid "Search"
 msgstr "Αναζήτηση"
 
-#: .\templates\base.html:229
+#: .\templates\base.html:219
 msgid "Our events"
 msgstr "Οι εκδηλώσεις μας"
 
-#: .\templates\base.html:249
+#: .\templates\base.html:239
 msgid "Get in touch"
 msgstr "Επικοινωνήστε μαζί μας"
 
-#: .\templates\base.html:251
+#: .\templates\base.html:241
 msgid "The Association of parents and friends"
 msgstr "Ο Σύνδεσμος γονέων και φίλων"
 
-#: .\templates\base.html:251
+#: .\templates\base.html:241
 msgid "of children with Heart Disease"
 msgstr "καρδιοπαθών παιδιών"
 
-#: .\templates\base.html:253
+#: .\templates\base.html:243
 msgid "11 Grammou street, Apt 5,"
 msgstr "Οδός Γράμμου 11, Διαμέρισμα 5,"
 
-#: .\templates\base.html:253
+#: .\templates\base.html:243
 msgid "Strovolos"
 msgstr "Στρόβολος"
 
-#: .\templates\base.html:253
+#: .\templates\base.html:243
 msgid "Nicosia"
 msgstr "Λευκωσία"
 
-#: .\templates\base.html:253
+#: .\templates\base.html:243
 msgid "Cyprus"
 msgstr "Κύπρος"
 
-#: .\templates\base.html:268
+#: .\templates\base.html:258
 msgid "Follow us on"
 msgstr "Ακολουθήστε μας στο"
 
-#: .\templates\base.html:283
+#: .\templates\base.html:279
 msgid "Terms and Conditions"
 msgstr "Όροι και Προϋποθέσεις"
 
-#: .\templates\base.html:285
+#: .\templates\base.html:281
 msgid "Privacy Policy"
 msgstr ""
 
-#: .\templates\base.html:287
+#: .\templates\base.html:283
 msgid "Cookies Policy"
 msgstr ""
 
