@@ -11,7 +11,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from .forms import BasketForm, DonationForm, ShippingDetailForm
 from .models import Product, Basket, ShippingDetail, Donation
-from .pdf_generator import *
+from .pdf_generator import generate_donation_receipt_pdf
 
 # Create your views here.
 
