@@ -19,7 +19,7 @@ def generate_donation_receipt_pdf(donation):
     # === HEADER ===
     p.setFillColorRGB(0.2, 0.4, 0.6)
     p.setFont("Helvetica-Bold", 22)
-    p.drawCentredString(width / 2, height - 1 * inch, "DOANTION RECEIPT")
+    p.drawCentredString(width / 2, height - 1 * inch, "DONATION RECEIPT")
     p.setFillColor(colors.black)
 
     # === DONATION DETAILS BOX ===
