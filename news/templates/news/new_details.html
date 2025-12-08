@@ -3,12 +3,11 @@
 {% load static %}
 {% load i18n %}
 
-{% get_current_language as LANGUAGE_CODE %}
-
 {% url 'news' as news_url %}
 
 <!--Add meta tags dynamically for Facebook posts-->
 {% block meta %}
+{% get_current_language as LANGUAGE_CODE %}
     <meta property="og:type" content="article" />
     <meta property="og:url" content="{{ request.build_absolute_uri }}" />
 
@@ -28,13 +27,14 @@
 {% endblock %}
 
 {% block content %}
+{% get_current_language as LANGUAGE_CODE %}
 <section class='mt-0 hero' id='hero-news-info'>
     <div class="container-fluid p-0">
         <div class='row position-relative hero-image-div'>
             {% if 'placeholder' in new.image.url %}
             <img class='img-fluid hero-image' src="{% static 'images/default_logo.jpg' %}" class="card-img-top" alt="{% trans 'Default image' %}">
             {% else %}
-            <img class='img-fluid hero-image' src="{{ new.image.url }}" class="card-img-top" alt="{{ new.title }}">
+            <img class='img-fluid hero-image' src="{{ new.image.url }}" class="card-img-top" alt="{{ new.title_english }}">
             {% endif %}
             {% if LANGUAGE_CODE == 'el' %}
             <h1 class='fst-italic fw-bold hero-heading hide'>{{ new.title_greek }}</h1>

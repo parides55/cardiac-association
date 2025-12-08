@@ -3,12 +3,11 @@
 {% load static %}
 {% load i18n %}
 
-{% get_current_language as LANGUAGE_CODE %}
-
 {% url 'events' as events_url %}
 
 <!--Add meta tags dynamically for Facebook posts-->
 {% block meta %}
+{% get_current_language as LANGUAGE_CODE %}
     <meta property="og:type" content="article" />
     <meta property="og:url" content="{{ request.build_absolute_uri }}" />
 
@@ -29,6 +28,7 @@
 
 {% block content %}
 
+{% get_current_language as LANGUAGE_CODE %}
 <section class='mt-0 hero' id='hero-events-info'>
     <div class="container-fluid p-0">
         <div class='row position-relative hero-image-div'>
