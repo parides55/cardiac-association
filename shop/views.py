@@ -308,7 +308,7 @@ def send_email_to_accountant(donation):
 
     logger = logging.getLogger(__name__)
 
-    subject = "Νέα δωρεά καταχωρήθηκε στο σύστημα λογιστικής"
+    subject = "Νέα δωρεά για το Σύνσεσμο Γονέων και Φίλων Καρδιοπαθών Παιδιών"
     from_email = settings.EMAIL_HOST_USER
     to_email = [settings.ACCOUNTANT_EMAIL]
 
