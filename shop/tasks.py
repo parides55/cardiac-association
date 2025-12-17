@@ -158,7 +158,8 @@ def send_email_for_renewal(donor):
                 Παρακάτω θα βρείτε τα στοιχεία της δωρεάς σας:<br><br>
                 Μοναδικός αρ. δωρεάς: {donor.id}<br>
                 Ποσό Δωρεάς: €{donor.donation_amount}<br>
-                Τύπος Δωρεάς: {donor.donation_type}<br><br>
+                Τύπος Δωρεάς: {donor.donation_type}<br>
+                Επόμενη Ημερομηνία Πληρωμής: {donor.next_payment_date.strftime('%d/%m/%Y')}<br><br><br>
                 Σας ευχαριστούμε που είστε δίπλα μας. Μαζί, 
                 δημιουργούμε ένα καλύτερο και πιο υγιές μέλλον για τα παιδιά με καρδιοπάθειες.
             </p>
