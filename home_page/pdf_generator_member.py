@@ -3,7 +3,6 @@ from reportlab.lib.pagesizes import A4
 from reportlab.lib import colors
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import inch
-from shop.views import *
 
 
 def generate_receipt_pdf_member(member):
@@ -28,10 +27,10 @@ def generate_receipt_pdf_member(member):
     p.roundRect(0.8 * inch, box_top - 1.8 * inch, width - 1.6 * inch, 1.4 * inch, 10, stroke=1, fill=0)
 
     p.setFont("Helvetica", 12)
-    p.drawString(1 * inch, box_top - 0.7 * inch, f"Donation Number: {member.id}")
-    p.drawString(1 * inch, box_top - 1.1 * inch, f"Full Name: {member.full_name}")
+    p.drawString(1 * inch, box_top - 0.7 * inch, f"Membership Number: {member.id}")
+    p.drawString(1 * inch, box_top - 1.1 * inch, f"Full Name: {member.name} {member.surname}")
 
-    p.drawRightString(width - 1 * inch, box_top - 0.7 * inch, f"Date: {member.created_at.strftime('%d/%m/%Y')}")
+    p.drawRightString(width - 1 * inch, box_top - 0.7 * inch, f"Date: {member.last_payment_date.strftime('%d/%m/%Y')}")
     p.drawRightString(width - 1 * inch, box_top - 1.1 * inch, f"Annual Membership")
 
     # === AMOUNT ===
