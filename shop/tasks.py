@@ -8,6 +8,7 @@ from django.utils import timezone
 from django.db.models.functions import TruncDate
 from django.conf import settings
 from .models import *
+from .pdf_generator import generate_donation_receipt_pdf
 
 
 def check_subscriptions_for_payment():
@@ -51,8 +52,8 @@ def check_subscriptions_for_payment():
                 donors_for_payment_list.append((donor.full_name, donor.id))
 
             if donors_for_payment_list:
-                mail_admins(subject="Δωρητές που πληρώθηκαν επιτυχώς",
-                    message=f"Οι παρακάτω δωρητές έχουν πληρωθεί:\n" + "\n".join([f"{full_name} (ID: {donor_id})" for full_name, donor_id in donors_for_payment_list])
+                mail_admins(subject="Μηνιαίες Δωρεές – Επιτυχής Ολοκλήρωση Πληρωμών Σήμερα",
+                    message=f"Οι παρακάτω δωρητές έχουν πληρώσει επιτυχώς:\n" + "\n".join([f"{full_name} (ID: {donor_id})" for full_name, donor_id in donors_for_payment_list])
                 )
 
     except Exception as e:
@@ -117,6 +118,7 @@ def make_payment(order_number, client_id, binding_id, donor_id,amount):
         if response_data.get("errorCode") == "0":
             payment_response = response_data.get("orderStatus")
             # Update the donor's next payment date
+            donor.last_payment_date = timezone.now()
             donor.next_payment_date = timezone.now() + relativedelta(months=1)
             donor.save()
             return payment_response
@@ -192,6 +194,13 @@ def send_email_for_renewal(donor):
             logger.error(f"Failed to attach logo image: {e}")
     else:
         logger.warning("Logo image not found: static/images/default_logo.jpg")
+    
+    # Generate and attach PDF receipt
+    try:
+        pdf_buffer = generate_donation_receipt_pdf(donor)
+        email.attach(f"receipt_{donor.id}.pdf", pdf_buffer.getvalue(), "application/pdf")
+    except Exception as e:
+        logger.error(f"Failed to generate or attach PDF receipt: {e}")
 
     try:
         email.send()
