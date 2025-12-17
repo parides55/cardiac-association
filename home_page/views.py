@@ -12,7 +12,7 @@ from dateutil.relativedelta import relativedelta
 from .forms import MemberForm
 from .models import Member
 from .tasks import *
-from .pdf_generator import *
+from .pdf_generator import generate_receipt_pdf_member
 
 
 # Home page view
@@ -200,7 +200,11 @@ def send_welcome_email(member):
                     Εάν έχετε οποιαδήποτε ερώτηση ή θέλετε να μάθετε περισσότερα για τον αντίκτυπο της 
                     προσφοράς σας, μη διστάσετε να επικοινωνήσετε μαζί μας.<br>
                     Σας ευχαριστούμε από καρδιάς για την καλοσύνη και τη γενναιοδωρία σας. Μαζί, 
-                    μπορούμε να δώσουμε ελπίδα στις μικρές καρδιές!<br><br><br>
+                    μπορούμε να δώσουμε ελπίδα στις μικρές καρδιές!<br><br>
+                    Στοιχεία Συνδρομής:<br>
+                    Αριθμός Μέλος: {member.id}<br>
+                    Ημερομηνία Εγγραφής: {member.created_at.strftime('%Y-%m-%d')}<br>
+                    Επόμενη Ημερομηνία Πληρωμής: {member.next_payment_date.strftime('%Y-%m-%d')}<br><br><br>
                 </p>
                 <p>
                     Με εκτίμηση,<br><br>
@@ -255,18 +259,24 @@ def send_email_to_the_admin(member):
     """
     Send an email to the admin with the details of the new member.
     """
-    
+
     subject = f"Εγγραφή Νέου μέλους: {member.name} {member.surname}"
-    
+
     text_content = f"""
     Νέο μέλος:
 
     Όνομα: {member.name}
+
     Επώνυμο: {member.surname}
+
     Email: {member.email}
+
     Τηλέφωνο: {member.mobile_number}
+
     Ημερομηνία Εγγραφής: {member.created_at}
+
     Πληρωμένο: {member.is_paid}
+
 
     Παρακαλώ ελέγξτε τις λεπτομέρειες του νέου μέλους στη βάση δεδομένων.
     """
