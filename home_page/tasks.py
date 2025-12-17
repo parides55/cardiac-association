@@ -8,6 +8,7 @@ from django.utils import timezone
 from django.db.models.functions import TruncDate
 from django.conf import settings
 from .models import *
+from .pdf_generator_member import generate_receipt_pdf_member
 
 
 def check_member_for_renewal():
@@ -45,6 +46,7 @@ def check_member_for_renewal():
 
                 # Send email notification to the member
                 send_email_for_renewal(member)
+                send_email_to_accountant_renew_member(member)
                 renewed_members_list.append((member.name, member.surname, member.id_number))
 
             if renewed_members_list:
@@ -188,3 +190,68 @@ def send_email_for_renewal(member):
     except Exception as e:
         logger.error(f"Failed to send welcome email to {member.email}: {e}")
 
+
+def send_email_to_accountant_renew_member(member):
+    logger = logging.getLogger(__name__)
+
+    subject = "Ανανέωση Μέλους για το Σύνσεσμο Γονέων και Φίλων Καρδιοπαθών Παιδιών"
+    from_email = settings.EMAIL_HOST_USER
+    to_email = [settings.ACCOUNTANT_EMAIL]
+
+    html_content = f"""
+    <html>
+        <body>
+            <p>Αγαπητέ,<br><br></p>
+            <p>
+            Σας ενημερώνουμε ότι έχει καταχωρηθεί ανανέωση μέλους στο σύστημα μας. 
+            Παρακάτω θα βρείτε τα στοιχεία της ανανέωσης:<br><br>
+            Αριθμός Μέλους: {member.id}<br>
+            Όνομα: {member.name}<br>
+            Επώνυμο: {member.surname}<br>
+            Ημερομηνία Πληρωμής: {member.last_payment_date.strftime('%d/%m/%Y')}<br><br>
+            Παρακαλώ ενημερώστε μας αν χρειάζεστε περαιτέρω πληροφορίες.<br><br>
+            </p>
+            <p>
+                Με εκτίμηση,<br><br>
+
+                <strong>Σύνδεσμος Γονέων και Φίλων Παιδιών με Καρδιοπάθειες</strong><br>
+                <img src="cid:default_logo.jpg" alt="Association's Logo" width="100px" height=auto><br>
+                <a href="pediheart.org.cy">pediheart.org.cy</a><br>
+                Οδός Γράμμου 11, Διαμέρισμα 5,
+                Στρόβολος, Λευκωσία, Κύπρος<br><br>
+                Tel: <a href="tel:+35722315196">22315196</a><br>
+                Mail: <a href="mailto:info@pediheart.org.cy">info@pediheart.org.cy</a><br><br>
+            </p>
+        </body>
+    </html>
+    """
+
+    email = EmailMultiAlternatives(subject, "", from_email, to_email)
+    email.attach_alternative(html_content, "text/html")
+
+    # Locate the image in the static folder
+    logo_path = finders.find("images/default_logo.jpg")
+
+    if logo_path:
+        try:
+            with open(logo_path, "rb") as logo_file:
+                email.attach("default_logo.jpg", logo_file.read(), "image/jpeg")
+        except Exception as e:
+            logger.error(f"Failed to attach logo image: {e}")
+    else:
+        logger.warning("Logo image not found: static/images/default_logo.jpg")
+    
+    # Generate and attach PDF receipt
+    try:
+        pdf_buffer = generate_receipt_pdf_member(member)
+        email.attach(f"receipt_{member.id}.pdf", pdf_buffer.getvalue(), "application/pdf")
+    except Exception as e:
+        logger.error(f"Failed to generate or attach PDF receipt: {e}")
+
+    # Send Email
+    try:
+        email.send()
+        logger.info(f"Welcome email successfully sent to {member.email}")
+    except Exception as e:
+        # !!!add step to inform admin that email not send
+        logger.error(f"Failed to send welcome email to {member.email}: {e}")
