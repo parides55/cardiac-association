@@ -145,6 +145,7 @@ EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_ADDRESS")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL")
 SERVER_EMAIL = os.environ.get("SERVER_EMAIL")
+ACCOUNTANT_EMAIL = os.environ.get("ACCOUNTANT_EMAIL")
 
 
 # Internationalization
