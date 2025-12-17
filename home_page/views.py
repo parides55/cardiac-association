@@ -141,15 +141,21 @@ def membership_success(request, orderId):
             # After successful payment, send a welcome email to the member and inform the admin.
             send_welcome_email(member)
             send_email_to_the_admin(member)
+            send_email_to_accountant_member(member)
 
             messages.success(request, f"Welcome to the family of the Association of Children with Heart Disease." 
                             f"Your membership has been successfully registered.")
             return render(request, "home_page/index.html")
         else:
             messages.error(request, "Payment verification failed. Try again or contact us for further assistance.")
+            mail_admins(subject="Payment verification failed during membership registration",
+                        message=f"The payment verification for member with member ID {member.id} failed."
+                                f" Please check the JCC dashboard for more details.")
             return render(request, "home_page/index.html",)
     except Exception as e:
-        messages.error(request, f"An error occurred while verifying your payment: {str(e)}")
+        messages.error(request, f"Please Contact us. The following error occurred: {str(e)}")
+        mail_admins(subject="An error occurred during membership registration",
+                    message=f"The following error occurred for member {member.id}: {str(e)}")
         return render(request, "home_page/index.html",)
 
 
@@ -159,8 +165,8 @@ def membership_failed(request, orderId):
     
     orderId = orderId.split("-")[0]  # Get the original orderId
     member = get_object_or_404(Member, id=orderId)
-    mail_admins(subject="Αποτυχία Πληρωμής.",
-                message=f"Η πληρωμή για την εγγραφή του νέου μέλους **{member.name} {member.surname}** απέτυχε.\n\n"
+    mail_admins(subject="Αποτυχία Πληρωμής/Εγγραφής.",
+                message=f"Η πληρωμή ή η εγγραφή του νέου μέλους **{member.name} {member.surname}** απέτυχε.\n\n"
                         f"Στοιχεία επικοινωνίας:\n Email: **{member.email}**\n Τηλέφωνο: **{member.mobile_number}**."
                         f"\n\n Παρακαλώ επικοινωνήστε με το μέλος για περαιτέρω βοήθεια.")
     member.delete()
@@ -279,6 +285,72 @@ def send_email_to_the_admin(member):
     """
 
     mail_admins(subject, text_content)
+
+
+def send_email_to_accountant_member(member):
+    logger = logging.getLogger(__name__)
+
+    subject = "Νέα Εγγραφή Μέλους για το Σύνσεσμο Γονέων και Φίλων Καρδιοπαθών Παιδιών"
+    from_email = settings.EMAIL_HOST_USER
+    to_email = [settings.ACCOUNTANT_EMAIL]
+
+    html_content = f"""
+    <html>
+        <body>
+            <p>Αγαπητέ,<br><br></p>
+            <p>
+            Σας ενημερώνουμε ότι έχει καταχωρηθεί νέα εγγραφή μέλους στο σύστημα μας. 
+            Παρακάτω θα βρείτε τα στοιχεία της εγγραφής:<br><br>
+            Αριθμός Μέλους: {member.id}<br>
+            Όνομα: {member.name}<br>
+            Επώνυμο: {member.surname}<br>
+            Ημερομηνία Πληρωμής: {member.last_payment_date.strftime('%d/%m/%Y')}<br><br>
+            Παρακαλώ ενημερώστε μας αν χρειάζεστε περαιτέρω πληροφορίες.<br><br>
+            </p>
+            <p>
+                Με εκτίμηση,<br><br>
+
+                <strong>Σύνδεσμος Γονέων και Φίλων Παιδιών με Καρδιοπάθειες</strong><br>
+                <img src="cid:default_logo.jpg" alt="Association's Logo" width="100px" height=auto><br>
+                <a href="pediheart.org.cy">pediheart.org.cy</a><br>
+                Οδός Γράμμου 11, Διαμέρισμα 5,
+                Στρόβολος, Λευκωσία, Κύπρος<br><br>
+                Tel: <a href="tel:+35722315196">22315196</a><br>
+                Mail: <a href="mailto:info@pediheart.org.cy">info@pediheart.org.cy</a><br><br>
+            </p>
+        </body>
+    </html>
+    """
+
+    email = EmailMultiAlternatives(subject, "", from_email, to_email)
+    email.attach_alternative(html_content, "text/html")
+
+    # Locate the image in the static folder
+    logo_path = finders.find("images/default_logo.jpg")
+
+    if logo_path:
+        try:
+            with open(logo_path, "rb") as logo_file:
+                email.attach("default_logo.jpg", logo_file.read(), "image/jpeg")
+        except Exception as e:
+            logger.error(f"Failed to attach logo image: {e}")
+    else:
+        logger.warning("Logo image not found: static/images/default_logo.jpg")
+    
+    # Generate and attach PDF receipt
+    try:
+        pdf_buffer = generate_receipt_pdf_member(member)
+        email.attach(f"receipt_{member.id}.pdf", pdf_buffer.getvalue(), "application/pdf")
+    except Exception as e:
+        logger.error(f"Failed to generate or attach PDF receipt: {e}")
+
+    # Send Email
+    try:
+        email.send()
+        logger.info(f"Welcome email successfully sent to {member.email}")
+    except Exception as e:
+        # !!!add step to inform admin that email not send
+        logger.error(f"Failed to send welcome email to {member.email}: {e}")
 
 
 def inform_admin_new_member_failed(member, error_message):
