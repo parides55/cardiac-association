@@ -49,6 +49,7 @@ def check_subscriptions_for_payment():
 
                 # Send email notification to the member
                 send_email_for_renewal(donor)
+                send_email_to_accountant_donation_renewal(donor)
                 donors_for_payment_list.append((donor.full_name, donor.id))
 
             if donors_for_payment_list:
@@ -208,3 +209,70 @@ def send_email_for_renewal(donor):
     except Exception as e:
         logger.error(f"Failed to send welcome email to {donor.email}: {e}")
 
+
+def send_email_to_accountant_donation_renewal(donor):
+
+    logger = logging.getLogger(__name__)
+
+    subject = "Νέα δωρεά καταχωρήθηκε στο σύστημα λογιστικής"
+    from_email = settings.EMAIL_HOST_USER
+    to_email = [settings.ACCOUNTANT_EMAIL]
+
+    html_content = f"""
+    <html>
+        <body>
+            <p>Αγαπητέ,<br><br></p>
+            <p>
+            Σας ενημερώνουμε ότι έχει καταχωρηθεί μια νέα δωρεά στο σύστημα μας. 
+            Παρακάτω θα βρείτε τα στοιχεία της δωρεάς:<br><br>
+            Μοναδικός αρ. δωρεάς: {donor.id}<br>
+            Όνομα Δωρητή: {donor.full_name}<br>
+            Ποσό Δωρεάς: €{donor.donation_amount}<br>
+            Τύπος Δωρεάς: {donor.donation_type}<br>
+            Ημερομηνία Δωρεάς: {donor.created_at.strftime('%d/%m/%Y')}<br><br>
+            Παρακαλώ ενημερώστε μας αν χρειάζεστε περαιτέρω πληροφορίες.<br><br>
+            </p>
+            <p>
+                Με εκτίμηση,<br><br>
+
+                <strong>Σύνδεσμος Γονέων και Φίλων Παιδιών με Καρδιοπάθειες</strong><br>
+                <img src="cid:default_logo.jpg" alt="Association's Logo" width="100px" height=auto><br>
+                <a href="pediheart.org.cy">pediheart.org.cy</a><br>
+                Οδός Γράμμου 11, Διαμέρισμα 5,
+                Στρόβολος, Λευκωσία, Κύπρος<br><br>
+                Tel: <a href="tel:+35722315196">22315196</a><br>
+                Mail: <a href="mailto:info@pediheart.org.cy">info@pediheart.org.cy</a><br><br>
+            </p>
+        </body>
+    </html>
+    """
+
+    email = EmailMultiAlternatives(subject, "", from_email, to_email)
+    email.attach_alternative(html_content, "text/html")
+
+    # Locate the image in the static folder
+    logo_path = finders.find("images/default_logo.jpg")
+
+    if logo_path:
+        try:
+            with open(logo_path, "rb") as logo_file:
+                email.attach("default_logo.jpg", logo_file.read(), "image/jpeg")
+        except Exception as e:
+            logger.error(f"Failed to attach logo image: {e}")
+    else:
+        logger.warning("Logo image not found: static/images/default_logo.jpg")
+    
+    # Generate and attach PDF receipt
+    try:
+        pdf_buffer = generate_donation_receipt_pdf(donor)
+        email.attach(f"receipt_{donor.id}.pdf", pdf_buffer.getvalue(), "application/pdf")
+    except Exception as e:
+        logger.error(f"Failed to generate or attach PDF receipt: {e}")
+
+    # Send Email
+    try:
+        email.send()
+        logger.info(f"Welcome email successfully sent to {donor.email}")
+    except Exception as e:
+        # !!!add step to inform admin that email not send
+        logger.error(f"Failed to send welcome email to {donor.email}: {e}")
