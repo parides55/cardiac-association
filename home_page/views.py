@@ -12,7 +12,7 @@ from dateutil.relativedelta import relativedelta
 from .forms import MemberForm
 from .models import Member
 from .tasks import *
-from .pdf_generator import generate_receipt_pdf_member
+from .pdf_generator_member import generate_receipt_pdf_member
 
 
 # Home page view
@@ -305,7 +305,6 @@ def inform_admin_new_member_failed(member, error_message):
     mail_admins(subject, text_content)
 
 # Cancel membership views
-
 def cancel_membership(request):
     """
     Cancel the membership of a member.
@@ -409,16 +408,16 @@ def send_cancel_email_to_admin(member):
     """
     Send a cancellation email to the admin with the details of the cancelled membership.
     """
-    subject = f"Membership Cancellation: {member.name} {member.surname}"
+    subject = f"Ακύρωση Συνδρομής: {member.name} {member.surname}"
     
     text_content = f"""
-    A member has cancelled their membership:
+    Ένα μέλος ακύρωσε τη συνδρομή του:
 
-    Name: {member.name}
-    Surname: {member.surname}
+    Όνομα: {member.name}
+    Επώνυμο: {member.surname}
     Email: {member.email}
-    Mobile Number: {member.mobile_number}
-    Cancellation Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+    Αριθμός Κινητού: {member.mobile_number}
+    Ημερομηνία Ακύρωσης: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
     """
 
     mail_admins(subject, text_content)
