@@ -3,8 +3,6 @@ from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import inch
 from reportlab.lib import colors
 from reportlab.pdfgen import canvas
-from datetime import datetime
-
 
 def generate_donation_receipt_pdf(donation):
     """
@@ -32,7 +30,7 @@ def generate_donation_receipt_pdf(donation):
     p.drawString(1 * inch, box_top - 0.7 * inch, f"Donation Number: {donation.id}")
     p.drawString(1 * inch, box_top - 1.1 * inch, f"Full Name: {donation.full_name}")
 
-    p.drawRightString(width - 1 * inch, box_top - 0.7 * inch, f"Date: {donation.created_at.strftime('%d/%m/%Y')}")
+    p.drawRightString(width - 1 * inch, box_top - 0.7 * inch, f"Date: {donation.last_payment_date.strftime('%d/%m/%Y')}")
     p.drawRightString(width - 1 * inch, box_top - 1.1 * inch, f"Donation Type: {donation.donation_type}")
 
     # === AMOUNT ===
