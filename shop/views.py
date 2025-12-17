@@ -160,6 +160,7 @@ def payment_success_donation(request, orderId):
             # After successful payment, send a welcome email to the member and inform the admin
             send_email_to_admin_donation(donation)
             send_email_to_donor(donation)
+            send_email_to_accountant(donation)
 
             messages.success(request, f"Thank you for your donation! Your payment was successful.")
             return redirect('donations')
@@ -267,6 +268,74 @@ def send_email_to_donor(donation):
             </p>
             <p>
                 <strong>Σημείωση:</strong> Εάν θέλετε να τερματίσετε την μηνιαία συνδρομή σας, μπορείτε να το κάνετε <a href="https://pediheart.org.cy/en/shop/cancel_monthly_donation/">πατώντας εδώ</a>.
+            </p>
+        </body>
+    </html>
+    """
+
+    email = EmailMultiAlternatives(subject, "", from_email, to_email)
+    email.attach_alternative(html_content, "text/html")
+
+    # Locate the image in the static folder
+    logo_path = finders.find("images/default_logo.jpg")
+
+    if logo_path:
+        try:
+            with open(logo_path, "rb") as logo_file:
+                email.attach("default_logo.jpg", logo_file.read(), "image/jpeg")
+        except Exception as e:
+            logger.error(f"Failed to attach logo image: {e}")
+    else:
+        logger.warning("Logo image not found: static/images/default_logo.jpg")
+    
+    # Generate and attach PDF receipt
+    try:
+        pdf_buffer = generate_donation_receipt_pdf(donation)
+        email.attach(f"receipt_{donation.id}.pdf", pdf_buffer.getvalue(), "application/pdf")
+    except Exception as e:
+        logger.error(f"Failed to generate or attach PDF receipt: {e}")
+
+    # Send Email
+    try:
+        email.send()
+        logger.info(f"Welcome email successfully sent to {donation.email}")
+    except Exception as e:
+        # !!!add step to inform admin that email not send
+        logger.error(f"Failed to send welcome email to {donation.email}: {e}")
+
+
+def send_email_to_accountant(donation):
+
+    logger = logging.getLogger(__name__)
+
+    subject = "Νέα δωρεά καταχωρήθηκε στο σύστημα λογιστικής"
+    from_email = settings.EMAIL_HOST_USER
+    to_email = [settings.ACCOUNTANT_EMAIL]
+
+    html_content = f"""
+    <html>
+        <body>
+            <p>Αγαπητέ,<br><br></p>
+            <p>
+            Σας ενημερώνουμε ότι έχει καταχωρηθεί μια νέα δωρεά στο σύστημα μας. 
+            Παρακάτω θα βρείτε τα στοιχεία της δωρεάς:<br><br>
+            Μοναδικός αρ. δωρεάς: {donation.id}<br>
+            Όνομα Δωρητή: {donation.full_name}<br>
+            Ποσό Δωρεάς: €{donation.donation_amount}<br>
+            Τύπος Δωρεάς: {donation.donation_type}<br>
+            Ημερομηνία Δωρεάς: {donation.created_at.strftime('%d/%m/%Y')}<br><br>
+            Παρακαλώ ενημερώστε μας αν χρειάζεστε περαιτέρω πληροφορίες.<br><br>
+            </p>
+            <p>
+                Με εκτίμηση,<br><br>
+
+                <strong>Σύνδεσμος Γονέων και Φίλων Παιδιών με Καρδιοπάθειες</strong><br>
+                <img src="cid:default_logo.jpg" alt="Association's Logo" width="100px" height=auto><br>
+                <a href="pediheart.org.cy">pediheart.org.cy</a><br>
+                Οδός Γράμμου 11, Διαμέρισμα 5,
+                Στρόβολος, Λευκωσία, Κύπρος<br><br>
+                Tel: <a href="tel:+35722315196">22315196</a><br>
+                Mail: <a href="mailto:info@pediheart.org.cy">info@pediheart.org.cy</a><br><br>
             </p>
         </body>
     </html>
