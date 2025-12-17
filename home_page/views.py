@@ -14,11 +14,9 @@ from .models import Member
 from .tasks import *
 from .pdf_generator_member import generate_receipt_pdf_member
 
-
 # Home page view
 def index(request):
     return render(request, "home_page/index.html")
-
 
 # More Information page about heart disease view
 def MoreInfo(request):
@@ -26,7 +24,6 @@ def MoreInfo(request):
     Render the page with more information about heart disease.
     """
     return render(request, "home_page/heart_disease_info.html")
-
 
 # Become a member views
 def become_member(request):
