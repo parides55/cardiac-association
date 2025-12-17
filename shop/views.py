@@ -183,9 +183,9 @@ def payment_failed_donation(request, orderId):
         donation = Donation.objects.get(id=orderId)
         mail_admins(
             subject="Ειδοποίηση Αποτυχημένης Πληρωμής Δωρεάς",
-            message=f"Η πληρωμή για τη δωρεά με ID: {donation.id} απέτυχε.\n"
-                    f"Δωρητής: {donation.full_name},\n Email: {donation.email},\n Τηλέφωνο: {donation.phone_number}"
-                    f"\n Τύπος Δωρεάς: {donation.donation_type},\n Ποσό Δωρεάς: €{donation.donation_amount}."
+            message=f"Η πληρωμή για τη δωρεά με ID: {donation.id} απέτυχε.\n\n"
+                    f"Δωρητής: {donation.full_name},\n\n Email: {donation.email},\n\n Τηλέφωνο: {donation.phone_number}"
+                    f"\n\n Τύπος Δωρεάς: {donation.donation_type},\n\n Ποσό Δωρεάς: €{donation.donation_amount}."
         )
         donation.delete()
         messages.error(request, "Payment failed. Please try again.")
@@ -208,11 +208,17 @@ def send_email_to_admin_donation(donation):
     Έχετε νέα δωρεά από την ιστοσελίδα!
 
     Όνομα: {donation.full_name}
+
     Email: {donation.email}
+
     Τηλέφωνο: {donation.phone_number}    
+
     Τύπος δωρεάς: {donation.donation_type}
-    Ποσό: {donation.donation_amount} €
+
+    Ποσό: € {donation.donation_amount}
+
     Ημερομηνία παραλαβής: {donation.created_at}
+
 
     Παρακαλώ ελέγξτε την βάση δεδομένων για περισσότερες πληροφορίες.
     """
@@ -309,7 +315,7 @@ def inform_admin_failed_donation(donor, error_message):
     
     {error_message}
     
-    Στοιχεία δωρεάς:
+    Στοιχεία επικοινωνίας και δωρεάς:
     
     Email: {donor.email}
     Κινητό τηλέφωνο: {donor.phone_number}

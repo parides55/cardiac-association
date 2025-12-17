@@ -162,9 +162,10 @@ def membership_failed(request, orderId):
     
     orderId = orderId.split("-")[0]  # Get the original orderId
     member = get_object_or_404(Member, id=orderId)
-    mail_admins(subject="Η πληρωμή της συνδρομής απέτυχε.",
+    mail_admins(subject="Αποτυχία Πληρωμής.",
                 message=f"Η πληρωμή για την εγγραφή του νέου μέλους **{member.name} {member.surname}** απέτυχε.\n\n"
-                        f"Στοιχεία επικοινωνίας:\n Email: **{member.email}**\n Τηλέφωνο: **{member.mobile_number}**.")
+                        f"Στοιχεία επικοινωνίας:\n Email: **{member.email}**\n Τηλέφωνο: **{member.mobile_number}**."
+                        f"\n\n Παρακαλώ επικοινωνήστε με το μέλος για περαιτέρω βοήθεια.")
     member.delete()
     messages.error(request, "Payment failed. Please try again or contact us for further assistance.")
     return redirect('become_member')
