@@ -47,9 +47,7 @@ def check_subscriptions_for_payment():
                 amount = int(float(donor.donation_amount) * 100)  # Convert to cents
                 payment_response = make_payment(unique_order_number, donor_client_id, binding_id, donor.id, amount)
 
-                # Send email notification to the member
-                send_email_for_renewal(donor)
-                send_email_to_accountant_donation_renewal(donor)
+                # Collect successful payments for admin notification
                 donors_for_payment_list.append((donor.full_name, donor.id))
 
             if donors_for_payment_list:
@@ -121,7 +119,10 @@ def make_payment(order_number, client_id, binding_id, donor_id,amount):
             # Update the donor's next payment date
             donor.last_payment_date = timezone.now()
             donor.next_payment_date = timezone.now() + relativedelta(months=1)
-            donor.save()
+            donor.save() # Save the updated donor information
+            # Send email notification to the member
+            send_email_for_renewal(donor)
+            send_email_to_accountant_donation_renewal(donor)
             return payment_response
         else:
             # Update the donor's status to expired
@@ -230,7 +231,7 @@ def send_email_to_accountant_donation_renewal(donor):
             Όνομα Δωρητή: {donor.full_name}<br>
             Ποσό Δωρεάς: €{donor.donation_amount}<br>
             Τύπος Δωρεάς: {donor.donation_type}<br>
-            Ημερομηνία Δωρεάς: {donor.created_at.strftime('%d/%m/%Y')}<br><br>
+            Ημερομηνία Πληρωμής: {donor.last_payment_date.strftime('%d/%m/%Y')}<br><br>
             Παρακαλώ ενημερώστε μας αν χρειάζεστε περαιτέρω πληροφορίες.<br><br>
             </p>
             <p>
