@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-05 19:40+0200\n"
+"POT-Creation-Date: 2025-12-30 11:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,42 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\about_us\models.py:8
+msgid "President"
+msgstr "Πρόεδρος"
+
+#: .\about_us\models.py:8
+msgid "Vice President"
+msgstr "Αντιπρόεδρος"
+
+#: .\about_us\models.py:8
+msgid "Secretary"
+msgstr "Γραμματέας"
+
+#: .\about_us\models.py:8
+msgid "Assistant Secretary"
+msgstr "Βοηθός Γραμματέας"
+
+#: .\about_us\models.py:9
+msgid "Treasurer"
+msgstr "Ταμίας"
+
+#: .\about_us\models.py:9
+msgid "Assistant Treasurer"
+msgstr "Βοηθός Ταμίας"
+
+#: .\about_us\models.py:9
+msgid "Member"
+msgstr "Μέλος"
+
+#: .\about_us\models.py:9
+msgid "Executive Director"
+msgstr "Εκτελεστική Διευθύντρια"
+
+#: .\about_us\models.py:9
+msgid "Liaison Officer"
+msgstr "Λειτουργός Συνδεσμου"
 
 #: .\about_us\templates\about_us\gallery.html:11
 #: .\about_us\templates\about_us\people.html:14
@@ -153,11 +189,11 @@ msgstr "Φωτογραφία του προσωπικού"
 msgid "A group of people in the forest hanging each other."
 msgstr "Μια ομάδα ανθρώπων στο δάσος κρατιούνται ο ένας με τον άλλον."
 
-#: .\cardiac_association\settings.py:155
+#: .\cardiac_association\settings.py:156
 msgid "English"
 msgstr "Αγγλικά"
 
-#: .\cardiac_association\settings.py:156
+#: .\cardiac_association\settings.py:157
 msgid "Greek"
 msgstr "Ελληνικά"
 
@@ -1888,6 +1924,9 @@ msgstr "Υπηρεσίες"
 #: .\what_we_do\templates\what_we_do\what_we_do.html:188
 msgid "Programs"
 msgstr "Προγράμματα"
+
+#~ msgid "Staff"
+#~ msgstr "Προσωπικό"
 
 #~ msgid "Learn More"
 #~ msgstr "Μάθετε Περισσότερα"
