@@ -12,8 +12,8 @@ def our_history(request):
 def our_people(request):
 
     try:
-        board_members = People.objects.exclude(position=7).order_by('position')
-        staff = People.objects.filter(position=7)
+        board_members = People.objects.exclude(position__in=[7, 8]).order_by('position')
+        staff = People.objects.filter(position__in=[7, 8]).order_by('position')
 
         context = {
             'board_members': board_members,
