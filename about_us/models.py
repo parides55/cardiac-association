@@ -18,7 +18,7 @@ class People(models.Model):
     position = models.IntegerField(choices=POSITIONS, default=0)
 
     def __str__(self):
-        return f"{self.name} - {self.get_position_display()}"
+        return f"{self.name_en} - {self.get_position_display()}"
 
 
 class Gallery(models.Model):
