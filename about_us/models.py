@@ -1,14 +1,19 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
+from django.utils.translation import gettext_lazy as _
+
 
 # Create your models here.
-POSITIONS = ((0, "Πρόεδρος"), (1, "Αντιπρόεδρος"), (2, "Γραμματέας"), (3, "Βοηθός Γραμματέας"),
-            (4, "Ταμίας"), (5,"Βοηθός Ταμίας"), (6, "Μέλος"), (7, "Προσωπικό"))
+POSITIONS = (
+    (0, _("President")), (1, _("Vice President")), (2, _("Secretary")), (3, _("Assistant Secretary")),
+            (4, _("Treasurer")), (5, _("Assistant Treasurer")), (6, _("Member")), (7, _("Executive Director")), (8, _("Liaison Officer"))
+)
 
 
 class People(models.Model):
 
-    name = models.CharField(max_length=100)
+    name_en = models.CharField(max_length=100)
+    name_gr = models.CharField(max_length=100)
     image = CloudinaryField('image', default='placeholder')
     position = models.IntegerField(choices=POSITIONS, default=0)
 
