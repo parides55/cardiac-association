@@ -43,6 +43,7 @@
     </div>
 </section>
 
+{% get_current_language as LANGUAGE_CODE %}
 <section id="board">
     <div class="container-fluid">
         <div class='row'>
@@ -60,8 +61,13 @@
                         <img src="{{ person.image.url }}" class="card-img-top" alt="{% trans 'Picture of the board member' %}">
                         {% endif %}
                         <div class="card-body">
-                            <h5 class="card-title">{{ person.name }}</h5>
+                            {% if LANGUAGE_CODE == 'en' %}
+                            <h5 class="card-title">{{ person.name_en }}</h5>
                             <p class="card-text">{{ person.get_position_display }}</p>
+                            {% else %}
+                            <h5 class="card-title">{{ person.name_gr }}</h5>
+                            <p class="card-text">{{ person.get_position_display }}</p>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -90,8 +96,13 @@
                         <img src="{{ person.image.url }}" class="card-img-top" alt="{% trans 'Picture of the staff' %}">
                         {% endif %}
                         <div class="card-body">
-                            <h5 class="card-title">{{ person.name }}</h5>
+                            {% if LANGUAGE_CODE == 'en' %}
+                            <h5 class="card-title">{{ person.name_en }}</h5>
                             <p class="card-text">{{ person.get_position_display }}</p>
+                            {% else %}
+                            <h5 class="card-title">{{ person.name_gr }}</h5>
+                            <p class="card-text">{{ person.get_position_display }}</p>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
