@@ -54,7 +54,7 @@
                         {% if 'placeholder' in new.image.url %}
                         <img src="{% static 'images/default_logo.jpg' %}" class="card-img-top" alt="{% trans 'Default image, Logo of the associaiton.' %}">
                         {% else %}
-                        <img src="{{ new.image.url }}" class="card-img-top" alt="{{ new.title }}">
+                        <img src="{{ new.secure_image_url }}" class="card-img-top" alt="{{ new.title }}">
                         {% endif %}
                         <div class="card-body">
                             {% if LANGUAGE_CODE == 'el' %}

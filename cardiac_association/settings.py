@@ -14,6 +14,7 @@ import os
 import sys
 import ssl
 import dj_database_url
+import cloudinary
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 from django.contrib.messages import constants as messages
@@ -48,6 +49,10 @@ CSRF_TRUSTED_ORIGINS = [
     "https://*.codeanyapp.com",
     "https://*.herokuapp.com"
 ]
+
+cloudinary.config(
+    secure=True,
+)
 
 # Application definition
 

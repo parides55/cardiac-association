@@ -18,6 +18,13 @@ class New(models.Model):
     excerpt_greek = models.TextField(blank=True)
     status = models.IntegerField(choices=STATUS, default=0)
     
+    @property
+    def secure_image_url(self):
+        """Return HTTPS URL for the image"""
+        url = self.image.url
+        if url.startswith('http://'):
+            url = url.replace('http://', 'https://', 1)
+        return url
     
     def __str__(self):
         return f"{self.title_greek} - {self.created_on.strftime('%Y-%m-%d')}"
