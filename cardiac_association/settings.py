@@ -32,8 +32,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY")
-JCC_API_USERNAME = os.environ.get("JCC_API_USERNAME")
-JCC_API_PASSWORD = os.environ.get("JCC_API_PASSWORD")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -63,6 +61,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_recaptcha',
     'cloudinary_storage',
     'crispy_forms',
     'crispy_bootstrap5',
@@ -78,9 +77,6 @@ INSTALLED_APPS = [
     'shop',
     'legal_docs',
 ]
-
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -121,7 +117,6 @@ DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
@@ -140,6 +135,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Crispy Forms settings
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+# JCC settings
+JCC_API_USERNAME = os.environ.get("JCC_API_USERNAME")
+JCC_API_PASSWORD = os.environ.get("JCC_API_PASSWORD")
+
 # Email settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.office365.com'
@@ -152,6 +155,9 @@ DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL")
 SERVER_EMAIL = os.environ.get("SERVER_EMAIL")
 ACCOUNTANT_EMAIL = os.environ.get("ACCOUNTANT_EMAIL")
 
+# reCAPTCHA settings
+RECAPTCHA_PUBLIC_KEY = os.environ.get("RECAPTCHA_PUBLIC_KEY")
+RECAPTCHA_PRIVATE_KEY = os.environ.get("RECAPTCHA_PRIVATE_KEY")
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
