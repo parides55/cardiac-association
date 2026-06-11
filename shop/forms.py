@@ -1,5 +1,7 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
+from django_recaptcha.fields import ReCaptchaField
+from django_recaptcha.widgets import ReCaptchaV2Checkbox
 from .models import Basket, Donation, ShippingDetail
 
 
@@ -23,6 +25,9 @@ class ShippingDetailForm(forms.ModelForm):
     """
     A form for users to enter their shipping details.
     """
+
+    captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox)
+
     class Meta:
         """
         Specify the django model and fields to be displayed.
@@ -53,6 +58,9 @@ class DonationForm(forms.ModelForm):
     """
     A form for users to make a donation.
     """
+
+    captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox)
+
     class Meta:
         """
         Specify the django model and fields to be displayed.
