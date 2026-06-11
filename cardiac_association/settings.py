@@ -156,8 +156,12 @@ SERVER_EMAIL = os.environ.get("SERVER_EMAIL")
 ACCOUNTANT_EMAIL = os.environ.get("ACCOUNTANT_EMAIL")
 
 # reCAPTCHA settings
-RECAPTCHA_PUBLIC_KEY = os.environ.get("RECAPTCHA_PUBLIC_KEY")
-RECAPTCHA_PRIVATE_KEY = os.environ.get("RECAPTCHA_PRIVATE_KEY")
+RECAPTCHA_PUBLIC_KEY_V3 = os.environ.get("RECAPTCHA_PUBLIC_KEY_V3")
+RECAPTCHA_PRIVATE_KEY_V3 = os.environ.get("RECAPTCHA_PRIVATE_KEY_V3")
+RECAPTCHA_REQUIRED_SCORE = 0.75
+RECAPTCHA_PUBLIC_KEY_V2 = os.environ.get("RECAPTCHA_PUBLIC_KEY_V2")
+RECAPTCHA_PRIVATE_KEY_V2 = os.environ.get("RECAPTCHA_PRIVATE_KEY_V2")
+SILENCED_SYSTEM_CHECKS = ['django_recaptcha.recaptcha_test_key_error']
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
