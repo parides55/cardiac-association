@@ -138,6 +138,7 @@
                                     <input type="hidden" name="product_id" value="{{ item.product.name }}">
                                     <input type="hidden" name="quantity" value="{{ item.quantity }}">
                                     {% endfor %}
+                                    <div class="g-recaptcha d-flex justify-content-center" data-sitekey="6LcroBktAAAAAA_xE1quTEN2UJ-X7JKfsFvHbPrA" data-action="SUBMIT"></div>
                                 </div>
                                 <div class="col-12 text-center my-3 submit-logo-div">
                                     <button type="submit" class="btn btn-outline-secondary my-2 button-to-pay" aria-label="pay">{% trans 'Pay' %}</button>
