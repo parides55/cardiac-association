@@ -122,15 +122,15 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="City" class="form-label">{% trans 'City' %}</label>
-                                    <input type="text" class="form-control" id="City" name="city" required>
+                                    <input type="text" class="form-control" id="City" name="city" placeholder="City" required>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="area" class="form-label">{% trans 'Area' %}</label>
-                                    <input type="text" class="form-control" id="area" name="area" required>
+                                    <input type="text" class="form-control" id="area" name="area" placeholder="Area" required>
                                 </div>
                                 <div class="col-md-2">
                                     <label for="postcode" class="form-label">{% trans 'Postcode' %}</label>
-                                    <input type="text" class="form-control" id="postcode" name="postcode" pattern="[0-9]{4}"  required>
+                                    <input type="text" class="form-control" id="postcode" name="postcode" placeholder="Postcode" pattern="[0-9]{4}"  required>
                                 </div>
                                 <div class="col-12 my-3">
                                     <input type="hidden" name="total" value="{{ total }}">
@@ -138,7 +138,10 @@
                                     <input type="hidden" name="product_id" value="{{ item.product.name }}">
                                     <input type="hidden" name="quantity" value="{{ item.quantity }}">
                                     {% endfor %}
-                                    <div class="g-recaptcha d-flex justify-content-center" data-sitekey="6LcroBktAAAAAA_xE1quTEN2UJ-X7JKfsFvHbPrA" data-action="SUBMIT"></div>
+                                    <div class="d-flex justify-content-center">
+                                        {{ shipping_detail_form.captcha }}
+                                        {{ shipping_detail_form.captcha.errors }}
+                                    </div>
                                 </div>
                                 <div class="col-12 text-center my-3 submit-logo-div">
                                     <button type="submit" class="btn btn-outline-secondary my-2 button-to-pay" aria-label="pay">{% trans 'Pay' %}</button>

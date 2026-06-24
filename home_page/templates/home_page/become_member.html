@@ -35,6 +35,8 @@
                 <form class="px-3" id="memberForm" method="post">
                     {{ member_form|crispy }}
                     {% csrf_token %}
+                    {{ form.captcha }}
+                    {{ form.captcha.errors }}
                     <p><small>
                     {% blocktrans %}
                         **Note**: By becoming a member of our Association, you contribute to supporting 

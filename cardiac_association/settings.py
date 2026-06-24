@@ -159,6 +159,7 @@ ACCOUNTANT_EMAIL = os.environ.get("ACCOUNTANT_EMAIL")
 RECAPTCHA_PUBLIC_KEY = os.environ.get("RECAPTCHA_PUBLIC_KEY")
 RECAPTCHA_PRIVATE_KEY = os.environ.get("RECAPTCHA_PRIVATE_KEY")
 SILENCED_SYSTEM_CHECKS = ['django_recaptcha.recaptcha_test_key_error']
+RECAPTCHA_USE_ENTERPRISE = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/

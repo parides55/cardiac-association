@@ -70,7 +70,10 @@
                                 <input type="hidden" name="donation_type" value="{{ donation_type }}">
                                 <input type="hidden" name="donation_amount" value="{{ donation_amount }}">
                             </div>
-                            <div class="g-recaptcha d-flex justify-content-center" data-sitekey="6LcroBktAAAAAA_xE1quTEN2UJ-X7JKfsFvHbPrA" data-action="SUBMIT"></div>
+                            <div class="d-flex justify-content-center">
+                                {{ form.captcha }}
+                                {{ form.captcha.errors }}
+                            </div>
                         </div>
                         <div class="col-12 text-center my-3 submit-logo-div">
                             <button type="submit" class="btn btn-outline-secondary my-2 button-to-pay" aria-label="pay">{% trans 'Donate' %}</button>

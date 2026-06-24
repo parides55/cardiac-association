@@ -76,6 +76,7 @@ def donation_checkout(request):
             'donation_type': donation_type,
             'donation_amount': donation_amount,
             'other_amount': other_amount,
+            'form': DonationForm()
         }
 
         return render(request, 'shop/donation_checkout.html', context)
@@ -587,6 +588,7 @@ def view_basket(request):
         context = {
             'basket_items': basket_items,
             'total': total,
+            'shipping_detail_form': ShippingDetailForm(),
         }
         return render(request, 'shop/basket.html', context)
 
