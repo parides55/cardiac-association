@@ -10,6 +10,8 @@ from django.conf import settings
 from .models import *
 from .pdf_generator_member import generate_receipt_pdf_member
 
+logger = logging.getLogger(__name__)
+
 
 def check_member_for_renewal():
     
@@ -56,6 +58,7 @@ def check_member_for_renewal():
                 )
 
     except Exception as e:
+        logger.exception("check_member_for_renewal task failed")
         mail_admins(
             subject="Ειδοποίηση Σφάλματος στην Εργασία Ανανέωσης",
             message=f"Παρουσιάστηκε σφάλμα: {str(e)}"
@@ -85,6 +88,7 @@ def get_credentials(client_id):
             return error_message
 
     except Exception as e:
+        logger.exception("JCC getBindings failed for client_id=%s", client_id)
         return str(e)
 
 
@@ -124,6 +128,7 @@ def make_payment(order_number, client_id, binding_id, member_id):
             error_message = response_data.get("errorMessage")
             return error_message
     except Exception as e:
+        logger.exception("JCC instantPayment failed for order=%s member_id=%s", order_number, member_id)
         return str(e)
 
 

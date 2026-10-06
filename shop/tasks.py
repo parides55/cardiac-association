@@ -10,6 +10,8 @@ from django.conf import settings
 from .models import *
 from .pdf_generator import generate_donation_receipt_pdf
 
+logger = logging.getLogger(__name__)
+
 
 def check_subscriptions_for_payment():
     """
@@ -56,6 +58,7 @@ def check_subscriptions_for_payment():
                 )
 
     except Exception as e:
+        logger.exception("check_subscriptions_for_payment task failed")
         mail_admins(
             subject="Ειδοποίηση Σφάλματος στην Εργασία Πληρωμής Δωρητών",
             message=f"Παρουσιάστηκε σφάλμα: {str(e)}"
@@ -85,6 +88,7 @@ def get_credentials(client_id):
             return error_message
 
     except Exception as e:
+        logger.exception("JCC getBindings failed for client_id=%s", client_id)
         mail_admins(
             subject="Ειδοποίηση Σφάλματος στην Αναζήτηση Πιστοποιητικών",
             message=f"Παρουσιάστηκε σφάλμα: {str(e)}"
@@ -131,6 +135,7 @@ def make_payment(order_number, client_id, binding_id, donor_id,amount):
             error_message = response_data.get("errorMessage")
             return error_message
     except Exception as e:
+        logger.exception("JCC instantPayment failed for order=%s donor_id=%s", order_number, donor_id)
         return str(e)
 
 

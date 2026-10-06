@@ -196,3 +196,34 @@ MESSAGE_TAGS = {
     messages.ERROR: 'alert-danger',
     messages.INFO: 'alert-info',
 }
+
+# --- Logging ---
+LOGS_DIR = BASE_DIR / "logs"
+LOGS_DIR.mkdir(exist_ok=True)
+
+DJANGO_LOG_LEVEL = os.environ.get("DJANGO_LOG_LEVEL", "INFO")
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {"format": "{asctime} [{levelname}] {name}: {message}", "style": "{"},
+        "simple": {"format": "[{levelname}] {message}", "style": "{"},
+    },
+    "handlers": {
+        "console": {"class": "logging.StreamHandler", "formatter": "simple"},
+        "file": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "filename": str(LOGS_DIR / "cardiac_association.log"),
+            "maxBytes": 5 * 1024 * 1024,
+            "backupCount": 5,
+            "encoding": "utf-8",
+            "formatter": "verbose",
+        },
+    },
+    "root": {"handlers": ["console", "file"], "level": DJANGO_LOG_LEVEL},
+    "loggers": {
+        "django": {"handlers": ["console", "file"], "level": "INFO", "propagate": False},
+        "django.request": {"handlers": ["console", "file"], "level": "ERROR", "propagate": False},
+    },
+}

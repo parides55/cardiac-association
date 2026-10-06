@@ -13,6 +13,8 @@ from .forms import BasketForm, DonationForm, ShippingDetailForm
 from .models import Product, Basket, ShippingDetail, Donation
 from .pdf_generator import generate_donation_receipt_pdf
 
+logger = logging.getLogger(__name__)
+
 # Create your views here.
 
 # --------- Donation views ---------
@@ -68,7 +70,7 @@ def donation_checkout(request):
                     messages.error(request, f"Payment failed: {e}")
                     return redirect('donations')
             else:
-                print(donation_form.errors)
+                logger.warning("Donation form invalid: %s", donation_form.errors)
                 messages.error(request, "Something went wrong. Please try again.")
                 return redirect('donations')
 
@@ -121,6 +123,7 @@ def process_payment_donation(amount, orderId, description):
         else:
             raise Exception(f"JCC API Request Failed: {response.status_code}, {response.text}")
     except Exception as e:
+        logger.exception("JCC payment registration failed for order %s", orderId)
         raise Exception(f"The response from the JCC API failed: {e}")
 
 
@@ -703,6 +706,7 @@ def process_payment_shop(amount, orderId, description):
         else:
             raise Exception(f"JCC API Request Failed: {response.status_code}, {response.text}")
     except Exception as e:
+        logger.exception("JCC payment registration failed for order %s", orderId)
         raise Exception(f"The response from the JCC API failed: {e}")
 
 
