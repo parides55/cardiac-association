@@ -1,0 +1,37 @@
+{% extends "admin/change_form.html" %}
+{% load static %}
+
+{% block after_field_sets %}
+{{ block.super }}
+<fieldset class="module aligned" id="bulk-upload">
+    <h2>Add photos and videos</h2>
+    <div class="form-row">
+        {% if bulk_upload %}
+        <p>
+            <button type="button" class="button default" id="bulk-upload-button" style="padding: 10px 15px;">
+                Upload photos and videos
+            </button>
+        </p>
+        <p class="help" style="margin-left: 0; padding-left: 0;">
+            Select or drag in as many files as you like. They upload straight to Cloudinary,
+            so large videos are fine. The page reloads when the upload finishes, so save any
+            other changes to the album first. Captions and order can be edited in the tables below afterwards.
+        </p>
+        <p id="bulk-upload-status" role="status" style="font-weight: bold;"></p>
+        {% else %}
+        <p class="help" style="margin-left: 0; padding-left: 0;">
+            Save the album first, then you can upload its photos and videos here.
+        </p>
+        {% endif %}
+    </div>
+</fieldset>
+{% endblock %}
+
+{% block admin_change_form_document_ready %}
+{{ block.super }}
+{% if bulk_upload %}
+{{ bulk_upload|json_script:"bulk-upload-config" }}
+<script src="https://upload-widget.cloudinary.com/latest/global/all.js"></script>
+<script src="{% static 'js/admin/gallery_bulk_upload.js' %}"></script>
+{% endif %}
+{% endblock %}

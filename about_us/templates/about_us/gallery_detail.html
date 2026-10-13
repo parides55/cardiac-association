@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+
+{# Without JavaScript there is no "Load more" button, so show every tile. #}
+<noscript><style>.gallery-tile[hidden] { display: block; }</style></noscript>
+
+<section id="gallery-album" class="mt-4">
+    <div class="container">
+        <a class="gallery-back" href="{% url 'gallery_view' %}"><i class="bi bi-arrow-left" aria-hidden="true"></i> {% trans 'Back to all albums' %}</a>
+
+        <h1 class="gallery-album-title mt-3">{{ gallery.title }}</h1>
+        {% if gallery.description %}
+        <p class="fs-5">{{ gallery.description|linebreaksbr }}</p>
+        {% endif %}
+
+        <div class="gallery-grid mt-4" id="gallery-grid" data-initial="{{ initial_tiles }}">
+            {% for image in images %}
+            <a href="{{ image.large_url }}" class="glightbox gallery-tile" data-gallery="gallery{{ gallery.id }}" data-type="image"{% if image.caption %} data-title="{{ image.caption }}"{% endif %}{% if forloop.counter > initial_tiles %} hidden{% endif %}>
+                <img src="{{ image.thumb_url }}" width="600" height="450" loading="lazy" decoding="async" alt="{{ image.caption|default:gallery.title }}">
+            </a>
+            {% endfor %}
+
+            {% for video in videos %}
+            <a href="{{ video.video.url }}" class="glightbox gallery-tile gallery-tile-video" data-gallery="gallery{{ gallery.id }}" data-type="video"{% if video.caption %} data-title="{{ video.caption }}"{% endif %}{% if forloop.counter|add:image_total > initial_tiles %} hidden{% endif %}>
+                <img src="{{ video.poster_url }}" width="600" height="450" loading="lazy" decoding="async" alt="{{ video.caption|default:gallery.title }}" onerror="this.onerror=null;this.src='{% static 'images/default_logo.jpg' %}';">
+                <span class="gallery-tile-play"><i class="bi bi-play-circle-fill" aria-hidden="true"></i><span class="visually-hidden">{% trans 'Play video' %}</span></span>
+            </a>
+            {% endfor %}
+        </div>
+
+        {% if not images and not videos %}
+        <p class="fs-5 text-center">{% trans 'No albums have been added yet.' %}</p>
+        {% endif %}
+
+        <div class="text-center mt-4">
+            <button type="button" class="btn btn-warning px-5 fw-bold" id="gallery-load-more" hidden>{% trans 'Load more' %}</button>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block forJS %}
+<script>
+    // Show the album in batches. Every tile stays in the lightbox slideshow,
+    // and thumbnails are lazy-loaded, so hidden tiles cost nothing until revealed.
+    (function () {
+        const grid = document.getElementById('gallery-grid');
+        const button = document.getElementById('gallery-load-more');
+        if (!grid || !button) { return; }
+        const batch = parseInt(grid.dataset.initial, 10) || 24;
+        const tiles = Array.from(grid.querySelectorAll('.gallery-tile'));
+        let shown = batch;
+
+        function render() {
+            tiles.forEach(function (tile, index) { tile.hidden = index >= shown; });
+            button.hidden = shown >= tiles.length;
+        }
+
+        button.addEventListener('click', function () {
+            const firstNew = tiles[shown];
+            shown += batch;
+            render();
+            if (firstNew) { firstNew.focus({preventScroll: true}); }
+        });
+        render();
+    })();
+</script>
+{% endblock %}
