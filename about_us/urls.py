@@ -5,4 +5,5 @@ urlpatterns = [
     path("people/", views.our_people, name="our_people"),
     path("history/", views.our_history, name="our_history"),
     path("gallery/", views.gallery_view, name="gallery_view"),
+    path("gallery/<int:pk>/", views.gallery_detail, name="gallery_detail"),
 ]

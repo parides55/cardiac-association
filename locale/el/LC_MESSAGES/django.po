@@ -1925,6 +1925,30 @@ msgstr "Υπηρεσίες"
 msgid "Programs"
 msgstr "Προγράμματα"
 
+#: .\about_us\templates\about_us\gallery.html
+msgid "Photos"
+msgstr "Φωτογραφίες"
+
+#: .\about_us\templates\about_us\gallery.html
+msgid "Videos"
+msgstr "Βίντεο"
+
+#: .\about_us\templates\about_us\gallery.html
+msgid "No albums have been added yet."
+msgstr "Δεν έχουν προστεθεί άλμπουμ ακόμη."
+
+#: .\about_us\templates\about_us\gallery_detail.html
+msgid "Back to all albums"
+msgstr "Πίσω σε όλα τα άλμπουμ"
+
+#: .\about_us\templates\about_us\gallery_detail.html
+msgid "Play video"
+msgstr "Αναπαραγωγή βίντεο"
+
+#: .\about_us\templates\about_us\gallery_detail.html
+msgid "Load more"
+msgstr "Περισσότερα"
+
 #~ msgid "Staff"
 #~ msgstr "Προσωπικό"
 

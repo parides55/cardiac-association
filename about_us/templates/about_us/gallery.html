@@ -8,7 +8,7 @@
 <section class='mt-0 hero' id='hero-gallery'>
     <div class="container-fluid p-0">
         <div class='row position-relative hero-image-div'>
-            <img class='img-fluid hero-image' src="{% static 'images/collage_gallery.png' %}" alt="{% trans 'Figures standing in a row with the middle figure being red with a little heart' %}">
+            <img class='img-fluid hero-image' src="{% static 'images/collage_gallery.webp' %}" width="1600" height="1028" fetchpriority="high" alt="{% trans 'Figures standing in a row with the middle figure being red with a little heart' %}">
             <h1 class='fst-italic fw-bold hero-heading hide'>{% trans 'Our gallery' %}</h1>
             <img class="down-arrow hide" src="{% static 'images/down_arrow.png' %}" alt="Down arrow">
         </div>
@@ -16,41 +16,56 @@
 </section>
 
 <section id="galleries">
-    {% for gallery in galleries %}
-    <div class="container mt-5">
-        <h2>{{ gallery.title }}</h2>
-        <p>{{ gallery.description }}</p>
-
-        <div class="row" style="height: 350px; overflow: auto;">
-            <!-- Images -->
-            {% for image in gallery.images.all %}
-                <div class="col-md-3 mb-3" style="height: 300px; overflow: hidden;">
-                    <a href="{{ image.image.url }}" class="glightbox" data-gallery="gallery{{ gallery.id }}" data-title="{{ image.caption }}">
-                        <img src="{{ image.image.url }}" class="img-fluid" alt="{{ image.caption }}">
-                    </a>
+    <div class="container">
+        {% if page_obj %}
+        <div class="album-grid">
+            {% for gallery in page_obj %}
+            <a class="album-card" href="{% url 'gallery_detail' gallery.pk %}">
+                <div class="album-card-cover">
+                    <img src="{{ gallery.cover_url }}" width="800" height="600" loading="lazy" decoding="async" alt="">
                 </div>
-            {% endfor %}
-
-            <!-- Videos -->
-            {% for video in gallery.videos.all %}
-                <div class="col-md-3 mb-3" style="height: 300px; overflow: hidden;">
-                    <a href="{{ video.video.url }}" class="glightbox" data-gallery="gallery{{ gallery.id }}" data-title="{{ video.caption }}" data-type="video">
-                        <img src="{% static 'images/default_logo.jpg' %}" class="img-fluid" alt="{{ video.caption }}">
-                    </a>
+                <div class="album-card-body">
+                    <h2 class="album-card-title">{{ gallery.title }}</h2>
+                    <p class="album-card-meta">
+                        <span>{{ gallery.created_at|date:"F Y" }}</span>
+                        {% if gallery.image_count %}
+                        <span title="{% trans 'Photos' %}"><i class="bi bi-images" aria-hidden="true"></i> {{ gallery.image_count }}<span class="visually-hidden"> {% trans 'Photos' %}</span></span>
+                        {% endif %}
+                        {% if gallery.video_count %}
+                        <span title="{% trans 'Videos' %}"><i class="bi bi-camera-video" aria-hidden="true"></i> {{ gallery.video_count }}<span class="visually-hidden"> {% trans 'Videos' %}</span></span>
+                        {% endif %}
+                    </p>
                 </div>
+            </a>
             {% endfor %}
         </div>
+
+        {% if page_obj.has_other_pages %}
+        <nav class="mt-5" aria-label="{% trans 'Our gallery' %}">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number }}#galleries" class="page-link"> &laquo; PREV</a></li>
+                {% endif %}
+                {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}#galleries" class="page-link"> NEXT &raquo;</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+        {% else %}
+        <p class="fs-5 text-center">{% trans 'No albums have been added yet.' %}</p>
+        {% endif %}
     </div>
-    <hr class="d-block">
-{% endfor %}
 </section>
+
+<hr class="d-block">
 
 <section id='links-gallery'>
     <div class="container-fluid">
         <div class="row d-flex flex-column flex-lg-row">
             <div class="col my-3 d-flex flex-column">
                 <div class='d-flex justify-content-center'>
-                    <img class='w-75' src="{% static 'images/become_member.jpg' %}" alt="{% trans 'A group of people placing their hands in the middle on top of each other.' %}">
+                    <img class='w-75' src="{% static 'images/become_member.jpg' %}" loading="lazy" alt="{% trans 'A group of people placing their hands in the middle on top of each other.' %}">
                 </div>
                 <div class='d-flex justify-content-center mt-4'>
                     <a class='fs-2 fw-bold' href="{% url 'become_member' %}">{% trans 'Become a member today' %}</a>
@@ -58,7 +73,7 @@
             </div>
             <div class='col my-3 pe-lg-5 d-flex flex-column'>
                 <div class='d-flex justify-content-center'>
-                    <img class='w-75' src="{% static 'images/events.jpg' %}" alt="{% trans 'In the blurred background people are in a conference and a speaker delivers a speech.' %}">
+                    <img class='w-75' src="{% static 'images/events.jpg' %}" loading="lazy" alt="{% trans 'In the blurred background people are in a conference and a speaker delivers a speech.' %}">
                 </div>
                 <div class='d-flex justify-content-center mt-4'>
                     <a class='fs-2 fw-bold' href="{% url 'events' %}">{% trans 'Find out about our Events' %}</a>
